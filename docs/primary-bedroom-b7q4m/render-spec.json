@@ -1,0 +1,1069 @@
+{
+  "room": {
+    "width_x": 128.5,
+    "width_x_unc": 1.5,
+    "depth_y": 139.7,
+    "depth_y_unc": 1.5,
+    "ceiling_z": 100,
+    "baseboard_projection": 0.75,
+    "baseboard_height": 5.5,
+    "appearance": "warm white/cream walls, white painted trim and 1940s casings, red-oak strip hardwood floor (strip direction unverified), white ceiling with ceiling fan and light; see photos"
+  },
+  "guides": {
+    "passage_min": 24,
+    "passage_comfortable": 30,
+    "passage_generous": 36,
+    "dresser_front_recommended": 36,
+    "person_shoulder_width": 22,
+    "source_note": "Rules of thumb used in residential furniture planning: about 24 in is a tight single-file squeeze, 30 in is comfortable, 36 in is generous and the usual allowance in front of a dresser for opening drawers and standing. For reference, 36 in is also the US International Residential Code minimum hallway width (IRC R311.6). These are guides, not code requirements for bedrooms.",
+    "note_shallowest_miles_dresser": "Every Miles dresser in West Elm's US line is 18 in deep or more (60, 70: 18; 34: 18.3; 48 narrow and 49 wide: 19.3), so no Miles dresser on the west wall widens the aisle."
+  },
+  "openings": [
+    {
+      "wall": "north",
+      "openings": [
+        {
+          "id": "north_window",
+          "wall": "north",
+          "type": "window",
+          "operable": "single-hung",
+          "egress_candidate": true,
+          "opening_x": [
+            18.5,
+            54.5
+          ],
+          "casing_x": [
+            16,
+            57
+          ],
+          "casing_unc": 1.5,
+          "stool_x": [
+            15,
+            58
+          ],
+          "stool_projection": 2,
+          "stool_projection_unc": 0.75,
+          "stool_top_z": 28,
+          "stool_top_z_unc": 1.5,
+          "sill_z": 30,
+          "head_z": 82,
+          "basis": "casing M (photos 1, 2); opening from plan; stool projection and horns A",
+          "offset_from_corner": 18.5,
+          "width": 36,
+          "sill": 30,
+          "head": 82,
+          "trim": {
+            "casing_outer_x": [
+              16,
+              57
+            ],
+            "stool_y": [
+              15,
+              58
+            ],
+            "stool_top_z": 28,
+            "stool_projection_est": 2
+          }
+        }
+      ]
+    },
+    {
+      "wall": "east",
+      "openings": [
+        {
+          "id": "east_window",
+          "wall": "east",
+          "type": "window",
+          "operable": "single-hung",
+          "egress_candidate": true,
+          "opening_y": [
+            85.1,
+            121.5
+          ],
+          "opening_unc": [
+            0.8,
+            1.2
+          ],
+          "casing_y": [
+            81.3,
+            124.6
+          ],
+          "casing_unc": [
+            1,
+            1.2
+          ],
+          "stool_y": [
+            80.3,
+            125.6
+          ],
+          "stool_y_unc": 1.3,
+          "stool_projection": 2,
+          "stool_projection_unc": 0.75,
+          "stool_top_z": 27.7,
+          "stool_top_z_unc": 0.8,
+          "sash_bottom_z": 29,
+          "apron_bottom_z": 22.9,
+          "opening_top_z": 80,
+          "head_cap_top_z": 85.1,
+          "basis": "opening, casing, heights M (photos 1, 4, 5); stool ends and projection A",
+          "offset_from_corner": 85.1,
+          "width": 36.400000000000006,
+          "sill": 29,
+          "head": 80,
+          "trim": {
+            "casing_outer_y": [
+              81.3,
+              124.6
+            ],
+            "stool_y": [
+              80.3,
+              125.6
+            ],
+            "stool_top_z": 27.7,
+            "stool_projection_est": 2
+          }
+        }
+      ]
+    },
+    {
+      "wall": "south",
+      "openings": [
+        {
+          "id": "closet_door",
+          "wall": "south",
+          "type": "door",
+          "kind": "hinged",
+          "label": "closet door",
+          "hinge_side": "east",
+          "swing": "in",
+          "slab_x": [
+            64.7,
+            94.5
+          ],
+          "pin": {
+            "x": 94.5,
+            "y": 139.7
+          },
+          "casing_x": [
+            59.4,
+            97.6
+          ],
+          "casing_unc": 1.5,
+          "width": 29.799999999999997,
+          "width_unc": 1.5,
+          "leaf_radius": 29.8,
+          "head_z": 80.3,
+          "basis": "M photo 4 (hinge knuckle visible); the plan is about 3 in off",
+          "offset_from_corner": 64.7,
+          "head": 80.3,
+          "swing_radius": 29.8,
+          "trim": {
+            "casing_outer_x": [
+              59.4,
+              97.6
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "wall": "west",
+      "openings": [
+        {
+          "id": "shaker_door",
+          "wall": "west",
+          "type": "door",
+          "kind": "hinged",
+          "label": "white Shaker door (destination unverified)",
+          "hinge_side": "north",
+          "swing": "in",
+          "pin_x": 0.5,
+          "hinge_edge_y": {
+            "camera_fit": 62.15,
+            "survey": 62.9
+          },
+          "casing_north_outer_y": 58.9,
+          "casing_north_outer_unc": 1.2,
+          "width": 27.9,
+          "leaf_radius": 28,
+          "leaf_thickness": 1.375,
+          "head_z": 80,
+          "basis": "camera fit and survey; casing span reconciles owner's 57-in dresser estimate",
+          "offset_from_corner": 62.9,
+          "head": 80,
+          "swing_radius": 28,
+          "hinge_axis": {
+            "x": 0.5,
+            "y": 62.9
+          },
+          "trim": {}
+        },
+        {
+          "id": "entry_door",
+          "wall": "west",
+          "type": "door",
+          "kind": "hinged",
+          "label": "entry door from the hall",
+          "hinge_side": "south",
+          "swing": "in",
+          "opening_y": [
+            108,
+            137
+          ],
+          "casing_north_outer_y": 104.9,
+          "width": 29,
+          "leaf_radius": 28.6,
+          "head_z": 79,
+          "open_leaf_rests_along": "south wall, x 0-30",
+          "basis": "camera fit and survey",
+          "offset_from_corner": 108,
+          "head": 79,
+          "swing_radius": 28.6,
+          "trim": {}
+        }
+      ]
+    }
+  ],
+  "catalog": {
+    "miles_queen": {
+      "id": "miles_queen",
+      "label": "Miles Wood & Upholstered Bed — Queen",
+      "kind": "bed",
+      "w": 84.3,
+      "d": 64.6,
+      "h": 45,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 0,
+      "drawer_extension": null,
+      "volume": null,
+      "volume_basis": "unknown; not inferred from cabinet size",
+      "price": 1699,
+      "price_date": "2026-11-16",
+      "price_basis": "US displayed price, excludes tax and delivery",
+      "finish": "Toasted Oak and Twill, Sand",
+      "color": "#a9a18d",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.westelm.com/products/miles-wood-upholstered-bed-h12204/",
+      "headboard": {
+        "thickness": 3.5,
+        "panel_height": 36.7
+      },
+      "mattress_space": [
+        60,
+        80
+      ],
+      "floor_clearance": 8.5,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "miles_dresser_48": {
+      "id": "miles_dresser_48",
+      "label": "Miles Narrrow 6-Drawer Dresser (48\")",
+      "kind": "dresser",
+      "w": 19.3,
+      "d": 48.8,
+      "h": 33.3,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 6,
+      "drawer_extension": 8.7,
+      "volume": 8661.492000000002,
+      "volume_basis": "published drawer interiors",
+      "price": 1499,
+      "price_date": "2026-11-16",
+      "price_basis": "US displayed price, excludes tax and delivery",
+      "finish": "Toasted Oak",
+      "color": "#9f744b",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.westelm.com/products/miles-narrrow-6-drawer-dresser-f195/",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "miles_chest_34": {
+      "id": "miles_chest_34",
+      "label": "Miles 4-Drawer Dresser (34\")",
+      "kind": "dresser",
+      "w": 18.3,
+      "d": 33.8,
+      "h": 41.3,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 4,
+      "drawer_extension": 8.7,
+      "volume": 8532.216,
+      "volume_basis": "published drawer interiors",
+      "price": 1299,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "Toasted Oak",
+      "color": "#986841",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.westelm.com/products/miles-4-drawer-dresser-36-f184/",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "miles_nightstand_22": {
+      "id": "miles_nightstand_22",
+      "label": "Miles Nightstand (22\")",
+      "kind": "nightstand",
+      "w": 18,
+      "d": 22,
+      "h": 22.5,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 1,
+      "drawer_extension": 10,
+      "volume": 1274.1,
+      "volume_basis": "published drawer interiors",
+      "price": 499,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "Toasted Oak",
+      "color": "#9a8f7d",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.westelm.com/products/miles-nightstand-h12202/",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "miles_nightstand_16": {
+      "id": "miles_nightstand_16",
+      "label": "Miles Mini Nightstand (16\")",
+      "kind": "nightstand",
+      "w": 15,
+      "d": 16,
+      "h": 22,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 1,
+      "drawer_extension": 8.5,
+      "volume": 645.1200000000001,
+      "volume_basis": "published drawer interiors",
+      "price": 449,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "Toasted Oak",
+      "color": "#96887f",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.westelm.com/products/miles-mini-nightstand-f632/",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "we_midcentury_56": {
+      "id": "we_midcentury_56",
+      "label": "Mid-Century 6-Drawer Dresser (56 inches)",
+      "kind": "dresser",
+      "w": 18,
+      "d": 56,
+      "h": 36,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 6,
+      "drawer_extension": 8,
+      "volume": null,
+      "volume_basis": "unknown; not inferred from cabinet size",
+      "price": 1399,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "Acorn",
+      "color": "#9a5c30",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.westelm.com/products/mid-century-6-drawer-dresser-g815/",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "we_vivienne_56": {
+      "id": "we_vivienne_56",
+      "label": "West Elm x PBK Vivienne 6-Drawer Dresser (56 inches)",
+      "kind": "dresser",
+      "w": 18,
+      "d": 56,
+      "h": 32.9,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 6,
+      "drawer_extension": 8,
+      "volume": null,
+      "volume_basis": "unknown; not inferred from cabinet size",
+      "price": 1499,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "Cerused White",
+      "color": "#c3a483",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.westelm.com/products/west-elm-x-pbk-vivienne-extra-wide-nursery-dresser-d18342/",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "we_elora_56": {
+      "id": "we_elora_56",
+      "label": "Kids Elora 6-Drawer Dresser (56 inches)",
+      "kind": "dresser",
+      "w": 19,
+      "d": 56,
+      "h": 33,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 6,
+      "drawer_extension": 9,
+      "volume": null,
+      "volume_basis": "unknown; not inferred from cabinet size",
+      "price": 1299,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "Blonde",
+      "color": "#c69d72",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.westelm.com/products/elora-6-drawer-dresser-d17475/",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "article_prima": {
+      "id": "article_prima",
+      "label": "Prima 6-Drawer Double Dresser - White Oak",
+      "kind": "dresser",
+      "w": 19.25,
+      "d": 54,
+      "h": 30,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 6,
+      "drawer_extension": null,
+      "volume": null,
+      "volume_basis": "unknown; not inferred from cabinet size",
+      "price": 839,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "White Oak",
+      "color": "#9b7e5d",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.article.com/product/30219/prima-6-drawer-double-dresser-white-oak",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "article_lenia": {
+      "id": "article_lenia",
+      "label": "Lenia 4-Drawer Chest - White Oak",
+      "kind": "dresser",
+      "w": 19.5,
+      "d": 30,
+      "h": 44.5,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 4,
+      "drawer_extension": null,
+      "volume": null,
+      "volume_basis": "unknown; not inferred from cabinet size",
+      "price": 999,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "White Oak",
+      "color": "#b89871",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.article.com/product/22366/lenia-4-drawer-chest-white-oak",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "ikea_storklinta": {
+      "id": "ikea_storklinta",
+      "label": "STORKLINTA 6-drawer dresser",
+      "kind": "dresser",
+      "w": 18.875,
+      "d": 55.125,
+      "h": 29.5,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 6,
+      "drawer_extension": 10.875,
+      "volume": null,
+      "volume_basis": "unknown; not inferred from cabinet size",
+      "price": 279.99,
+      "price_date": "2026-11-16",
+      "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
+      "finish": "Oak effect/anchor/unlock function",
+      "color": "#bda77b",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://www.ikea.com/us/en/p/storklinta-6-drawer-dresser-oak-effect-anchor-unlock-function-00561246/",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "rh_gael_open_20": {
+      "id": "rh_gael_open_20",
+      "label": "Gael Oak Open Nightstand — 20 inches",
+      "kind": "nightstand",
+      "w": 18.75,
+      "d": 20,
+      "h": 26.5,
+      "head": "east",
+      "faces": "east",
+      "owned": false,
+      "drawer_count": 1,
+      "drawer_extension": null,
+      "volume": 473.6875,
+      "volume_basis": "published drawer interiors",
+      "price": 965,
+      "price_date": "2026-11-16",
+      "price_basis": "Current RH Member Sale for 20-inch Light Oak SKU 10139816 LOAK; $200/year membership extra if not held; tax/delivery extra.",
+      "finish": "Light Oak",
+      "color": "#ab9174",
+      "color_sample": "median warm midtone from official gallery; finish in image provisional",
+      "source": "https://rh.com/us/en/catalog/product/product.jsp/prod35410158",
+      "floor_clearance": 6,
+      "side_rail_top_z": 15,
+      "base_clearance": 6
+    },
+    "rh_prod35410171": {
+      "id": "rh_prod35410171",
+      "label": "Gael Oak Panel Bed",
+      "kind": "other",
+      "w": 85.25,
+      "d": 66.5,
+      "h": 54,
+      "owned": false,
+      "price": 2645,
+      "price_date": "2026-11-16",
+      "price_basis": "RH member sale if exact finish verified; otherwise dated outlet tag. Membership, tax and delivery extra.",
+      "finish": "Queen; Light Oak",
+      "source": "https://rh.com/us/en/catalog/product/product.jsp/prod35410171",
+      "drawer_extension": null,
+      "volume": null,
+      "color": null,
+      "eligible_in_brief": false
+    },
+    "rh_rhbc_prod963089": {
+      "id": "rh_rhbc_prod963089",
+      "label": "Jeune French Contemporary Desk",
+      "kind": "other",
+      "w": 20,
+      "d": 46,
+      "h": 30,
+      "owned": false,
+      "price": 909,
+      "price_date": "2026-11-16",
+      "price_basis": "RH member sale if exact finish verified; otherwise dated outlet tag. Membership, tax and delivery extra.",
+      "finish": "Brushed Light Oak",
+      "source": "https://rhteen.rh.com/us/en/catalog/product/product.jsp/rhbc_prod963089",
+      "drawer_extension": null,
+      "volume": null,
+      "color": null,
+      "eligible_in_brief": false
+    },
+    "rh_rhbc_prod966013": {
+      "id": "rh_rhbc_prod966013",
+      "label": "Waterfall Writing Desk",
+      "kind": "other",
+      "w": 22,
+      "d": 47.5,
+      "h": 30,
+      "owned": false,
+      "price": 635,
+      "price_date": "2026-11-16",
+      "price_basis": "RH member sale if exact finish verified; otherwise dated outlet tag. Membership, tax and delivery extra.",
+      "finish": "Bleached Ash (outlet); current RH label Light Natural Ash",
+      "source": "https://rhteen.rh.com/us/en/catalog/product/product.jsp/rhbc_prod966013",
+      "drawer_extension": null,
+      "volume": null,
+      "color": null,
+      "eligible_in_brief": false
+    },
+    "rh_prod30170216": {
+      "id": "rh_prod30170216",
+      "label": "Cellini Bistro & Entry Table",
+      "kind": "other",
+      "w": 40,
+      "d": 40,
+      "h": 30,
+      "owned": false,
+      "price": 3535,
+      "price_date": "2026-11-16",
+      "price_basis": "RH member sale if exact finish verified; otherwise dated outlet tag. Membership, tax and delivery extra.",
+      "finish": "40-inch; Italian Classico Travertine",
+      "source": "https://rh.com/us/en/catalog/product/product.jsp/prod30170216",
+      "drawer_extension": null,
+      "volume": null,
+      "color": null,
+      "eligible_in_brief": false
+    },
+    "rh_prod34454304": {
+      "id": "rh_prod34454304",
+      "label": "Vivian Round Side Table",
+      "kind": "other",
+      "w": 22,
+      "d": 22,
+      "h": 20,
+      "owned": false,
+      "price": 1089,
+      "price_date": "2026-11-16",
+      "price_basis": "RH member sale if exact finish verified; otherwise dated outlet tag. Membership, tax and delivery extra.",
+      "finish": "22-inch; Greige Oak / Italian Classico Travertine",
+      "source": "https://rh.com/us/en/catalog/product/product.jsp/prod34454304",
+      "drawer_extension": null,
+      "volume": null,
+      "color": null,
+      "eligible_in_brief": false
+    },
+    "rh_prod35560491": {
+      "id": "rh_prod35560491",
+      "label": "Cellini Rectangular Coffee Table",
+      "kind": "other",
+      "w": 24,
+      "d": 48,
+      "h": 15,
+      "owned": false,
+      "price": 2045,
+      "price_date": "2026-11-16",
+      "price_basis": "RH member sale if exact finish verified; otherwise dated outlet tag. Membership, tax and delivery extra.",
+      "finish": "48-inch; Italian Classico Travertine",
+      "source": "https://rh.com/us/en/catalog/product/product.jsp/prod35560491",
+      "drawer_extension": null,
+      "volume": null,
+      "color": null,
+      "eligible_in_brief": false
+    },
+    "king_bed": {
+      "id": "king_bed",
+      "label": "Current king (76 x 80 mattress on a low dark base, no headboard)",
+      "kind": "bed",
+      "w": 80,
+      "d": 75.9,
+      "h": 24,
+      "head": "east",
+      "faces": "east",
+      "owned": true,
+      "drawer_count": 0,
+      "drawer_extension": null,
+      "volume": 0,
+      "volume_basis": "not counted",
+      "price": 0,
+      "price_date": "2026-11-16",
+      "finish": "Dark base",
+      "color": "#98724e",
+      "basis": "M photos 1, 3, 5"
+    },
+    "nightstand_north": {
+      "id": "nightstand_north",
+      "label": "Small wood nightstand",
+      "kind": "nightstand",
+      "w": 18.5,
+      "d": 17,
+      "h": 24.3,
+      "head": "east",
+      "faces": "east",
+      "owned": true,
+      "drawer_count": 0,
+      "drawer_extension": null,
+      "volume": 0,
+      "volume_basis": "not counted",
+      "price": 0,
+      "price_date": "2026-11-16",
+      "finish": "Existing wood",
+      "color": "#98724e",
+      "basis": "M; owner says about 18 in, against the north wall"
+    },
+    "nightstand_south": {
+      "id": "nightstand_south",
+      "label": "Wood two-drawer nightstand, splayed legs",
+      "kind": "nightstand",
+      "w": 13.799999999999997,
+      "d": 19.099999999999994,
+      "h": 24.2,
+      "head": "east",
+      "faces": "east",
+      "owned": true,
+      "drawer_count": 0,
+      "drawer_extension": null,
+      "volume": 0,
+      "volume_basis": "not counted",
+      "price": 0,
+      "price_date": "2026-11-16",
+      "finish": "Existing wood",
+      "color": "#98724e",
+      "basis": "M; stands about 4.5 in off the east wall"
+    },
+    "cube_organiser": {
+      "id": "cube_organiser",
+      "label": "Black 3x3 cube organiser",
+      "kind": "storage",
+      "w": 11.5,
+      "d": 37,
+      "h": 35.7,
+      "head": "east",
+      "faces": "east",
+      "owned": true,
+      "drawer_count": 0,
+      "drawer_extension": null,
+      "volume": 11979,
+      "volume_basis": "assumed nine 11 × 11 × 11 in cubes",
+      "price": 0,
+      "price_date": "2026-11-16",
+      "finish": "Black",
+      "color": "#292e2c",
+      "basis": "room-survey"
+    },
+    "laundry_sorter": {
+      "id": "laundry_sorter",
+      "label": "Rolling laundry sorter",
+      "kind": "rack",
+      "w": 18,
+      "d": 32,
+      "h": 60,
+      "head": "east",
+      "faces": "east",
+      "owned": true,
+      "drawer_count": 0,
+      "drawer_extension": null,
+      "volume": 0,
+      "volume_basis": "not counted",
+      "price": 0,
+      "price_date": "2026-11-16",
+      "finish": "Existing wood",
+      "color": "#68706c",
+      "basis": "A approximate"
+    }
+  },
+  "layouts": [
+    {
+      "id": "today",
+      "label": "Today — king and open cubes",
+      "items": [
+        {
+          "id": "king_bed",
+          "catalog_id": "king_bed",
+          "x": 47.5,
+          "y": 17.5,
+          "rotation": 0
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 109.5,
+          "y": 0.5,
+          "rotation": 180
+        },
+        {
+          "id": "nightstand_south",
+          "catalog_id": "nightstand_south",
+          "x": 110.2,
+          "y": 97.5,
+          "rotation": 180
+        },
+        {
+          "id": "cube_organiser",
+          "catalog_id": "cube_organiser",
+          "x": 0.5,
+          "y": 0.5,
+          "rotation": 0
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 30,
+          "y": 121,
+          "rotation": 270
+        }
+      ]
+    },
+    {
+      "id": "layout-31914f6775",
+      "label": "Keep bed east, cubes on west wall; laundry south",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 42.2,
+          "y": 19.6,
+          "rotation": 0
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_south",
+          "x": 114.2,
+          "y": 0.5,
+          "rotation": 180
+        },
+        {
+          "id": "cube_organiser",
+          "catalog_id": "cube_organiser",
+          "x": 0.75,
+          "y": 2,
+          "rotation": 0
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 32,
+          "y": 106.95,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "id": "layout-f770bdc137",
+      "label": "Turn bed north, cubes on east wall; laundry north",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 31.95,
+          "y": 2,
+          "rotation": 270
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_south",
+          "x": 12.85,
+          "y": 0.75,
+          "rotation": 90
+        },
+        {
+          "id": "cube_organiser",
+          "catalog_id": "cube_organiser",
+          "x": 116.25,
+          "y": 42.55,
+          "rotation": 180
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 109.75,
+          "y": 0.75,
+          "rotation": 180
+        }
+      ]
+    },
+    {
+      "id": "layout-26346b5ff4",
+      "label": "Turn bed north, chest on south wall; laundry north",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 31.95,
+          "y": 2,
+          "rotation": 270
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_south",
+          "x": 12.85,
+          "y": 0.75,
+          "rotation": 90
+        },
+        {
+          "id": "article_lenia",
+          "catalog_id": "article_lenia",
+          "x": 97.75,
+          "y": 119.45,
+          "rotation": 270
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 109.75,
+          "y": 0.75,
+          "rotation": 180
+        }
+      ]
+    },
+    {
+      "id": "layout-5a6280562d",
+      "label": "Keep bed east, dresser on west wall; laundry south",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 42.2,
+          "y": 18.5,
+          "rotation": 0
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 109.5,
+          "y": 1.5,
+          "rotation": 180
+        },
+        {
+          "id": "nightstand_south",
+          "catalog_id": "nightstand_south",
+          "x": 110.2,
+          "y": 86.1,
+          "rotation": 180
+        },
+        {
+          "id": "ikea_storklinta",
+          "catalog_id": "ikea_storklinta",
+          "x": 0.75,
+          "y": 3.77,
+          "rotation": 0
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 32,
+          "y": 106.95,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "id": "layout-10f7233772",
+      "label": "Turn bed north, add a chest and keep cubes; laundry east",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 31.95,
+          "y": 2,
+          "rotation": 270
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_south",
+          "x": 12.85,
+          "y": 0.75,
+          "rotation": 90
+        },
+        {
+          "id": "article_lenia",
+          "catalog_id": "article_lenia",
+          "x": 98.35,
+          "y": 119.45,
+          "rotation": 270
+        },
+        {
+          "id": "cube_organiser",
+          "catalog_id": "cube_organiser",
+          "x": 0.75,
+          "y": 2,
+          "rotation": 0
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 109.75,
+          "y": 47.55,
+          "rotation": 180
+        }
+      ]
+    },
+    {
+      "id": "updated-request-56",
+      "label": "Same bed, 56-inch Mid-Century dresser",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 42.2,
+          "y": 17.5,
+          "rotation": 0
+        },
+        {
+          "id": "storage",
+          "catalog_id": "we_midcentury_56",
+          "x": 0.75,
+          "y": 2,
+          "rotation": 0
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 109.5,
+          "y": 0.5,
+          "rotation": 180
+        },
+        {
+          "id": "nightstand_south",
+          "catalog_id": "nightstand_south",
+          "x": 110.2,
+          "y": 97.5,
+          "rotation": 180
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 30,
+          "y": 121,
+          "rotation": 270
+        }
+      ]
+    },
+    {
+      "id": "updated-request-miles-48",
+      "label": "Same bed, narrower Miles dresser",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 42.2,
+          "y": 17.5,
+          "rotation": 0
+        },
+        {
+          "id": "storage",
+          "catalog_id": "miles_dresser_48",
+          "x": 0.75,
+          "y": 2,
+          "rotation": 0
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 109.5,
+          "y": 0.5,
+          "rotation": 180
+        },
+        {
+          "id": "nightstand_south",
+          "catalog_id": "nightstand_south",
+          "x": 110.2,
+          "y": 97.5,
+          "rotation": 180
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 30,
+          "y": 121,
+          "rotation": 270
+        }
+      ]
+    }
+  ],
+  "photo_regions": {
+    "bed": [
+      40,
+      15,
+      129,
+      94
+    ],
+    "storage": [
+      0,
+      0,
+      22,
+      62
+    ],
+    "basis": "Retained king/cube removal reconstruction only; changed retained pieces outside these regions disable photo view."
+  }
+}

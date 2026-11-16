@@ -1,13 +1,10 @@
-One person can pass single file: 23.45 ± 2.1 in, below the 30-inch comfortable guide; with a drawer or the white door open, nobody can pass comfortably. The Miles bed is about 4.3 inches longer than today’s mattress; this and the deeper dresser shrink today’s roughly 36.0-inch walkway.
+No wall-anchored candidate passes the draft brief. These are comparison options, not recommendations: east-wall bed access and north-window clearance conflict; turning north trades that for window or side-access conflicts.
 
-East-window conflict, both queen layouts: The headboard covers the lower north corner of the east window: 5.6 ± 3.0 in wide × 15.0 ± 3.0 in high. The bed is pulled 2.0 in off the east wall to clear its sill; without this setback it would overlap 9.6 ± 3.0 in of the sill. The north bed edge is unchanged. The setback is conditional on measuring the sill; it is included in every gap here.
-
-A pulled-out drawer leaves 13.45 ± 2.1 in. With the white door open, the reference gap is 13.7 ± 2.1 in. Both are too narrow for the 22-inch person marker.
-
-The dresser overlaps the white door trim by 2.5⁠–⁠3.7 in (survey to photo fit), with combined uncertainty ± 1.8 in. Both estimates say the white door opens to about a right angle and rests against the dresser end (about 93 deg survey, 90.5 deg photo fit), but the margin is thin: the dresser's end would stop only 0.15 to 1 inch short of the door's hinge edge. If it ends up past the hinge edge even half an inch (for example if the north window sill sticks out more than 2 inches), the door would be blocked early, at roughly 15 to 30 degrees. Across the combined hinge/stool uncertainty, the modeled stop is 17.4⁠–⁠98.7°. Not purchase-ready.
-
-The shorter alternative clears trim by 7.5⁠–⁠8.7 in ± 1.8 in, with door stop 122° best; 118.0⁠–⁠125.6° range versus 156° best; 154.4⁠–⁠164.6° range today. It narrows the aisle to 22.15 ± 2.1 in, below the 24-inch tight-passage guide. Its drawer-open gap is 13.45 ± 2.1 in and open-door reference gap 13.7 ± 2.1 in. Every Miles dresser in West Elm's US line is 18 in deep or more (60, 70: 18; 34: 18.3; 48 narrow and 49 wide: 19.3), so no Miles dresser on the west wall widens the aisle.
-
-The dresser’s north end stands 2.0 ± 1.0 in off the wall for the north-window stool. It covers 2.75⁠–⁠4.75 in ± 1.5 in of that window’s lower west trim. The bed stays 26.0 ± 4.0 in from the north wall. The rack location is approximate (about ± 8 in); its apparent roughly 1.5-in clearance to other door swings is not a verified fit.
-
-The one-sided 1.375-in slab never passes north of the hinge through 90°. White door: 93° best; 17.4⁠–⁠98.7° range against storage. Photo fit 90.5°; hinge margin 0.15⁠–⁠1.0 in. Open-door gap: 13.7 ± 2.1 in. The range propagates the hinge edge and north-window sill standoff together; installed stop and lever remain unmeasured. An early stop changes the exact door-gap position. Tape checks settle it.
+Today — king and open cubes: invalid; everyday route 13.0 in, joint scenarios 12.0–13.5 in; route too narrow: east window.
+Keep bed east, cubes on west wall; laundry south: invalid; everyday route 17.0 in, joint scenarios 17.0–18.0 in; route too narrow: bed north side.
+Turn bed north, cubes on east wall; laundry north: invalid; everyday route 17.0 in, joint scenarios 17.0–17.0 in; route too narrow: north window.
+Turn bed north, chest on south wall; laundry north: invalid; everyday route 17.0 in, joint scenarios 17.0–17.0 in; route too narrow: north window.
+Keep bed east, dresser on west wall; laundry south: invalid; everyday route 13.0 in, joint scenarios 10.0–14.0 in; route too narrow: bed north side.
+Turn bed north, add a chest and keep cubes; laundry east: invalid; everyday route 12.0 in, joint scenarios 10.0–13.0 in; route too narrow: bed east side.
+Same bed, 56-inch Mid-Century dresser: invalid; everyday route 13.0 in, joint scenarios 10.0–15.0 in; route too narrow: bed north side.
+Same bed, narrower Miles dresser: invalid; everyday route 15.0 in, joint scenarios 12.0–15.0 in; route too narrow: bed north side.

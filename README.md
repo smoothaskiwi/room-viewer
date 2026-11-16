@@ -1,64 +1,52 @@
-# Measured bedroom viewer
+# Bedroom layout explorer — round 5
 
-Accessible static three.js room study: Today, Requested and one Alternative. Deploy `docs/` as static files; no CDN, login or runtime build.
+Static, accessible three.js + SVG bedroom comparison. Agents generate and audit layouts at build time; the phone only reads the resulting gallery. No login, CDN, remote API, or client-side solver.
 
-## Build and verify
+## Build / verify
 
-Create an **untracked** `.project-dir` with the owning project directory, or set `ROOM_PROJECT_DIR`. `SCENE_SPEC` can override the specification path. The source is read-only. Python 3 with Pillow/NumPy, Node dependencies (`npm ci`) and system Chrome are required.
+Set `ROOM_PROJECT_DIR`, or create an **untracked** `.project-dir` containing the owning project directory. Never put that directory in tracked code or docs. Install with `npm ci`; Python 3 + Pillow/NumPy and `/usr/sbin/google-chrome-stable` are required.
 
 ```sh
 npm test
-python3 -m http.server 8766 --bind 127.0.0.1 --directory docs
-# In another terminal:
 npm run verify
 ```
 
-The viewer is at `/primary-bedroom-b7q4m/`. Verification defaults to the owning project's `prototype/renders/round-4/`; override `VIEWER_URL` or `RENDER_DIR` if needed. Stop the loopback server afterwards. No push is needed to build.
+Both commands start their own `python3 -m http.server` on a dynamically assigned **127.0.0.1-only** port and stop it in `finally`. Verification uses dedicated **headless** system Chrome with SwiftShader, never the user's visible browser. It writes evidence to the owning project's `prototype/renders/round-5/`.
 
-## Round 4
+To browse manually, serve `docs/` with a loopback HTTP server and open `/primary-bedroom-b7q4m/`. Stop that server when finished. Commit does not publish; pushing remains a separate owner action.
 
-- Unchanged source spec 1.4 drives furniture, trim, clearances, verdict, tables, plans, 3D labels and announcements. The queen clears the east-window sill at a disclosed two-inch wall setback, while its headboard still covers the lower north corner of that window.
-- Door stops use a one-sided slab; uncertainty propagates the hinge edge minus dresser end, including the north-window sill standoff. Camera hinge evidence is direct, not inferred from trim. Every expected margin/stop check is enforced.
-- The shorter dresser clears trim and opens the door wider; it does not widen the aisle. Tape requests are published unchanged. Plan guides, person markers and uncertainty bands remain.
-- Pointer/touch scene, view and toggle actions scroll the picture into sight without moving focus. Presets require no dragging; controls retain 48-pixel targets and aria-pressed. Live announcements share the page formatter and are exhaustively checked against `clearances.json`.
-- Plan labels have halos and a separate door-gap dimension line. Phone From the bed and Free orbit show at most two labels. Non-breaking ranges avoid fractured numbers.
-- `?no3d=1` uses the same live SVG for all layouts, drawer and door states. Unsupported views and Reset are hidden, not disabled. Fixed no-JavaScript stills disclose their poses.
-- Deterministic masked photo plates use sampled walls, curtain folds and oak. Protected rack, nightstand and door pixels remain original; every build checks exact outside-mask and protected-pixel identity. No generative photo editing. New oak rails and a shadow-catching floor ground the replacement furniture; fade zero and Compare retain the unedited original.
-- Cream walls are sampled from the room photos. Materials, bedding and reconstructed hidden surfaces are illustrative, not manufacturer CAD or recovered photographic evidence.
+## Authoritative inputs
 
-## Tests and publication
+- `prototype/explorer/room-primary-bedroom.json` (room 2.0), `brief-primary-bedroom.json`, and `expected-checks-primary-bedroom.json`, under the owning project. These are read-only.
+- Product records from `products/miles-specs.json`, `products/storage-candidates-2026-11-16/specs.json`, and `products/rh-outlet-2026-11-16/specs.json`.
+- `data/primary-bedroom-profile.json` supplies room-specific pinned requests and the existing photo reconstruction regions.
 
-`npm test` checks source parity, all scene footprints, expected clearances, window overlaps, door margins and ranges, generated prose, every possible announcement, metadata and location safety, plus headless phone/fallback regression. The privacy test scans every tracked file and the complete patch history of `main`; local source paths belong only in the untracked setting. The former history is retained only on `local-history-private`, which must **never** be pushed. `main` has a fresh root.
+**Legacy scene-spec 1.4 no longer drives the build.** Historical tools/source files remain as prior-round references, not the deployed UI or test entry point.
 
-`npm run verify` uses dedicated headless Chrome only (`/usr/sbin/google-chrome-stable`, SwiftShader), not the user's browser. It captures all scenes/presets/photos at 412×915/DPR 2/touch and 1440×900, open drawers/doors, fallback, photo fades/comparison and the full phone page. Checks cover real mesh bounds, furniture-versus-trim collisions, door pivots, fonts, text/line overlaps, axe, keyboard actions, scrolling and console errors. Tall images are stitched from real viewport captures to avoid the SwiftShader tile-repeat issue. Six fixed stills are regenerated.
+## Pipeline and contract
 
-Pages have noindex/nofollow, which is not access control. JPEG metadata is stripped. The root has no viewer directory link. Vendored three.js and add-ons carry their MIT license; the existing Van Gogh print crop is not AI-generated. Physical tape checks, a real phone/screen-reader session and independent review are separate from browser emulation.
+`tools/catalog.mjs` compiles dimensions, owned inventory, known/unknown drawer volume and travel, dated prices and finishes. Official downloaded images supply only a provisional colour sample; geometry is parametric and illustrative. Unknown travel/volume is never inferred from cabinet depth or drawer count.
 
-## Catalog placements and ranked layouts
+`tools/explore.mjs` enumerates allowed head walls and current/corner/centred/window-boundary anchors, owned/new nightstands on either side (or one with a warning), zero/one/two storage pieces, and laundry positions. It prunes incrementally, checks 3D trim/stool layers, one-sided swept door leaves, drawer standing space, inventory multiplicity, window access, switches/registers, and child-safety warnings. It filters analytic failures, retains local Pareto trade-offs, clusters by bed wall/storage mix/laundry route pattern, then ranks representatives by everyday route, known storage, changes and dated cost. Only non-invalid layouts can be recommendations.
 
-The current read-only source remains spec 1.4 for regression continuity. It is not a recommendation to buy the longer dresser. The next measured gallery needs the owner's new spec; no assumed 19-inch north offset has been substituted into the old one.
+`tools/routes.mjs` computes build-time conservative **0.5-inch Euclidean distance transforms**, disk width = twice radius, and max–min paths without diagonal corner cutting. It chooses the shortest route at the widest capacity, retains exact-geometry diagnostic bounds, and reports the conservative lower estimate without sub-grid inflation. Endpoints are approach regions, not furniture centres. Doorway width, individual drawer standing space and the familiar local/90° door gaps stay separate. Joint survey/camera/worst-plausible scenarios re-anchor wall-adjacent pieces; they are not statistical confidence intervals.
 
-`src/layout.mjs` accepts any number of `layouts` (an array or ID-keyed object), sorted by optional `rank`. Legacy `scenes` with catalog-ID strings remain supported. `catalog` replaces `furniture` for new sources; dimensions are inches. Catalog items have `w`, `d`, `h`, `label`, and a `kind` (`bed`, `dresser`, `storage`, `nightstand`, `rack`, or `other`). The canonical local bed head and storage front face east; use placement rotation for other headings. Existing detailed bed fields and dresser drawer-extension/base-clearance fields retain their meaning. A new unrecognised object can use `other` for an honest envelope rather than an invented detailed product.
+The canonical head/front faces east. Placement x/y is the minimum corner **after** rotation: 0 east, 90 south, 180 west, 270 north. A source room supplies geometry; the bedroom activity rules are not a universal living-room solver.
 
-```json
-{
-  "catalog": {
-    "queen": {"kind":"bed", "label":"Example queen", "w":84.3,"d":64.6,"h":45,
-      "headboard":{"thickness":3.5,"panel_height":36.7,"top_z":45},
-      "floor_clearance":8.5,"side_rail_top_z":15,"mattress_space":[60,80]},
-    "compact": {"kind":"dresser", "label":"Example dresser", "w":18,"d":54,"h":33,
-      "drawer_extension":10,"base_clearance":6}
-  },
-  "layouts": [
-    {"id":"north-head", "label":"North-head option", "rank":1,
-     "items":[
-       {"id":"bed", "catalog_id":"queen", "position":{"x":34,"y":30}, "rotation":270},
-       {"id":"dresser", "catalog_id":"compact", "position":[2,3], "rotation":0}
-     ]}
-  ]
-}
-```
+## The actual result
 
-This is a **schema example, not a proposed fit**. Keep the existing room/openings/guides/measurement fields alongside it. Position is the minimum x/y corner **after rotation**, not the headboard centre or an arbitrary pivot. Rotation is clockwise in the east/south coordinates: 0 east, 90 south, 180 west, 270 north. Other angles are rejected. Placed instances get independent IDs, rotated bounds, head/front directions, and computed closed/open-drawer clearance segments. Closest passage means the shortest footprint-to-footprint separation, including a diagonal segment when necessary; it is not an unverified circulation route. Door contacts test every placed item.
+No **wall-anchored** candidate passes the draft brief. The gallery therefore says **comparison options, not recommendations**, with every hard failure visible. It never quietly relaxes the 22-inch route, storage, drawer, window or door requirements to manufacture four recommendations. It shows Today + four distinct diagnostic options first, expanding to eight including both pinned requests. Floating-bed arrangements are outside this bounded search.
 
-`tools/layout-regression.mjs` and `catalog-browser.mjs` exercise five ranked layouts, four headings, a different dresser size, rotated drawer extension, actual headboard location, mesh bounds and trim collisions. The generic fixture is built and served independently under the scratch directory, not over the deployed source. `ROOM_OUTPUT_DIR` enables isolated build output; `ROOM_TEST_RENDER_DIR` optionally retains generic-browser screenshots. Current-room photo cleanup masks remain room-specific, and the old requested/alternative verdict and source checks remain a compatibility layer until the new spec arrives.
+The pinned corrected queen starts at the owner's current north edge, not the superseded offset. Its sill-dependent setback is explicitly conditional, but the overall pinned layouts remain invalid on the other hard checks. Inspect the emitted `layouts.json` for the exact audit and failures.
+
+## Phone / screen reader
+
+Verdict and ranked HTML text table precede a one-column phone gallery. Every option has a same-scale SVG, shared formatter, class, narrowest route/scenarios, storage comparison, dated new cost and main warning. Stable `#layout=id` links, local favourites, keyboard controls, 48px targets, pressed states, and polite announcements work without interpreting the canvas. A/B plans stack at full width. One 3D scene is loaded only after asking for it, with hall/bed/orbit presets and non-dragging orbit controls. No-WebGL uses the same live SVG, not a stale fixed still.
+
+Photo view is gated by actual placements against the retained reconstruction regions. Otherwise the UI explains why it is unavailable. Eligible layouts retain protected original pixels, fade-to-original and a separate unedited photograph; reconstruction is visibly illustrative, not photographic evidence of fit.
+
+## Tests and privacy
+
+`npm test` asserts every parent audit value against actual pinned placements; independently rechecks every published layout and every joint scenario; runs door, diagonal and drawer fixtures; checks cards/plans/readouts/announcements against the formatter; decodes photo plates and checks protected pixels and original-photo identity. Browser checks cover every option/view at 412×915 DPR 2 touch and 1440×900, real rotated mesh XY bounds, full-width compare, fonts/overlaps, keyboard/favourite persistence, query and genuinely WebGL-disabled fallback, zero console/network errors and axe.
+
+Tracked files and `git log -p main` are leak-scanned. Never push `local-history-private`. Pages are noindex/nofollow (not access control), photographs have no EXIF, the root has no directory link, and vendored three.js keeps its MIT licence. Physical tape, installed door stops/handles, window escape operation, anchoring, real phone/screen-reader testing and independent blind review remain separate from browser emulation.

@@ -51,7 +51,7 @@ export function createRoom(spec,metrics,state){
  const fan=new THREE.Group();cylinder(fan,W/2,D/2,H-13,3,10,steel);cylinder(fan,W/2,D/2,H-16,5,3,trim);for(let k=0;k<4;k++){const blade=box(fan,W/2+4,D/2-2,H-8,20,4,.5,mat('#a7aaa4'),.4);const pivot=new THREE.Group();fan.remove(blade);blade.position.sub(v(W/2,D/2,0));pivot.position.set(W/2,D/2,0);pivot.rotation.z=k*Math.PI/2; pivot.add(blade);fan.add(pivot);}roomGroup.add(fan);
  const sceneMetric=metrics.scenes[state.scene];
  for(const [key,placed]of Object.entries(spec.furniture)){
-  const f={...placed,w:placed.local_w,d:placed.local_d};
+  const f={...placed,w:placed.local_w,d:placed.local_d},wood=mat(placed.color||'#ad906a'),edgewood=mat(placed.color||'#ad906a');
   if(!spec.scenes[state.scene].items.includes(key))continue;
   const outer=new THREE.Group(),g=new THREE.Group();outer.name=key;outer.userData.footprint=sceneMetric.footprints[key];const origin=placedPoint(placed,f.x,f.y);outer.position.set(origin[0],origin[1],0);outer.rotation.z=f.rotation*Math.PI/180;g.position.set(-f.x,-f.y,0);outer.add(g);itemsGroup.add(outer);footprints[key]=outer;activePlacement=placed;
   if(f.kind==='bed'){
@@ -85,9 +85,9 @@ export function createRoom(spec,metrics,state){
    for(const y of [f.y,f.y+f.d-1.1])box(g,f.x,y,0,f.w,1.1,f.h,wood,.45);
    box(g,f.x,f.y,f.h-1,f.w,f.d,1,wood,.4);
    box(g,f.x,f.y,base,f.w,f.d,1.1,wood,.3);
-   const reveal=.28,dh=(f.h-base-2.5-2*reveal)/3,cw=(f.d-2.8-reveal)/2;
-   for(let col=0;col<2;col++)for(let row=0;row<3;row++){
-    const open=state.drawer&&col===1&&row===2,extension=open?f.drawer_extension:0,fy=f.y+1.4+col*(cw+reveal),fz=base+1.2+row*(dh+reveal);
+   const cols=f.d>40?2:1,rows=Math.ceil((f.drawer_count||6)/cols),reveal=.28,dh=(f.h-base-2.5-(rows-1)*reveal)/rows,cw=(f.d-2.8-(cols-1)*reveal)/cols;
+   for(let col=0;col<cols;col++)for(let row=0;row<rows;row++){
+    const open=state.drawer&&col===cols-1&&row===rows-1,extension=open?f.drawer_extension:0,fy=f.y+1.4+col*(cw+reveal),fz=base+1.2+row*(dh+reveal);
     if(open){box(g,front-8+extension,fy+.5,fz+.7,8,cw-1,.4,sand);for(const yy of [fy,fy+cw-.5])box(g,front-8+extension,yy,fz,8,.5,dh-1,sand);}
     box(g,front-.9+extension,fy,fz,.6,cw,dh,edgewood,.12);
     // The 60 has two metal knobs per drawer; the official narrow 48 has one centred knob.
@@ -101,7 +101,7 @@ export function createRoom(spec,metrics,state){
    for(let c=0;c<3;c++)for(let r=0;r<3;r++){box(g,f.x+.7,f.y+.95+c*(f.d-.7)/3,.9+r*(f.h-.7)/3,f.w-1,10.8,9.8,mat(['#6e7372','#545e62','#80817a'][(c+r)%3]),.35);box(g,f.x+f.w-.2,f.y+4+c*(f.d-.7)/3,7+r*(f.h-.7)/3,.2,3,1,dark,.15);}
    label('Black 3 × 3 cubes',f.x+f.w,f.y+f.d/2,f.h+6);
   }else if(f.kind==='nightstand'){
-   const z=7;for(const x of [f.x+.8,f.x+f.w-1.8])for(const y of [f.y+.8,f.y+f.d-1.8])cylinder(g,x,y,0,.7,z,wood);box(g,f.x,f.y,z,f.w,f.d,f.h-z,wood,.4);for(let r=0;r<2;r++){box(g,f.x+.5,f.y+f.d-.6,z+2+r*7,f.w-1,.6,6,edgewood,.2);cylinder(g,f.x+f.w/2,f.y+f.d-.45,z+5+r*7,.4,.6,dark);} // Small everyday objects, illustrative only.
+   const z=7;for(const x of [f.x+.8,f.x+f.w-1.8])for(const y of [f.y+.8,f.y+f.d-1.8])cylinder(g,x,y,0,.7,z,wood);box(g,f.x,f.y,z,f.w,f.d,f.h-z,wood,.4);for(let r=0;r<2;r++){box(g,f.x+f.w-.6,f.y+.5,z+2+r*7,.6,f.d-1,6,edgewood,.2);const knob=new THREE.Mesh(new THREE.SphereGeometry(.3,8,8),steel);knob.position.set(f.x+f.w-.1,f.y+f.d/2,z+5+r*7);g.add(knob);} // Small everyday objects, illustrative only.
    cylinder(g,f.x+f.w/3,f.y+f.d/2,f.h,1.5,6,mat('#95a6b4'));
   }else if(f.kind==='rack'){
    for(const x of [f.x+.6,f.x+f.w-1.6])for(const y of [f.y+.6,f.y+f.d-1.6])cylinder(g,x,y,0,.55,f.h,steel);box(g,f.x,f.y,f.h-1,f.w,f.d-.1,1,dark);for(let c=0;c<3;c++)box(g,f.x+1+c*(f.w-2)/3,f.y+1,7,(f.w-4)/3,f.d-2,28,mat('#7f8580'),.6);
@@ -117,8 +117,8 @@ export function createRoom(spec,metrics,state){
  for(const o of openings.filter(o=>o.type==='door')){
   let hx,hy,ang,baseRot;
   const isShaker=!!o.hinge_axis;
-  if(o.wall==='west'){hx=o.hinge_axis?.x??.5;hy=o.hinge_axis?.y??o.offset_from_corner+o.width;const north=o.hinge_side==='north';baseRot=north?0:Math.PI;ang=state.swings?(isShaker?sceneMetric.shaker_shown_deg:90)*Math.PI/180:0;baseRot+=north?-ang:ang;}
-  else{hx=o.offset_from_corner+o.width;hy=D-.5;baseRot=Math.PI/2+(state.swings?Math.PI/2:0);}
+  if(o.wall==='west'){hx=o.hinge_axis?.x??.5;hy=o.hinge_axis?.y??o.offset_from_corner+o.width;const north=o.hinge_side==='north';baseRot=north?0:Math.PI;ang=state.swings?(sceneMetric.doorAngles?.[o.id]??90)*Math.PI/180:0;baseRot+=north?-ang:ang;}
+  else{hx=o.pin?.x??o.offset_from_corner+o.width;hy=o.pin?.y??D-.5;baseRot=Math.PI/2+(state.swings?(sceneMetric.doorAngles?.[o.id]??90)*Math.PI/180:0);}
   const pivot=new THREE.Group();pivot.position.set(hx,hy,0);pivot.rotation.z=baseRot;pivot.name=isShaker?'shaker-pivot':'other-door';pivot.userData.angle=isShaker?(state.swings?sceneMetric.shaker_shown_deg:0):null;doorsGroup.add(pivot);
   // Same one-sided slab rectangle as the collision calculation; no northward heel.
   const thickness=isShaker?o.leaf_thickness:1.375;
@@ -128,24 +128,10 @@ export function createRoom(spec,metrics,state){
   box(pivot,-.12,3,7,.12,o.swing_radius-6,o.head-14,trim,.05);
   if(isShaker)box(pivot,0,o.swing_radius-6,34,.45,4,.6,dark,.15);
   else for(const z of [18,40,64]){const rosette=new THREE.Mesh(new THREE.TorusGeometry(2.2,.35,5,16),trim);rosette.rotation.y=Math.PI/2;rosette.position.set(thickness/2+.2,o.swing_radius/2,z);pivot.add(rosette);cylinder(pivot,0,o.swing_radius-3,35,.65,1,dark);}
-  if(isShaker&&state.swings)label(`Door stop ${angle(sceneMetric)}<br><i>modeled, not tape-verified</i>`,9,68,48,'conflict');
+  // Door stop labels live in the accessible HTML table, without a second numeric formatter.
  }
  if(state.scene!=='today'&&state.photo&&state.leaves){for(const id of ['king_bed_current','cube_organiser']){if(!spec.furniture[id])continue;outline(ghostGroup,spec.furniture[id],'#38586c',true);const f=spec.furniture[id];if(!f)continue;label(`${id==='cube_organiser'?'Cube organiser':'King bed'} · leaves`,f.x+f.w/2,f.y+f.d/2,f.h+3,'leaves');}}
- // Dimension lines live in the same inch coordinate space as furniture.
- const st=spec.furniture[sceneMetric.storageId],bed=spec.furniture[sceneMetric.bedId],x1=st.x+st.w+(state.drawer?sceneMetric.drawer_extension:0),x2=bed.x,gy=Math.min(st.y+st.d-7,bed.y+16),z=34;
- const seg=state.drawer&&sceneMetric.aisle_open!==null?sceneMetric.aisle_open_segment:sceneMetric.aisle_segment;const points=seg.map(p=>v(p[0],p[1],z));annotationGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineBasicMaterial({color:'#154d58',depthTest:false})));
- for(const [x,y]of seg)annotationGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(sceneMetric.aisle_axis==='x'?[v(x,y-2,z),v(x,y+2,z)]:[v(x-2,y,z),v(x+2,y,z)]),new THREE.LineBasicMaterial({color:'#154d58',depthTest:false})));
- label(`${pm(state.drawer&&sceneMetric.aisle_open!==null?sceneMetric.aisle_open:sceneMetric.aisle_closed,sceneMetric.aisle_unc)}${state.drawer?', drawer open':spec.layouts?'<br><i>bed → storage</i>':'<br><i>bed foot → storage</i>'}`,(seg[0][0]+seg[1][0])/2,(seg[0][1]+seg[1][1])/2,z+5);
- // Width marker is a dashed floor footprint, not an extra furnishing.
- const px=spec.layouts?(seg[0][0]+seg[1][0])/2:(st.x+st.w+bed.x)/2,pY=spec.layouts?(seg[0][1]+seg[1][1])/2:43,shoulder=spec.guides.person_shoulder_width;const circle=new THREE.EllipseCurve(px,pY,spec.layouts&&sceneMetric.aisle_axis==='y'?4:shoulder/2,spec.layouts&&sceneMetric.aisle_axis==='y'?shoulder/2:4,0,2*Math.PI,false,0).getPoints(40).map(p=>v(p.x,p.y,.3));const person=new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(circle),new THREE.LineDashedMaterial({color:(state.drawer&&sceneMetric.aisle_open!==null?sceneMetric.aisle_open:sceneMetric.aisle_closed)<shoulder?'#bd3428':'#356d7a',dashSize:1,gapSize:1}));person.computeLineDistances();annotationGroup.add(person);
- const shaker=spec.openings.flatMap(w=>w.openings).find(o=>o.hinge_axis),tipX=bed.x-sceneMetric.open_door_pinch,pinchY=shaker.hinge_axis.y+2;
- if(state.swings&&!state.photo){label(`${pinch(sceneMetric)}<br><i>white door open · too narrow</i>`,(tipX+bed.x)/2,pinchY+2,28,'conflict');
- const pinchLine=new THREE.Line(new THREE.BufferGeometry().setFromPoints([v(tipX,pinchY,26),v(bed.x,pinchY,26)]),new THREE.LineBasicMaterial({color:'#a9432b',depthTest:false}));annotationGroup.add(pinchLine);
- const pinchMarker=new THREE.EllipseCurve((tipX+bed.x)/2,pinchY,11,3.5,0,2*Math.PI,false,0).getPoints(40).map(p=>v(p.x,p.y,.4));const pp=new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pinchMarker),new THREE.LineDashedMaterial({color:'#bd3428',dashSize:1,gapSize:1}));pp.computeLineDistances();annotationGroup.add(pp);}
-
- if(sceneMetric.east_window)label(`East window covered<br>${eastCover(sceneMetric)}`,126,88,49,'conflict');
- if(state.scene!=='today'){label(`Window stool ${standoff(sceneMetric)}`,13,3,39);label(`North trim covered ${northCover(sceneMetric)}`,18,2,35,'conflict');if(sceneMetric.trim_conflict)label(`Trim overlap ${overlap(sceneMetric)}`,8,59,37,'conflict');}
- if((state.drawer&&sceneMetric.aisle_open!==null?sceneMetric.aisle_open:sceneMetric.aisle_closed)<shoulder)label('22 in person · too narrow',px,pY,5,'conflict');
+ // Explorer dimensions are the same formatter-driven HTML readout used by plan/cards.
  // The source axes (east, south, up) are left-handed. Reflect south for right-handed WebGL.
  root.scale.y=-1;for(const l of labels)l.point.y*=-1;
  return {root,roomGroup,itemsGroup,doorsGroup,annotationGroup,ghostGroup,labels,footprints,trimMeshes,fan,materials,dispose(){const all=new Set(materials);root.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])all.add(m);});for(const m of all)m.dispose();woodTex.dispose();ft.dispose();aoTex.dispose();artTex.dispose();}};

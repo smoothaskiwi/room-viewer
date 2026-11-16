@@ -1,0 +1,382 @@
+{
+  "meta": {
+    "version": "2.0 (16 Nov 2026)",
+    "room": "primary-bedroom",
+    "units": "inches",
+    "coordinates": "x east from the inside face of the west wall, y south from the inside face of the north wall, z up from the floor",
+    "precedence": "room-survey-addendum-2026-11-16 (photos 1-5 solved, video) overrides scene-spec 1.4, which overrides room-survey.md; owner statements are constraints (dresser span about 57; north nightstand against the north wall)",
+    "status": "photo metrology, not tape-verified; *_unc about 1 sigma; basis M measured, A assumed, D derived, O owner statement"
+  },
+  "room": {
+    "width_x": 128.5,
+    "width_x_unc": 1.5,
+    "depth_y": 139.7,
+    "depth_y_unc": 1.5,
+    "ceiling_z": 100,
+    "baseboard_projection": 0.75,
+    "baseboard_height": 5.5,
+    "appearance": "warm white/cream walls, white painted trim and 1940s casings, red-oak strip hardwood floor (strip direction unverified), white ceiling with ceiling fan and light; see photos"
+  },
+  "openings": [
+    {
+      "id": "north_window",
+      "wall": "north",
+      "type": "window",
+      "operable": "single-hung",
+      "egress_candidate": true,
+      "opening_x": [
+        18.5,
+        54.5
+      ],
+      "casing_x": [
+        16,
+        57
+      ],
+      "casing_unc": 1.5,
+      "stool_x": [
+        15,
+        58
+      ],
+      "stool_projection": 2,
+      "stool_projection_unc": 0.75,
+      "stool_top_z": 28,
+      "stool_top_z_unc": 1.5,
+      "sill_z": 30,
+      "head_z": 82,
+      "basis": "casing M (photos 1, 2); opening from plan; stool projection and horns A"
+    },
+    {
+      "id": "east_window",
+      "wall": "east",
+      "type": "window",
+      "operable": "single-hung",
+      "egress_candidate": true,
+      "opening_y": [
+        85.1,
+        121.5
+      ],
+      "opening_unc": [
+        0.8,
+        1.2
+      ],
+      "casing_y": [
+        81.3,
+        124.6
+      ],
+      "casing_unc": [
+        1,
+        1.2
+      ],
+      "stool_y": [
+        80.3,
+        125.6
+      ],
+      "stool_y_unc": 1.3,
+      "stool_projection": 2,
+      "stool_projection_unc": 0.75,
+      "stool_top_z": 27.7,
+      "stool_top_z_unc": 0.8,
+      "sash_bottom_z": 29,
+      "apron_bottom_z": 22.9,
+      "opening_top_z": 80,
+      "head_cap_top_z": 85.1,
+      "basis": "opening, casing, heights M (photos 1, 4, 5); stool ends and projection A"
+    },
+    {
+      "id": "shaker_door",
+      "wall": "west",
+      "type": "door",
+      "kind": "hinged",
+      "label": "white Shaker door (destination unverified)",
+      "hinge_side": "north",
+      "swing": "in",
+      "pin_x": 0.5,
+      "hinge_edge_y": {
+        "camera_fit": 62.15,
+        "survey": 62.9
+      },
+      "casing_north_outer_y": 58.9,
+      "casing_north_outer_unc": 1.2,
+      "width": 27.9,
+      "leaf_radius": 28,
+      "leaf_thickness": 1.375,
+      "head_z": 80,
+      "basis": "camera fit and survey; casing span reconciles owner's 57-in dresser estimate"
+    },
+    {
+      "id": "entry_door",
+      "wall": "west",
+      "type": "door",
+      "kind": "hinged",
+      "label": "entry door from the hall",
+      "hinge_side": "south",
+      "swing": "in",
+      "opening_y": [
+        108,
+        137
+      ],
+      "casing_north_outer_y": 104.9,
+      "width": 28.6,
+      "leaf_radius": 28.6,
+      "head_z": 79,
+      "open_leaf_rests_along": "south wall, x 0-30",
+      "basis": "camera fit and survey"
+    },
+    {
+      "id": "closet_door",
+      "wall": "south",
+      "type": "door",
+      "kind": "hinged",
+      "label": "closet door",
+      "hinge_side": "east",
+      "swing": "in",
+      "slab_x": [
+        64.7,
+        94.5
+      ],
+      "pin": {
+        "x": 94.5,
+        "y": 139.7
+      },
+      "casing_x": [
+        59.4,
+        97.6
+      ],
+      "casing_unc": 1.5,
+      "width": 29.8,
+      "width_unc": 1.5,
+      "leaf_radius": 29.8,
+      "head_z": 80.3,
+      "basis": "M photo 4 (hinge knuckle visible); the plan is about 3 in off"
+    }
+  ],
+  "wall_items": [
+    {
+      "id": "west_receptacle",
+      "type": "duplex receptacle with plug-in device",
+      "wall": "west",
+      "y": [
+        57.5,
+        58.2
+      ],
+      "z": 10.5,
+      "policy": "warning if covered (plug setback)"
+    },
+    {
+      "id": "west_register",
+      "type": "grille, likely HVAC register (unconfirmed)",
+      "wall": "west",
+      "y": [
+        69,
+        75
+      ],
+      "z": [
+        87,
+        95
+      ],
+      "policy": "high on the wall; keep tall pieces from covering it"
+    },
+    {
+      "id": "south_switch",
+      "type": "switch plate",
+      "wall": "south",
+      "x": 55.6,
+      "z": 49.7,
+      "policy": "keep reachable"
+    },
+    {
+      "id": "west_switch",
+      "type": "switch plate",
+      "wall": "west",
+      "y": 99.9,
+      "z": 49.3,
+      "policy": "keep reachable"
+    },
+    {
+      "id": "west_keypad",
+      "type": "black keypad",
+      "wall": "west",
+      "y": 95.8,
+      "z": 49.2,
+      "policy": "keep reachable"
+    },
+    {
+      "id": "ceiling_fan",
+      "type": "ceiling fan with light kit",
+      "x": 64,
+      "y": 69,
+      "xy_unc": 3,
+      "lowest_z": 84,
+      "policy": "tall pieces below it are fine; note for bed centring"
+    },
+    {
+      "id": "smoke_detector",
+      "type": "smoke detector",
+      "ceiling": true,
+      "x": 11.5,
+      "y": 118
+    },
+    {
+      "id": "hidden_receptacles",
+      "type": "unknown receptacles",
+      "wall": "north/east",
+      "note": "hidden; cables under the north nightstand suggest one behind it"
+    }
+  ],
+  "owned": {
+    "king_bed": {
+      "label": "Current king (76 x 80 mattress on a low dark base, no headboard)",
+      "x": [
+        47.5,
+        127.5
+      ],
+      "y": [
+        17.5,
+        93.4
+      ],
+      "unc": 1,
+      "foot_x_unc": 1.5,
+      "base_foot_x": 55,
+      "mattress_top_z": 24,
+      "head": "east",
+      "basis": "M photos 1, 3, 5"
+    },
+    "nightstand_north": {
+      "label": "Small wood nightstand",
+      "x": [
+        109.5,
+        128
+      ],
+      "y": [
+        0.5,
+        17.5
+      ],
+      "w_along_wall": 17,
+      "w_unc": 2,
+      "depth": 18.5,
+      "top_z": 24.3,
+      "basis": "M; owner says about 18 in, against the north wall"
+    },
+    "nightstand_south": {
+      "label": "Wood two-drawer nightstand, splayed legs",
+      "x": [
+        110.2,
+        124
+      ],
+      "y": [
+        97.5,
+        116.6
+      ],
+      "w_along_wall": 19.1,
+      "depth": 13.8,
+      "top_z": 24.2,
+      "basis": "M; stands about 4.5 in off the east wall"
+    },
+    "cube_organiser": {
+      "label": "Black 3x3 cube organiser",
+      "x": [
+        0.5,
+        12
+      ],
+      "y": [
+        0.5,
+        37.5
+      ],
+      "h": 35.7,
+      "faces": "east",
+      "storage_note": "nine open cubes about 11 x 11 x 11",
+      "basis": "room-survey"
+    },
+    "laundry_sorter": {
+      "label": "Rolling laundry sorter",
+      "x": [
+        30,
+        62
+      ],
+      "y": [
+        121,
+        139
+      ],
+      "h": 60,
+      "approx": true,
+      "must_stay_in_room": true
+    }
+  },
+  "free_spans": {
+    "north_wall_east_of_window": {
+      "x": [
+        57,
+        128.5
+      ],
+      "length": 71.5,
+      "unc": 2
+    },
+    "north_wall_west_of_window": {
+      "x": [
+        0,
+        16
+      ],
+      "length": 16,
+      "unc": 1.5
+    },
+    "east_wall_north_of_window": {
+      "y": [
+        0,
+        80.3
+      ],
+      "length_at_stool": 80.3,
+      "length_above_stool": 81.3,
+      "unc": 1.3
+    },
+    "east_wall_south_of_window": {
+      "y": [
+        124.6,
+        139.7
+      ],
+      "length": 15.1,
+      "unc": 1.2
+    },
+    "south_wall_entry_leaf_to_closet_casing": {
+      "x": [
+        30,
+        59.4
+      ],
+      "length": 29.4,
+      "unc": 2,
+      "length_clear_of_knob": 27
+    },
+    "south_wall_east_of_closet": {
+      "x": [
+        97.6,
+        128.5
+      ],
+      "length": 30.9,
+      "unc": 1.5,
+      "note": "corner pieces deeper than 15 in (y) meet the east window trim"
+    },
+    "west_wall_between_shaker_and_entry": {
+      "y": [
+        94.1,
+        104.9
+      ],
+      "length": 10.8,
+      "unc": 1.5
+    }
+  },
+  "guides": {
+    "passage_min": 24,
+    "passage_comfortable": 30,
+    "passage_generous": 36,
+    "dresser_front_recommended": 36,
+    "person_shoulder_width": 22,
+    "source_note": "Rules of thumb used in residential furniture planning: about 24 in is a tight single-file squeeze, 30 in is comfortable, 36 in is generous and the usual allowance in front of a dresser for opening drawers and standing. For reference, 36 in is also the US International Residential Code minimum hallway width (IRC R311.6). These are guides, not code requirements for bedrooms.",
+    "note_shallowest_miles_dresser": "Every Miles dresser in West Elm's US line is 18 in deep or more (60, 70: 18; 34: 18.3; 48 narrow and 49 wide: 19.3), so no Miles dresser on the west wall widens the aisle."
+  },
+  "measurements_requested": [
+    "East window: from the north wall to the north end of the sill (stool) and to the outer edge of the trim (estimates 80.3 and 81.3 in), and how far the sill sticks out from the wall (estimate 2 in). This decides whether the queen headboard sits flat to the wall.",
+    "North nightstand width (estimate 17 in, Daniel says about 18).",
+    "On the west wall: from the north wall to the white door's trim (estimate 58.9) and to its hinge edge (62.15 to 62.9), and how far the north window's sill sticks out.",
+    "Clear room width from west wall to east wall at about 30 in high.",
+    "Whether the white door and the closet door must open fully, and what is behind the white door."
+  ]
+}

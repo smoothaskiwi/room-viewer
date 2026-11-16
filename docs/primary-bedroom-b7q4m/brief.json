@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "version": "1.0 draft (16 Nov 2026)",
+    "room": "primary-bedroom",
+    "status": "defaults proposed by the agent; Daniel can change any of them in plain words"
+  },
+  "plain_policy": "Keep a queen Miles bed with both sides reachable; keep at least today's storage; keep the laundry sorter in the room; every everyday route at least 22 inches wide; priorities in order: everyday walkway, storage, fewest changes, cost.",
+  "pinned": {
+    "bed": "miles_queen",
+    "bed_finish": "Toasted Oak frame, Twill Sand headboard"
+  },
+  "required": {
+    "bed": 1,
+    "bed_both_sides_reachable": true,
+    "storage": "dresser or chest drawer volume at least equal to today's nine cube organiser cubes (about 9 x 11 x 11 x 11 cubic in), or keep the cube organiser",
+    "nightstands": "two preferred; one allowed with a warning; existing pieces allowed",
+    "laundry_sorter": "must stay in the room"
+  },
+  "bed_orientations": [
+    "head east (today)",
+    "head north (rotated 90 degrees)",
+    "head south only if no door swing behind it (closet wall)"
+  ],
+  "candidate_items": [
+    "miles_queen",
+    "miles_chest_34",
+    "miles_dresser_48",
+    "we_midcentury_56",
+    "we_vivienne_56",
+    "article_prima",
+    "article_lenia",
+    "ikea_storklinta",
+    "miles_nightstand_22",
+    "miles_nightstand_16",
+    "rh_gael_open_20",
+    "owned nightstand_north",
+    "owned nightstand_south",
+    "owned cube_organiser",
+    "owned laundry_sorter"
+  ],
+  "excluded": {
+    "miles_dresser_60": "owner: about 57 in is the maximum on the west wall",
+    "miles_dresser_70": "too wide for any span"
+  },
+  "passage": {
+    "route_min": 22,
+    "guides": {
+      "tight": 24,
+      "comfortable": 30,
+      "generous": 36
+    },
+    "labels": "rules of thumb, not code; IRC R311.6 36-in hallway is a reference only",
+    "routes": "hall door clear opening to: each bed side, closet door approach, front of each storage piece, the white door, the operable windows",
+    "bed_side_min": 18,
+    "drawer_standing": "drawer extension plus 16 in to stand at an open drawer (one drawer at a time)"
+  },
+  "doors": {
+    "shaker_door": "must open to at least 90 degrees (a piece may be the stop)",
+    "entry_door": "must open fully to the south wall",
+    "closet_door": "must open to at least 90 degrees"
+  },
+  "windows": {
+    "policy": "each window must stay openable and reachable: no tall piece in front; a headboard over the casing or stool is a warning; a nightstand or low dresser below the stool is fine"
+  },
+  "child_safety": "anchor every dresser and chest; flag climbable pieces under a window",
+  "classes": {
+    "invalid": "breaks a required item, a door rule or a route minimum at the best estimate",
+    "conditional": "passes at the best estimate but fails in a plausible scenario; say which measurement settles it",
+    "preference": "warnings and trade-offs"
+  },
+  "ranking": "filter, cluster (bed wall, route pattern, furniture mix), pick distinct representatives, then sort by the plain_policy priorities; show Today plus four first, then up to eight"
+}

@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {doorPolygon,overlap,stoolNeedsSetback,drawerSpace} from './rules.mjs';
+import {widestRoutes} from './routes.mjs';
+const d={wall:'west',hinge_side:'north',pin_x:.5,hinge_edge_y:{survey:62.9},leaf_radius:28,leaf_thickness:1.375};
+for(let a=0;a<=90;a+=.5)assert.ok(doorPolygon(d,a,{width_x:128.5,depth_y:139.7}).every(p=>p[1]>=62.9-1e-8),'one-sided slab never crosses north of pin');
+assert.equal(stoolNeedsSetback({h:24},{stool_top_z:28}),false);
+assert.equal(stoolNeedsSetback({h:45},{stool_top_z:28}),true);
+assert.equal(drawerSpace(24,8).standing,16);
+assert.equal(drawerSpace(23.45,8).passes,false);
+const result=widestRoutes({width_x:20,depth_y:20},[{x:0,y:0,w:9.5,d:10},{x:10,y:10,w:10,d:10}],[[5,15]],[{id:'across',region:{x:14,y:3,w:2,d:2}}],{grid:.5,extend:false});
+assert.ok(result.destinations[0].width<1,'diagonal touching cells must not admit a disk');
+assert.ok(overlap({x:0,y:0,w:2,d:2},{x:1,y:1,w:2,d:2}));
+console.log('PASS fixtures: one-sided moving/resting doors; height-aware stool; one drawer + standing; conservative diagonal routing.');

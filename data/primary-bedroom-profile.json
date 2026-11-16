@@ -1,0 +1,30 @@
+{
+  "slug": "primary-bedroom-b7q4m",
+  "photo_regions": {
+    "bed": [
+      40,
+      15,
+      129,
+      94
+    ],
+    "storage": [
+      0,
+      0,
+      22,
+      62
+    ],
+    "basis": "Retained king/cube removal reconstruction only; changed retained pieces outside these regions disable photo view."
+  },
+  "pins": [
+    {
+      "id": "updated-request-56",
+      "storage": "we_midcentury_56",
+      "title": "Same bed, 56-inch Mid-Century dresser"
+    },
+    {
+      "id": "updated-request-miles-48",
+      "storage": "miles_dresser_48",
+      "title": "Same bed, narrower Miles dresser"
+    }
+  ]
+}

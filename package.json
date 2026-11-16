@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "node tools/build.mjs",
-    "test": "npm run build && node tools/test.mjs && node tools/browser-regression.mjs && node tools/catalog-browser.mjs",
-    "verify": "node tools/verify.mjs"
+    "test": "npm run build && node tools/explorer-test.mjs && node tools/explorer-browser.mjs",
+    "verify": "node tools/explorer-browser.mjs --screenshots"
   },
   "license": "UNLICENSED",
   "dependencies": {

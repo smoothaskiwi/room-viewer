@@ -1,0 +1,22 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {project,repo} from './project.mjs';
+export async function catalog(room){
+ const items={};
+ const sources=[['miles-specs.json',{'bed_queen':'miles_queen','dresser_48':'miles_dresser_48'}],['storage-candidates-2026-11-16/specs.json',null],['rh-outlet-2026-11-16/specs.json',{}]];
+ for(const [file,mapping]of sources){const p=path.join(project,'products',file),src=JSON.parse(await fs.readFile(p,'utf8'));
+  if(src.items){for(const f of src.items){const d=f.overall_inches,id='rh_'+f.id;items[id]={id,label:f.official_name,kind:'other',w:d.depth_or_length_including_headboard,d:d.width,h:d.height,owned:false,price:f.rh_member_sale_usd??f.outlet_usd,price_date:src.access_date,price_basis:'RH member sale if exact finish verified; otherwise dated outlet tag. Membership, tax and delivery extra.',finish:f.variant,source:f.url,drawer_extension:null,volume:null,color:null,eligible_in_brief:false};}continue;}
+  for(const [key,f]of Object.entries(src.products)){const id=mapping?mapping[key]:key;if(!id)continue;
+   const dim=f.dims_in,bed=id==='miles_queen',ns=id.includes('nightstand')||id.includes('gael'),kind=bed?'bed':ns?'nightstand':'dresser';
+   const image=f.images?.[0],imagePath=image&&path.join(path.dirname(p),image.path);
+   let color='#b79b78',sample=null;
+   if(imagePath){const run=spawnSync('python3',['-c',`from PIL import Image\nimport json\nim=Image.open(${JSON.stringify(imagePath)}).convert('RGB');im.thumbnail((120,120))\na=[p for p in im.getdata() if max(p)-min(p)>18 and 45<sum(p)/3<205 and p[0]>=p[2]]\na.sort(key=lambda p:sum(p));v=a[len(a)//2] if a else (183,155,120)\nprint('#%02x%02x%02x'%v)`],{encoding:'utf8'});if(run.status)throw Error(run.stderr);color=run.stdout.trim();sample=image.path;}
+   const count=f.drawer_count??(id==='miles_dresser_48'?6:0),vol=f.drawer_in?count*f.drawer_in.w*f.drawer_in.d*f.drawer_in.h:null;
+   items[id]={id,label:f.name,kind,w:dim.d,d:dim.w,h:dim.h,head:'east',faces:'east',owned:false,drawer_count:count,drawer_extension:f.drawer_extension_in??null,volume:vol,volume_basis:vol?'published drawer interiors':'unknown; not inferred from cabinet size',price:f.price_usd,price_date:f.accessed||src.metadata.accessed,price_basis:f.price_basis,finish:f.selected_finish||f.finishes?.[0],color,color_sample:sample?'median warm midtone from official gallery; finish in image provisional':null,source:f.url,headboard:bed?{thickness:3.5,panel_height:36.7}:undefined,mattress_space:bed?[60,80]:undefined,floor_clearance:bed?8.5:6,side_rail_top_z:15,base_clearance:f.base_clearance_in??6};
+  }
+ }
+ for(const [id,f]of Object.entries(room.owned)){const bed=id==='king_bed',rack=id==='laundry_sorter',cube=id==='cube_organiser',w=f.x[1]-f.x[0],d=f.y[1]-f.y[0];items[id]={id,label:f.label,kind:bed?'bed':rack?'rack':cube?'storage':'nightstand',w:rack?d:w,d:rack?w:d,h:f.h||f.top_z||f.mattress_top_z,head:'east',faces:'east',owned:true,drawer_count:0,drawer_extension:null,volume:cube?9*11**3:0,volume_basis:cube?'assumed nine 11 × 11 × 11 in cubes':'not counted',price:0,price_date:'2026-11-16',finish:cube?'Black':bed?'Dark base':'Existing wood',color:cube?'#292e2c':rack?'#68706c':'#98724e',basis:f.basis||'A approximate'};}
+ return {meta:{date:'2026-11-16',units:'inches',appearance:'Parametric illustrative geometry; sampled colour is not a finish guarantee.',outlet_source_read:true,unknowns:'null is unknown, not zero',prices:'Dated public US prices, tax/delivery excluded; RH membership extra.'},items};
+}
+if(process.argv[1]===new URL(import.meta.url).pathname){const room=JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/room-primary-bedroom.json'),'utf8'));await fs.writeFile(path.join(repo,'docs/primary-bedroom-b7q4m/catalog.json'),JSON.stringify(await catalog(room),null,2)+'\n');}
