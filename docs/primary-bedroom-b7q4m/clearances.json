@@ -1,0 +1,837 @@
+{
+  "units": "inches (angles in degrees)",
+  "status": "Photo and plan metrology; not tape-verified. Uncertainties are about one standard deviation.",
+  "guides": {
+    "passage_min": 24,
+    "passage_comfortable": 30,
+    "passage_generous": 36,
+    "dresser_front_recommended": 36,
+    "person_shoulder_width": 22,
+    "source_note": "Rules of thumb used in residential furniture planning: about 24 in is a tight single-file squeeze, 30 in is comfortable, 36 in is generous and the usual allowance in front of a dresser for opening drawers and standing. For reference, 36 in is also the US International Residential Code minimum hallway width (IRC R311.6). These are guides, not code requirements for bedrooms.",
+    "note_shallowest_miles_dresser": "Every Miles dresser in West Elm's US line is 18 in deep or more (60, 70: 18; 34: 18.3; 48 narrow and 49 wide: 19.3), so no Miles dresser on the west wall widens the aisle."
+  },
+  "photo_choices": [
+    1,
+    2,
+    3
+  ],
+  "door_model": {
+    "leaf_thickness": 1.375,
+    "knuckle": 0.25,
+    "assumption": "One-sided leaf rotates about the bedroom-face hinge pin. Storage contact, not the unmeasured installed stop or lever. Ranges propagate hinge-edge and north-window stool uncertainty through their difference.",
+    "plain": "Both estimates say the white door opens to about a right angle and rests against the dresser end (about 93 deg survey, 90.5 deg photo fit), but the margin is thin: the dresser's end would stop only 0.15 to 1 inch short of the door's hinge edge. If it ends up past the hinge edge even half an inch (for example if the north window sill sticks out more than 2 inches), the door would be blocked early, at roughly 15 to 30 degrees.",
+    "tape_cases": "On the west wall above the baseboard, measure from the north wall to the hinge edge of the white door, where the door meets its frame on the hinge side (estimates 62.15 to 63 in). Also measure how far the north window's sill (stool) sticks out from the wall (estimate 2 in). If the hinge edge is at least 60 inches plus the sill projection from the north wall, the 60-inch dresser stops short of it and becomes the door's stop at about a right angle; if not, the dresser sits in front of the hinge and blocks the door early."
+  },
+  "scenes": {
+    "today": {
+      "is_layout": false,
+      "door_max_deg": 180,
+      "door_reference_deg": 90,
+      "show_photo_fit": false,
+      "name": "Today",
+      "label": "Today",
+      "guides": {
+        "passage_min": 24,
+        "passage_comfortable": 30,
+        "passage_generous": 36,
+        "dresser_front_recommended": 36,
+        "person_shoulder_width": 22,
+        "source_note": "Rules of thumb used in residential furniture planning: about 24 in is a tight single-file squeeze, 30 in is comfortable, 36 in is generous and the usual allowance in front of a dresser for opening drawers and standing. For reference, 36 in is also the US International Residential Code minimum hallway width (IRC R311.6). These are guides, not code requirements for bedrooms.",
+        "note_shallowest_miles_dresser": "Every Miles dresser in West Elm's US line is 18 in deep or more (60, 70: 18; 34: 18.3; 48 narrow and 49 wide: 19.3), so no Miles dresser on the west wall widens the aisle."
+      },
+      "photo_choices": [
+        1,
+        2,
+        3
+      ],
+      "photo_note": "Photo and plan metrology; not tape-verified. Uncertainties are about one standard deviation.",
+      "door_contacts": [
+        {
+          "item": "cube_organiser",
+          "deg": 155.73
+        }
+      ],
+      "is_original": true,
+      "rank": null,
+      "bedId": "king_bed_current",
+      "storageId": "cube_organiser",
+      "placed_items": {
+        "king_bed_current": {
+          "catalog_id": "king_bed_current",
+          "x": 48,
+          "y": 26,
+          "w": 80,
+          "d": 76,
+          "h": 28,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "cube_organiser": {
+          "catalog_id": "cube_organiser",
+          "x": 0.5,
+          "y": 0.5,
+          "w": 11.5,
+          "d": 37,
+          "h": 35.7,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "nightstand_ne": {
+          "catalog_id": "nightstand_ne",
+          "x": 110,
+          "y": 4,
+          "w": 16,
+          "d": 16,
+          "h": 24,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "nightstand_se": {
+          "catalog_id": "nightstand_se",
+          "x": 110,
+          "y": 104,
+          "w": 18,
+          "d": 16,
+          "h": 26,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "laundry_rack": {
+          "catalog_id": "laundry_rack",
+          "x": 30,
+          "y": 121,
+          "w": 32,
+          "d": 18,
+          "h": 60,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        }
+      },
+      "footprints": {
+        "king_bed_current": {
+          "min": [
+            48,
+            26,
+            0
+          ],
+          "max": [
+            128,
+            102,
+            28
+          ]
+        },
+        "cube_organiser": {
+          "min": [
+            0.5,
+            0.5,
+            0
+          ],
+          "max": [
+            12,
+            37.5,
+            35.7
+          ]
+        },
+        "nightstand_ne": {
+          "min": [
+            110,
+            4,
+            0
+          ],
+          "max": [
+            126,
+            20,
+            24
+          ]
+        },
+        "nightstand_se": {
+          "min": [
+            110,
+            104,
+            0
+          ],
+          "max": [
+            128,
+            120,
+            26
+          ]
+        },
+        "laundry_rack": {
+          "min": [
+            30,
+            121,
+            0
+          ],
+          "max": [
+            62,
+            139,
+            60
+          ]
+        }
+      },
+      "aisle_closed": 36,
+      "aisle_open": null,
+      "aisle_label": "Bed foot to storage, closed",
+      "aisle_axis": "x",
+      "aisle_segment": [
+        [
+          12,
+          31.75
+        ],
+        [
+          48,
+          31.75
+        ]
+      ],
+      "aisle_open_segment": [
+        [
+          12,
+          31.75
+        ],
+        [
+          48,
+          31.75
+        ]
+      ],
+      "drawer_extension": 0,
+      "aisle_unc": 4,
+      "casing_signed_clearance": 22,
+      "casing_unc": 1.5,
+      "casing_overlap_range": [
+        -22,
+        -20.8
+      ],
+      "casing_clearance_range": [
+        20.8,
+        22
+      ],
+      "north_window_trim_covered": [
+        -4,
+        -2
+      ],
+      "north_window_top_above_stool": 7.7,
+      "north_window_unc": 1.5,
+      "north_aisle": 26,
+      "north_unc": 4,
+      "south_aisle": 37.7,
+      "south_unc": 4.5,
+      "shaker_margin": 25.5,
+      "shaker_margin_unc": 1.5,
+      "shaker_margin_photo": 24.65,
+      "shaker_margin_range": [
+        24,
+        27
+      ],
+      "shaker_stop_range_deg": [
+        154.4,
+        164.6
+      ],
+      "shaker_stop_by_margin": {
+        "-1.5": 0,
+        "-1.0": 0,
+        "-0.5": 0,
+        "-0.2": 0,
+        "0.0": 90,
+        "0.15": 90.7,
+        "0.5": 92.5,
+        "1.0": 95,
+        "2.0": 99.9,
+        "2.8": 103.7
+      },
+      "shaker_photo_fit_deg": 155,
+      "shaker_photo_fit_hinge_y": 62.15,
+      "shaker_max_open_deg": 155.73,
+      "shaker_contact_thin_deg": 155.73,
+      "shaker_shown_deg": 155.73,
+      "shaker_early_deg": 0,
+      "swing_conflict": false,
+      "trim_conflict": false,
+      "open_door_pinch": 19.5,
+      "pinch_segment": [
+        [
+          28.5,
+          63.6875
+        ],
+        [
+          48,
+          63.6875
+        ]
+      ],
+      "pinch_unc": 4,
+      "window_stool_standoff": 0.5,
+      "standoff_unc": 1,
+      "east_window": null
+    },
+    "requested": {
+      "is_layout": false,
+      "door_max_deg": 180,
+      "door_reference_deg": 90,
+      "show_photo_fit": true,
+      "name": "Requested",
+      "label": "Requested: Miles queen + 60-inch dresser",
+      "guides": {
+        "passage_min": 24,
+        "passage_comfortable": 30,
+        "passage_generous": 36,
+        "dresser_front_recommended": 36,
+        "person_shoulder_width": 22,
+        "source_note": "Rules of thumb used in residential furniture planning: about 24 in is a tight single-file squeeze, 30 in is comfortable, 36 in is generous and the usual allowance in front of a dresser for opening drawers and standing. For reference, 36 in is also the US International Residential Code minimum hallway width (IRC R311.6). These are guides, not code requirements for bedrooms.",
+        "note_shallowest_miles_dresser": "Every Miles dresser in West Elm's US line is 18 in deep or more (60, 70: 18; 34: 18.3; 48 narrow and 49 wide: 19.3), so no Miles dresser on the west wall widens the aisle."
+      },
+      "photo_choices": [
+        1,
+        2,
+        3
+      ],
+      "photo_note": "Photo and plan metrology; not tape-verified. Uncertainties are about one standard deviation.",
+      "door_contacts": [
+        {
+          "item": "miles_dresser_60",
+          "deg": 93.14
+        }
+      ],
+      "is_original": false,
+      "rank": null,
+      "bedId": "miles_queen",
+      "storageId": "miles_dresser_60",
+      "placed_items": {
+        "miles_queen": {
+          "catalog_id": "miles_queen",
+          "x": 42.2,
+          "y": 26,
+          "w": 84.3,
+          "d": 64.6,
+          "h": 45,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "miles_dresser_60": {
+          "catalog_id": "miles_dresser_60",
+          "x": 0.75,
+          "y": 2,
+          "w": 18,
+          "d": 60,
+          "h": 32.75,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "nightstand_ne": {
+          "catalog_id": "nightstand_ne",
+          "x": 110,
+          "y": 4,
+          "w": 16,
+          "d": 16,
+          "h": 24,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "nightstand_se": {
+          "catalog_id": "nightstand_se",
+          "x": 110,
+          "y": 104,
+          "w": 18,
+          "d": 16,
+          "h": 26,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "laundry_rack": {
+          "catalog_id": "laundry_rack",
+          "x": 30,
+          "y": 121,
+          "w": 32,
+          "d": 18,
+          "h": 60,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        }
+      },
+      "footprints": {
+        "miles_queen": {
+          "min": [
+            42.2,
+            26,
+            0
+          ],
+          "max": [
+            126.5,
+            90.6,
+            45
+          ]
+        },
+        "miles_dresser_60": {
+          "min": [
+            0.75,
+            2,
+            0
+          ],
+          "max": [
+            18.75,
+            62,
+            32.75
+          ]
+        },
+        "nightstand_ne": {
+          "min": [
+            110,
+            4,
+            0
+          ],
+          "max": [
+            126,
+            20,
+            24
+          ]
+        },
+        "nightstand_se": {
+          "min": [
+            110,
+            104,
+            0
+          ],
+          "max": [
+            128,
+            120,
+            26
+          ]
+        },
+        "laundry_rack": {
+          "min": [
+            30,
+            121,
+            0
+          ],
+          "max": [
+            62,
+            139,
+            60
+          ]
+        }
+      },
+      "aisle_closed": 23.45,
+      "aisle_open": 13.45,
+      "aisle_label": "Bed foot to storage, closed",
+      "aisle_axis": "x",
+      "aisle_segment": [
+        [
+          18.75,
+          44
+        ],
+        [
+          42.2,
+          44
+        ]
+      ],
+      "aisle_open_segment": [
+        [
+          28.75,
+          44
+        ],
+        [
+          42.2,
+          44
+        ]
+      ],
+      "drawer_extension": 10,
+      "aisle_unc": 2.1,
+      "casing_signed_clearance": -2.5,
+      "casing_unc": 1.8,
+      "casing_overlap_range": [
+        2.5,
+        3.7
+      ],
+      "casing_clearance_range": [
+        -3.7,
+        -2.5
+      ],
+      "north_window_trim_covered": [
+        2.75,
+        4.75
+      ],
+      "north_window_top_above_stool": 4.75,
+      "north_window_unc": 1.5,
+      "north_aisle": 26,
+      "north_unc": 4,
+      "south_aisle": 49.1,
+      "south_unc": 4.5,
+      "shaker_margin": 1,
+      "shaker_margin_unc": 1.8,
+      "shaker_margin_photo": 0.15,
+      "shaker_margin_range": [
+        -0.8,
+        2.8
+      ],
+      "shaker_stop_range_deg": [
+        17.4,
+        98.7
+      ],
+      "shaker_stop_by_margin": {
+        "-1.5": 9.5,
+        "-1.0": 14,
+        "-0.5": 26.6,
+        "-0.2": 51.3,
+        "0.0": 90,
+        "0.15": 90.5,
+        "0.5": 91.6,
+        "1.0": 93.1,
+        "2.0": 96.3,
+        "2.8": 98.7
+      },
+      "shaker_photo_fit_deg": 90.5,
+      "shaker_photo_fit_hinge_y": 62.15,
+      "shaker_max_open_deg": 93.14,
+      "shaker_contact_thin_deg": 93.14,
+      "shaker_shown_deg": 93.14,
+      "shaker_early_deg": 26.6,
+      "swing_conflict": false,
+      "trim_conflict": true,
+      "open_door_pinch": 13.7,
+      "pinch_segment": [
+        [
+          28.5,
+          63.6875
+        ],
+        [
+          42.2,
+          63.6875
+        ]
+      ],
+      "pinch_unc": 2.1,
+      "window_stool_standoff": 2,
+      "standoff_unc": 1,
+      "east_window": {
+        "stool_overlap_y": 9.6,
+        "opening_overlap_y": 5.6,
+        "height_above_sill": 15,
+        "unc": 3,
+        "height_unc": 3,
+        "wall_setback": 2,
+        "stool_projection": 2,
+        "projection_unc": 0.5
+      }
+    },
+    "alternative": {
+      "is_layout": false,
+      "door_max_deg": 180,
+      "door_reference_deg": 90,
+      "show_photo_fit": false,
+      "name": "Alternative",
+      "label": "Alternative: Miles queen + 48-inch dresser",
+      "guides": {
+        "passage_min": 24,
+        "passage_comfortable": 30,
+        "passage_generous": 36,
+        "dresser_front_recommended": 36,
+        "person_shoulder_width": 22,
+        "source_note": "Rules of thumb used in residential furniture planning: about 24 in is a tight single-file squeeze, 30 in is comfortable, 36 in is generous and the usual allowance in front of a dresser for opening drawers and standing. For reference, 36 in is also the US International Residential Code minimum hallway width (IRC R311.6). These are guides, not code requirements for bedrooms.",
+        "note_shallowest_miles_dresser": "Every Miles dresser in West Elm's US line is 18 in deep or more (60, 70: 18; 34: 18.3; 48 narrow and 49 wide: 19.3), so no Miles dresser on the west wall widens the aisle."
+      },
+      "photo_choices": [
+        1,
+        2,
+        3
+      ],
+      "photo_note": "Photo and plan metrology; not tape-verified. Uncertainties are about one standard deviation.",
+      "door_contacts": [
+        {
+          "item": "miles_dresser_48",
+          "deg": 121.97
+        }
+      ],
+      "is_original": false,
+      "rank": null,
+      "bedId": "miles_queen",
+      "storageId": "miles_dresser_48",
+      "placed_items": {
+        "miles_queen": {
+          "catalog_id": "miles_queen",
+          "x": 42.2,
+          "y": 26,
+          "w": 84.3,
+          "d": 64.6,
+          "h": 45,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "miles_dresser_48": {
+          "catalog_id": "miles_dresser_48",
+          "x": 0.75,
+          "y": 2,
+          "w": 19.3,
+          "d": 48.8,
+          "h": 33.3,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "nightstand_ne": {
+          "catalog_id": "nightstand_ne",
+          "x": 110,
+          "y": 4,
+          "w": 16,
+          "d": 16,
+          "h": 24,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "nightstand_se": {
+          "catalog_id": "nightstand_se",
+          "x": 110,
+          "y": 104,
+          "w": 18,
+          "d": 16,
+          "h": 26,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        },
+        "laundry_rack": {
+          "catalog_id": "laundry_rack",
+          "x": 30,
+          "y": 121,
+          "w": 32,
+          "d": 18,
+          "h": 60,
+          "rotation": 0,
+          "head": "east",
+          "faces": "east"
+        }
+      },
+      "footprints": {
+        "miles_queen": {
+          "min": [
+            42.2,
+            26,
+            0
+          ],
+          "max": [
+            126.5,
+            90.6,
+            45
+          ]
+        },
+        "miles_dresser_48": {
+          "min": [
+            0.75,
+            2,
+            0
+          ],
+          "max": [
+            20.05,
+            50.8,
+            33.3
+          ]
+        },
+        "nightstand_ne": {
+          "min": [
+            110,
+            4,
+            0
+          ],
+          "max": [
+            126,
+            20,
+            24
+          ]
+        },
+        "nightstand_se": {
+          "min": [
+            110,
+            104,
+            0
+          ],
+          "max": [
+            128,
+            120,
+            26
+          ]
+        },
+        "laundry_rack": {
+          "min": [
+            30,
+            121,
+            0
+          ],
+          "max": [
+            62,
+            139,
+            60
+          ]
+        }
+      },
+      "aisle_closed": 22.15,
+      "aisle_open": 13.45,
+      "aisle_label": "Bed foot to storage, closed",
+      "aisle_axis": "x",
+      "aisle_segment": [
+        [
+          20.05,
+          38.4
+        ],
+        [
+          42.2,
+          38.4
+        ]
+      ],
+      "aisle_open_segment": [
+        [
+          28.75,
+          38.4
+        ],
+        [
+          42.2,
+          38.4
+        ]
+      ],
+      "drawer_extension": 8.7,
+      "aisle_unc": 2.1,
+      "casing_signed_clearance": 8.7,
+      "casing_unc": 1.8,
+      "casing_overlap_range": [
+        -8.7,
+        -7.5
+      ],
+      "casing_clearance_range": [
+        7.5,
+        8.7
+      ],
+      "north_window_trim_covered": [
+        4.05,
+        6.05
+      ],
+      "north_window_top_above_stool": 5.3,
+      "north_window_unc": 1.5,
+      "north_aisle": 26,
+      "north_unc": 4,
+      "south_aisle": 49.1,
+      "south_unc": 4.5,
+      "shaker_margin": 12.2,
+      "shaker_margin_unc": 1.8,
+      "shaker_margin_photo": 11.35,
+      "shaker_margin_range": [
+        10.4,
+        14
+      ],
+      "shaker_stop_range_deg": [
+        118,
+        125.6
+      ],
+      "shaker_stop_by_margin": {
+        "-1.5": 9.5,
+        "-1.0": 14,
+        "-0.5": 26.6,
+        "-0.2": 51.3,
+        "0.0": 90,
+        "0.15": 90.4,
+        "0.5": 91.5,
+        "1.0": 92.9,
+        "2.0": 95.8,
+        "2.8": 98.2
+      },
+      "shaker_photo_fit_deg": 120.1,
+      "shaker_photo_fit_hinge_y": 62.15,
+      "shaker_max_open_deg": 121.97,
+      "shaker_contact_thin_deg": 121.97,
+      "shaker_shown_deg": 121.97,
+      "shaker_early_deg": 26.6,
+      "swing_conflict": false,
+      "trim_conflict": false,
+      "open_door_pinch": 13.7,
+      "pinch_segment": [
+        [
+          28.5,
+          63.6875
+        ],
+        [
+          42.2,
+          63.6875
+        ]
+      ],
+      "pinch_unc": 2.1,
+      "window_stool_standoff": 2,
+      "standoff_unc": 1,
+      "east_window": {
+        "stool_overlap_y": 9.6,
+        "opening_overlap_y": 5.6,
+        "height_above_sill": 15,
+        "unc": 3,
+        "height_unc": 3,
+        "wall_setback": 2,
+        "stool_projection": 2,
+        "projection_unc": 0.5
+      }
+    }
+  },
+  "checks": {
+    "requested_aisle_closed": 23.45,
+    "requested_aisle_drawer_open": 13.45,
+    "requested_casing_overlap": 2.5,
+    "alternative_aisle_closed": 22.15,
+    "alternative_aisle_drawer_open": 13.45,
+    "alternative_casing_clearance": 8.7,
+    "today_aisle_king_to_cube": 36,
+    "north_aisle_bed_to_north_wall": 26,
+    "south_aisle_queen_to_south_wall": 49.1,
+    "north_window_stool_standoff": 2,
+    "north_window_trim_covered": [
+      2.75,
+      4.75
+    ],
+    "headboard_east_window_overlap": {
+      "stool_overlap_y": 9.6,
+      "opening_overlap_y": 5.6,
+      "height_above_sill": 15,
+      "unc": 3,
+      "height_unc": 3,
+      "wall_setback": 2,
+      "stool_projection": 2,
+      "projection_unc": 0.5
+    },
+    "shaker_door_stop_requested": {
+      "survey_deg": 93.14,
+      "camera_fit_deg": 90.5,
+      "range_deg_1sd": [
+        17.4,
+        98.7
+      ],
+      "by_margin": {
+        "-1.5": 9.5,
+        "-1.0": 14,
+        "-0.5": 26.6,
+        "-0.2": 51.3,
+        "0.0": 90,
+        "0.15": 90.5,
+        "0.5": 91.6,
+        "1.0": 93.1,
+        "2.0": 96.3,
+        "2.8": 98.7
+      }
+    },
+    "shaker_door_stop_alternative": {
+      "survey_deg": 121.97,
+      "camera_fit_deg": 120.1,
+      "range_deg_1sd": [
+        118,
+        125.6
+      ]
+    },
+    "open_shaker_door_to_bed_foot_today": 19.5,
+    "shaker_door_max_open_deg_today": 155.73,
+    "open_shaker_door_to_bed_foot_requested": 13.7,
+    "shaker_door_max_open_deg_requested": 93.14,
+    "open_shaker_door_to_bed_foot_alternative": 13.7,
+    "shaker_door_max_open_deg_alternative": 121.97
+  }
+}

@@ -1,0 +1,40 @@
+> room-viewer@1.0.0 test
+> npm run build && node tools/test.mjs && node tools/browser-regression.mjs && node tools/catalog-browser.mjs
+
+
+> room-viewer@1.0.0 build
+> node tools/build.mjs
+
+Photo plates: exact outside-mask preservation for all three photos.
+Built 3 layouts, 20 computed checks; 3 photo cameras. Output: docs/primary-bedroom-b7q4m/
+today: closed 36 in; drawer n/a in; trim signed clearance 22 in; modeled door stop 156° best; 154.4⁠–⁠164.6° range; open-door pinch 19.5 in
+requested: closed 23.45 in; drawer 13.45 in; trim signed clearance -2.5 in; modeled door stop 93° best; 17.4⁠–⁠98.7° range; open-door pinch 13.7 in
+alternative: closed 22.15 in; drawer 13.45 in; trim signed clearance 8.7 in; modeled door stop 122° best; 118.0⁠–⁠125.6° range; open-door pinch 13.7 in
+PASS door regression: one-sided leaf through 90°, all three stops and open-door pinches.
+PASS door margin: survey, directly solved camera hinge, combined uncertainty, every margin sample and alternative within source tolerance.
+PASS generic layouts: five ranked options, placed catalog instances, all four bed headings, rotated footprints, drawer gaps and physical door stops.
+PASS requested_aisle_closed: 23.45 in (expected 23.45 ± 2.1)
+PASS requested_aisle_drawer_open: 13.45 in (expected 13.45 ± 2.1)
+PASS requested_casing_overlap: 2.50 in (expected 2.5 ± 1.8)
+PASS alternative_aisle_closed: 22.15 in (expected 22.15 ± 2.1)
+PASS alternative_aisle_drawer_open: 13.45 in (expected 13.45 ± 2.1)
+PASS alternative_casing_clearance: 8.70 in (expected 8.7 ± 1.8)
+PASS today_aisle_king_to_cube: 36.00 in (expected 36 ± 4)
+PASS north_aisle_bed_to_north_wall: 26.00 in (expected 26 ± 4)
+PASS south_aisle_queen_to_south_wall: 49.10 in (expected 49.1 ± 4.5)
+PASS open_shaker_door_to_bed_foot_requested: 13.70 in (expected 13.7 ± 2.1)
+PASS open_shaker_door_to_bed_foot_alternative: 13.70 in (expected 13.7 ± 2.1)
+PASS open_shaker_door_to_bed_foot_today: 19.50 in (expected 19.5 ± 4)
+PASS shaker_door_max_open_deg_today: 155.73 deg (expected 155.76 ± null)
+PASS shaker_door_max_open_deg_requested: 93.14 deg (expected 93.15 ± null)
+PASS shaker_door_max_open_deg_alternative: 121.97 deg (expected 122.04 ± null)
+PASS north_window_stool_standoff: 2.00 in (expected 2 ± 1)
+PASS 84 announcements: every number grounded in clearances.json; labels, not view IDs.
+PASS camera projection: analytic room landmarks agree with OpenCV intrinsics within 0.000001 pixel.
+PASS 3 delivered photo cameras: position/target/up/FOV projections agree with OpenCV within 2 pixels (rounded source poses).
+PASS 57 assertions/groups: 3 source layouts; 15 scene footprints within 0.25 in; all 20 expected checks; door collision; generated text and table parity; no location/EXIF leaks.
+Static site: 2.37 MiB including all stills and photos.
+All geometry and publication-safety tests passed.
+PASS headless regressions: 10 fallback scene/drawer/door states; imagery, metrics and live text agree; no clipped content; SVG text boxes do not overlap; ≥12 px SVG / ≥14 px HTML; announcements ≤40 words; zero console errors.
+PASS generic layouts: five ranked options, placed catalog instances, all four bed headings, rotated footprints, drawer gaps and physical door stops.
+PASS headless catalog: 5 generated layout buttons, all rotated mesh bounds within 0.25 in, every heading and zero console errors.

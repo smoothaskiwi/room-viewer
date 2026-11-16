@@ -1,0 +1,21 @@
+{
+  "name": "room-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A measured, accessible static three.js room study",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "npm run build && node tools/test.mjs && node tools/browser-regression.mjs && node tools/catalog-browser.mjs",
+    "verify": "node tools/verify.mjs"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@axe-core/puppeteer": "^4.14.0",
+    "esbuild": "^0.28.2",
+    "puppeteer-core": "25.17.0"
+  }
+}
