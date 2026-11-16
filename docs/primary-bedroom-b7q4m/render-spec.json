@@ -237,8 +237,10 @@
       "owned": false,
       "drawer_count": 0,
       "drawer_extension": null,
-      "volume": null,
-      "volume_basis": "unknown; not inferred from cabinet size",
+      "drawer_extension_estimate": false,
+      "volume": 0,
+      "volume_estimate": false,
+      "volume_basis": "not counted",
       "price": 1699,
       "price_date": "2026-11-16",
       "price_basis": "US displayed price, excludes tax and delivery",
@@ -270,7 +272,9 @@
       "owned": false,
       "drawer_count": 6,
       "drawer_extension": 8.7,
+      "drawer_extension_estimate": false,
       "volume": 8661.492000000002,
+      "volume_estimate": false,
       "volume_basis": "published drawer interiors",
       "price": 1499,
       "price_date": "2026-11-16",
@@ -295,7 +299,9 @@
       "owned": false,
       "drawer_count": 4,
       "drawer_extension": 8.7,
+      "drawer_extension_estimate": false,
       "volume": 8532.216,
+      "volume_estimate": false,
       "volume_basis": "published drawer interiors",
       "price": 1299,
       "price_date": "2026-11-16",
@@ -320,7 +326,9 @@
       "owned": false,
       "drawer_count": 1,
       "drawer_extension": 10,
+      "drawer_extension_estimate": false,
       "volume": 1274.1,
+      "volume_estimate": false,
       "volume_basis": "published drawer interiors",
       "price": 499,
       "price_date": "2026-11-16",
@@ -345,7 +353,9 @@
       "owned": false,
       "drawer_count": 1,
       "drawer_extension": 8.5,
+      "drawer_extension_estimate": false,
       "volume": 645.1200000000001,
+      "volume_estimate": false,
       "volume_basis": "published drawer interiors",
       "price": 449,
       "price_date": "2026-11-16",
@@ -370,8 +380,10 @@
       "owned": false,
       "drawer_count": 6,
       "drawer_extension": 8,
-      "volume": null,
-      "volume_basis": "unknown; not inferred from cabinet size",
+      "drawer_extension_estimate": false,
+      "volume": 16632.000000000004,
+      "volume_estimate": true,
+      "volume_basis": "estimate: 0.55 × case volume above legs",
       "price": 1399,
       "price_date": "2026-11-16",
       "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
@@ -395,8 +407,10 @@
       "owned": false,
       "drawer_count": 6,
       "drawer_extension": 8,
-      "volume": null,
-      "volume_basis": "unknown; not inferred from cabinet size",
+      "drawer_extension_estimate": false,
+      "volume": 14913.360000000002,
+      "volume_estimate": true,
+      "volume_basis": "estimate: 0.55 × case volume above legs",
       "price": 1499,
       "price_date": "2026-11-16",
       "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
@@ -420,8 +434,10 @@
       "owned": false,
       "drawer_count": 6,
       "drawer_extension": 9,
-      "volume": null,
-      "volume_basis": "unknown; not inferred from cabinet size",
+      "drawer_extension_estimate": false,
+      "volume": 15800.400000000001,
+      "volume_estimate": true,
+      "volume_basis": "estimate: 0.55 × case volume above legs",
       "price": 1299,
       "price_date": "2026-11-16",
       "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
@@ -444,9 +460,11 @@
       "faces": "east",
       "owned": false,
       "drawer_count": 6,
-      "drawer_extension": null,
-      "volume": null,
-      "volume_basis": "unknown; not inferred from cabinet size",
+      "drawer_extension": 16.25,
+      "drawer_extension_estimate": true,
+      "volume": 13721.400000000001,
+      "volume_estimate": true,
+      "volume_basis": "estimate: 0.55 × case volume above legs",
       "price": 839,
       "price_date": "2026-11-16",
       "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
@@ -469,9 +487,11 @@
       "faces": "east",
       "owned": false,
       "drawer_count": 4,
-      "drawer_extension": null,
-      "volume": null,
-      "volume_basis": "unknown; not inferred from cabinet size",
+      "drawer_extension": 16.5,
+      "drawer_extension_estimate": true,
+      "volume": 12387.375,
+      "volume_estimate": true,
+      "volume_basis": "estimate: 0.55 × case volume above legs",
       "price": 999,
       "price_date": "2026-11-16",
       "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
@@ -495,8 +515,10 @@
       "owned": false,
       "drawer_count": 6,
       "drawer_extension": 10.875,
-      "volume": null,
-      "volume_basis": "unknown; not inferred from cabinet size",
+      "drawer_extension_estimate": false,
+      "volume": 13448.260546875,
+      "volume_estimate": true,
+      "volume_basis": "estimate: 0.55 × case volume above legs",
       "price": 279.99,
       "price_date": "2026-11-16",
       "price_basis": "Public US item price 2026-11-16; excludes tax/delivery. RH member price requires membership.",
@@ -520,7 +542,9 @@
       "owned": false,
       "drawer_count": 1,
       "drawer_extension": null,
+      "drawer_extension_estimate": false,
       "volume": 473.6875,
+      "volume_estimate": false,
       "volume_basis": "published drawer interiors",
       "price": 965,
       "price_date": "2026-11-16",
@@ -653,6 +677,7 @@
       "owned": true,
       "drawer_count": 0,
       "drawer_extension": null,
+      "drawer_extension_estimate": false,
       "volume": 0,
       "volume_basis": "not counted",
       "price": 0,
@@ -671,8 +696,9 @@
       "head": "east",
       "faces": "east",
       "owned": true,
-      "drawer_count": 0,
-      "drawer_extension": null,
+      "drawer_count": 1,
+      "drawer_extension": 15.5,
+      "drawer_extension_estimate": true,
       "volume": 0,
       "volume_basis": "not counted",
       "price": 0,
@@ -691,8 +717,9 @@
       "head": "east",
       "faces": "east",
       "owned": true,
-      "drawer_count": 0,
-      "drawer_extension": null,
+      "drawer_count": 2,
+      "drawer_extension": 10.799999999999997,
+      "drawer_extension_estimate": true,
       "volume": 0,
       "volume_basis": "not counted",
       "price": 0,
@@ -713,6 +740,7 @@
       "owned": true,
       "drawer_count": 0,
       "drawer_extension": null,
+      "drawer_extension_estimate": false,
       "volume": 11979,
       "volume_basis": "assumed nine 11 × 11 × 11 in cubes",
       "price": 0,
@@ -733,6 +761,7 @@
       "owned": true,
       "drawer_count": 0,
       "drawer_extension": null,
+      "drawer_extension_estimate": false,
       "volume": 0,
       "volume_basis": "not counted",
       "price": 0,
@@ -785,21 +814,28 @@
       ]
     },
     {
-      "id": "layout-31914f6775",
-      "label": "Keep bed east, cubes on west wall; laundry south",
+      "id": "layout-adabfae6bf",
+      "label": "Bed east, keep cubes west; laundry south",
       "items": [
         {
           "id": "bed",
           "catalog_id": "miles_queen",
           "x": 42.2,
-          "y": 19.6,
+          "y": 24.75,
           "rotation": 0
         },
         {
           "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 108,
+          "y": 7.75,
+          "rotation": 180
+        },
+        {
+          "id": "nightstand_south",
           "catalog_id": "nightstand_south",
-          "x": 114.2,
-          "y": 0.5,
+          "x": 109.2,
+          "y": 92.35,
           "rotation": 180
         },
         {
@@ -812,49 +848,97 @@
         {
           "id": "laundry_sorter",
           "catalog_id": "laundry_sorter",
-          "x": 32,
-          "y": 106.95,
-          "rotation": 0
+          "x": 30,
+          "y": 121,
+          "rotation": 270
         }
       ]
     },
     {
-      "id": "layout-f770bdc137",
-      "label": "Turn bed north, cubes on east wall; laundry north",
+      "id": "layout-cea3c67569",
+      "label": "Bed east, keep cubes west; laundry north",
       "items": [
         {
           "id": "bed",
           "catalog_id": "miles_queen",
-          "x": 31.95,
+          "x": 42.2,
+          "y": 37.55,
+          "rotation": 0
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 108,
+          "y": 20.55,
+          "rotation": 180
+        },
+        {
+          "id": "nightstand_south",
+          "catalog_id": "nightstand_south",
+          "x": 109.2,
+          "y": 105.15,
+          "rotation": 180
+        },
+        {
+          "id": "cube_organiser",
+          "catalog_id": "cube_organiser",
+          "x": 0.75,
+          "y": 2,
+          "rotation": 0
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 95.75,
+          "y": 0.75,
+          "rotation": 90
+        }
+      ]
+    },
+    {
+      "id": "layout-c233550e81",
+      "label": "Bed north, keep cubes west; laundry south",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 39.15,
           "y": 2,
           "rotation": 270
         },
         {
           "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 22.15,
+          "y": 2,
+          "rotation": 90
+        },
+        {
+          "id": "nightstand_south",
           "catalog_id": "nightstand_south",
-          "x": 12.85,
-          "y": 0.75,
+          "x": 104.75,
+          "y": 2,
           "rotation": 90
         },
         {
           "id": "cube_organiser",
           "catalog_id": "cube_organiser",
-          "x": 116.25,
-          "y": 42.55,
-          "rotation": 180
+          "x": 0.75,
+          "y": 2,
+          "rotation": 0
         },
         {
           "id": "laundry_sorter",
           "catalog_id": "laundry_sorter",
-          "x": 109.75,
-          "y": 0.75,
-          "rotation": 180
+          "x": 30,
+          "y": 121,
+          "rotation": 270
         }
       ]
     },
     {
-      "id": "layout-26346b5ff4",
-      "label": "Turn bed north, chest on south wall; laundry north",
+      "id": "layout-dc35b0c4f4",
+      "label": "Bed north, chest north; laundry south",
       "items": [
         {
           "id": "bed",
@@ -865,96 +949,55 @@
         },
         {
           "id": "nightstand_north",
-          "catalog_id": "nightstand_south",
-          "x": 12.85,
-          "y": 0.75,
+          "catalog_id": "nightstand_north",
+          "x": 14.95,
+          "y": 2,
           "rotation": 90
         },
         {
           "id": "article_lenia",
           "catalog_id": "article_lenia",
           "x": 97.75,
-          "y": 119.45,
-          "rotation": 270
+          "y": 0.75,
+          "rotation": 90
         },
         {
           "id": "laundry_sorter",
           "catalog_id": "laundry_sorter",
-          "x": 109.75,
-          "y": 0.75,
-          "rotation": 180
+          "x": 30,
+          "y": 121,
+          "rotation": 270
         }
       ]
     },
     {
-      "id": "layout-5a6280562d",
-      "label": "Keep bed east, dresser on west wall; laundry south",
+      "id": "layout-cb74bcebcd",
+      "label": "Bed east, chest west; laundry south",
       "items": [
         {
           "id": "bed",
           "catalog_id": "miles_queen",
           "x": 42.2,
-          "y": 18.5,
+          "y": 24.75,
           "rotation": 0
         },
         {
           "id": "nightstand_north",
           "catalog_id": "nightstand_north",
-          "x": 109.5,
-          "y": 1.5,
+          "x": 108,
+          "y": 7.75,
           "rotation": 180
         },
         {
           "id": "nightstand_south",
           "catalog_id": "nightstand_south",
-          "x": 110.2,
-          "y": 86.1,
+          "x": 109.2,
+          "y": 92.35,
           "rotation": 180
         },
         {
-          "id": "ikea_storklinta",
-          "catalog_id": "ikea_storklinta",
-          "x": 0.75,
-          "y": 3.77,
-          "rotation": 0
-        },
-        {
-          "id": "laundry_sorter",
-          "catalog_id": "laundry_sorter",
-          "x": 32,
-          "y": 106.95,
-          "rotation": 0
-        }
-      ]
-    },
-    {
-      "id": "layout-10f7233772",
-      "label": "Turn bed north, add a chest and keep cubes; laundry east",
-      "items": [
-        {
-          "id": "bed",
-          "catalog_id": "miles_queen",
-          "x": 31.95,
-          "y": 2,
-          "rotation": 270
-        },
-        {
-          "id": "nightstand_north",
-          "catalog_id": "nightstand_south",
-          "x": 12.85,
-          "y": 0.75,
-          "rotation": 90
-        },
-        {
-          "id": "article_lenia",
-          "catalog_id": "article_lenia",
-          "x": 98.35,
-          "y": 119.45,
-          "rotation": 270
-        },
-        {
-          "id": "cube_organiser",
-          "catalog_id": "cube_organiser",
+          "id": "miles_chest_34",
+          "catalog_id": "miles_chest_34",
           "x": 0.75,
           "y": 2,
           "rotation": 0
@@ -962,9 +1005,9 @@
         {
           "id": "laundry_sorter",
           "catalog_id": "laundry_sorter",
-          "x": 109.75,
-          "y": 47.55,
-          "rotation": 180
+          "x": 30,
+          "y": 121,
+          "rotation": 270
         }
       ]
     },

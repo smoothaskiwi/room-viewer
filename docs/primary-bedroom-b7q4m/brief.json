@@ -1,10 +1,11 @@
 {
   "meta": {
-    "version": "1.0 draft (16 Nov 2026)",
+    "version": "1.1 (16 Nov 2026)",
     "room": "primary-bedroom",
-    "status": "defaults proposed by the agent; Daniel can change any of them in plain words"
+    "status": "defaults proposed by the agent; Daniel can change any of them in plain words",
+    "change": "1.0 marked Today invalid (bed north side 15-17 in, window approach, switch behind the sorter, unknown drawer volume), although the household lives in it every day. 1.1 calibrates: anything Today already has is at most a comparison, never invalid."
   },
-  "plain_policy": "Keep a queen Miles bed with both sides reachable; keep at least today's storage; keep the laundry sorter in the room; every everyday route at least 22 inches wide; priorities in order: everyday walkway, storage, fewest changes, cost.",
+  "plain_policy": "Keep a queen Miles bed reachable from both sides; nothing may collide or stop a door short; the main walkway from the hall door past the foot of the bed must stay at least 20 inches; bed sides at least 15 inches (today's north side is about 16.75); everything else is a trade-off measured against today. Priorities in order: main walkway, bed-side room, storage, fewest changes, cost.",
   "pinned": {
     "bed": "miles_queen",
     "bed_finish": "Toasted Oak frame, Twill Sand headboard"
@@ -12,7 +13,7 @@
   "required": {
     "bed": 1,
     "bed_both_sides_reachable": true,
-    "storage": "dresser or chest drawer volume at least equal to today's nine cube organiser cubes (about 9 x 11 x 11 x 11 cubic in), or keep the cube organiser",
+    "storage": "compare storage with today's nine cube-organiser cubes (assumed 11 x 11 x 11 in each); for dressers without a published drawer volume use an estimate of 0.55 x the case volume above the legs, labelled 'estimate'; less storage than today is a warning, not invalid",
     "nightstands": "two preferred; one allowed with a warning; existing pieces allowed",
     "laundry_sorter": "must stay in the room"
   },
@@ -43,16 +44,33 @@
     "miles_dresser_70": "too wide for any span"
   },
   "passage": {
-    "route_min": 22,
-    "guides": {
-      "tight": 24,
-      "comfortable": 30,
-      "generous": 36
+    "main_route": {
+      "from": "hall door clear opening",
+      "to": [
+        "foot of the bed",
+        "entrance of each bed-side strip",
+        "front of each storage piece",
+        "white door",
+        "closet door approach"
+      ],
+      "hard_min": 20,
+      "note": "below 20 is invalid; 24 tight, 30 comfortable, 36 generous are rules of thumb; IRC R311.6 36-in hallway is a reference only"
     },
-    "labels": "rules of thumb, not code; IRC R311.6 36-in hallway is a reference only",
-    "routes": "hall door clear opening to: each bed side, closet door approach, front of each storage piece, the white door, the operable windows",
-    "bed_side_min": 18,
-    "drawer_standing": "drawer extension plus 16 in to stand at an open drawer (one drawer at a time)"
+    "bed_side_strip": {
+      "hard_min": 15,
+      "note": "width of the strip beside each long side of the bed, measured on its own (the destination, not a route through it); 18 tight, 24 comfortable"
+    },
+    "body_model": "routes use floor-level obstacles (anything from the floor to 24 in high) plus anything above 24 in that projects more than 3 in from the wall; window stools and casings projecting 3 in or less do not narrow routes (people pass them), but still count for furniture collisions",
+    "drawer_standing": {
+      "report": "standing space in front of a fully open drawer, one drawer at a time",
+      "guides": {
+        "tight": 16,
+        "comfortable": 24
+      },
+      "hard_min": 8,
+      "note": "below 16 is a warning"
+    },
+    "doors": "white door and closet door: at least 90 degrees (a piece may be the stop); entry door: fully open to the south wall. Report each resting angle."
   },
   "doors": {
     "shaker_door": "must open to at least 90 degrees (a piece may be the stop)",
@@ -60,13 +78,19 @@
     "closet_door": "must open to at least 90 degrees"
   },
   "windows": {
-    "policy": "each window must stay openable and reachable: no tall piece in front; a headboard over the casing or stool is a warning; a nightstand or low dresser below the stool is fine"
+    "policy": "each window must stay openable: reachable from a standing spot within 24 in horizontally, over pieces no taller than 36 in (nightstands and dressers below the sill are fine). A piece taller than the stool covering more than half the opening's width is a warning (egress); a headboard over casing or stool is a warning; no route to the glass is required"
   },
   "child_safety": "anchor every dresser and chest; flag climbable pieces under a window",
   "classes": {
-    "invalid": "breaks a required item, a door rule or a route minimum at the best estimate",
-    "conditional": "passes at the best estimate but fails in a plausible scenario; say which measurement settles it",
-    "preference": "warnings and trade-offs"
+    "invalid": "collision, a door short of its required angle, main route below 20 in, a bed side below 15 in, or a required item missing, at the best estimate",
+    "conditional": "passes at the best estimate but fails in a plausible joint scenario; name the measurement that settles it",
+    "preference": "warnings and trade-offs, each stated as a difference from Today"
   },
-  "ranking": "filter, cluster (bed wall, route pattern, furniture mix), pick distinct representatives, then sort by the plain_policy priorities; show Today plus four first, then up to eight"
+  "ranking": "filter invalid; cluster (bed wall, route pattern, furniture mix); pick distinct representatives; sort by the plain_policy priorities; show Today plus four valid or conditional layouts first, then up to eight; if fewer than four exist, show what exists and say why",
+  "calibration": {
+    "rule": "Today (the arrangement the household lives in) must classify as valid. Any rule that Today fails is a preference comparison ('tighter than today by X in'), not invalid. Enforce with a test.",
+    "today_reference": "report every measure for Today and show each layout's difference from Today"
+  },
+  "wall_items_policy": "switches and keypads reachable over pieces up to 24 in deep (warning otherwise); a covered receptacle is a warning",
+  "movables": "the rolling laundry sorter is movable: it may touch trim and casings and its position is approximate; place it where it does not block a route, door or switch"
 }

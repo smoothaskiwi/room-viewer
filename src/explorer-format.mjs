@@ -1,9 +1,35 @@
 export const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-export const inch=n=>n===null||n===undefined?'Unknown':`${n.toFixed(1)} in`;
-export const routeText=l=>`${inch(l.measures.route)} ± ${l.measures.route_unc.toFixed(1)} in scenarios; grid ${l.measures.route_grid.toFixed(1)} in, conservative lower estimate`;
+export const inch=n=>n===null||n===undefined?'Not applicable':`${n.toFixed(1)} in`;
+export const difference=(n,unit='in')=>n===null||n===undefined?'no comparable Today measure':`${n>=0?'+':''}${n.toFixed(1)} ${unit} vs Today`;
+export const measured=(n,u,d,unit='in')=>n===null||n===undefined?'Not applicable':`${n.toFixed(1)} ± ${u.toFixed(1)} ${unit}; ${difference(d,unit)}`;
+export const routeText=l=>`${measured(l.measures.route,l.measures.route_unc,l.measures.difference_from_today.route)}; grid ${l.measures.route_grid.toFixed(1)} in, conservative lower estimate`;
 export const rangeText=l=>`${l.measures.route_min.toFixed(1)}–${l.measures.route_max.toFixed(1)} in (joint scenarios, not a confidence interval)`;
 export const money=n=>n.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2});
-export function storageText(l){const m=l.measures;if(!m.storage_volume_known)return 'Drawer volume unknown; equivalence not verified';const pct=Math.round(100*(m.storage_volume/m.today_volume-1));return `${pct>=0?'+':''}${pct}% known volume versus today${m.storage_drawers?`; ${m.storage_drawers} drawers`:'; open cubes'}`;}
-export function metricsRows(l){const m=l.measures;return [['Narrowest everyday route, doors resting',routeText(l)],['Scenario route range',rangeText(l)],['Limiting destination',l.routes.limiting.id.replaceAll('_',' ')],['Hall doorway width (separate)',`${inch(m.doorway)} ± ${m.doorway_unc.toFixed(1)} in (survey)`],['Storage front to bed (or opposite wall when not aligned)',`${inch(m.bed_to_storage)} ± ${m.local_unc.toFixed(1)} in (derived)`],['One drawer open: space left to stand',m.drawer_open===null?'Unknown / no dresser drawer':`${inch(m.drawer_open)} ± ${m.local_unc.toFixed(1)} in; 16.0 in required`],['White door leaf to bed foot, at 90°',m.white_door_to_bed_90===null?'Different geometry; see destination routes':`${inch(m.white_door_to_bed_90)} ± ${m.local_unc.toFixed(1)} in (not resting-route width)`],['Bed side clearances to walls',l.bed_sides.map(inch).join(' / ')+` ± ${m.local_unc.toFixed(1)} in`],...l.doors.map(d=>[d.id.replaceAll('_',' ')+' resting / contact stop',`${d.rest.toFixed(0)}° / ${d.stop.toFixed(0)}°; scenario contact ${Math.min(...l.scenarios.map(s=>s.doors.find(x=>x.id===d.id).stop)).toFixed(0)}–${Math.max(...l.scenarios.map(s=>s.doors.find(x=>x.id===d.id).stop)).toFixed(0)}° (modeled; installed stop unknown)`]),['Storage versus today',storageText(l)],['New pieces, prices dated 16 Nov 2026',money(l.cost)+' before tax/delivery'],['Changes from today',String(l.changes)]];}
-export const announcement=(l,view)=>`${l.title}. ${l.class}. ${view}. Narrowest route ${routeText(l)}. ${l.main_warning}.`;
-export function card(l,room,index){return `<article class="card${index>4?' extra':''}" data-layout-card="${l.id}"${index>4?' hidden':''}><div class="card-heading"><p class="eyebrow">${index===0?'Baseline':l.rank?'Recommendation '+l.rank:l.pinned?'Pinned request':'Comparison option '+index} · <span class="badge ${l.class}">${l.class}</span></p><h3>${esc(l.title)}</h3></div><div class="mini-plan" data-plan="${l.id}"></div><p class="legend">${l.footprints.map((f,i)=>f.kind==='bed'?'':`${i+1}: ${f.kind==='storage'?'cubes':f.kind==='rack'?'laundry':f.kind==='dresser'?'dresser/chest':'bedside'}`).filter(Boolean).join(' · ')}</p><dl><div><dt>Narrowest everyday route · doors resting</dt><dd data-route="${l.id}">${esc(routeText(l))}</dd></div><div><dt>Storage vs today</dt><dd>${esc(storageText(l))}</dd></div><div><dt>New cost · 16 Nov 2026, before tax/delivery</dt><dd>${money(l.cost)}</dd></div></dl><p class="warning">${esc(l.main_warning)}</p><div class="actions"><button data-open="${l.id}">Open option</button><button class="secondary" data-fav="${l.id}" aria-pressed="false" aria-label="Favourite ${esc(l.title)}">☆ Save</button></div></article>`;}
+export function storageText(l){const m=l.measures,pct=Math.round(100*m.difference_from_today.storage_volume/m.today_volume);return `${measured(m.storage_volume,m.storage_unc,m.difference_from_today.storage_volume,'cu in')} (${pct>=0?'+':''}${pct}%); ${m.storage_estimate?'estimate: 0.55 × case above legs':l.footprints.some(f=>f.kind==='storage')?'assumed nine 11-inch cubes':'published drawer interiors'}; uncertainty is a planning allowance, not a confidence bound`;}
+export function doorText(l,d){const stops=l.scenarios.map(s=>s.doors.find(x=>x.id===d.id)),unc=Math.max(...stops.map(x=>Math.abs(x.rest-d.rest)));return `${measured(d.rest,unc,l.measures.difference_from_today.doors.find(x=>x.id===d.id).value,'deg')}; contact stop ${d.stop.toFixed(1)}° (modeled; installed stop unknown)`;}
+export function keyRows(l){const m=l.measures,sideNames=['east','west'].includes(l.head)?['North','South']:['West (Today north reference)','East (Today south reference)'];return [
+ ['Main walkway, doors resting',routeText(l)],
+ ...l.bed_sides.map((v,i)=>[sideNames[i]+' bed-side strip',measured(v,m.bed_side_unc[i],m.difference_from_today.bed_sides[i])]),
+ ['One drawer open: standing',m.drawer_open===null?'No drawer':measured(m.drawer_open,m.drawer_unc,m.difference_from_today.drawer_open)+(m.drawer_estimate?'; travel estimate (case depth − 3 in)':'')+'; below 16 warning, below 8 invalid'],
+ ['White door resting angle',doorText(l,l.doors.find(d=>d.id==='shaker_door'))],
+ ['Storage vs Today',storageText(l)],
+ ...m.window_coverage.map(w=>[w.id.replaceAll('_',' ')+' opening coverage',measured(w.value,w.unc,m.difference_from_today.window_coverage.find(x=>x.id===w.id).value,'percentage points')+'; above-stool-height pieces; >50% egress warning']),
+ ['New pieces · 16 Nov 2026',`${money(l.cost)} ± $0 listed price; ${money(m.difference_from_today.cost)} vs Today; tax/delivery extra`]
+ ];}
+export function metricsRows(l){const m=l.measures;return [...keyRows(l),
+ ['Scenario route range',rangeText(l)],['Limiting destination',l.routes.limiting.id.replaceAll('_',' ')],
+ ['Hall doorway width (separate)',`${inch(m.doorway)} ± ${m.doorway_unc.toFixed(1)} in; +0.0 in vs Today (survey)`],
+ ['Storage front to bed / opposite wall',measured(m.bed_to_storage,m.local_unc,m.difference_from_today.bed_to_storage)],
+ ['White leaf to bed foot at 90°',m.white_door_to_bed_90===null?'Rotated bed: see routes':measured(m.white_door_to_bed_90,m.local_unc,m.difference_from_today.white_door_to_bed_90)+'; not resting-route width'],
+ ...l.doors.filter(d=>d.id!=='shaker_door').map(d=>[d.id.replaceAll('_',' ')+' resting / contact',doorText(l,d)]),
+ ['Changes from Today',String(l.changes)],
+ ['Drawer standing for every piece (one at a time)',l.drawers.map(d=>`${d.id.replaceAll('_',' ')}: ${inch(d.standing)}${d.estimate?' (estimated travel)':''}`).join('; ')],
+ ['Window operation',l.windows.map(w=>w.id.replaceAll('_',' ')+': '+(w.reachable?'standing reach within 24 in':'reach not verified; warning')).join('; ')]
+ ];}
+export const announcement=(l,view)=>`${l.title}. ${l.class}. ${view}. ${keyRows(l).map(([k,v])=>k+': '+v).join('. ')}. ${l.main_warning}.`;
+export function card(l,room,index){const extra=index>4&&!l.pinned;return `<article class="card${extra?' extra':''}" data-layout-card="${l.id}"${extra?' hidden':''}>
+ <div class="card-heading"><p class="eyebrow">${index===0?'Baseline':l.pinned?'Pinned request':l.rank?'Rank '+l.rank:'Comparison'} · <span class="badge ${l.class}">${l.class}</span></p><h3>${esc(l.title)}</h3></div>
+ <div class="mini-plan" data-plan="${l.id}"></div>
+ <p class="warning">${esc(l.main_warning)}</p>
+ <dl>${keyRows(l).map(([k,v],i)=>`<div><dt>${esc(k)}</dt><dd${i===0?` data-route="${l.id}"`:''}>${esc(v)}</dd></div>`).join('')}</dl>
+ <div class="actions"><button data-open="${l.id}">Open option</button><button class="secondary" data-fav="${l.id}" aria-pressed="false" aria-label="Favourite ${esc(l.title)}">☆ Save</button></div></article>`;}

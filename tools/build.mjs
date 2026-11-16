@@ -14,9 +14,170 @@ for(const n of ['explorer-app.mjs','explorer-3d.mjs','explorer-format.mjs','expl
 await fs.mkdir(path.join(out,'vendor/addons/controls'),{recursive:true});await fs.mkdir(path.join(out,'vendor/addons/geometries'),{recursive:true});const {transform}=await import('esbuild');for(const n of ['three.module.js','three.core.js'])await write('vendor/'+n,(await transform(await fs.readFile(path.join(repo,'node_modules/three/build',n),'utf8'),{minify:true,format:'esm',legalComments:'eof'})).code);for(const [folder,n]of [['controls','OrbitControls.js'],['geometries','RoundedBoxGeometry.js']])await fs.copyFile(path.join(repo,'node_modules/three/examples/jsm',folder,n),path.join(out,'vendor/addons',folder,n));await fs.copyFile(path.join(repo,'node_modules/three/LICENSE'),path.join(out,'vendor/THREE-LICENSE.txt'));
 // Retain independently audited protected photo plates and byte-identical unedited web originals.
 for(const n of ['scene-spec.json','clearances.json','app.mjs','plan.mjs','style.css'])await fs.rm(path.join(out,n),{force:true});await fs.rm(path.join(out,'stills'),{force:true,recursive:true});
-const ranked=`<details><summary>Ranked text table for Daniel — all options and every failure</summary><p>${esc(data.search.retained)}</p><table id="ranked-table"><caption>Baseline, then comparison order (no passing recommendations)</caption><thead><tr><th scope="col">Order</th><th scope="col">Option and class</th><th scope="col">Route, doors resting</th><th scope="col">Main warning</th></tr></thead><tbody>${data.layouts.map((l,i)=>`<tr><th scope="row">${i||'Today'}</th><td><a href="#layout=${l.id}">${esc(l.title)}</a><br>${l.class}</td><td>${esc(routeText(l))}</td><td>${esc(l.main_warning)}</td></tr>`).join('')}</tbody></table><ol>${data.layouts.map(l=>`<li>${esc(l.sentence)}</li>`).join('')}</ol></details>`;
-const detail=`<section id="detail" hidden aria-labelledby="detail-title"><button class="secondary" id="back-gallery">← Back to options</button><h2 id="detail-title" tabindex="-1"></h2><p id="class-readout" class="warning"></p><p id="sentence"></p><p id="measure-readout"></p><div class="view-buttons" role="group" aria-label="Choose view"><button data-view="plan" aria-pressed="true">Plan</button><button data-view="hall" aria-pressed="false">From the hall door · 3D</button><button data-view="bed" aria-pressed="false">From the bed · 3D</button><button data-view="orbit" aria-pressed="false">Free orbit · 3D</button><button data-view="photos" aria-pressed="false">Your photos</button></div><p id="fallback-note" class="notice" hidden>3D is unavailable. The live plan and all measurements still work for every option.</p><div class="visual"><div id="detail-plan"></div><div id="three-host" class="stage" hidden></div><p id="canvas-label"></p></div><p id="view-note"></p><p id="legend" class="legend"></p><div class="toggles" role="group" aria-label="View options"><button id="drawer" aria-pressed="false">One drawer: closed</button><button id="swings" aria-pressed="true">Doors: resting</button><button id="labels" aria-pressed="true">Measurements label</button><button class="secondary" id="reset">Reset view</button></div><label for="destinations">Draw route to an approach region</label><select id="destinations"></select><p>Everyday route includes the hall approach; doorway width is also reported separately. 0.5-in conservative grid, no diagonal corner cutting. 24 tight / 30 comfortable / 36 generous: furniture-planning rules of thumb, not bedroom code.</p><p id="photo-reason"></p><div id="photo-controls" hidden><div class="actions" role="group" aria-label="Photo choice"><button data-photo="0" aria-pressed="true">Photo 1</button><button data-photo="1" aria-pressed="false">Photo 2</button><button data-photo="2" aria-pressed="false">Photo 3</button></div><label for="fade">Proposed model fade (zero shows the original)</label><input type="range" id="fade" min="0" max="100" value="100"></div><div id="orbit-controls" class="orbit-buttons" hidden>${['left','right','up','down','in','out'].map(x=>`<button data-orbit="${x}" aria-label="Orbit ${x}">${x}</button>`).join('')}</div><figure id="original-pair" hidden><img id="original-photo" alt="Unedited original bedroom photograph"><figcaption>Unedited original — compare with the illustrative reconstruction above.</figcaption></figure><div id="detail-table"></div><details><summary>Rule checks, warnings and tape measurement</summary><p id="measure-request"></p><ul id="warnings"></ul><ul id="rule-results"></ul></details><button id="share" class="secondary">Copy this option’s share link</button></section>`;
-const compare=`<section id="compare" hidden aria-labelledby="compare-title"><button id="compare-close" class="secondary">Close comparison</button><h2 id="compare-title" tabindex="-1">A / B compare</h2><p>Stacked full-width plans, same scale. No tiny side-by-side phone canvases.</p><div class="comparison-selectors"><div><label for="compare-a">Option A</label><select id="compare-a"></select></div><div><label for="compare-b">Option B</label><select id="compare-b"></select></div></div><div id="compare-plans"></div><div id="compare-table"></div></section>`;
-await write('index.html',`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bedroom layout explorer</title><link rel="icon" href="data:,"><link rel="stylesheet" href="explorer.css"><script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script></head><body><a class="skip" href="#gallery-title">Skip to layouts</a><header><p class="eyebrow">Bedroom · layout explorer · 16 Nov 2026</p><h1>Find a layout that works in daily life</h1><p class="notice">Not tape-verified. Photo-survey estimates (M), owner constraints (O), assumptions (A), derived scenarios (D). Furniture details and colours are illustrative.</p><p class="verdict">${esc(data.verdict)}</p>${ranked}<details><summary>The brief and search coverage</summary><p class="policy">${esc(brief.plain_policy)}</p><p>${data.search.generated} storage/sorter combinations generated; ${data.search.evaluated_analytic} checked after incremental pruning; ${data.search.distinct_clusters} distinct families. ${data.search.analytic_survivors} passed analytic filters, none passed the required routes. This is a bounded anchor search, not proof against every possible floating arrangement.</p><p>Headboards clearing east glass need a north edge no farther than 20.5 in (85.1 − 64.6), below the 22-in route target. Centred north headboards cover glass; the clear northeast span leaves less than 18 in on the east side. We did not lower your rules to manufacture four recommendations.</p></details></header><main><div class="toolbar"><button id="compare-open">Compare any two options</button></div>${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + four distinct comparison options</h2><p>None passes every hard check. Start with the trade-offs; open an option for every route, warning and 3D view. Pinned dresser requests are under “Show all”.</p><div id="gallery">${data.layouts.map((l,i)=>card(l,room,i).replace('<div class="mini-plan" data-plan="'+l.id+'"></div>','<div class="mini-plan" data-plan="'+l.id+'">'+planSVG(room,l)+'</div>')).join('')}</div><button id="show-more" aria-expanded="false">Show all options and pinned requests</button><details><summary>What we ruled out</summary><ul>${data.ruled_out.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></details><details><summary>Measurements that settle the next version</summary><ul>${room.measurements_requested.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><p>Pinned queen at y 17.5 ends at 82.1 in: 3.0 in short of east glass, 0.8 in over casing, 1.8 in over the assumed stool. Setback 2.0 ± 0.75 in; if the stool begins beyond 82.1 in, use baseboard-only 0.75 in instead. This conditional geometric result does not erase the invalid route, drawer, storage or laundry checks.</p></details><noscript><p>JavaScript is disabled. The comparison gallery, plans and ranked text table above still work; interactive 3D requires JavaScript.</p></noscript></main><footer>Prices are dated US public item prices, not delivered quotes. No purchase-ready, code, escape-window or child-safety approval is claimed. Window operation, door handles/stops and anchoring need on-site verification. No external runtime requests.</footer><div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div><script type="module" src="explorer-app.mjs"></script></body></html>`);
-await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence).join('\n')+'\n');
-console.log(`Round 5 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} recommendations. No hard rule relaxed.`);
+const ranked=`<details>
+<summary>Ranked text table for Daniel — all options and every failure</summary>
+<p>${esc(data.search.retained)}</p>
+<table id="ranked-table">
+<caption>Today, ranked passing layouts, then pinned requests</caption>
+<thead>
+<tr>
+<th scope="col">Order</th>
+<th scope="col">Option and class</th>
+<th scope="col">Route, doors resting</th>
+<th scope="col">Main warning</th>
+</tr>
+</thead>
+<tbody>${data.layouts.map((l,i)=>`<tr>
+<th scope="row">${i||'Today'}</th>
+<td>
+<a href="#layout=${l.id}">${esc(l.title)}</a>
+<br>${l.class}</td>
+<td>${esc(routeText(l))}</td>
+<td>${esc(l.main_warning)}</td>
+</tr>`).join('')}</tbody>
+</table>
+<ol>${data.layouts.map(l=>`<li>${esc(l.sentence)}</li>`).join('')}</ol>
+</details>`;
+const detail=`<section id="detail" hidden aria-labelledby="detail-title">
+<button class="secondary" id="back-gallery">← Back to options</button>
+<h2 id="detail-title" tabindex="-1">
+</h2>
+<p id="class-readout" class="warning">
+</p>
+<div class="view-buttons" role="group" aria-label="Choose view">
+<button data-view="plan" aria-pressed="true">Plan</button>
+<button data-view="hall" aria-pressed="false">From the hall door · 3D</button>
+<button data-view="bed" aria-pressed="false">From the bed · 3D</button>
+<button data-view="orbit" aria-pressed="false">Free orbit · 3D</button>
+<button data-view="photos" aria-pressed="false">Your photos</button>
+</div>
+<p id="fallback-note" class="notice" hidden>3D is unavailable. The live plan and all measurements still work for every option.</p>
+<div class="visual">
+<div id="detail-plan">
+</div>
+<div id="three-host" class="stage" hidden>
+</div>
+<p id="canvas-label">
+</p>
+</div>
+<p id="sentence">
+</p>
+<p id="measure-readout">
+</p>
+<p id="view-note">
+</p>
+<p id="legend" class="legend">
+</p>
+<div class="toggles" role="group" aria-label="View options">
+<button id="drawer" aria-pressed="false">One drawer: closed</button>
+<button id="swings" aria-pressed="true">Doors: resting</button>
+<button id="labels" aria-pressed="true">Measurements label</button>
+<button class="secondary" id="reset">Reset view</button>
+</div>
+<label for="destinations">Draw route to an approach region</label>
+<select id="destinations">
+</select>
+<p>Everyday route includes the hall approach; doorway width is also reported separately. 0.5-in conservative grid, no diagonal corner cutting. 24 tight / 30 comfortable / 36 generous: furniture-planning rules of thumb, not bedroom code.</p>
+<p id="photo-reason">
+</p>
+<div id="photo-controls" hidden>
+<div class="actions" role="group" aria-label="Photo choice">
+<button data-photo="0" aria-pressed="true">Photo 1</button>
+<button data-photo="1" aria-pressed="false">Photo 2</button>
+<button data-photo="2" aria-pressed="false">Photo 3</button>
+</div>
+<label for="fade">Proposed model fade (zero shows the original)</label>
+<input type="range" id="fade" min="0" max="100" value="100">
+</div>
+<div id="orbit-controls" class="orbit-buttons" hidden>${['left','right','up','down','in','out'].map(x=>`<button data-orbit="${x}" aria-label="Orbit ${x}">${x}</button>`).join('')}</div>
+<figure id="original-pair" hidden>
+<img id="original-photo" alt="Unedited original bedroom photograph">
+<figcaption>Unedited original — compare with the illustrative reconstruction above.</figcaption>
+</figure>
+<div id="detail-table">
+</div>
+<details>
+<summary>Rule checks, warnings and tape measurement</summary>
+<p id="measure-request">
+</p>
+<ul id="warnings">
+</ul>
+<ul id="rule-results">
+</ul>
+</details>
+<button id="share" class="secondary">Copy this option’s share link</button>
+</section>`;
+const compare=`<section id="compare" hidden aria-labelledby="compare-title">
+<button id="compare-close" class="secondary">Close comparison</button>
+<h2 id="compare-title" tabindex="-1">A / B compare</h2>
+<p>Stacked full-width plans, same scale. No tiny side-by-side phone canvases.</p>
+<div class="comparison-selectors">
+<div>
+<label for="compare-a">Option A</label>
+<select id="compare-a">
+</select>
+</div>
+<div>
+<label for="compare-b">Option B</label>
+<select id="compare-b">
+</select>
+</div>
+</div>
+<div id="compare-plans">
+</div>
+<div id="compare-table">
+</div>
+</section>`;
+await write('index.html',`<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bedroom layout explorer</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="explorer.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
+</head>
+<body>
+<a class="skip" href="#gallery-title">Skip to layouts</a>
+<header>
+<p class="eyebrow">Bedroom · layout explorer · 16 Nov 2026</p>
+<h1>Bedroom layouts</h1>
+<p class="notice compact">Not tape-verified · illustrative furniture</p>
+<p class="verdict">${esc(data.verdict)}</p>
+<p>${esc(data.pinned_verdict)}</p>
+</header>
+<main>
+${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + ranked layouts</h2>
+<p class="gallery-intro">${data.search.feasible>=4?'Today, four passing options, then pinned requests; expand for one more.':'Fewer than four passing options in this bounded search; see coverage below for the remaining limits.'}</p>
+<div id="gallery">${data.layouts.map((l,i)=>card(l,room,i).replace('<div class="mini-plan" data-plan="'+l.id+'"></div>','<div class="mini-plan" data-plan="'+l.id+'">'+planSVG(room,l)+'</div>')).join('')}</div>
+<div class="toolbar"><button id="compare-open">Compare any two options</button></div>
+<button id="show-more" aria-expanded="false">Show all ranked options</button>
+${ranked}<details>
+<summary>The brief and search coverage</summary>
+<p class="policy">${esc(brief.plain_policy)}</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
+<p>${data.search.generated} storage/sorter combinations generated; ${data.search.evaluated_analytic} checked after incremental pruning; ${data.search.distinct_clusters} distinct families. ${data.search.analytic_survivors} passed analytic filters; ${data.search.feasible} distinct passing representatives retained. Search includes floating beds (3- and 6-in wall offsets), centred beds and 15/18/24-in side constraint boundaries; not proof of a global optimum.</p>
+<p>Brief 1.1 is calibrated to Today: only collisions, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Windows, storage and reach are warnings compared with Today. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
+</details><details>
+<summary>What we ruled out</summary>
+<ul>${data.ruled_out.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
+</details>
+<details>
+<summary>Measurements that settle the next version</summary>
+<ul>${room.measurements_requested.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
+<p>Pinned queen at y 17.5 ends at 82.1 in: 3.0 in short of east glass, 0.8 in over casing, 1.8 in over the assumed stool. Setback 2.0 ± 0.75 in; if the stool begins beyond 82.1 in, use baseboard-only 0.75 in instead. This conditional geometric result does not erase the main-route failures; drawer standing, storage and laundry trim are no longer fabricated failures.</p>
+</details>
+<noscript>
+<p>JavaScript is disabled. The comparison gallery, plans and ranked text table above still work; interactive 3D requires JavaScript.</p>
+</noscript>
+</main>
+<footer>Prices are dated US public item prices, not delivered quotes. No purchase-ready, code, escape-window or child-safety approval is claimed. Window operation, door handles/stops and anchoring need on-site verification. No external runtime requests.</footer>
+<div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true">
+</div>
+<script type="module" src="explorer-app.mjs">
+</script>
+</body>
+</html>`);
+await write('verdict.txt',data.verdict+'\n'+data.pinned_verdict+'\n\n'+data.layouts.map(l=>l.sentence).join('\n')+'\n');
+console.log(`Round 5b built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} recommendations. Brief 1.1 calibrated; Today is valid.`);
