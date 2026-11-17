@@ -1,7 +1,7 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","White upholstered sofa","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","Dark wood computer desk","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"White upholstered sofa,"Article,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-sofa,"85 × 36 × 32 in · ± 8 / 3 / 4 in (W / D / H) · Photo/room estimate; not tape-verified,"Owned-piece care: White upholstery needs extra protection; protect and inspect between stays. Confirm fabric rating before guest use: 30,000 double rubs required. Confirm cleaning code W or WS before guest use. Protect light or textured upholstery with a washable throw or fitted cover; inspect and clean between stays.
+"Owned,"furniture,"Dark wood computer desk,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-desk,"48 × 24 × 30 in · ± 4 / 4 / 2 in (W / D / H) · Photo/room estimate; not tape-verified,"
 
-"Furniture total","0"
-"Styling total","0"
-"Total","0"
+"Furniture total,"0
+"Styling total,"0
+"New purchases,"0

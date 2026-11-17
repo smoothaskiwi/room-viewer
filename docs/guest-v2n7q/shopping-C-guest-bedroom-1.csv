@@ -1,10 +1,10 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Nera Queen Low Profile Bed - Walnut","Article","1099","1","1099.00","2026-11-17","https://www.article.com/product/31362/nera-queen-low-profile-bed-walnut"
-"furniture","Miles Mini Nightstand (16"")","westelm.com","449","2","898.00","2026-11-16","https://www.westelm.com/products/miles-mini-nightstand-f632/"
-"furniture","Nera 3-Drawer Chest","article.com","799","1","799.00","2026-11-16","https://www.article.com/product/33238/nera-3-drawer-chest-walnut"
-"furniture","Tall freestanding mirror","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","Rectangular patterned rug","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"Tall freestanding mirror,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Guest bedroom,"guest-mirror,"? × ? × ? in · Photo/room estimate; not tape-verified,"
+"Owned,"styling,"Rectangular patterned rug,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Dining room,"dining-rug,"72 × 108 × 0.2 in · ± 12 / 12 / unknown in (W / D / H) · Today room envelope; not tape-verified,"Protect light or textured upholstery with a washable throw or fitted cover; inspect and clean between stays.
+"To buy,"furniture,"Nera Queen Low Profile Bed - Walnut,"Article,"1099,"1,"1099.00,"2026-11-17,"https://www.article.com/product/31362/nera-queen-low-profile-bed-walnut,",",","
+"To buy,"furniture,"Miles Mini Nightstand (16""),"westelm.com,"449,"2,"898.00,"2026-11-16,"https://www.westelm.com/products/miles-mini-nightstand-f632/,",",","
+"To buy,"furniture,"Nera 3-Drawer Chest,"article.com,"799,"1,"799.00,"2026-11-16,"https://www.article.com/product/33238/nera-3-drawer-chest-walnut,",",","
 
-"Furniture total","2796"
-"Styling total","0"
-"Total","2796"
+"Furniture total,"2796
+"Styling total,"0
+"New purchases,"2796

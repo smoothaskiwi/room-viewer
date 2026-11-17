@@ -1,0 +1,174 @@
+{
+  "room": "guest-bedroom",
+  "designer": "Fixture",
+  "layouts": [
+    {
+      "id": "reuse-fixture-guest-bedroom",
+      "title": "Reuse first \u2014 guest bedroom machinery sample",
+      "summary": "Synthetic reuse test, not a designer recommendation. Keep owned pieces and buy only the missing items.",
+      "tier": "reuse",
+      "scheme": "Walnut and sage test fixture",
+      "use": "STR",
+      "fixture": true,
+      "placements": [
+        {
+          "catalog_id": "article_lenia_queen",
+          "x": 42.75,
+          "y": 21.5,
+          "rotation": 90,
+          "footprint_w": 82.75,
+          "footprint_d": 63.5
+        },
+        {
+          "catalog_id": "living-rh-tables",
+          "owned_id": "living-rh-tables",
+          "owned": true,
+          "price_usd": 0,
+          "x": 108,
+          "y": 1,
+          "rotation": 90,
+          "footprint_w": 18,
+          "footprint_d": 20,
+          "owned_instance_id": "rh-open-1"
+        },
+        {
+          "catalog_id": "living-rh-tables",
+          "owned_id": "living-rh-tables",
+          "owned": true,
+          "price_usd": 0,
+          "x": 108,
+          "y": 85.5,
+          "rotation": 90,
+          "footprint_w": 18,
+          "footprint_d": 20,
+          "owned_instance_id": "rh-open-2"
+        },
+        {
+          "catalog_id": "article_cooper5",
+          "x": 2,
+          "y": 65,
+          "rotation": 270,
+          "footprint_w": 17,
+          "footprint_d": 32.5
+        }
+      ],
+      "styling": [
+        {
+          "id": "a-ju-oia",
+          "category": "art",
+          "name": "Oia (abstract)",
+          "retailer": "Juniper Print Shop",
+          "price_usd": 139,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://juniperprintshop.com/products/oia",
+          "qty": 1,
+          "wall": "east",
+          "x": 127,
+          "y": 61,
+          "height_in": 66,
+          "size_in": "30 x 20",
+          "placement": "Framed panel; bottom 8 inches above the headboard."
+        },
+        {
+          "id": "r-ru-ruth",
+          "category": "rug",
+          "name": "Ruthanne Washable Striped Rug, Ivory",
+          "retailer": "Rugs USA",
+          "price_usd": 215.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://rugsusa.com/products/ruthanne-washable-striped-rug-ivory",
+          "qty": 1,
+          "x": 35,
+          "y": 40,
+          "size_in": "60 x 96",
+          "placement": "Flat washable rug beneath the group."
+        },
+        {
+          "id": "b-q-duvet",
+          "category": "bedding",
+          "name": "Organic Crisp Percale Duvet Cover Set",
+          "retailer": "Quince",
+          "price_usd": 104,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://www.quince.com/home/classic-organic-percale-duvet-cover-set?color=white&size=full%2Fqueen",
+          "qty": 1,
+          "placement": "On the queen bed."
+        },
+        {
+          "id": "p-v-gurli",
+          "category": "pillow",
+          "name": "GURLI Cushion cover",
+          "retailer": "IKEA",
+          "price_usd": 4.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://ikea.com/us/en/p/gurli-cushion-cover-unbleached-20598729",
+          "qty": 2
+        },
+        {
+          "id": "l-v-stors",
+          "category": "lamp",
+          "name": "STORSEGEL Table lamp",
+          "retailer": "IKEA",
+          "price_usd": 19.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://ikea.com/us/en/p/storsegel-table-lamp-ash-white-60573576",
+          "qty": 1,
+          "x": 118,
+          "y": 12,
+          "height_in": 24,
+          "placement": "On north nightstand."
+        },
+        {
+          "id": "l-v-stors",
+          "category": "lamp",
+          "name": "STORSEGEL Table lamp",
+          "retailer": "IKEA",
+          "price_usd": 19.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://ikea.com/us/en/p/storsegel-table-lamp-ash-white-60573576",
+          "qty": 1,
+          "x": 118,
+          "y": 94,
+          "height_in": 24,
+          "placement": "On south nightstand."
+        },
+        {
+          "id": "w-v-korg",
+          "category": "curtain",
+          "name": "KORGMOTT Black-out curtains, 1 pair",
+          "retailer": "IKEA",
+          "price_usd": 64.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://ikea.com/us/en/p/korgmott-black-out-curtains-1-pair-beige-with-heading-tape-50605610",
+          "qty": 1,
+          "wall": "north",
+          "placement": "Blackout curtains at north window.",
+          "height_in": 94
+        },
+        {
+          "id": "w-v-korg",
+          "category": "curtain",
+          "name": "KORGMOTT Black-out curtains, 1 pair",
+          "retailer": "IKEA",
+          "price_usd": 64.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://ikea.com/us/en/p/korgmott-black-out-curtains-1-pair-beige-with-heading-tape-50605610",
+          "qty": 1,
+          "wall": "north",
+          "placement": "Blackout curtains at remaining window.",
+          "height_in": 94
+        }
+      ],
+      "palette": [
+        "#a17a50",
+        "#e7dfcc",
+        "#6f8268",
+        "#c19467"
+      ],
+      "hero_view": "south-east doorway",
+      "rationale": "Synthetic fixture: tests geometry, styling, shopping and image rendering before the council is ingested.",
+      "reuse": true,
+      "designer": "Fixture"
+    }
+  ]
+}

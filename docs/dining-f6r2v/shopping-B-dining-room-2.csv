@@ -1,8 +1,8 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Mid-Century Extendable Dining Table 39–55","westelm.com","799","1","799.00","2026-11-16","https://www.westelm.com/products/mid-century-modern-extendable-dining-table-h10973/"
-"furniture","Nosh Dining Chair - Walnut and Hemlock Green","Article","149","4","596.00","2026-11-17","https://www.article.com/product/24359/nosh-dining-chair-walnut-and-hemlock-green"
-"furniture","Heidi 50"" Sideboard - Walnut","Article","799","1","799.00","2026-11-17","https://www.article.com/product/26997/heidi-50-sideboard-walnut"
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"To buy,"furniture,"Mid-Century Extendable Dining Table 39–55,"westelm.com,"799,"1,"799.00,"2026-11-16,"https://www.westelm.com/products/mid-century-modern-extendable-dining-table-h10973/,",",","
+"To buy,"furniture,"Nosh Dining Chair - Walnut and Hemlock Green,"Article,"149,"4,"596.00,"2026-11-17,"https://www.article.com/product/24359/nosh-dining-chair-walnut-and-hemlock-green,",",","
+"To buy,"furniture,"Heidi 50"" Sideboard - Walnut,"Article,"799,"1,"799.00,"2026-11-17,"https://www.article.com/product/26997/heidi-50-sideboard-walnut,",",","
 
-"Furniture total","2194"
-"Styling total","0"
-"Total","2194"
+"Furniture total,"2194
+"Styling total,"0
+"New purchases,"2194

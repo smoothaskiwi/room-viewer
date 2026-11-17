@@ -1,14 +1,14 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","White upholstered sofa","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","Henredon Murphy Swivel Boucle Chair, Cream","costco.com","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening","https://www.costco.com/p/-/henredon-murphy-swivel-boucle-chair-cream/4000222234"
-"furniture","Low media console","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","Lenia 53.5"" Oval Coffee Table - Walnut","Article","399","1","399.00","2026-11-17","https://www.article.com/product/24417/lenia-53-5-oval-coffee-table-walnut"
-"furniture","Light area rug","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","cat posts (planning envelope)","Retailer unverified","0","2","0.00","",""
-"furniture","cabinet (planning envelope)","Retailer unverified","0","1","0.00","",""
-"furniture","RH Machinto Open Nightstands used as end tables","rh.com","0","2","0.00","2026-11-16; photo estimates 2026-11-16 evening","https://rh.com/us/en/catalog/product/product.jsp/prod32350409"
-"furniture","Dark wood computer desk","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"White upholstered sofa,"Article,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-sofa,"85 × 36 × 32 in · ± 8 / 3 / 4 in (W / D / H) · Photo/room estimate; not tape-verified,"Owned-piece care: White upholstery needs extra protection; protect and inspect between stays. Confirm fabric rating before guest use: 30,000 double rubs required. Confirm cleaning code W or WS before guest use. Protect light or textured upholstery with a washable throw or fitted cover; inspect and clean between stays.
+"Owned,"furniture,"Henredon Murphy Swivel Boucle Chair, Cream,"Costco,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-white-chair,"31.2 × 29.5 × 30.1 in · Published product dimensions; not tape-verified,"Owned-piece care: Velvet or bouclé needs extra protection; protect and inspect between stays. Confirm fabric rating before guest use: 30,000 double rubs required. Confirm cleaning code W or WS before guest use. Protect light or textured upholstery with a washable throw or fitted cover; inspect and clean between stays.
+"Owned,"furniture,"Low media console,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Dining room,"dining-media-console,"66 × 18 × 30 in · ± 6 / 2 / 3 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"Owned,"styling,"Light area rug,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-rug,"108 × 144 × 0.2 in · ± 12 / 12 / 0.2 in (W / D / H) · Photo/room estimate; not tape-verified; rug thickness illustrative 0.2 ± 0.2 in,"Protect light or textured upholstery with a washable throw or fitted cover; inspect and clean between stays.
+"Owned,"furniture,"two tall sisal cat posts (hearth, sofa end),"Already owned,"0,"2,"0.00,",","Living room,"today-living-room-cat-posts,"? × ? × ? in · ± 2 / 2 / 2 in (W / D / H) · Photo/room estimate; not tape-verified,"Confirm fabric rating before guest use: 30,000 double rubs required. Confirm cleaning code W or WS before guest use.
+"Owned,"furniture,"grey two-tone cabinet with wicker bins by the entry arch,"Already owned,"0,"1,"0.00,",","Living room,"today-living-room-cabinet,"? × ? × ? in · ± 2 / 2 / 2 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"Owned,"furniture,"RH Machinto Open Nightstands used as end tables,"RH,"0,"2,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-rh-tables,"20 × 18 × 22 in · ± 1 / 1 / 1 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"Owned,"furniture,"Dark wood computer desk,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-desk,"48 × 24 × 30 in · ± 4 / 4 / 2 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"To buy,"furniture,"Lenia 53.5"" Oval Coffee Table - Walnut,"Article,"399,"1,"399.00,"2026-11-17,"https://www.article.com/product/24417/lenia-53-5-oval-coffee-table-walnut,",",","
 
-"Furniture total","399"
-"Styling total","0"
-"Total","399"
+"Furniture total,"399
+"Styling total,"0
+"New purchases,"399

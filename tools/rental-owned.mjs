@@ -43,7 +43,7 @@ export async function loadRentalOwned(items,inputs){
    if(roomId==='primary-bedroom'&&t?.dims_in){Object.assign(c,{label:t.label,dims_in:t.dims_in,w:t.dims_in.d,d:t.dims_in.w,h:t.h,kind:t.kind,category:t.kind,approximate:true,dimension_uncertainty:t.dimension_uncertainty??2,layout_ready:true});}
   }
   // Today can carry usable owned pieces absent from the descriptive room inventory.
-  for(const t of rows.filter(t=>t.catalog_id&&!items[t.catalog_id]&&t.owned))items[t.catalog_id]=record(t.catalog_id,{name:t.label,room:roomId,dims_in:{w:null,d:null,h:null},photo_estimate:{w:t.w,d:t.d,h:t.h,unc:[2,2,2]},finish:t.label});
+  for(const t of rows.filter(t=>t.catalog_id&&!resolveOwned(items,t.catalog_id)&&t.owned))items[t.catalog_id]=record(t.catalog_id,{name:t.label,room:roomId,dims_in:{w:null,d:null,h:null},photo_estimate:{w:t.w,d:t.d,h:t.h,unc:[2,2,2]},finish:t.label});
  }
  // Reuse of rug estimates needs no invented manufacturer thickness.
  for(const c of Object.values(items).filter(c=>c.owned_id))if(c.kind==='rug'&&c.dims_in.w&&c.dims_in.d&&!c.dims_in.h){c.dims_in.h=c.h=.2;c.dimension_uncertainty??=[12,12,.2];c.dimension_uncertainty[2]=.2;c.layout_ready=true;c.dimension_basis+='; rug thickness illustrative 0.2 ± 0.2 in';}
@@ -55,9 +55,9 @@ export function wholeHouseReuse(results){
  const designers=[...new Set(results.flatMap(r=>r.layouts.filter(l=>l.tier==='reuse').map(l=>l.designer??'Fixture')))];
  const plans=designers.map(designer=>{
   const rooms=results.map(r=>({page:r.page,layout:r.layouts.find(l=>(l.designer??'Fixture')===designer&&l.tier==='reuse')})),chosen=rooms.filter(r=>r.layout),assignments=[];
-  for(const {page,layout:l}of chosen)for(const i of l.shop.items.filter(i=>i.owned))assignments.push({owned_id:i.owned_id??i.id,name:i.name,from:i.owned_room_name??roomName(i.owned_room),room:page.room,room_name:page.title??roomName(page.room),qty:i.qty,instances:i.owned_instances??[],image:i.image,layout_id:l.id,slug:page.slug});
+  for(const {page,layout:l}of chosen)for(const i of l.shop.items.filter(i=>i.owned))assignments.push({owned_id:i.owned_id??i.id,name:i.name,from:i.owned_room_name??roomName(i.owned_room),room:page.room,room_name:page.title??roomName(page.room),qty:i.qty,available:i.owned_quantity??1,instances:i.owned_instances??[],image:i.image,layout_id:l.id,slug:page.slug});
   const by=new Map();for(const a of assignments){const group=by.get(a.owned_id)??[];group.push(a);by.set(a.owned_id,group);}
-  const conflicts=[];for(const [id,group]of by)if(new Set(group.map(g=>g.room)).size>1){const explicit=group.every(g=>g.instances.length===g.qty),instances=group.flatMap(g=>g.instances);if(!explicit||new Set(instances).size!==instances.length)conflicts.push({owned_id:id,name:group[0].name,rooms:group.map(g=>g.room_name),message:group[0].name+' is assigned to '+group.map(g=>g.room_name).join(' and ')+'. Use each physical piece in only one room; identify separate pieces of a pair explicitly.'});}
+  const conflicts=[];for(const [id,group]of by)if(new Set(group.map(g=>g.room)).size>1){const explicit=group.every(g=>g.instances.length===g.qty),instances=group.flatMap(g=>g.instances);if(!explicit||new Set(instances).size!==instances.length||group.reduce((n,g)=>n+g.qty,0)>group[0].available)conflicts.push({owned_id:id,name:group[0].name,rooms:group.map(g=>g.room_name),message:group[0].name+' is assigned to '+group.map(g=>g.room_name).join(' and ')+'. Use each physical piece in only one room; identify separate pieces of a pair explicitly.'});}
   const missing=rooms.filter(r=>!r.layout).map(r=>r.page.title??roomName(r.page.room)),total=Math.round(chosen.reduce((n,r)=>n+r.layout.shop.total,0)*100)/100;
   return {designer,rooms:chosen.map(({page,layout:l})=>({room:page.room,title:page.title??roomName(page.room),slug:page.slug,layout_id:l.id,layout_title:l.title,total:l.shop.total,class:l.class})),total,complete:!missing.length&&chosen.every(r=>r.layout.shop.complete),missing,assignments,conflicts,coherent:!missing.length&&!conflicts.length&&chosen.every(r=>r.layout.class!=='invalid')};
  });return {version:1,plans,warnings:plans.flatMap(p=>p.conflicts.map(c=>({designer:p.designer,...c})))};

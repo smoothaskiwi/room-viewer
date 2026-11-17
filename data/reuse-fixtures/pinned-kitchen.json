@@ -1,0 +1,68 @@
+{
+  "room": "kitchen",
+  "designer": "Fixture",
+  "layouts": [
+    {
+      "id": "reuse-fixture-kitchen",
+      "title": "Reuse first \u2014 kitchen machinery sample",
+      "summary": "Synthetic reuse test, not a designer recommendation. Keep owned pieces and buy only the missing items.",
+      "tier": "reuse",
+      "scheme": "Walnut and sage test fixture",
+      "use": "STR",
+      "fixture": true,
+      "placements": [
+        {
+          "catalog_id": "kitchen-nook-table",
+          "owned_id": "kitchen-nook-table",
+          "owned": true,
+          "price_usd": 0,
+          "x": 15,
+          "y": 46.4,
+          "rotation": 0,
+          "footprint_w": 51,
+          "footprint_d": 34
+        }
+      ],
+      "styling": [
+        {
+          "id": "c-v-stock",
+          "category": "pendant",
+          "name": "STOCKHOLM 2025 Pendant lamp",
+          "retailer": "IKEA",
+          "price_usd": 299.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://www.ikea.com/us/en/p/stockholm-2025-pendant-lamp-glass-brass-plated-20585958",
+          "qty": 1,
+          "x": 43.8,
+          "y": 57.8,
+          "height_in": 66,
+          "placement": "Pendant over the table."
+        },
+        {
+          "id": "d-v-tray",
+          "category": "decor",
+          "name": "OSTBIT Tray",
+          "retailer": "IKEA",
+          "price_usd": 9.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://ikea.com/us/en/p/ostbit-tray-bamboo-30452991",
+          "qty": 1,
+          "x": 40,
+          "y": 70,
+          "height_in": 29,
+          "placement": "Tray on the table."
+        }
+      ],
+      "palette": [
+        "#a17a50",
+        "#e7dfcc",
+        "#6f8268",
+        "#c19467"
+      ],
+      "hero_view": "north-east opening",
+      "rationale": "Synthetic fixture: tests geometry, styling, shopping and image rendering before the council is ingested.",
+      "reuse": true,
+      "designer": "Fixture"
+    }
+  ]
+}

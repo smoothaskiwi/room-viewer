@@ -1,8 +1,8 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Jarvis Ellipse — Walnut/Pure D 48 × 30","Loewen Design Studios","2980","1","2980.00","2026-11-17","https://www.loewendesignstudios.com/products/elliptical-oval-pedestal-table"
-"furniture","Ulka Dining Chair - White Oak and Ratine Ivory","article.com","139","1","139.00","2026-11-16","https://www.article.com/product/25771/ulka-dining-chair-white-oak-and-ratine-ivory"
-"furniture","Cats’ fountain and bowls (approximate)","Retailer unverified","","1","","",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"To buy,"furniture,"Jarvis Ellipse — Walnut/Pure D 48 × 30,"Loewen Design Studios,"2980,"1,"2980.00,"2026-11-17,"https://www.loewendesignstudios.com/products/elliptical-oval-pedestal-table,",",","
+"To buy,"furniture,"Ulka Dining Chair - White Oak and Ratine Ivory,"article.com,"139,"1,"139.00,"2026-11-16,"https://www.article.com/product/25771/ulka-dining-chair-white-oak-and-ratine-ivory,",",","
+"To buy,"furniture,"Cats’ fountain and bowls (approximate),"Retailer unverified,","1,",",",",",","
 
-"Furniture total","3119"
-"Styling total","0"
-"Known subtotal","3119"
+"Furniture total,"3119
+"Styling total,"0
+"New purchases (known subtotal),"3119

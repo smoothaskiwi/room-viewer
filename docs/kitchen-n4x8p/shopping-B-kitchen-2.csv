@@ -1,8 +1,8 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Anton Round Pedestal Dining Table 48","westelm.com","1199","1","1199.00","2026-11-16","https://www.westelm.com/products/anton-round-dining-table-h8807/"
-"furniture","Freestanding dining chairs","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","pet fountain and bowls on a mat in front of the bar cabinet","Retailer unverified","","1","","",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"Freestanding dining chairs,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Kitchen,"kitchen-nook-chairs,"18 × 18 × 34 in · ± 2 / 2 / 2 in (W / D / H) · Today room envelope; not tape-verified,"
+"To buy,"furniture,"Anton Round Pedestal Dining Table 48,"westelm.com,"1199,"1,"1199.00,"2026-11-16,"https://www.westelm.com/products/anton-round-dining-table-h8807/,",",","
+"To buy,"furniture,"pet fountain and bowls on a mat in front of the bar cabinet,"Retailer unverified,","1,",",",",",","
 
-"Furniture total","1199"
-"Styling total","0"
-"Known subtotal","1199"
+"Furniture total,"1199
+"Styling total,"0
+"New purchases (known subtotal),"1199

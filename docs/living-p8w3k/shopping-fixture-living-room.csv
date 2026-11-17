@@ -1,11 +1,11 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Ceni 83"" Sofa - Hemlock Green","Article","1099","1","1099.00","2026-11-17","https://www.article.com/product/25355/ceni-83-sofa-hemlock-green"
-"furniture","EKENÄSET Armchair - Kilanda light beige","IKEA","199","2","398.00","2026-11-17","https://www.ikea.com/us/en/p/ekenaeset-armchair-kilanda-light-beige-30533493/"
-"furniture","Amoeba 42.5"" Coffee Table - Walnut","Article","299","1","299.00","2026-11-17","https://www.article.com/product/29850/amoeba-42-5-coffee-table-walnut"
-"styling","Oia (abstract)","Juniper Print Shop","139","1","139.00","2026-11-17","https://juniperprintshop.com/products/oia"
-"styling","Ruthanne Washable Striped Rug, Ivory","Rugs USA","215.99","1","215.99","2026-11-17","https://rugsusa.com/products/ruthanne-washable-striped-rug-ivory"
-"styling","Rye Floor Lamp - Walnut","Article","249","1","249.00","2026-11-17","https://article.com/product/23597/rye-floor-lamp-walnut"
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"To buy,"furniture,"Ceni 83"" Sofa - Hemlock Green,"Article,"1099,"1,"1099.00,"2026-11-17,"https://www.article.com/product/25355/ceni-83-sofa-hemlock-green,",",","
+"To buy,"furniture,"EKENÄSET Armchair - Kilanda light beige,"IKEA,"199,"2,"398.00,"2026-11-17,"https://www.ikea.com/us/en/p/ekenaeset-armchair-kilanda-light-beige-30533493/,",",","
+"To buy,"furniture,"Amoeba 42.5"" Coffee Table - Walnut,"Article,"299,"1,"299.00,"2026-11-17,"https://www.article.com/product/29850/amoeba-42-5-coffee-table-walnut,",",","
+"To buy,"styling,"Oia (abstract),"Juniper Print Shop,"139,"1,"139.00,"2026-11-17,"https://juniperprintshop.com/products/oia,",",","
+"To buy,"styling,"Ruthanne Washable Striped Rug, Ivory,"Rugs USA,"215.99,"1,"215.99,"2026-11-17,"https://rugsusa.com/products/ruthanne-washable-striped-rug-ivory,",",","
+"To buy,"styling,"Rye Floor Lamp - Walnut,"Article,"249,"1,"249.00,"2026-11-17,"https://article.com/product/23597/rye-floor-lamp-walnut,",",","
 
-"Furniture total","1796"
-"Styling total","603.99"
-"Total","2399.99"
+"Furniture total,"1796
+"Styling total,"603.99
+"New purchases,"2399.99

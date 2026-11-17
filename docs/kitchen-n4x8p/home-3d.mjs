@@ -270,7 +270,7 @@ export async function start3D(host,spec){
   else if(f.kind==='sideboard')buildSideboard(g,f);
   else if(f.kind==='rug')buildRug(g,f);
   else if(f.kind==='chair'||f.kind==='desk-chair')buildChair(g,f,'tucked');
-  else if(f.kind==='bed'){box(g,f.x,f.y,7,f.w,f.d,9,mat('#936b43'));box(g,f.x+1,f.y+1,16,f.w-2,f.d-2,8,mat('#e8dfcf'));const ew=['east','west'].includes(f.head);box(g,f.head==='east'?f.x+f.w-2:f.x,f.head==='south'?f.y+f.d-2:f.y,7,ew?2:f.w,ew?f.d:2,f.h-7,mat('#936b43'));}
+  else if(f.kind==='bed'){box(g,f.x,f.y,7,f.w,f.d,9,mat(f.rental_color??'#936b43'));box(g,f.x+1,f.y+1,16,f.w-2,f.d-2,8,mat('#e8dfcf'));const ew=['east','west'].includes(f.head);box(g,f.head==='east'?f.x+f.w-2:f.x,f.head==='south'?f.y+f.d-2:f.y,7,ew?2:f.w,ew?f.d:2,f.h-7,mat(f.rental_color??'#936b43'));}
   else if(f.kind==='sofa'){box(g,f.x,f.y,5,f.w,f.d,16,mat(f.rental_color??furnitureColor(f)));const ns=['north','south'].includes(f.faces);box(g,f.faces==='west'?f.x+f.w-4:f.x,f.faces==='north'?f.y+f.d-4:f.y,21,ns?f.w:4,ns?4:f.d,f.h-21,mat(f.rental_color??furnitureColor(f)));}
   else if(f.kind==='coffee'||f.kind==='desk')buildTable(g,f);
   else if(f.kind==='gym'){box(g,f.x,f.y,0,f.w,f.d,3,mat('#303736'));box(g,f.x,f.y,3,f.w,4,f.h-3,mat('#404746'));}

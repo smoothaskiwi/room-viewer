@@ -1,10 +1,10 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Lenia Full Panel Bed - Walnut","article.com","999","1","999.00","2026-11-16","https://www.article.com/product/32832/lenia-full-panel-bed-walnut"
-"furniture","Miles Mini Nightstand (16"")","westelm.com","449","1","449.00","2026-11-16","https://www.westelm.com/products/miles-mini-nightstand-f632/"
-"furniture","Computer desk","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","Grey mesh ergonomic office chair","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","smart gym (planning envelope)","Retailer unverified","0","1","0.00","",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"Computer desk,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Guest bedroom,"guest-desk,"55 × 26 × 29.5 in · ± 8 / 4 / 1.5 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"Owned,"furniture,"Grey mesh ergonomic office chair,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Guest bedroom,"guest-office-chair,"26 × 26 × 47 in · ± 3 / 3 / 4 in (W / D / H) · Photo/room estimate; not tape-verified,"Confirm fabric rating before guest use: 30,000 double rubs required. Confirm cleaning code W or WS before guest use.
+"Owned,"furniture,"smart home gym column and platform, NW corner,"Already owned,"0,"1,"0.00,",","Guest bedroom,"today-guest-bedroom-smart-gym,"26 × 25 × ? in · ± 2 / 2 / 2 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"To buy,"furniture,"Lenia Full Panel Bed - Walnut,"article.com,"999,"1,"999.00,"2026-11-16,"https://www.article.com/product/32832/lenia-full-panel-bed-walnut,",",","
+"To buy,"furniture,"Miles Mini Nightstand (16""),"westelm.com,"449,"1,"449.00,"2026-11-16,"https://www.westelm.com/products/miles-mini-nightstand-f632/,",",","
 
-"Furniture total","1448"
-"Styling total","0"
-"Total","1448"
+"Furniture total,"1448
+"Styling total,"0
+"New purchases,"1448

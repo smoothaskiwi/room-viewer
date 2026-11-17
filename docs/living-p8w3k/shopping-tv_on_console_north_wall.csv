@@ -1,11 +1,11 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Low media console","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","White upholstered sofa","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","Lenia 53.5"" Oval Coffee Table - Walnut","Article","399","1","399.00","2026-11-17","https://www.article.com/product/24417/lenia-53-5-oval-coffee-table-walnut"
-"furniture","Cognac barrel swivel armchairs","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","cabinet (planning envelope)","Retailer unverified","0","1","0.00","",""
-"furniture","cat posts (planning envelope)","Retailer unverified","0","2","0.00","",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"Low media console,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Dining room,"dining-media-console,"66 × 18 × 30 in · ± 6 / 2 / 3 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"Owned,"furniture,"White upholstered sofa,"Article,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-sofa,"85 × 36 × 32 in · ± 8 / 3 / 4 in (W / D / H) · Photo/room estimate; not tape-verified,"Owned-piece care: White upholstery needs extra protection; protect and inspect between stays. Confirm fabric rating before guest use: 30,000 double rubs required. Confirm cleaning code W or WS before guest use. Protect light or textured upholstery with a washable throw or fitted cover; inspect and clean between stays.
+"Owned,"furniture,"Cognac barrel swivel armchairs,"Wayfair,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Living room,"living-cognac-swivels,"30 × 30 × 28 in · ± 3 / 3 / 3 in (W / D / H) · Photo/room estimate; not tape-verified,"Confirm fabric rating before guest use: 30,000 double rubs required. Confirm cleaning code W or WS before guest use.
+"Owned,"furniture,"grey two-tone cabinet with wicker bins by the entry arch,"Already owned,"0,"1,"0.00,",","Living room,"today-living-room-cabinet,"? × ? × ? in · ± 2 / 2 / 2 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"Owned,"furniture,"two tall sisal cat posts (hearth, sofa end),"Already owned,"0,"2,"0.00,",","Living room,"today-living-room-cat-posts,"? × ? × ? in · ± 2 / 2 / 2 in (W / D / H) · Photo/room estimate; not tape-verified,"Confirm fabric rating before guest use: 30,000 double rubs required. Confirm cleaning code W or WS before guest use.
+"To buy,"furniture,"Lenia 53.5"" Oval Coffee Table - Walnut,"Article,"399,"1,"399.00,"2026-11-17,"https://www.article.com/product/24417/lenia-53-5-oval-coffee-table-walnut,",",","
 
-"Furniture total","399"
-"Styling total","0"
-"Total","399"
+"Furniture total,"399
+"Styling total,"0
+"New purchases,"399

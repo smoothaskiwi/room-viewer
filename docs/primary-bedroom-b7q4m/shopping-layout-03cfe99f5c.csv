@@ -1,9 +1,9 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Miles Wood & Upholstered Bed — Queen","West Elm","1699","1","1699.00","2026-11-17","https://www.westelm.com/products/miles-wood-upholstered-bed-h12204/"
-"furniture","Small wood nightstand","Retailer unverified","0","1","0.00","2026-11-16",""
-"furniture","generic size, no product chosen (40 long × 20 deep × 36 high in)","Retailer unverified","0","1","0.00","",""
-"furniture","Rolling laundry sorter","Retailer unverified","0","1","0.00","2026-11-16",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"Small wood nightstand,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Primary bedroom,"primary-nightstand-left,"18 × 18.5 × 24.3 in · ± 1 in (W / D / H) · Today room envelope; not tape-verified,"
+"Owned,"furniture,"Rolling laundry sorter,"Already owned,"0,"1,"0.00,"2026-11-16,","Primary bedroom,"today-primary-bedroom-laundry-sorter,"32 × 18 × 60 in · ± 8 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"To buy,"furniture,"Miles Wood & Upholstered Bed — Queen,"West Elm,"1699,"1,"1699.00,"2026-11-17,"https://www.westelm.com/products/miles-wood-upholstered-bed-h12204/,",",","
+"To buy,"furniture,"generic size, no product chosen (40 long × 20 deep × 36 high in),"Retailer unverified,"0,"1,"0.00,",",",",","
 
-"Furniture total","1699"
-"Styling total","0"
-"Total","1699"
+"Furniture total,"1699
+"Styling total,"0
+"New purchases,"1699

@@ -1,8 +1,8 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Mid-Century Rounded Extendable Dining Table 42–60","westelm.com","799","1","799.00","2026-11-16","https://www.westelm.com/products/mid-century-extendable-dining-table-round-h4230/"
-"furniture","Mikkel Dining Chair - Walnut and Algonquin Green","Article","199","4","796.00","2026-11-17","https://www.article.com/product/27517/mikkel-dining-chair-walnut-and-algonquin-green"
-"furniture","Low media console","Retailer unverified","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"Low media console,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Dining room,"dining-media-console,"66 × 18 × 30 in · ± 6 / 2 / 3 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"To buy,"furniture,"Mid-Century Rounded Extendable Dining Table 42–60,"westelm.com,"799,"1,"799.00,"2026-11-16,"https://www.westelm.com/products/mid-century-extendable-dining-table-round-h4230/,",",","
+"To buy,"furniture,"Mikkel Dining Chair - Walnut and Algonquin Green,"Article,"199,"4,"796.00,"2026-11-17,"https://www.article.com/product/27517/mikkel-dining-chair-walnut-and-algonquin-green,",",","
 
-"Furniture total","1595"
-"Styling total","0"
-"Total","1595"
+"Furniture total,"1595
+"Styling total,"0
+"New purchases,"1595

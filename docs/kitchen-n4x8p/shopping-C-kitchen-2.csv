@@ -1,8 +1,8 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Lippa 48 Oval — Walnut EEI-2019-WAL","modway.com","634.51","1","634.51","2026-11-16","https://modway.com/products/lippa-oval-wood-dining-table-by-modway-eei-2017?variant=44991772623020"
-"furniture","Freestanding dining chairs","Retailer unverified","0","2","0.00","2026-11-16; photo estimates 2026-11-16 evening",""
-"furniture","Cats’ fountain and bowls (retained)","Retailer unverified","","1","","",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"Freestanding dining chairs,"Already owned,"0,"2,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Kitchen,"kitchen-nook-chairs,"18 × 18 × 34 in · ± 2 / 2 / 2 in (W / D / H) · Today room envelope; not tape-verified,"
+"To buy,"furniture,"Lippa 48 Oval — Walnut EEI-2019-WAL,"modway.com,"634.51,"1,"634.51,"2026-11-16,"https://modway.com/products/lippa-oval-wood-dining-table-by-modway-eei-2017?variant=44991772623020,",",","
+"To buy,"furniture,"Cats’ fountain and bowls (retained),"Retailer unverified,","1,",",",",",","
 
-"Furniture total","634.51"
-"Styling total","0"
-"Known subtotal","634.51"
+"Furniture total,"634.51
+"Styling total,"0
+"New purchases (known subtotal),"634.51

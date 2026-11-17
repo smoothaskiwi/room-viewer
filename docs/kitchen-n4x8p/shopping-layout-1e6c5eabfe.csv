@@ -1,8 +1,8 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Generic size, no product chosen","Retailer unverified","","1","","",""
-"furniture","Nosh Dining Chair - Walnut and Hemlock Green","Article","149","1","149.00","2026-11-17","https://www.article.com/product/24359/nosh-dining-chair-walnut-and-hemlock-green"
-"furniture","Cats’ fountain and bowls (approximate)","Retailer unverified","","1","","",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"To buy,"furniture,"Generic size, no product chosen,"Retailer unverified,","1,",",",",",","
+"To buy,"furniture,"Nosh Dining Chair - Walnut and Hemlock Green,"Article,"149,"1,"149.00,"2026-11-17,"https://www.article.com/product/24359/nosh-dining-chair-walnut-and-hemlock-green,",",","
+"To buy,"furniture,"Cats’ fountain and bowls (approximate),"Retailer unverified,","1,",",",",",","
 
-"Furniture total","149"
-"Styling total","0"
-"Known subtotal","149"
+"Furniture total,"149
+"Styling total,"0
+"New purchases (known subtotal),"149

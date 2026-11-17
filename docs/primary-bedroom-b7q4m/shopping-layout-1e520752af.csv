@@ -1,9 +1,9 @@
-﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
-"furniture","Miles Wood & Upholstered Bed — Queen","West Elm","1699","1","1699.00","2026-11-17","https://www.westelm.com/products/miles-wood-upholstered-bed-h12204/"
-"furniture","Wood two-drawer nightstand, splayed legs","Retailer unverified","0","1","0.00","2026-11-16",""
-"furniture","Nera 3-Drawer Chest","article.com","799","1","799.00","2026-11-16","https://www.article.com/product/33238/nera-3-drawer-chest-walnut"
-"furniture","Rolling laundry sorter","Retailer unverified","0","1","0.00","2026-11-16",""
+﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
+"Owned,"furniture,"Wood two-drawer nightstand, splayed legs,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Primary bedroom,"primary-nightstand-right,"19.099999999999994 × 13.799999999999997 × 24.2 in · ± 2 in (W / D / H) · Today room envelope; not tape-verified,"Protect light or textured upholstery with a washable throw or fitted cover; inspect and clean between stays.
+"Owned,"furniture,"Rolling laundry sorter,"Already owned,"0,"1,"0.00,"2026-11-16,","Primary bedroom,"today-primary-bedroom-laundry-sorter,"32 × 18 × 60 in · ± 8 in (W / D / H) · Photo/room estimate; not tape-verified,"
+"To buy,"furniture,"Miles Wood & Upholstered Bed — Queen,"West Elm,"1699,"1,"1699.00,"2026-11-17,"https://www.westelm.com/products/miles-wood-upholstered-bed-h12204/,",",","
+"To buy,"furniture,"Nera 3-Drawer Chest,"article.com,"799,"1,"799.00,"2026-11-16,"https://www.article.com/product/33238/nera-3-drawer-chest-walnut,",",","
 
-"Furniture total","2498"
-"Styling total","0"
-"Total","2498"
+"Furniture total,"2498
+"Styling total,"0
+"New purchases,"2498
