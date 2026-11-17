@@ -1,0 +1,111 @@
+{
+  "room": "dining-room",
+  "designer": "Fixture",
+  "layouts": [
+    {
+      "id": "fixture-dining-room",
+      "title": "Walnut and sage \u2014 machinery sample",
+      "summary": "A furnished test scene for the rental tools, not a designer recommendation.",
+      "tier": "mixed",
+      "scheme": "Walnut and sage test fixture",
+      "use": "STR",
+      "fixture": true,
+      "placements": [
+        {
+          "catalog_id": "we_mc60rect",
+          "x": 31.5,
+          "y": 60,
+          "rotation": 0,
+          "footprint_w": 60,
+          "footprint_d": 38
+        },
+        {
+          "catalog_id": "article_nosh",
+          "x": 40,
+          "y": 45,
+          "rotation": 0,
+          "footprint_w": 20,
+          "footprint_d": 21
+        },
+        {
+          "catalog_id": "article_nosh",
+          "x": 68,
+          "y": 45,
+          "rotation": 0,
+          "footprint_w": 20,
+          "footprint_d": 21
+        },
+        {
+          "catalog_id": "article_nosh",
+          "x": 40,
+          "y": 92,
+          "rotation": 180,
+          "footprint_w": 20,
+          "footprint_d": 21
+        },
+        {
+          "catalog_id": "article_nosh",
+          "x": 68,
+          "y": 92,
+          "rotation": 180,
+          "footprint_w": 20,
+          "footprint_d": 21
+        }
+      ],
+      "styling": [
+        {
+          "id": "a-ju-oia",
+          "category": "art",
+          "name": "Oia (abstract)",
+          "retailer": "Juniper Print Shop",
+          "price_usd": 139,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://juniperprintshop.com/products/oia",
+          "qty": 1,
+          "wall": "north",
+          "x": 100,
+          "y": 1,
+          "height_in": 66,
+          "size_in": "30 x 20",
+          "placement": "Framed panel; bottom 8 inches above the headboard."
+        },
+        {
+          "id": "r-ru-ruth",
+          "category": "rug",
+          "name": "Ruthanne Washable Striped Rug, Ivory",
+          "retailer": "Rugs USA",
+          "price_usd": 215.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://rugsusa.com/products/ruthanne-washable-striped-rug-ivory",
+          "qty": 1,
+          "x": 60,
+          "y": 50,
+          "size_in": "60 x 96",
+          "placement": "Flat washable rug beneath the group."
+        },
+        {
+          "id": "c-v-stock",
+          "category": "pendant",
+          "name": "STOCKHOLM 2025 Pendant lamp",
+          "retailer": "IKEA",
+          "price_usd": 299.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://www.ikea.com/us/en/p/stockholm-2025-pendant-lamp-glass-brass-plated-20585958",
+          "qty": 1,
+          "x": 61.5,
+          "y": 79,
+          "height_in": 66,
+          "placement": "Pendant over the table."
+        }
+      ],
+      "palette": [
+        "#a17a50",
+        "#e7dfcc",
+        "#6f8268",
+        "#c19467"
+      ],
+      "hero_view": "north-west kitchen arch",
+      "rationale": "Synthetic fixture: tests geometry, styling, shopping and image rendering before the council is ingested."
+    }
+  ]
+}

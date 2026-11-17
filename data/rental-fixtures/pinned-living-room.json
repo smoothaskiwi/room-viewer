@@ -1,0 +1,103 @@
+{
+  "room": "living-room",
+  "designer": "Fixture",
+  "layouts": [
+    {
+      "id": "fixture-living-room",
+      "title": "Walnut and sage \u2014 machinery sample",
+      "summary": "A furnished test scene for the rental tools, not a designer recommendation.",
+      "tier": "mixed",
+      "scheme": "Walnut and sage test fixture",
+      "use": "STR",
+      "fixture": true,
+      "placements": [
+        {
+          "catalog_id": "article_ceni",
+          "x": 70,
+          "y": 2,
+          "rotation": 0,
+          "footprint_w": 83,
+          "footprint_d": 35
+        },
+        {
+          "catalog_id": "ikea_ekenaset",
+          "x": 72,
+          "y": 107,
+          "rotation": 180,
+          "footprint_w": 25.25,
+          "footprint_d": 30.75
+        },
+        {
+          "catalog_id": "ikea_ekenaset",
+          "x": 126,
+          "y": 107,
+          "rotation": 180,
+          "footprint_w": 25.25,
+          "footprint_d": 30.75
+        },
+        {
+          "catalog_id": "article_amoeba",
+          "x": 85,
+          "y": 54,
+          "rotation": 0,
+          "footprint_w": 42.5,
+          "footprint_d": 30.5
+        }
+      ],
+      "styling": [
+        {
+          "id": "a-ju-oia",
+          "category": "art",
+          "name": "Oia (abstract)",
+          "retailer": "Juniper Print Shop",
+          "price_usd": 139,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://juniperprintshop.com/products/oia",
+          "qty": 1,
+          "wall": "north",
+          "x": 100,
+          "y": 1,
+          "height_in": 66,
+          "size_in": "30 x 20",
+          "placement": "Framed panel; bottom 8 inches above the headboard."
+        },
+        {
+          "id": "r-ru-ruth",
+          "category": "rug",
+          "name": "Ruthanne Washable Striped Rug, Ivory",
+          "retailer": "Rugs USA",
+          "price_usd": 215.99,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://rugsusa.com/products/ruthanne-washable-striped-rug-ivory",
+          "qty": 1,
+          "x": 60,
+          "y": 50,
+          "size_in": "60 x 96",
+          "placement": "Flat washable rug beneath the group."
+        },
+        {
+          "id": "l-ar-rye",
+          "category": "lamp",
+          "name": "Rye Floor Lamp - Walnut",
+          "retailer": "Article",
+          "price_usd": 249,
+          "price_date": "2026-11-17",
+          "purchase_url": "https://article.com/product/23597/rye-floor-lamp-walnut",
+          "qty": 1,
+          "x": 173,
+          "y": 114,
+          "height_in": 0,
+          "placement": "Floor lamp beside the chair."
+        }
+      ],
+      "palette": [
+        "#a17a50",
+        "#e7dfcc",
+        "#6f8268",
+        "#c19467"
+      ],
+      "hero_view": "south-west entry",
+      "rationale": "Synthetic fixture: tests geometry, styling, shopping and image rendering before the council is ingested."
+    }
+  ]
+}
