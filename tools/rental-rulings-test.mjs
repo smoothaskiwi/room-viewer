@@ -19,6 +19,7 @@ ok(rentalSafety({...sofa,fabric:{...sofa.fabric,cleaning_code:null}}).conditions
 ok(!rentalSafety({...sofa,fabric:{...sofa.fabric,abrasion_test:'Martindale cycles',abrasion_rubs:55000}}).failures.length,'do not invent a conversion or reject known Martindale evidence');
 for(const material of ['velvet','bouclé','white upholstery','glass top','marble top','mirrored top'])ok(rentalSafety({...sofa,materials:material}).failures.length,material+' is banned');
 ok(!rentalSafety({...wood,materials:'Oiled solid oak and rattan'}).failures.length,'do not add draft bans');
+ok(!rentalSafety({...wood,kind:'dresser',category:'dresser',h:26}).conditions.some(s=>/anchor/i.test(s)),'below 27-inch dresser does not get a fabricated threshold condition');
 ok(rentalSafety({...wood,kind:'dresser',category:'dresser',h:27}).conditions.some(s=>/anchor/i.test(s)),'tall dresser anchoring is conditional');
 const supplied=designerProduct({catalog_id:'new-sofa',name:'New sofa',role:'sofa',product_details:{dims_in:{w:85,d:34,h:32},price_usd:1200,purchase_url:'https://example.com/sofa',image_url:'https://example.com/photo.jpg'}});
 ok(supplied?.provenance==='designer-supplied','accept full nested designer specification');
@@ -30,6 +31,7 @@ for(const roomId of ['primary-bedroom','guest-bedroom','living-room']){
  const room=JSON.parse(await fs.readFile(project+'/prototype/explorer/room-'+roomId+'.json')),brief=JSON.parse(await fs.readFile(project+'/prototype/explorer/brief-'+roomId+'.json'));
  const designer=JSON.parse(await fs.readFile(project+'/council/room-designs-2026-11-17-rental/B/pinned-'+roomId+'.json')).layouts[1];
  for(const p of designer.placements){const n=designerProduct(p);if(!cat[p.catalog_id]&&n)cat[p.catalog_id]=n;}joinFabricLines(cat);
+ if(roomId==='primary-bedroom'){const h=structuredClone(designer);h.mattress_top_in=45;const e=evaluateRental(room,brief,cat,h,{scenarios:false});ok(!e.failures.some(s=>/bedside height|nightstand height|mattress/.test(s))&&e.warnings.some(s=>/preferred mattress-height band/.test(s)),'out-of-band bedside height is a preference, not a hard failure');}
  const p=structuredClone(designer);
  if(roomId==='primary-bedroom'){p.placements=p.placements.filter(q=>!cat[q.catalog_id]?.category?.match(/nightstand|dresser|chest/));p.styling=[];p.mattress_top_in=40;}
  if(roomId==='guest-bedroom'){p.placements=p.placements.filter(q=>!cat[q.catalog_id]?.category?.match(/desk|chair/));p.styling=[];}
