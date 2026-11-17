@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {compareLayouts,rankingKey,windowFactors,walkwayBand,sideBand} from './ranking.mjs';
+const clear={id:'east_window',comfortable:true,glass_hidden_pct:0,pieces:[]};
+const base={id:'clear',measures:{route:24,storage_volume:12000,today_volume:12000},windows:[clear,clear],bed_sides:[24,24],footprints:[{kind:'bed'},{kind:'dresser'},{kind:'nightstand'},{kind:'nightstand'}],changes:5,cost:3000};
+const clone=()=>structuredClone(base);
+assert.deepEqual([walkwayBand(30),walkwayBand(29.9),walkwayBand(24),walkwayBand(23.9),walkwayBand(20)],[0,1,1,2,2]);
+assert.deepEqual([sideBand(24),sideBand(18),sideBand(17.9),sideBand(15)],[0,1,2,2]);
+let other=clone();other.id='obstructed';other.measures.route=29;other.windows[0]={...clear,glass_hidden_pct:10,pieces:[{headboard:true,top:45,glass_hidden_pct:10}]};assert.ok(compareLayouts(base,other)<0,'Clear glass wins over five raw walkway inches in one band');
+assert.deepEqual(windowFactors(other.windows),[1,0,20],'Headboard glass penalty counts double');
+other=clone();other.measures.route=30;other.windows[0]={...clear,glass_hidden_pct:10,pieces:[{top:54,glass_hidden_pct:10}]};assert.ok(compareLayouts(other,base)<0,'Walkway band is still factor one');
+other=clone();other.windows[0].comfortable=false;other.bed_sides=[30,30];assert.ok(compareLayouts(base,other)<0,'Window access precedes bedside band');
+other=clone();other.footprints.pop();other.cost=1;other.measures.route=29;assert.ok(compareLayouts(base,other)<0,'Two nightstands precede cost and raw inches');
+other=clone();other.footprints[1].generic=true;other.cost=0;assert.ok(compareLayouts(base,other)<0,'A real product wins within equal earlier bands');
+other=clone();other.measures.route=25;assert.ok(compareLayouts(other,base)<0,'Raw walkway breaks only equal-band/factor ties');
+assert.equal(rankingKey(base).length,11);
+console.log('PASS Round 8 ranking fixtures: exact band thresholds; window-before-raw-inches; doubled headboard; operating access; two nightstands; real products; final raw tie-break.');

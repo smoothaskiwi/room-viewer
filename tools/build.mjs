@@ -5,12 +5,12 @@ import {explore} from './explore.mjs';
 import {esc,card,routeText,storageText,money,dresserTradeoffTable,envelopeTables,depthTradeoffTables} from '../src/explorer-format.mjs';
 import {planSVG} from '../src/explorer-plan.mjs';
 const out=process.env.ROOM_OUTPUT_DIR||path.join(repo,'docs/primary-bedroom-b7q4m');await fs.mkdir(out,{recursive:true});
-const {room,brief,profile,catalog,data}=await explore();const write=(n,v)=>fs.writeFile(path.join(out,n),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n');
+const {room,brief,profile,catalog,data}=await explore();const verdictSentences=data.verdict.split(/(?<=[.!?])\s+/);const write=(n,v)=>fs.writeFile(path.join(out,n),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n');
 await write('room.json',room);await write('brief.json',brief);await write('catalog.json',catalog);await write('layouts.json',data);
 // Adapt the new room model to the retained measured-room renderer; legacy scene-spec is never read.
 const openings=['north','east','south','west'].map(wall=>({wall,openings:room.openings.filter(o=>o.wall===wall).map(o=>{const s=o.opening_x||o.opening_y||o.slab_x||[o.hinge_edge_y.survey,o.hinge_edge_y.survey+o.width];return {...o,offset_from_corner:s[0],width:s[1]-s[0],sill:o.sash_bottom_z||o.sill_z,head:o.opening_top_z||o.head_z,swing_radius:o.leaf_radius,hinge_axis:o.id==='shaker_door'?{x:o.pin_x,y:o.hinge_edge_y.survey}:undefined,trim:{casing_outer_y:o.casing_y,casing_outer_x:o.casing_x,stool_y:o.stool_x||o.stool_y,stool_top_z:o.stool_top_z,stool_projection_est:o.stool_projection}};})}));
 await write('render-spec.json',{room:room.room,guides:room.guides,openings,catalog:catalog.items,layouts:data.layouts.map(l=>({id:l.id,label:l.title,items:l.placements})),photo_regions:profile.photo_regions});
-for(const n of ['explorer-app.mjs','explorer-3d.mjs','explorer-format.mjs','explorer-plan.mjs','explorer.css','scene.mjs','layout.mjs','format.mjs','camera.mjs','photo-masks.mjs'])await fs.copyFile(path.join(repo,'src',n),path.join(out,n));
+for(const n of ['explorer-app.mjs','explorer-3d.mjs','explorer-format.mjs','explorer-plan.mjs','explorer.css','footprint.mjs','scene.mjs','layout.mjs','format.mjs','camera.mjs','photo-masks.mjs'])await fs.copyFile(path.join(repo,'src',n),path.join(out,n));
 await fs.mkdir(path.join(out,'vendor/addons/controls'),{recursive:true});await fs.mkdir(path.join(out,'vendor/addons/geometries'),{recursive:true});const {transform}=await import('esbuild');for(const n of ['three.module.js','three.core.js'])await write('vendor/'+n,(await transform(await fs.readFile(path.join(repo,'node_modules/three/build',n),'utf8'),{minify:true,format:'esm',legalComments:'eof'})).code);for(const [folder,n]of [['controls','OrbitControls.js'],['geometries','RoundedBoxGeometry.js']])await fs.copyFile(path.join(repo,'node_modules/three/examples/jsm',folder,n),path.join(out,'vendor/addons',folder,n));await fs.copyFile(path.join(repo,'node_modules/three/LICENSE'),path.join(out,'vendor/THREE-LICENSE.txt'));
 // Retain independently audited protected photo plates and byte-identical unedited web originals.
 for(const n of ['scene-spec.json','clearances.json','app.mjs','plan.mjs','style.css'])await fs.rm(path.join(out,n),{force:true});await fs.rm(path.join(out,'stills'),{force:true,recursive:true});
@@ -145,7 +145,8 @@ await write('index.html',`<!doctype html>
 <p class="eyebrow">Bedroom · layout explorer · 16 Nov 2026</p>
 <h1>Bedroom layouts</h1>
 <p class="notice compact">Not tape-verified · illustrative furniture</p>
-<p class="verdict">${esc(data.verdict)}</p>
+<p class="verdict">${esc(verdictSentences[0])}</p>
+<details class="verdict-details"><summary>Depth limits and requested dressers</summary><p>${esc(verdictSentences.slice(1).join(' '))}</p></details>
 </header>
 <main>
 ${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + ranked layouts</h2>
@@ -156,9 +157,9 @@ ${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + ranked layouts</
 ${envelopeTables(data.envelopes)}${depthTradeoffTables(data.parametric_sweep)}${dresserTradeoffTable(data.dresser_length_tradeoff)}
 ${ranked}<details>
 <summary>The brief and search coverage</summary>
-<p class="policy">${esc(brief.plain_policy)}</p><p>The policy’s old north-side reference predates the owner’s 18-in table correction: Today now measures 17.75 in; the tables and rankings use that corrected value. The newer rotation section permits all four bed headings.</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
+<p class="policy">${esc(brief.plain_policy)}</p><p>The policy’s old north-side reference predates the owner’s 18-in table correction: Today now measures 17.75 in; the tables and rankings use that corrected value. The newer rotation section permits all four bed headings. Its old priorities sentence is superseded by brief.ranking: walkway band, window light/access, bedside band, two nightstands, storage band, real products, changes and cost, then raw walkway.</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
 <p>${data.parametric_sweep.counts.evaluated} generic size/rotation/anchor cases; ${data.search.generated} complete storage/sorter combinations evaluated; ${data.search.evaluated_analytic} checked after incremental pruning; ${data.search.distinct_clusters} distinct families. ${data.search.analytic_survivors} passed analytic filters; ${data.search.feasible} distinct passing representatives retained. Search includes floating beds (3- and 6-in wall offsets), centred beds and 15/18/24-in side constraint boundaries; not proof of a global optimum.</p>
-<p>Brief 1.4 is calibrated to Today: only collisions, no openable egress-candidate, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Glass-hidden area, storage and ordinary reach are trade-offs; window width coverage is not a warning. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
+<p>Brief 1.5 is calibrated to Today: only collisions, no openable egress-candidate, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Glass-hidden area, storage and ordinary reach are trade-offs; window width coverage is not a warning. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
 </details><details>
 <summary>What we ruled out</summary>
 <ul>${data.ruled_out.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
@@ -180,4 +181,5 @@ ${ranked}<details>
 </body>
 </html>`);
 await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence+'\nDetails: '+l.long_description).join('\n\n')+'\n');
-console.log(`Round 7 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.4 everyday doors; separate open-door warnings; Today is valid.`);
+console.log('Build peak RSS: '+process.resourceUsage().maxRSS+' KiB');
+console.log(`Round 8 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.5 everyday doors; separate open-door warnings; Today is valid.`);
