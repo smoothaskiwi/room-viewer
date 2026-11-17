@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "version": "1.1 (16 Nov 2026 evening)",
+    "room": "dining-room",
+    "units": "inches",
+    "compass_basis": "plan north = up on architectural sheet A1 (RES-2410580, PDF p5); same basis as room-primary-bedroom.json; true north not verified",
+    "precedence": "plan A1 for shell and openings; video PXL_20261116_231324975 and living-room video for opening shape, window and furniture",
+    "status": "plan-derived shell, not tape-verified; furniture approximate from video; basis P plan, M measured, A assumed, O owner",
+    "coordinates": "x east from the inside face of the west wall (kitchen side), y south from the inside face of the north wall (TV wall), z up",
+    "shared_coordinates": {
+      "with": "room-kitchen.json (nook)",
+      "dining_from_nook": "x_dining = x_nook - 101.1; y_dining = y_nook + 54.6",
+      "nook_from_dining": "x_nook = x_dining + 101.1; y_nook = y_dining - 54.6",
+      "unc": "+/-2 in each axis",
+      "basis": "nook east plane x 96.0 (layout return 66+27+3) plus dining west wall 5.1 thick (E1 wall band, 32 px at 6.25 px/in); opening north jamb at dining y 24 (v5 p6 2'-0\") = nook y -30.6 (south jamb nook y 66.4 = 102.4 - 36 stub, layout; minus the 97 opening, A1 schedule mark 1 8'-1\"). Check: dining south wall y 158 maps to nook y 103.4 vs nook south wall 102.4 (dining-side pier 3'-1\" = 37 vs nook-side stub 36)"
+    },
+    "changes": [
+      "meta.shared_coordinates added (dining = nook - (101.1, -54.6), +/-2)",
+      "kitchen_arch: kept 97 (y 24-121); added cabinet in the north 30.6 in (y 24-54.6) and clear floor y 54.6-121 = 66.4; head 80 from the A1 door schedule",
+      "owned.swivel_chair moved y 60-90 -> 88-121 (camera solve t001); identified as the Wells chair",
+      "owned: ottoman, pouf centre, sofa, console and rug updated with photo estimates and bases",
+      "free_spans.kitchen_to_living_walk_today added: 34 +/-5 at the kitchen arch (was 36 assuming a fully open arch)",
+      "wall_items: note that E1 / Reova final do not locate the dining chandelier"
+    ]
+  },
+  "room": {
+    "width_x": 123,
+    "depth_y": 158,
+    "width_x_unc": 2,
+    "depth_y_unc": 2,
+    "ceiling_z": 100,
+    "basis": "P plan A1 scaled at 600 dpi (1/4 in = 1 ft); +/-2 in drawing/redraw tolerance; house is out of square",
+    "appearance": "cream walls, white trim, oak strip floor, round-top plaster arches; used as a TV room"
+  },
+  "openings": [
+    {
+      "id": "kitchen_arch",
+      "wall": "west",
+      "type": "round-top cased opening to kitchen and nook",
+      "opening_y": [
+        24,
+        121
+      ],
+      "clear_floor_y": [
+        54.6,
+        121
+      ],
+      "width": 97,
+      "head_height": 80,
+      "plan_tag": "1 (door schedule: 8'-1\" x 6'-8\")",
+      "basis": "P RES-2410580 approved job copy (1901825e9bde76ec_part5_RES-2410580-JOBCOPY-PLAN.pdf) p5 sheet A1, door schedule mark 1; v5 p6 chain 2'-0\" + 8'-1\" + 3'-1\"; layout stub 36; M dining video t013 (panel ~31 wide) and nook solve",
+      "cabinet_in_opening": {
+        "y": [
+          24,
+          54.6
+        ],
+        "face_x": -5.1,
+        "label": "kitchen east run end (3DB24 + PBP back panel, white, 36 high) fills the north 30.6 in; its face is set back in the kitchen by the wall thickness"
+      },
+      "clear_width": 66.4
+    },
+    {
+      "id": "living_arch",
+      "wall": "east",
+      "type": "round-top opening to living room",
+      "opening_y": [
+        39,
+        121
+      ],
+      "width": 82,
+      "basis": "P; arch M (video)"
+    },
+    {
+      "id": "south_window",
+      "wall": "south",
+      "type": "window",
+      "opening_x": [
+        26,
+        74
+      ],
+      "operable": "single-hung",
+      "plan_tag": "(E) 4/0 4/0 SH",
+      "casing_x": [
+        22.5,
+        77.5
+      ],
+      "stool_top_z": 32,
+      "stool_top_z_unc": 3,
+      "basis": "opening P; stool A (head 80 less 48)"
+    }
+  ],
+  "owned": {
+    "media_console": {
+      "label": "dark walnut-tone media console, drawer stack left plus doors, long bar pulls, TV about 65 in on the wall/console",
+      "x": [
+        30,
+        93
+      ],
+      "y": [
+        0.5,
+        19.5
+      ],
+      "approx": true,
+      "h": 30,
+      "photo_estimate_in": "W 66 +/-6, D 18 +/-2, H 30 +/-3",
+      "basis": "video t009 (at least as wide as the ~57-in TV); no straight-on frame"
+    },
+    "electric_stove_heater": {
+      "label": "black electric stove-style heater",
+      "x": [
+        8,
+        28
+      ],
+      "y": [
+        2,
+        16
+      ],
+      "approx": true
+    },
+    "sofa": {
+      "label": "cognac leather 3-seat sofa (3 loose untufted back cushions, track arms), faces north to the TV",
+      "x": [
+        16,
+        104
+      ],
+      "y": [
+        121,
+        157
+      ],
+      "approx": true,
+      "basis": "under the south window; width bounded by the west wall and the 37-in pier; identity open (not Sven: no tufting)",
+      "photo_estimate_in": "W 88 +/-6, D 37 +/-3, H 33 +/-3"
+    },
+    "ottoman": {
+      "label": "white upholstered storage ottoman with wicker tray",
+      "x": [
+        37,
+        73
+      ],
+      "y": [
+        96,
+        116
+      ],
+      "approx": true,
+      "size_est": "36 x 20 x 17 +/-4",
+      "basis": "M camera solve t001 (west corner about (37, 99)) + video"
+    },
+    "swivel_chair": {
+      "label": "Pottery Barn Wells leather tight-back petite swivel armchair, sage green (purchase-identified 31 W x 35 D x 34 H)",
+      "x": [
+        2,
+        37
+      ],
+      "y": [
+        88,
+        121
+      ],
+      "approx": true,
+      "facing": "east-north-east, back to the south part of the kitchen arch",
+      "basis": "M camera solve of dining video frame t001 (f 1450-1780 px, rms 12-14 px): star base centre about (19, 105) +/-6; vision: back within 0-6 in of the arch plane"
+    },
+    "poufs": {
+      "label": "cream nubby round pouf about 20 dia x 16 H (+/-3); a second white pouf moves around",
+      "centre": [
+        63,
+        81
+      ],
+      "diameter": 20,
+      "approx": true,
+      "basis": "M camera solve t001 (front point 70-74, 73-82) less radius toward the camera"
+    },
+    "rug": {
+      "label": "cream rug with grey-blue floral/Persian pattern, rectangular, about 6 x 9 ft (+/-1 ft); sofa front legs on it",
+      "x": [
+        16,
+        88
+      ],
+      "y": [
+        50,
+        158
+      ],
+      "approx": true
+    },
+    "side_tables": {
+      "label": "small wood-top side table and black side table at the sofa ends; black ladder shelf; floor lamp right of the console",
+      "approx": true
+    }
+  },
+  "wall_items": [
+    {
+      "id": "light_fixture",
+      "type": "black candle-style chandelier",
+      "x": 61.5,
+      "y": 79,
+      "xy_unc": 12,
+      "basis": "A centred; seen only from the living room, position not measured"
+    },
+    {
+      "id": "wall_device",
+      "type": "small white round device high on the east wall (sensor/smoke/speaker)",
+      "wall": "east",
+      "approx": true
+    },
+    {
+      "id": "switch_or_thermostat",
+      "type": "white wall plate",
+      "approx": true,
+      "note": "seen in tile 18; wall unconfirmed"
+    },
+    {
+      "id": "registers",
+      "type": "none seen",
+      "note": "may be under the console, rug or boxes"
+    },
+    {
+      "id": "receptacles",
+      "type": "none seen",
+      "note": "cables imply outlets behind the TV console and the black side table"
+    },
+    {
+      "id": "ceiling_light_note",
+      "label": "no dining-room fixture is drawn on the electrical plan (job copy p6 = 'Reova - Giese final.pdf' p6, 23 Apr 2024 lighting update; dining room out of scope); the existing chandelier position is still unmeasured",
+      "basis": "P E1"
+    }
+  ],
+  "measurements_requested": [
+    "Clear width west to east at 30 in high, and north to south.",
+    "Chandelier centre from the north and west walls (decides where a dining table centres).",
+    "Window stool height and casing ends.",
+    "Arch jamb positions on both sides, and whether the arches' casings project.",
+    "Any floor or wall registers and outlets behind the console and sofa."
+  ],
+  "guides": {
+    "passage_min": 24,
+    "passage_comfortable": 30,
+    "passage_generous": 36,
+    "source_note": "Residential planning rules of thumb (24 tight, 30 comfortable, 36 generous; 36 is also the IRC R311.6 hallway minimum). Guides, not code requirements for these rooms."
+  },
+  "free_spans": {
+    "north_wall": {
+      "x": [
+        0,
+        123
+      ],
+      "length": 123
+    },
+    "west_wall_south_of_arch": {
+      "y": [
+        121,
+        158
+      ],
+      "length": 37
+    },
+    "east_wall_south_of_arch": {
+      "y": [
+        121,
+        158
+      ],
+      "length": 37
+    },
+    "west_wall_north_of_arch": {
+      "y": [
+        0,
+        24
+      ],
+      "length": 24
+    },
+    "east_wall_north_of_arch": {
+      "y": [
+        0,
+        39
+      ],
+      "length": 39
+    },
+    "kitchen_to_living_walk_today": {
+      "pinch": "kitchen arch, between the cabinet end (y 54.6) and the green chair's north side (y 88)",
+      "width": 34,
+      "width_unc": 5,
+      "then": "north of the pouf: console front y 19.5 to pouf north edge y 71 = 51.5; living arch y 39-121 open",
+      "narrowest": 34,
+      "basis": "D from the reconciled kitchen arch and the camera-solved chair; replaces the 36 in that assumed the whole 97-in arch was open"
+    }
+  }
+}

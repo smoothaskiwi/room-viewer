@@ -1,0 +1,323 @@
+A 48 × 32 pill fits at 2-inch overlap on both benches. The table leaves 32.4 inches east to dining, but the south entry is a slide. Tape the usable seat depth and base.
+
+Today [valid]
+Keep today’s clipped table and north chair; the south bench has a gap, but its end entry is zero.
+Class: valid
+Table: 51.0 × 34.0 × 30.0 in, clipped; Rounded-rectangular dining table
+Everyday main walk: 31.5 ±5.0 in (+0.0 vs Today)
+Seated main walk: 25.5 ±5.0 in (+0.0 vs Today)
+Chairs pulled out main walk: 14.5 ±5.0 in (+0.0 vs Today)
+Overlap west / south: 2.6 ±1.8 in (+0.0 vs Today) / -4.5 ±1.8 in (+0.0 vs Today)
+Knee room west bench: 10.5 ±1.8 in (+0.0 vs Today)
+Knee room south bench: 17.5 ±1.8 in (+0.0 vs Today)
+South bench end entry: 0.0 ±2.0 in (+0.0 vs Today)
+West bench entry at counter: 10.2 ±2.0 in (+0.0 vs Today)
+Table east edge → dining plane: 30.0 ±2.0 in (+0.0 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 6.5 ±3.0 in (+0.0 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: $0; dated catalog, not delivered quote
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Odie Café Table - Walnut [valid]
+32.0 × 32.0 round, -4.0/-4.5-inch bench overlaps; 42.4 inches east to dining, one north chair.
+Class: valid
+Table: 32.0 × 32.0 × 30.3 in, round; Odie Café Table - Walnut
+Everyday main walk: 41.0 ±3.0 in (+9.5 vs Today)
+Seated main walk: 36.5 ±3.0 in (+11.0 vs Today)
+Chairs pulled out main walk: 28.5 ±3.0 in (+14.0 vs Today)
+Overlap west / south: -4.0 ±1.8 in (-6.6 vs Today) / -4.5 ±1.8 in (+0.0 vs Today)
+Knee room west bench: 17.1 ±1.8 in (+6.6 vs Today)
+Knee room south bench: 17.5 ±1.8 in (+0.0 vs Today)
+South bench end entry: 12.4 ±2.0 in (+12.4 vs Today)
+West bench entry at counter: 12.2 ±2.0 in (+2.0 vs Today)
+Table east edge → dining plane: 42.4 ±2.0 in (+12.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: 28.8 in published
+Pendant centre offset: 9.1 ±3.0 in (+2.6 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: $538; dated catalog, not delivered quote
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Mid-Century Extendable Dining Table 39–55 [valid]
+32.0 × 39.0 rectangle, -4.0/-2.0-inch bench overlaps; 42.4 inches east to dining, one north chair.
+Class: valid
+Table: 32.0 × 39.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 39–55
+Everyday main walk: 37.5 ±3.0 in (+6.0 vs Today)
+Seated main walk: 33.5 ±3.0 in (+8.0 vs Today)
+Chairs pulled out main walk: 27.0 ±3.0 in (+12.5 vs Today)
+Overlap west / south: -4.0 ±1.8 in (-6.6 vs Today) / -2.0 ±1.8 in (+2.5 vs Today)
+Knee room west bench: 17.1 ±1.8 in (+6.6 vs Today)
+Knee room south bench: 15.0 ±1.8 in (-2.5 vs Today)
+South bench end entry: 12.4 ±2.0 in (+12.4 vs Today)
+West bench entry at counter: 7.7 ±2.0 in (-2.5 vs Today)
+Table east edge → dining plane: 42.4 ±2.0 in (+12.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: 29.0 in published
+Pendant centre offset: 8.4 ±3.0 in (+1.9 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: $938; dated catalog, not delivered quote
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Mid-Century Extendable Dining Table 39–55 [valid]
+39.0 × 32.0 rectangle, -2.0/-4.5-inch bench overlaps; 37.4 inches east to dining, one north chair.
+Class: valid
+Table: 39.0 × 32.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 39–55
+Everyday main walk: 40.0 ±3.0 in (+8.5 vs Today)
+Seated main walk: 36.0 ±3.0 in (+10.5 vs Today)
+Chairs pulled out main walk: 27.5 ±3.0 in (+13.0 vs Today)
+Overlap west / south: -2.0 ±1.8 in (-4.6 vs Today) / -4.5 ±1.8 in (+0.0 vs Today)
+Knee room west bench: 15.1 ±1.8 in (+4.6 vs Today)
+Knee room south bench: 17.5 ±1.8 in (+0.0 vs Today)
+South bench end entry: 7.4 ±2.0 in (+7.4 vs Today)
+West bench entry at counter: 12.2 ±2.0 in (+2.0 vs Today)
+Table east edge → dining plane: 37.4 ±2.0 in (+7.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: 29.0 in published
+Pendant centre offset: 8.1 ±3.0 in (+1.6 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: $938; dated catalog, not delivered quote
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Generic size, no product chosen [valid]
+42.0 × 32.0 pill, 2.0/-4.5-inch bench overlaps; 38.4 inches east to dining, one north chair.
+Class: valid
+Table: 42.0 × 32.0 × 30.0 in, pill; Generic size, no product chosen
+Everyday main walk: 41.5 ±3.0 in (+10.0 vs Today)
+Seated main walk: 37.5 ±3.0 in (+12.0 vs Today)
+Chairs pulled out main walk: 29.5 ±3.0 in (+15.0 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / -4.5 ±1.8 in (+0.0 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 17.5 ±1.8 in (+0.0 vs Today)
+South bench end entry: 8.4 ±2.0 in (+8.4 vs Today)
+West bench entry at counter: 12.2 ±2.0 in (+2.0 vs Today)
+Table east edge → dining plane: 38.4 ±2.0 in (+8.4 vs Today)
+Foot room west / south / chamfer: 5.0 / 12.5 / 5.0 in, scenario base envelope
+Base: 28.0 × 16.0 in; Scenario base plate; specify stable assembly with maker
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 9.8 ±3.0 in (+3.3 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+48 × 32 pill, 2-in overlap [valid]
+48.0 × 32.0 pill, 2.0/2.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
+Class: valid
+Table: 48.0 × 32.0 × 30.0 in, pill; Generic size, no product chosen
+Everyday main walk: 44.0 ±3.0 in (+12.5 vs Today)
+Seated main walk: 39.0 ±3.0 in (+13.5 vs Today)
+Chairs pulled out main walk: 29.5 ±3.0 in (+15.0 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / 2.0 ±1.8 in (+6.5 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 11.0 ±1.8 in (-6.5 vs Today)
+South bench end entry: 2.4 ±2.0 in (+2.4 vs Today)
+West bench entry at counter: 18.7 ±2.0 in (+8.5 vs Today)
+Table east edge → dining plane: 32.4 ±2.0 in (+2.4 vs Today)
+Foot room west / south / chamfer: 8.0 / 6.0 / 4.5 in, scenario base envelope
+Base: 28.0 × 16.0 in; Scenario twin-column 28 × 16 plate; specified assembly, not stability approval
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 13.8 ±3.0 in (+7.3 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+48 × 32 pill, 3-in overlap [conditional]
+48.0 × 32.0 pill, 3.0/3.0-inch bench overlaps; 33.4 inches east to dining, one north chair.
+Class: conditional
+Table: 48.0 × 32.0 × 30.0 in, pill; Generic size, no product chosen
+Everyday main walk: 44.5 ±3.0 in (+13.0 vs Today)
+Seated main walk: 40.0 ±3.0 in (+14.5 vs Today)
+Chairs pulled out main walk: 30.0 ±3.0 in (+15.5 vs Today)
+Overlap west / south: 3.0 ±1.8 in (+0.4 vs Today) / 3.0 ±1.8 in (+7.5 vs Today)
+Knee room west bench: 10.1 ±1.8 in (-0.4 vs Today)
+Knee room south bench: 10.0 ±1.8 in (-7.5 vs Today)
+South bench end entry: 3.4 ±2.0 in (+3.4 vs Today)
+West bench entry at counter: 19.7 ±2.0 in (+9.5 vs Today)
+Table east edge → dining plane: 33.4 ±2.0 in (+3.4 vs Today)
+Foot room west / south / chamfer: 7.0 / 5.0 / 3.1 in, scenario base envelope
+Base: 28.0 × 16.0 in; Scenario twin-column 28 × 16 plate; specified assembly, not stability approval
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 15.0 ±3.0 in (+8.5 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: usable seat 11.2: bench knee room below 9 in
+
+Jarvis 48 × 30 racetrack [valid]
+48.0 × 30.0 pill, 2.0/2.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
+Class: valid
+Table: 48.0 × 30.0 × 30.0 in, pill; Jarvis Racetrack — Walnut/Pure D 48 × 30
+Everyday main walk: 45.5 ±3.0 in (+14.0 vs Today)
+Seated main walk: 40.5 ±3.0 in (+15.0 vs Today)
+Chairs pulled out main walk: 31.0 ±3.0 in (+16.5 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / 2.0 ±1.8 in (+6.5 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 11.0 ±1.8 in (-6.5 vs Today)
+South bench end entry: 2.4 ±2.0 in (+2.4 vs Today)
+West bench entry at counter: 20.7 ±2.0 in (+10.5 vs Today)
+Table east edge → dining plane: 32.4 ±2.0 in (+2.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 14.7 ±3.0 in (+8.2 vs Today)
+Counted seats: 2: 0 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: $2,919; dated catalog, not delivered quote
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+48 × 32 pill, south gap as Today [valid]
+48.0 × 32.0 pill, 2.0/-4.5-inch bench overlaps; 32.4 inches east to dining, one north chair.
+Class: valid
+Table: 48.0 × 32.0 × 30.0 in, pill; Generic size, no product chosen
+Everyday main walk: 38.0 ±3.0 in (+6.5 vs Today)
+Seated main walk: 33.5 ±3.0 in (+8.0 vs Today)
+Chairs pulled out main walk: 24.5 ±3.0 in (+10.0 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / -4.5 ±1.8 in (+0.0 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 17.5 ±1.8 in (+0.0 vs Today)
+South bench end entry: 2.4 ±2.0 in (+2.4 vs Today)
+West bench entry at counter: 12.2 ±2.0 in (+2.0 vs Today)
+Table east edge → dining plane: 32.4 ±2.0 in (+2.4 vs Today)
+Foot room west / south / chamfer: 8.0 / 12.5 / 8.0 in, scenario base envelope
+Base: 28.0 × 16.0 in; Scenario twin-column 28 × 16 plate; specified assembly, not stability approval
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 7.8 ±3.0 in (+1.3 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick A1 · Angela's walnut pill, 48 x 32, made to size on a slim plate base [valid]
+48.0 × 32.0 pill, 2.0/1.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
+Class: valid
+Table: 48.0 × 32.0 × 30.0 in, pill; Custom 48 × 32 walnut pill top + Ravello-1628
+Everyday main walk: 45.5 ±3.0 in (+14.0 vs Today)
+Seated main walk: 40.5 ±3.0 in (+15.0 vs Today)
+Chairs pulled out main walk: 31.5 ±3.0 in (+17.0 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / 1.0 ±1.8 in (+5.5 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 12.0 ±1.8 in (-5.5 vs Today)
+South bench end entry: 2.4 ±2.0 in (+2.4 vs Today)
+West bench entry at counter: 17.7 ±2.0 in (+7.5 vs Today)
+Table east edge → dining plane: 32.4 ±2.0 in (+2.4 vs Today)
+Foot room west / south / chamfer: 8.0 / 7.0 / 5.2 in, scenario base envelope
+Base: 28.0 × 16.0 in; Published base dimensions in supplied catalog
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 12.8 ±3.0 in (+6.3 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick A2 · In-stock walnut oval on a tulip base, set 1 in back from the south seat like today [valid]
+48.0 × 27.5 oval, 2.0/-1.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
+Class: valid
+Table: 48.0 × 27.5 × 28.5 in, oval; Lippa 48 Oval — Walnut EEI-2019-WAL
+Everyday main walk: 47.5 ±3.0 in (+16.0 vs Today)
+Seated main walk: 42.5 ±3.0 in (+17.0 vs Today)
+Chairs pulled out main walk: 33.0 ±3.0 in (+18.5 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / -1.0 ±1.8 in (+3.5 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 14.0 ±1.8 in (-3.5 vs Today)
+South bench end entry: 2.4 ±2.0 in (+2.4 vs Today)
+West bench entry at counter: 20.2 ±2.0 in (+10.0 vs Today)
+Table east edge → dining plane: 32.4 ±2.0 in (+2.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: 27.5 in published
+Pendant centre offset: 13.0 ±3.0 in (+6.5 vs Today)
+Counted seats: 2: 0 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick A3 · Solid walnut 48 x 30 racetrack flush with the south seat, two chairs out [valid]
+48.0 × 30.0 pill, 2.0/0.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
+Class: valid
+Table: 48.0 × 30.0 × 30.0 in, pill; Jarvis Racetrack — Walnut/Pure D 48 × 30
+Everyday main walk: 41.0 ±3.0 in (+9.5 vs Today)
+Seated main walk: 35.5 ±3.0 in (+10.0 vs Today)
+Chairs pulled out main walk: 24.0 ±3.0 in (+9.5 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / 0.0 ±1.8 in (+4.5 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 13.0 ±1.8 in (-4.5 vs Today)
+South bench end entry: 2.4 ±2.0 in (+2.4 vs Today)
+West bench entry at counter: 18.7 ±2.0 in (+8.5 vs Today)
+Table east edge → dining plane: 32.4 ±2.0 in (+2.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 12.8 ±3.0 in (+6.3 vs Today)
+Counted seats: 4: 1 west, 1 south, 2 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick B1 · Walnut racetrack, one chair and the two benches [valid]
+48.0 × 30.0 racetrack, 2.0/2.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
+Class: valid
+Table: 48.0 × 30.0 × 30.0 in, racetrack; Jarvis Racetrack — Walnut/Pure D 48 × 30
+Everyday main walk: 39.0 ±3.0 in (+7.5 vs Today)
+Seated main walk: 39.0 ±3.0 in (+13.5 vs Today)
+Chairs pulled out main walk: 36.0 ±3.0 in (+21.5 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / 2.0 ±1.8 in (+6.5 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 11.0 ±1.8 in (-6.5 vs Today)
+South bench end entry: 2.4 ±2.0 in (+2.4 vs Today)
+West bench entry at counter: 20.7 ±2.0 in (+10.5 vs Today)
+Table east edge → dining plane: 32.4 ±2.0 in (+2.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 14.7 ±3.0 in (+8.2 vs Today)
+Counted seats: 2: 0 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick B2 · Round pedestal opens the corner [valid]
+48.0 × 48.0 circle, 1.0/0.0-inch bench overlaps; 31.4 inches east to dining, one north chair.
+Class: valid
+Table: 48.0 × 48.0 × 30.0 in, circle; Anton Round Pedestal Dining Table 48
+Everyday main walk: 32.5 ±3.0 in (+1.0 vs Today)
+Seated main walk: 31.5 ±3.0 in (+6.0 vs Today)
+Chairs pulled out main walk: 27.5 ±3.0 in (+13.0 vs Today)
+Overlap west / south: 1.0 ±1.8 in (-1.6 vs Today) / 0.0 ±1.8 in (+4.5 vs Today)
+Knee room west bench: 12.1 ±1.8 in (+1.6 vs Today)
+Knee room south bench: 13.0 ±1.8 in (-4.5 vs Today)
+South bench end entry: 1.4 ±2.0 in (+1.4 vs Today)
+West bench entry at counter: 0.7 ±2.0 in (-9.5 vs Today)
+Table east edge → dining plane: 31.4 ±2.0 in (+1.4 vs Today)
+Foot room west / south / chamfer: 12.8 / 13.8 / 12.8 in, scenario base envelope
+Base: 20.5 × 20.5 in; Published base dimensions in supplied catalog
+Underside / apron height: 29.0 in published
+Pendant centre offset: 4.5 ±3.0 in (-2.0 vs Today)
+Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios

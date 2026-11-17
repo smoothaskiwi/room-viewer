@@ -45,6 +45,19 @@ export const catalogItemSchema = object({
 export const catalogSchema = object({meta:z.record(string,z.unknown()),items:z.record(string,catalogItemSchema)}).superRefine((c,ctx) => {
   for(const [id,f] of Object.entries(c.items)) if(id!==f.id) ctx.addIssue({code:'custom',path:['items',id,'id'],message:'catalog key and id must agree'});
 });
+// Activity rooms retain source provenance but validate the deciding geometry.
+const xy=z.tuple([z.number().finite(),z.number().finite()]);
+const optionalRange=pair.optional();
+export const activityRoomSchema=object({
+ meta:object({version:string,room:string,units:z.literal('inches')}),
+ room:object({width_x:positive,depth_y:positive,width_x_unc:nonnegative,depth_y_unc:nonnegative,ceiling_z:positive,shape:z.enum(['polygon','rectangle']).optional(),polygon:z.array(xy).min(3).optional(),open_sides:z.union([string,z.array(string)]).optional()}),
+ openings:z.array(object({id:string,wall:z.enum(['north','east','south','west']),type:string,opening_x:optionalRange,opening_y:optionalRange,clear_floor_y:optionalRange,width:positive.optional(),head_height:positive.optional()})),
+ fixed:object({banquette:object({west_leg:object({x:pair,y:pair,seat_front_y:pair}),south_leg:object({x:pair,y:pair,seat_front_x:pair}),seat_top_z:positive,back_top_z:positive,back_cushion_thickness:positive,usable_seat_depth_est:positive,usable_seat_depth_unc:nonnegative}) .optional()}).optional(),
+ owned:z.record(string,object({label:string,x:optionalRange,y:optionalRange,centre:xy.optional(),diameter:positive.optional(),approx:z.boolean().optional()})),
+ wall_items:z.array(object({id:string})),measurements_requested:z.array(string),guides:z.record(string,z.unknown())
+}).superRefine((r,c)=>{if(new Set(r.openings.map(o=>o.id)).size!==r.openings.length)c.addIssue({code:'custom',path:['openings'],message:'duplicate opening ids'});for(const [i,o]of r.openings.entries())if(!(o.opening_x||o.opening_y))c.addIssue({code:'custom',path:['openings',i],message:'opening requires its wall range'});});
+export const activityBriefSchema=object({meta:object({version:string,room:string}),plain_policy:string,pinned:z.record(string,z.unknown()),activities:z.record(string,z.unknown()),candidate_items:z.record(string,z.union([z.array(string),string])),required:z.record(string,z.unknown()),passage:object({main_route:object({hard_min:positive}),chair_pull_out:object({hard_min:positive}).optional()}),hard_rules:z.array(string),classes:object({invalid:string,conditional:string}),measure_first:z.array(object({what:string,why:string})),pinned_layouts:z.array(object({id:string,label:string,items:string})),ranking:string,plain_text:object({layout_sentence:string,verdict:string})});
+export const councilSchema=object({room:z.enum(['kitchen','dining-room','living-room','guest-bedroom']),designer:z.enum(['A','B','C']),layouts:z.array(object({id:string,title:string,summary:string,placements:z.array(object({catalog_id:string,x:z.number().finite(),y:z.number().finite(),rotation:z.union([z.literal(0),z.literal(90),z.literal(180),z.literal(270)]),footprint_w:positive,footprint_d:positive,faces:z.enum(['south','west','north','east']).optional(),shape:string.optional()}))}))});
 export function validate(schema,value,file) {
   const result=schema.safeParse(value);
   if(!result.success) throw Error('Invalid '+file+':\n'+result.error.issues.map(e => '  '+(e.path.join('.') || '(root)')+': '+e.message).join('\n'));

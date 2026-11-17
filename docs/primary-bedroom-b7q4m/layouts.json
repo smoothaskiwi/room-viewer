@@ -32,10 +32,10 @@
     "workers": 5,
     "retained_candidates": 683,
     "worker_peak_retained": 667,
-    "analytic_seconds": 2.4,
-    "route_seconds": 10.2,
-    "seconds": 21.06,
-    "peak_rss_kib": 752572,
+    "analytic_seconds": 2.41,
+    "route_seconds": 9.96,
+    "seconds": 20.59,
+    "peak_rss_kib": 787292,
     "evaluated_analytic": 491508,
     "distinct_clusters": 64,
     "feasible": 5,
@@ -816,12 +816,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 104.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 54,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               104.75
-            ],
-            "length": 54,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed north side",
@@ -924,12 +934,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 26.25,
+              "y": 33.25,
+              "width": 28,
+              "between": [
+                "cube_organiser",
+                "king_bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 119,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               26.25,
               33.25
-            ],
-            "length": 119,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed south side",
@@ -992,12 +1012,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 6.75,
+              "y": 122.75,
+              "width": 28,
+              "between": [
+                "entry_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 39,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               6.75,
               122.75
-            ],
-            "length": 39,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "front of cube_organiser",
@@ -1100,12 +1130,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 26.25,
+              "y": 37.25,
+              "width": 28,
+              "between": [
+                "cube_organiser",
+                "king_bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 115,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               26.25,
               37.25
-            ],
-            "length": 115,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "shaker_door",
@@ -1168,12 +1208,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 57,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 57,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "closet_door",
@@ -1236,12 +1286,22 @@
               ]
             ],
             "exact_sampled_width": 26.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 64.75,
+              "y": 107.75,
+              "width": 26,
+              "between": [
+                "king_bed",
+                "laundry_sorter"
+              ],
+              "state": "everyday"
+            },
+            "length": 86,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               64.75,
               107.75
-            ],
-            "length": 86,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           }
         ],
         "narrowest": 26,
@@ -1306,12 +1366,22 @@
             ]
           ],
           "exact_sampled_width": 26.5,
-          "bottleneck": [
+          "bottleneck": {
+            "x": 64.75,
+            "y": 107.75,
+            "width": 26,
+            "between": [
+              "king_bed",
+              "laundry_sorter"
+            ],
+            "state": "everyday"
+          },
+          "length": 86,
+          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+          "bottleneck_point": [
             64.75,
             107.75
-          ],
-          "length": 86,
-          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+          ]
         },
         "location": "Between bed and Rolling laundry sorter; route to closet door; x 64.75, y 107.75 in"
       },
@@ -3102,12 +3172,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 64,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 64,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed north side",
@@ -3194,12 +3274,22 @@
               ]
             ],
             "exact_sampled_width": 25.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 29.25,
+              "y": 34.25,
+              "width": 25,
+              "between": [
+                "noak3",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 118,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               29.25,
               34.25
-            ],
-            "length": 118,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed south side",
@@ -3262,12 +3352,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 104.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 49,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               104.75
-            ],
-            "length": 49,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "front of noak3",
@@ -3354,12 +3454,22 @@
               ]
             ],
             "exact_sampled_width": 25.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 29.25,
+              "y": 36.75,
+              "width": 25,
+              "between": [
+                "noak3",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 116,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               29.25,
               36.75
-            ],
-            "length": 116,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "shaker_door",
@@ -3422,12 +3532,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 57,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 57,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "closet_door",
@@ -3490,12 +3610,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 86,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 86,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           }
         ],
         "narrowest": 25,
@@ -3584,12 +3714,22 @@
             ]
           ],
           "exact_sampled_width": 25.5,
-          "bottleneck": [
+          "bottleneck": {
+            "x": 29.25,
+            "y": 34.25,
+            "width": 25,
+            "between": [
+              "noak3",
+              "bed"
+            ],
+            "state": "everyday"
+          },
+          "length": 118,
+          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+          "bottleneck_point": [
             29.25,
             34.25
-          ],
-          "length": 118,
-          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+          ]
         },
         "location": "Between Noak 3-Drawer Dresser and bed; route to entrance bed north side; x 29.25, y 34.25 in"
       },
@@ -5320,12 +5460,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 64,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 64,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed north side",
@@ -5428,12 +5578,22 @@
               ]
             ],
             "exact_sampled_width": 26.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 28.25,
+              "y": 34.25,
+              "width": 26,
+              "between": [
+                "generic-14-56-54",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 118,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               28.25,
               34.25
-            ],
-            "length": 118,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed south side",
@@ -5496,12 +5656,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 104.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 49,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               104.75
-            ],
-            "length": 49,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "front of generic-14-56-54",
@@ -5604,12 +5774,22 @@
               ]
             ],
             "exact_sampled_width": 26.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 28.25,
+              "y": 58.75,
+              "width": 26,
+              "between": [
+                "generic-14-56-54",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 94,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               28.25,
               58.75
-            ],
-            "length": 94,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "shaker_door",
@@ -5672,12 +5852,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 57,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 57,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "closet_door",
@@ -5740,12 +5930,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 86,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 86,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           }
         ],
         "narrowest": 26,
@@ -5850,12 +6050,22 @@
             ]
           ],
           "exact_sampled_width": 26.5,
-          "bottleneck": [
+          "bottleneck": {
+            "x": 28.25,
+            "y": 34.25,
+            "width": 26,
+            "between": [
+              "generic-14-56-54",
+              "bed"
+            ],
+            "state": "everyday"
+          },
+          "length": 118,
+          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+          "bottleneck_point": [
             28.25,
             34.25
-          ],
-          "length": 118,
-          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+          ]
         },
         "location": "Between generic size, no product chosen (56 long × 14 deep × 54 high in) and bed; route to entrance bed north side; x 28.25, y 34.25 in"
       },
@@ -7522,12 +7732,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 64,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 64,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed north side",
@@ -7590,12 +7810,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 58.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 114,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               58.75
-            ],
-            "length": 114,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed south side",
@@ -7658,12 +7888,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 104.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 49,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               104.75
-            ],
-            "length": 49,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "front of article_nera3",
@@ -7726,12 +7966,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 95,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 95,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "shaker_door",
@@ -7794,12 +8044,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 57,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 57,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "closet_door",
@@ -7862,12 +8122,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 86,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 86,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           }
         ],
         "narrowest": 28,
@@ -7932,12 +8202,22 @@
             ]
           ],
           "exact_sampled_width": 28.5,
-          "bottleneck": [
+          "bottleneck": {
+            "x": 15.25,
+            "y": 90.75,
+            "width": 28,
+            "between": [
+              "shaker_door",
+              "wall-west"
+            ],
+            "state": "everyday"
+          },
+          "length": 64,
+          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+          "bottleneck_point": [
             15.25,
             90.75
-          ],
-          "length": 64,
-          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+          ]
         },
         "location": "Between hall north jamb and bed; route to foot of bed; x 15.25, y 90.75 in"
       },
@@ -9560,12 +9840,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 65,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 65,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed north side",
@@ -9628,12 +9918,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 58.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 114,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               58.75
-            ],
-            "length": 114,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed south side",
@@ -9696,12 +9996,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 104.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 50,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               104.75
-            ],
-            "length": 50,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "front of generic-20-40-36",
@@ -9764,12 +10074,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 92,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 92,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "shaker_door",
@@ -9832,12 +10152,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 57,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 57,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "closet_door",
@@ -9900,12 +10230,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 86,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 86,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           }
         ],
         "narrowest": 28,
@@ -9970,12 +10310,22 @@
             ]
           ],
           "exact_sampled_width": 28.5,
-          "bottleneck": [
+          "bottleneck": {
+            "x": 15.25,
+            "y": 90.75,
+            "width": 28,
+            "between": [
+              "shaker_door",
+              "wall-west"
+            ],
+            "state": "everyday"
+          },
+          "length": 65,
+          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+          "bottleneck_point": [
             15.25,
             90.75
-          ],
-          "length": 65,
-          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+          ]
         },
         "location": "Between hall north jamb and bed; route to foot of bed; x 15.25, y 90.75 in"
       },
@@ -11837,12 +12187,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 45.25,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 67,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               45.25,
               106.75
-            ],
-            "length": 67,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed west side",
@@ -11905,12 +12265,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 30.25,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 52,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               30.25,
               106.75
-            ],
-            "length": 52,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed east side",
@@ -11973,12 +12343,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 116,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 116,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "front of article_nera5",
@@ -12081,12 +12461,22 @@
               ]
             ],
             "exact_sampled_width": 26.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 31.25,
+              "y": 58.75,
+              "width": 26,
+              "between": [
+                "article_nera5",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 95,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               31.25,
               58.75
-            ],
-            "length": 95,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "shaker_door",
@@ -12149,12 +12539,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 57,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 57,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "closet_door",
@@ -12217,12 +12617,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 86,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 86,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           }
         ],
         "narrowest": 26,
@@ -12327,12 +12737,22 @@
             ]
           ],
           "exact_sampled_width": 26.5,
-          "bottleneck": [
+          "bottleneck": {
+            "x": 31.25,
+            "y": 58.75,
+            "width": 26,
+            "between": [
+              "article_nera5",
+              "bed"
+            ],
+            "state": "everyday"
+          },
+          "length": 95,
+          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+          "bottleneck_point": [
             31.25,
             58.75
-          ],
-          "length": 95,
-          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+          ]
         },
         "location": "Between Nera 5-Drawer Chest and bed; route to front of article nera5; x 31.25, y 58.75 in"
       },
@@ -14211,12 +14631,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 65,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 65,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed north side",
@@ -14303,12 +14733,22 @@
               ]
             ],
             "exact_sampled_width": 22.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 30.25,
+              "y": 33.25,
+              "width": 22,
+              "between": [
+                "storage",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 118,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               30.25,
               33.25
-            ],
-            "length": 118,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed south side",
@@ -14371,12 +14811,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 104.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 50,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               104.75
-            ],
-            "length": 50,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "front of storage",
@@ -14463,12 +14913,22 @@
               ]
             ],
             "exact_sampled_width": 22.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 30.25,
+              "y": 57.75,
+              "width": 22,
+              "between": [
+                "storage",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 94,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               30.25,
               57.75
-            ],
-            "length": 94,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "shaker_door",
@@ -14531,12 +14991,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 57,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 57,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "closet_door",
@@ -14599,12 +15069,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 86,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 86,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           }
         ],
         "narrowest": 22,
@@ -14693,12 +15173,22 @@
             ]
           ],
           "exact_sampled_width": 22.5,
-          "bottleneck": [
+          "bottleneck": {
+            "x": 30.25,
+            "y": 33.25,
+            "width": 22,
+            "between": [
+              "storage",
+              "bed"
+            ],
+            "state": "everyday"
+          },
+          "length": 118,
+          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+          "bottleneck_point": [
             30.25,
             33.25
-          ],
-          "length": 118,
-          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+          ]
         },
         "location": "Between Mid-Century 6-Drawer Dresser (56 inches) and bed; route to entrance bed north side; x 30.25, y 33.25 in"
       },
@@ -16525,12 +17015,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 65,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 65,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed north side",
@@ -16617,12 +17117,22 @@
               ]
             ],
             "exact_sampled_width": 21.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 31.25,
+              "y": 33.25,
+              "width": 21,
+              "between": [
+                "bed",
+                "storage"
+              ],
+              "state": "everyday"
+            },
+            "length": 119,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               31.25,
               33.25
-            ],
-            "length": 119,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "entrance bed south side",
@@ -16685,12 +17195,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 104.75,
+              "width": 28,
+              "between": [
+                "wall-west",
+                "shaker_door"
+              ],
+              "state": "everyday"
+            },
+            "length": 50,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               104.75
-            ],
-            "length": 50,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "front of storage",
@@ -16777,12 +17297,22 @@
               ]
             ],
             "exact_sampled_width": 21.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 31.25,
+              "y": 50.75,
+              "width": 21,
+              "between": [
+                "bed",
+                "storage"
+              ],
+              "state": "everyday"
+            },
+            "length": 101,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               31.25,
               50.75
-            ],
-            "length": 101,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "shaker_door",
@@ -16845,12 +17375,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 15.25,
+              "y": 90.75,
+              "width": 28,
+              "between": [
+                "shaker_door",
+                "wall-west"
+              ],
+              "state": "everyday"
+            },
+            "length": 57,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               15.25,
               90.75
-            ],
-            "length": 57,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           },
           {
             "id": "closet_door",
@@ -16913,12 +17453,22 @@
               ]
             ],
             "exact_sampled_width": 28.5,
-            "bottleneck": [
+            "bottleneck": {
+              "x": 61.75,
+              "y": 106.75,
+              "width": 28,
+              "between": [
+                "laundry_sorter",
+                "bed"
+              ],
+              "state": "everyday"
+            },
+            "length": 86,
+            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+            "bottleneck_point": [
               61.75,
               106.75
-            ],
-            "length": 86,
-            "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+            ]
           }
         ],
         "narrowest": 21,
@@ -17007,12 +17557,22 @@
             ]
           ],
           "exact_sampled_width": 21.5,
-          "bottleneck": [
+          "bottleneck": {
+            "x": 31.25,
+            "y": 33.25,
+            "width": 21,
+            "between": [
+              "bed",
+              "storage"
+            ],
+            "state": "everyday"
+          },
+          "length": 119,
+          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision.",
+          "bottleneck_point": [
             31.25,
             33.25
-          ],
-          "length": 119,
-          "exact_refinement": "Path vertices checked against exact obstacle edges. Published width remains the conservative EDT lower estimate; exact sampled width is diagnostic, never used to inflate a decision."
+          ]
         },
         "location": "Between bed and Miles Narrrow 6-Drawer Dresser (48\"); route to entrance bed north side; x 31.25, y 33.25 in"
       },

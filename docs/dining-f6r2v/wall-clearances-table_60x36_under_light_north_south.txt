@@ -1,0 +1,44 @@
+60 × 36 north–south
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Generic size, no product chosen [table]
+  north: 49 in
+  east: 44½ in
+  south: 49 in
+  west: 45 in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-1]
+  north: 58 in
+  east: 81½ in
+  south: 82 in
+  west: 44½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-2]
+  north: 82 in
+  east: 82 in
+  south: 58 in
+  west: 35½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-3]
+  north: 58 in
+  east: 34½ in
+  south: 82 in
+  west: 86½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-4]
+  north: 82 in
+  east: 35½ in
+  south: 58 in
+  west: 82 in
+
+Liv 58" Sideboard - Walnut [sideboard]
+  north: ½ in
+  east: 32½ in
+  south: 140 in
+  west: 32½ in
+
+Owned 72 × 108 rug (approximate) [rug]
+  north: 43 in
+  east: 8½ in
+  south: 43 in
+  west: 9½ in

@@ -24,7 +24,7 @@ export function normalizeProduct(id,f,{file,date,brief,owned=false}={}) {
   const images=(f.images??[]).map(i=>({...i,path:i.path?path.posix.join(path.posix.dirname(file),i.path):undefined}));
   if(f.official_image_url)images.push({url:f.official_image_url,path:f.image?path.posix.join(path.posix.dirname(file),f.image):undefined});
   return {id,label:publicText(f.name),category,kind,dims_in:dims,extra_dims:{...(f.extra_dims_in??{}),...(Array.isArray(f.extra_dims)?{published:f.extra_dims}:f.extra_dims??{}),...(f.drawer_in?{drawer_in:f.drawer_in}:{}),...(f.headboard_in?{headboard_in:f.headboard_in}:{}),...(f.mattress_space_in?{mattress_space_in:f.mattress_space_in}:{})},
-    w:selected.d,d:selected.w,h:selected.h,head:'east',faces:'east',footprint:f.shape??'rectangle',
+    w:selected.d,d:selected.w,h:selected.h,head:'east',faces:'east',footprint:f.footprint_shape??f.shape??'rectangle',...(f.base_type?{base_type:f.base_type}:{}),
     owned,price,price_unknown:price===null,price_date:f.price_date??f.price_checked??f.accessed??date??null,price_basis:publicText(f.price_basis??(owned?'Owned; no new spend':f.prices_usd?'Dated RH member price; membership, delivery and tax extra':'Dated source price; delivery and tax extra')),
     ...tags,images,sources,source:f.url??null,source_files:[file],
     dimension_basis:approximate?(estimate?'Photo estimate, not manufacturer dimensions; '+publicText(estimate.basis??'room evidence'):'Unknown dimensions; measure first'):'Published dimensions from supplied source',

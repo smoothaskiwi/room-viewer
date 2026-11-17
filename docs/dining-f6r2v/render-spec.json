@@ -1,0 +1,108 @@
+{
+  "room": {
+    "width_x": 123,
+    "depth_y": 158,
+    "width_x_unc": 2,
+    "depth_y_unc": 2,
+    "ceiling_z": 100,
+    "basis": "P plan A1 scaled at 600 dpi (1/4 in = 1 ft); +/-2 in drawing/redraw tolerance; house is out of square",
+    "appearance": "cream walls, white trim, oak strip floor, round-top plaster arches; used as a TV room"
+  },
+  "openings": [
+    {
+      "wall": "north",
+      "openings": []
+    },
+    {
+      "wall": "east",
+      "openings": [
+        {
+          "id": "living_arch",
+          "wall": "east",
+          "type": "round-top opening to living room",
+          "opening_y": [
+            39,
+            121
+          ],
+          "width": 82,
+          "basis": "P; arch M (video)",
+          "offset_from_corner": 39,
+          "sill": 0,
+          "head": 80
+        }
+      ]
+    },
+    {
+      "wall": "south",
+      "openings": [
+        {
+          "id": "south_window",
+          "wall": "south",
+          "type": "window",
+          "opening_x": [
+            26,
+            74
+          ],
+          "operable": "single-hung",
+          "plan_tag": "(E) 4/0 4/0 SH",
+          "casing_x": [
+            22.5,
+            77.5
+          ],
+          "stool_top_z": 32,
+          "stool_top_z_unc": 3,
+          "basis": "opening P; stool A (head 80 less 48)",
+          "offset_from_corner": 26,
+          "width": 48,
+          "sill": 32,
+          "head": 80
+        }
+      ]
+    },
+    {
+      "wall": "west",
+      "openings": [
+        {
+          "id": "kitchen_arch",
+          "wall": "west",
+          "type": "round-top cased opening to kitchen and nook",
+          "opening_y": [
+            24,
+            121
+          ],
+          "clear_floor_y": [
+            54.6,
+            121
+          ],
+          "width": 97,
+          "head_height": 80,
+          "plan_tag": "1 (door schedule: 8'-1\" x 6'-8\")",
+          "basis": "P RES-2410580 approved job copy (1901825e9bde76ec_part5_RES-2410580-JOBCOPY-PLAN.pdf) p5 sheet A1, door schedule mark 1; v5 p6 chain 2'-0\" + 8'-1\" + 3'-1\"; layout stub 36; M dining video t013 (panel ~31 wide) and nook solve",
+          "cabinet_in_opening": {
+            "y": [
+              24,
+              54.6
+            ],
+            "face_x": -5.1,
+            "label": "kitchen east run end (3DB24 + PBP back panel, white, 36 high) fills the north 30.6 in; its face is set back in the kitchen by the wall thickness"
+          },
+          "clear_width": 66.4,
+          "offset_from_corner": 24,
+          "sill": 0,
+          "head": 80
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "light_fixture",
+      "xy": [
+        61.5,
+        79
+      ],
+      "uncertainty": 12,
+      "assumed": true
+    }
+  ]
+}

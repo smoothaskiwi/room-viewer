@@ -1,0 +1,44 @@
+Mid-Century Extendable Dining Table 60–80 rectangular
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Mid-Century Extendable Dining Table 60–80 rectangular [table]
+  north: 63 in
+  east: 37½ in
+  south: 57 in
+  west: 37½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-1]
+  north: 48½ in
+  east: 65 in
+  south: 95 in
+  west: 47 in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-2]
+  north: 48½ in
+  east: 41½ in
+  south: 95 in
+  west: 69 in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-3]
+  north: 101 in
+  east: 64½ in
+  south: 42½ in
+  west: 41 in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-4]
+  north: 101 in
+  east: 41 in
+  south: 42½ in
+  west: 64½ in
+
+Heidi 50" Sideboard - Walnut [sideboard]
+  north: ½ in
+  east: 36½ in
+  south: 141 in
+  west: 36½ in
+
+Owned 72 × 108 rug (approximate) [rug]
+  north: 43 in
+  east: 8½ in
+  south: 43 in
+  west: 9½ in

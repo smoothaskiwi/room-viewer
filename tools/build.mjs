@@ -1,12 +1,15 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {repo} from './project.mjs';
 import {explore} from './explore.mjs';
 import {amendWallClearances} from './wall-clearances-build.mjs';
+import {annotateRoutes} from './route-contract.mjs';
+import {buildHouse} from './house.mjs';
 import {esc,card,routeText,storageText,money,dresserTradeoffTable,envelopeTables,depthTradeoffTables} from '../src/explorer-format.mjs';
 import {planSVG} from '../src/explorer-plan.mjs';
 const out=process.env.ROOM_OUTPUT_DIR||path.join(repo,'docs/primary-bedroom-b7q4m');await fs.mkdir(out,{recursive:true});
-const {room,brief,profile,catalog,data}=await explore();const verdictSentences=data.verdict.split(/(?<=[.!?])\s+/);const write=(n,v)=>fs.writeFile(path.join(out,n),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n');
+const {room,brief,profile,catalog,data}=await explore();annotateRoutes(room,data);const rooms=JSON.parse(await fs.readFile(path.join(repo,'data/rooms.json'),'utf8'));const verdictSentences=data.verdict.split(/(?<=[.!?])\s+/);const write=(n,v)=>fs.writeFile(path.join(out,n),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n');
 await write('room.json',room);await write('brief.json',brief);await write('catalog.json',catalog);await write('layouts.json',data);
 // Adapt the new room model to the retained measured-room renderer; legacy scene-spec is never read.
 const openings=['north','east','south','west'].map(wall=>({wall,openings:room.openings.filter(o=>o.wall===wall).map(o=>{const s=o.opening_x||o.opening_y||o.slab_x||[o.hinge_edge_y.survey,o.hinge_edge_y.survey+o.width];return {...o,offset_from_corner:s[0],width:s[1]-s[0],sill:o.sash_bottom_z||o.sill_z,head:o.opening_top_z||o.head_z,swing_radius:o.leaf_radius,hinge_axis:o.id==='shaker_door'?{x:o.pin_x,y:o.hinge_edge_y.survey}:undefined,trim:{casing_outer_y:o.casing_y,casing_outer_x:o.casing_x,stool_y:o.stool_x||o.stool_y,stool_top_z:o.stool_top_z,stool_projection_est:o.stool_projection}};})}));
@@ -142,6 +145,7 @@ await write('index.html',`<!doctype html>
 </head>
 <body>
 <a class="skip" href="#gallery-title">Skip to layouts</a>
+<nav aria-label="Room switcher"><a href="../">All rooms</a> · ${rooms.map(r=>`<a href="../${r.path}"${r.room==='primary-bedroom'?' aria-current="page"':''}>${esc(r.title)}</a>`).join(' · ')}</nav>
 <header>
 <p class="eyebrow">Bedroom · layout explorer · 16 Nov 2026</p>
 <h1>Bedroom layouts</h1>
@@ -183,5 +187,11 @@ ${ranked}<details>
 </html>`);
 await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence+'\nDetails: '+l.long_description).join('\n\n')+'\n');
 await amendWallClearances(out);
+if(!process.env.ROOM_OUTPUT_DIR&&!process.env.ROOM_BEDROOM_ONLY){
+ for(const r of rooms.filter(r=>r.room!=='primary-bedroom')){execFileSync(process.execPath,[path.join(repo,'tools/activity-build.mjs'),r.room],{cwd:repo,stdio:'inherit',env:process.env});await amendWallClearances(path.join(repo,'docs',r.slug));}
+ await fs.writeFile(path.join(repo,'docs/rooms.json'),JSON.stringify(rooms,null,2)+'\n');await buildHouse(rooms);
+ const index=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room layout explorer</title><link rel="icon" href="data:,"><style>body{font:18px/1.5 system-ui,sans-serif;max-width:45rem;margin:3rem auto;padding:0 20px;color:#253b31;background:#f7f5ee}a{display:block;padding:18px;background:#dce8df;margin:12px 0;border-radius:8px;color:inherit}h1{font-size:2rem}</style></head><body><main><h1>Room layouts</h1><p>Compare measured furniture arrangements. Planning models, not installation drawings. Two adults, two cats; no child zones.</p><nav aria-label="Rooms">${rooms.map(r=>`<a href="${r.path}">${esc(r.title)}</a>`).join('')}</nav><p><a href="house-walk.txt">Joined kitchen → dining → living reference walk</a></p><p>Every room has a text table, plan, illustrative 3D, comparison and wall clearances. No kitchen or dining photo plates yet.</p></main></body></html>`;
+ await fs.writeFile(path.join(repo,'docs/index.html'),index);
+}
 console.log('Build peak RSS: '+process.resourceUsage().maxRSS+' KiB');
 console.log(`Round 9a built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.6 style and placement sanity; everyday doors; separate open-door warnings; Today is valid.`);

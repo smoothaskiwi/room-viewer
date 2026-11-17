@@ -1,0 +1,322 @@
+A 60 × 36 east–west table fits under the assumed light. The arch-to-arch walk bends around the table, with chairs in or seated. Tape the chandelier centre first.
+
+Today: TV room [valid]
+Keep today’s TV room; the Wells chair narrows the kitchen arch, and dining furniture is absent.
+Class: valid
+Table: No dining table (Today TV room)
+Everyday main walk: 32.0 ±5.0 in (+0.0 vs Today)
+Seated main walk: 32.0 ±5.0 in (+0.0 vs Today)
+Chairs pulled out main walk: 32.0 ±5.0 in (+0.0 vs Today)
+Surveyed arch pinch: 34.1 ±5.0 in cabinet corner to Wells chair; EDT 32.0 is a separate lower estimate
+New cost: $0; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Mid-Century Extendable Dining Table 60–80 rectangular [valid]
+60.0 × 38.0 rectangle east–west, 4 chairs, north sideboard; arch walk 36.5 inches.
+Class: valid
+Table: 60.0 × 38.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 60–80 rectangular
+Everyday main walk: 36.5 ±3.0 in (+4.5 vs Today)
+Seated main walk: 36.0 ±3.0 in (+4.0 vs Today)
+Chairs pulled out main walk: 24.0 ±3.0 in (-8.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 63.0 / 57.0 ±2.0 in
+Table edge to north / south storage: 46.0 / 57.0 ±2.0 in
+Smallest usable chair pullout: 46.0 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 14.0 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 26.0 ±2.0 in
+Sideboard operation allowance: 31.3 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 3.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 17.0 in, 7.0 short of 24-in guide
+New cost: $2,254; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Mid-Century Rounded Extendable Dining Table 60–80 oval [valid]
+60.0 × 42.0 oval east–west, 4 chairs, north sideboard; arch walk 39.0 inches.
+Class: valid
+Table: 60.0 × 42.0 × 30.2 in, oval; Mid-Century Rounded Extendable Dining Table 60–80 oval
+Everyday main walk: 39.0 ±3.0 in (+7.0 vs Today)
+Seated main walk: 34.0 ±3.0 in (+2.0 vs Today)
+Chairs pulled out main walk: 22.0 ±3.0 in (-10.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 61.0 / 55.0 ±2.0 in
+Table edge to north / south storage: 44.0 / 55.0 ±2.0 in
+Smallest usable chair pullout: 44.0 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 12.0 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 24.0 ±2.0 in
+Sideboard operation allowance: 29.3 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 3.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 15.0 in, 9.0 short of 24-in guide
+New cost: $2,254; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Conan 75" Oval Dining Table - Walnut [valid]
+75.0 × 43.5 oval east–west, 4 chairs, north sideboard; arch walk 40.0 inches.
+Class: valid
+Table: 75.0 × 43.5 × 29.0 in, oval; Conan 75" Oval Dining Table - Walnut
+Everyday main walk: 40.0 ±3.0 in (+8.0 vs Today)
+Seated main walk: 36.0 ±3.0 in (+4.0 vs Today)
+Chairs pulled out main walk: 24.0 ±3.0 in (-8.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 24.0 / 24.0 ±2.0 in
+Table edge to north / south wall: 57.3 / 57.3 ±2.0 in
+Table edge to north / south storage: 44.8 / 57.3 ±2.0 in
+Smallest usable chair pullout: 44.8 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 12.8 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 24.8 ±2.0 in
+Sideboard operation allowance: 30.0 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 14.3 in, 9.8 short of 24-in guide
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Generic size, no product chosen [valid]
+48.0 × 36.0 oval east–west, 4 chairs, north sideboard; arch walk 40.5 inches.
+Class: valid
+Table: 48.0 × 36.0 × 30.0 in, oval; Generic size, no product chosen
+Everyday main walk: 40.5 ±3.0 in (+8.5 vs Today)
+Seated main walk: 40.0 ±3.0 in (+8.0 vs Today)
+Chairs pulled out main walk: 28.0 ±3.0 in (-4.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 37.5 / 37.5 ±2.0 in
+Table edge to north / south wall: 61.0 / 61.0 ±2.0 in
+Table edge to north / south storage: 48.5 / 61.0 ±2.0 in
+Smallest usable chair pullout: 48.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 16.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 28.5 ±2.0 in
+Sideboard operation allowance: 33.8 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 18.0 in, 6.0 short of 24-in guide
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+60 × 36 east–west, north sideboard [valid]
+60.0 × 36.0 rectangle east–west, 4 chairs, north sideboard; arch walk 38.5 inches.
+Class: valid
+Table: 60.0 × 36.0 × 30.0 in, rectangle; Generic size, no product chosen
+Everyday main walk: 38.5 ±3.0 in (+6.5 vs Today)
+Seated main walk: 38.5 ±3.0 in (+6.5 vs Today)
+Chairs pulled out main walk: 28.0 ±3.0 in (-4.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 61.0 / 61.0 ±2.0 in
+Table edge to north / south storage: 43.0 / 61.0 ±2.0 in
+Smallest usable chair pullout: 43.0 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 11.0 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 23.0 ±2.0 in
+Sideboard operation allowance: 28.3 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 18.0 in, 6.0 short of 24-in guide
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+60 × 36 north–south [valid]
+36.0 × 60.0 rectangle north–south, 4 chairs, north sideboard; arch walk 34.5 inches.
+Class: valid
+Table: 36.0 × 60.0 × 30.0 in, rectangle; Generic size, no product chosen
+Everyday main walk: 34.5 ±3.0 in (+2.5 vs Today)
+Seated main walk: 31.0 ±3.0 in (-1.0 vs Today)
+Chairs pulled out main walk: 23.0 ±3.0 in (-9.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 43.5 / 43.5 ±2.0 in
+Table edge to north / south wall: 49.0 / 49.0 ±2.0 in
+Table edge to north / south storage: 31.0 / 49.0 ±2.0 in
+Smallest usable chair pullout: 43.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 11.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 11.0 ±2.0 in
+Sideboard operation allowance: 31.0 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 6.0 in, 18.0 short of 24-in guide
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+West Elm 60–80 extension, closed [conditional]
+60.0 × 38.0 rectangle east–west, 4 chairs, north sideboard; arch walk 38.0 inches.
+Class: conditional
+Table: 60.0 × 38.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 60–80 rectangular
+Everyday main walk: 38.0 ±3.0 in (+6.0 vs Today)
+Seated main walk: 38.0 ±3.0 in (+6.0 vs Today)
+Chairs pulled out main walk: 27.0 ±3.0 in (-5.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 60.0 / 60.0 ±2.0 in
+Table edge to north / south storage: 42.0 / 60.0 ±2.0 in
+Smallest usable chair pullout: 42.0 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 10.0 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 22.0 ±2.0 in
+Sideboard operation allowance: 27.3 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 17.0 in, 7.0 short of 24-in guide
+New cost: $2,554; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: light north: sideboard operation
+
+Anton 60 round, six chairs [conditional]
+60.0 × 60.0 round east–west, 6 chairs, north sideboard; arch walk 33.0 inches.
+Class: conditional
+Table: 60.0 × 60.0 × 30.0 in, round; Anton Round Pedestal Dining Table 60
+Everyday main walk: 33.0 ±3.0 in (+1.0 vs Today)
+Seated main walk: 28.0 ±3.0 in (-4.0 vs Today)
+Chairs pulled out main walk: 16.0 ±3.0 in (-16.0 vs Today)
+Everyday seats: 6; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 49.0 / 49.0 ±2.0 in
+Table edge to north / south storage: 32.0 / 49.0 ±2.0 in
+Smallest usable chair pullout: 31.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: -0.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 12.0 ±2.0 in
+Sideboard operation allowance: 17.3 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 6.0 in, 18.0 short of 24-in guide
+New cost: $3,132; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: light north: 24-in pullout chair-1; 24-in pullout chair-2; sideboard operation
+
+Comparison only: TV stays [conditional]
+60.0 × 36.0 rectangle east–west, 4 chairs, north sideboard; arch walk 38.5 inches.
+Class: conditional
+Table: 60.0 × 36.0 × 30.0 in, rectangle; Generic size, no product chosen
+Everyday main walk: 38.5 ±3.0 in (+6.5 vs Today)
+Seated main walk: 38.5 ±3.0 in (+6.5 vs Today)
+Chairs pulled out main walk: 28.0 ±3.0 in (-4.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 61.0 / 61.0 ±2.0 in
+Table edge to north / south storage: 41.5 / 61.0 ±2.0 in
+Smallest usable chair pullout: 41.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 9.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 21.5 ±2.0 in
+Sideboard operation allowance: 26.8 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 18.0 in, 6.0 short of 24-in guide
+New cost: Not fully priced; generic / quote-only components are not free
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: light north: sideboard operation
+
+Council pick A1 · Walnut-console sideboard stays on the old TV wall; 60 x 38 extension table just south of centre [valid]
+60.0 × 38.0 rectangle east–west, 4 chairs, north sideboard; arch walk 34.0 inches.
+Class: valid
+Table: 60.0 × 38.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 60–80 rectangular
+Everyday main walk: 34.0 ±3.0 in (+2.0 vs Today)
+Seated main walk: 31.0 ±3.0 in (-1.0 vs Today)
+Chairs pulled out main walk: 19.0 ±3.0 in (-13.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 68.0 / 52.0 ±2.0 in
+Table edge to north / south storage: 48.5 / 52.0 ±2.0 in
+Smallest usable chair pullout: 48.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 16.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 28.5 ±2.0 in
+Sideboard operation allowance: 33.0 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 8.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 17.0 in, 7.0 short of 24-in guide
+New cost: $1,695; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick A2 · Table centred under the light, walnut console moved under the south window [conditional]
+60.0 × 38.0 rectangle east–west, 4 chairs, south sideboard; arch walk 31.0 inches.
+Class: conditional
+Table: 60.0 × 38.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 60–80 rectangular
+Everyday main walk: 31.0 ±3.0 in (-1.0 vs Today)
+Seated main walk: 31.0 ±3.0 in (-1.0 vs Today)
+Chairs pulled out main walk: 27.0 ±3.0 in (-5.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 60.0 / 60.0 ±2.0 in
+Table edge to north / south storage: 60.0 / 40.5 ±2.0 in
+Smallest usable chair pullout: 40.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 8.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 40.0 ±2.0 in
+Sideboard operation allowance: 25.0 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 17.0 in, 7.0 short of 24-in guide
+New cost: $1,695; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: room smaller: inside room: dining-media-console-0
+
+Council pick A3 · 42-in round for four that opens to a 60-in oval; console stays on the north wall [valid]
+42.0 × 42.0 round east–west, 4 chairs, north sideboard; arch walk 34.0 inches.
+Class: valid
+Table: 42.0 × 42.0 × 30.4 in, round; Mid-Century Rounded Extendable Dining Table 42–60
+Everyday main walk: 34.0 ±3.0 in (+2.0 vs Today)
+Seated main walk: 29.0 ±3.0 in (-3.0 vs Today)
+Chairs pulled out main walk: 17.0 ±3.0 in (-15.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 40.5 / 40.5 ±2.0 in
+Table edge to north / south wall: 66.0 / 50.0 ±2.0 in
+Table edge to north / south storage: 46.5 / 50.0 ±2.0 in
+Smallest usable chair pullout: 40.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 8.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 26.5 ±2.0 in
+Sideboard operation allowance: 31.0 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 8.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 15.0 in, 9.0 short of 24-in guide
+New cost: $1,595; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick B1 · Extension table across the room; reuse the walnut console [valid]
+60.0 × 38.0 rectangle east–west, 4 chairs, north sideboard; arch walk 38.0 inches.
+Class: valid
+Table: 60.0 × 38.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 60–80 rectangular
+Everyday main walk: 38.0 ±3.0 in (+6.0 vs Today)
+Seated main walk: 38.0 ±3.0 in (+6.0 vs Today)
+Chairs pulled out main walk: 27.0 ±3.0 in (-5.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 60.0 / 60.0 ±2.0 in
+Table edge to north / south storage: 41.5 / 60.0 ±2.0 in
+Smallest usable chair pullout: 41.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 9.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 21.5 ±2.0 in
+Sideboard operation allowance: 20.0 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 17.0 in, 7.0 short of 24-in guide
+New cost: $1,695; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick B2 · Smaller table lengthwise, with a shallow sideboard [invalid]
+32.0 × 39.0 rectangle north–south, 4 chairs, north sideboard; arch walk 30.5 inches.
+Class: invalid
+Table: 32.0 × 39.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 39–55
+Everyday main walk: 30.5 ±3.0 in (-1.5 vs Today)
+Seated main walk: 31.0 ±3.0 in (-1.0 vs Today)
+Chairs pulled out main walk: 23.0 ±3.0 in (-9.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 45.5 / 45.5 ±2.0 in
+Table edge to north / south wall: 51.5 / 67.5 ±2.0 in
+Table edge to north / south storage: 34.5 / 67.5 ±2.0 in
+Smallest usable chair pullout: 45.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 13.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 14.5 ±2.0 in
+Sideboard operation allowance: 34.5 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 8.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 16.5 in, 7.5 short of 24-in guide
+New cost: $2,194; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39)
+Scenario failures: room smaller: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39) / light west: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39) / light east: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39) / light north: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39) / light south: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39)

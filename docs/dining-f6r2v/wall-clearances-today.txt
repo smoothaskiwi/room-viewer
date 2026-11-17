@@ -1,0 +1,44 @@
+Today: TV room
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Owned 72 × 108 rug (approximate) [rug]
+  north: 43 in
+  east: 8½ in
+  south: 43 in
+  west: 9½ in
+
+dark walnut-tone media console, drawer stack left plus doors, long bar pulls, TV about 65 in on the wall/console [media_console]
+  north: ½ in
+  east: 30 in
+  south: 138½ in
+  west: 30 in
+
+black electric stove-style heater [electric_stove_heater]
+  north: 2 in
+  east: 95 in
+  south: 142 in
+  west: 8 in
+
+cognac leather 3-seat sofa (3 loose untufted back cushions, track arms), faces north to the TV [sofa]
+  north: 121 in
+  east: 19 in
+  south: 1 in
+  west: 16 in
+
+white upholstered storage ottoman with wicker tray [ottoman]
+  north: 96 in
+  east: 50 in
+  south: 42 in
+  west: 37½ in
+
+Pottery Barn Wells leather tight-back petite swivel armchair, sage green (purchase-identified 31 W x 35 D x 34 H) [swivel_chair]
+  north: 88 in
+  east: 86 in
+  south: 37 in
+  west: 2 in
+
+cream nubby round pouf about 20 dia x 16 H (+/-3); a second white pouf moves around [poufs]
+  north: 71 in
+  east: 58½ in
+  south: 67 in
+  west: 61 in

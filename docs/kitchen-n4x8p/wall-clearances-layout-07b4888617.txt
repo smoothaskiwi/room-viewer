@@ -1,0 +1,20 @@
+Mid-Century Extendable Dining Table 39–55
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Mid-Century Extendable Dining Table 39–55 [table]
+  north: no wall surface
+  east: 42½ in
+  south: 19½ in
+  west: 21½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-1]
+  north: no wall surface
+  east: 54½ in
+  south: 58½ in
+  west: 28½ in
+
+Cats’ fountain and bowls (approximate) [pet-station]
+  north: no wall surface
+  east: 1 in
+  south: 24½ in
+  west: 70 in

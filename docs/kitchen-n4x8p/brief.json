@@ -1,0 +1,415 @@
+{
+  "meta": {
+    "version": "1.1 (16 Nov 2026 evening)",
+    "room": "kitchen-nook",
+    "room_file": "room-kitchen.json (1.1)",
+    "change_note": "1.1: numbers and geometry updated to the room file reconciled with the renovation documents. Nook 96 wide (was 98.5); bench free end and bar cabinet side x 66 (was 67.3); bar cabinet 17.5 +/-1.5 deep, front flush with the south seat front y 84.9 (was 24 deep, front 78.4); west counter 18 deep, top front 19 (was 24); kitchen/dining opening 97 jamb to jamb, but the east run's last cabinet fills its north 30.6, so 66.4 +/-2 is open floor (was 65.5); usable seat 13.0 +/-1.8 (17.5 less a 4.5 cushion); pendant at (43.8, 57.8) +/-3. Pinned layouts unchanged; checks in expected-checks-kitchen.json 1.1.",
+    "status": "defaults proposed by the agent; Daniel or Angela can change any of them in plain words",
+    "format": "same shape as brief-primary-bedroom.json 1.4, plus 'activities' (use zones), 'measure_first', 'pinned_layouts' and 'sources'",
+    "household": "two adults and two cats; no children",
+    "basis_warning": "the banquette footprint is plan-scaled with a video check; the usable seat depth is 13.0 +/-1.8 (seat 17.5 +/-1.5 from E1 and the video, less a 4.5 +/-1 back cushion, an assumption) and the bar cabinet depth 17.5 +/-1.5 comes from the supplier layout (12-in box plus counter) and the video; the width 96 +/-1.5 is the layout return. Every seat number below moves inch for inch with them."
+  },
+  "plain_policy": "Find a table for the built-in L banquette that Angela likes (about 48 x 32 in, pill or boat shaped, on a pedestal) and say exactly how it sits. Nothing may collide; the walk from the kitchen to the dining room must stay at least 24 inches with the chairs pushed in; a banquette seat only counts if there are at least 9 inches between the back cushion and the table edge. Everything else is a trade-off measured against today's table. Priorities in order: the kitchen-to-dining walkway, room to slide into and sit on both benches, two comfortable everyday seats and four with guests, Angela's size and style, cost.",
+  "pinned": {
+    "table_long_axis": "east-west, along the south bench (as today); the engine also tries north-south and round tables",
+    "banquette": "fixed built-in; never moved",
+    "style": "mid-century modern: warm walnut or oak top, pedestal base, rounded ends"
+  },
+  "activities": {
+    "banquette_dining": {
+      "who": "each bench seat, 24 in of bench per adult (21 in minimum)",
+      "use_zone": "from the back cushion face to the table edge, at the seat; plus foot room on the floor between the seat front and the table base",
+      "measures": [
+        "seat back to table edge (back cushion face to table edge), per bench",
+        "table overlap over the seat front, per bench (negative = a gap)",
+        "slide-in entry: bench left uncovered beyond the table end (south bench: table east end to the bench's free end at x 66.0; west bench: table north edge to the counter end at y 36.2)",
+        "foot room: table base edge to each seat front",
+        "seats that count: bench length under or beside the table divided by 24, corner seat not counted"
+      ],
+      "guides": {
+        "seat_back_to_table_edge": {
+          "hard_min": 9,
+          "tight": 11,
+          "comfortable": [
+            14,
+            16
+          ],
+          "generous": 18,
+          "source": [
+            "trend_booth"
+          ]
+        },
+        "table_overlap_over_seat": {
+          "range_to_try": [
+            -4,
+            4
+          ],
+          "guide_low": [
+            1,
+            2
+          ],
+          "guide_mid": [
+            3,
+            4
+          ],
+          "guide_high": [
+            4,
+            5
+          ],
+          "source": [
+            "trend_booth",
+            "modernacre_banquette",
+            "bhg_banquette"
+          ],
+          "note": "these guides assume 16-20 in of usable seat; this banquette has about 13, so less overlap, or a small gap as on today's south side, may sit better"
+        },
+        "bench_per_person": {
+          "minimum": 21,
+          "comfortable": 24,
+          "source": [
+            "bhg_banquette",
+            "nkba_g9"
+          ]
+        },
+        "bench_beyond_table_end_to_slide_in": {
+          "comfortable": 12,
+          "source": [
+            "bhg_banquette"
+          ]
+        },
+        "foot_room_base_to_seat_front": {
+          "preferred_min": 4,
+          "source": [
+            "room_file_table_fit"
+          ]
+        },
+        "pedestal_not_legs": {
+          "note": "a pedestal or trestle keeps legs out of the slide-in path; four corner legs are a warning",
+          "source": [
+            "bhg_banquette",
+            "modernacre_banquette"
+          ]
+        }
+      }
+    },
+    "chair_dining_open_side": {
+      "who": "loose chairs on the table's open side (north, east of the west counter front at x 18, top 19) and optionally at the east end",
+      "states": {
+        "tucked (everyday)": "chair pushed in; it sticks out its own depth minus 6 in from the table edge",
+        "seated": "20 in from the table edge (assumption)",
+        "pulled out to sit down": "32 in from the table edge"
+      },
+      "guides": {
+        "table_edge_to_obstruction_no_traffic": 32,
+        "edge_past_a_seated_diner": 36,
+        "walk_past_a_seated_diner": 44,
+        "width_per_diner": 24,
+        "knee_space_under_30in_table": 18,
+        "source": [
+          "nkba_g8",
+          "nkba_g9"
+        ]
+      },
+      "rule": "a chair must be able to reach its pulled-out state without hitting a cabinet, the pet station or another chair (hard); what is left for walking while someone is seated is reported against the guides (preference)"
+    },
+    "walk_kitchen_to_dining": {
+      "from": "the kitchen aisle between the west counter (x 0-18, top front 19) and the east cabinet run (x 72-96) at the nook datum line y 0 (54 in wide at the floor)",
+      "to": "the open floor of the dining-room opening on the east side (plane x 96.0, y 0 to 66.4 +/-2), then on into the dining room (see brief-dining-room.json for the far side). The arch is 97 in jamb to jamb (y -30.6 to 66.4, A1 door schedule mark 1) but the last cabinet of the kitchen's east run (3DB24 with back panel, 36 high) fills its north 30.6 in, so only 66.4 in is floor. Flag any layout that treats it as 97.",
+      "also_to": [
+        "south bench entry at its free east end",
+        "west bench entry beside the counter end",
+        "front of the bar cabinet and microwave",
+        "pet bowls"
+      ]
+    },
+    "bar_cabinet_use": {
+      "use_zone": "standing strip in front of the bar unit and microwave, x 66-96, 24 in deep from its front (front y 84.9, so y 60.9-84.9)",
+      "note": "the pet station sits in this strip today, so it is a preference, not a hard rule"
+    }
+  },
+  "candidate_items": {
+    "nook_table_search": [
+      "jarvis48",
+      "nps48",
+      "ellipse48",
+      "pisa46",
+      "lippa48",
+      "lippa54",
+      "exotic_argent32",
+      "hardt_ravello32",
+      "vft_argent32",
+      "sobu_walnut",
+      "modsilver_ravello",
+      "we39"
+    ],
+    "made_to_size_48x32_no_published_size": [
+      "loewen_custom32",
+      "mez_custom32",
+      "sobu_custom32",
+      "phill_custom32",
+      "etsy_como32"
+    ],
+    "mcm_catalog_tables": [
+      "article_seno36",
+      "article_heidi42",
+      "article_odie",
+      "article_plumas37",
+      "we_mc39",
+      "we_mc42",
+      "we_anton48",
+      "castlery_harper",
+      "ikea_docksta",
+      "rb_aria61"
+    ],
+    "mcm_catalog_chairs": [
+      "article_ulka",
+      "article_mikkel",
+      "article_nosh",
+      "article_zola",
+      "castlery_vincentchair"
+    ],
+    "rh_outlet": [
+      "prod30170216"
+    ],
+    "owned": [
+      "kitchen-nook-table",
+      "kitchen-nook-chairs",
+      "kitchen-banquette"
+    ],
+    "note": "made-to-size entries have no published size; the engine uses the generic 48 x 32 pill for their geometry and labels the base 'to be specified with the maker'. rb_aria61 (61 x 32 boat) is kept only to show why a 61-in table does not fit."
+  },
+  "required": {
+    "table": 1,
+    "everyday_seats": "2 adults, both comfortable (bench or chair)",
+    "guest_seats": "4 preferred, 5 or 6 a bonus; fewer than 4 is a warning, not invalid",
+    "loose_chairs": "1 or 2 on the north side; 0 allowed if the benches alone give 4 counted seats",
+    "pet_station": "the cats' fountain and bowls stay in the nook or kitchen, off the kitchen-to-dining walkway"
+  },
+  "passage": {
+    "main_route": {
+      "hard_min": 24,
+      "from": "kitchen aisle at the nook datum line",
+      "to": [
+        "dining opening (x 96, y 0-66.4)",
+        "south bench entry",
+        "west bench entry",
+        "bar cabinet front",
+        "pet station"
+      ],
+      "state": "chairs tucked; nobody seated",
+      "note": "below 24 is invalid for the dining opening only; the other destinations report their width as a preference. Guides: 24 tight, 30 comfortable, 36 generous. NKBA suggests 36 for a kitchen walkway and 44 to walk behind a seated diner; guides, not code.",
+      "source": [
+        "nkba_g7",
+        "nkba_g8",
+        "irc_r311_6"
+      ]
+    },
+    "with_diners_seated": {
+      "report": "narrowest point of the kitchen-to-dining walk with every chosen chair occupied (20 in) and with one chair pulled out (32 in)",
+      "guides": {
+        "edge_past": 36,
+        "walk_past": 44
+      },
+      "class": "preference; a warning below 30"
+    },
+    "bench_entry": {
+      "report": "south bench: table east end to the bench's free end, and to the bar cabinet; west bench: table north edge to the counter end",
+      "note": "today's 51-in table is level with the south bench's end (0 in of entry) and leaves about 10 in at the west bench, yet both benches are used because the table sits 4.5 in back from the south seat; so a short entry is a warning stated against Today, never invalid"
+    },
+    "body_model": "as the primary bedroom: floor-level obstacles count; the table top (30 in high) does not block the floor, its base does; a seated diner's zone blocks routes only in the 'seated' report"
+  },
+  "hard_rules": [
+    "no collision: the table top may overlap the seats (seat top about 18 in, top underside about 28 in) but not the back cushions (edge stays at or beyond the cushion face, x 4.5 on the west and y 97.9 on the south); the base may not touch the bench plinth, the chamfered corner, the bar cabinet or the counter",
+    "table top clears the bar cabinet and the west counter end",
+    "kitchen-to-dining walkway at least 24 in with chairs tucked",
+    "every seat that is counted has at least 9 in from back cushion to table edge",
+    "each loose chair can be pulled out 24 in or more without hitting anything fixed (32 is the guide)",
+    "the table stands stable: base footprint wholly on the floor, not on the plinth"
+  ],
+  "classes": {
+    "invalid": "any hard rule fails at the best estimate, or the table is missing",
+    "conditional": "passes at the best estimate but fails if the usable seat is 2 in under 13 (at 3 in of overlap the 9-in seat minimum fails below 12.0 usable; at 2 in, below 11.0), the bar front stands more than 2 in proud of the seat front, or the south bench leg is 2 in shorter; name the tape measurement that settles it",
+    "preference": "everything else, each stated as a difference from Today's table"
+  },
+  "measure_first": [
+    {
+      "what": "usable seat depth: seat front edge to the face of the back cushion, on each bench",
+      "why": "13.0 +/-1.8 from E1 seat 17.5 less a 4.5 cushion; decides overlap and whether 48 x 32 gives 11 in or 9 in of body room (the 9-in minimum fails at 3 in of overlap if usable is under 12.0)",
+      "blocks": "ordering any table"
+    },
+    {
+      "what": "bar cabinet depth from the south wall (counter front against the south seat front), and the gap between it and the bench's free end",
+      "why": "17.5 +/-1.5 from the supplier layout and the video, front flush with the seat front (y 84.9); the table must stop at the cabinet's west side x 66, so the longest top is about 51 in at 3 in of overlap; a front standing proud of the seat front shortens that. Also sets the south bench entry.",
+      "blocks": "tables longer than 48"
+    },
+    {
+      "what": "seat height with the cushion, and today's table height and underside",
+      "why": "9 to 12 in between seat and table top is the comfortable range",
+      "source": [
+        "bhg_banquette"
+      ],
+      "blocks": "table height choice (28.5 to 30)"
+    },
+    {
+      "what": "each bench along its seat front (counter to chamfer; chamfer to free end)",
+      "why": "documents and plan give 41.1 (west leg) and 40.8 (south leg, chamfer to the free end at 66); decides seat count"
+    },
+    {
+      "what": "today's table top and base footprint",
+      "why": "the lived reference for every comparison"
+    },
+    {
+      "what": "nook width at the stub wall, and the open floor of the dining opening (stub corner to the east run cabinet end)",
+      "why": "96 +/-1.5 (layout return; E1 scales 97) and 66.4 +/-2 open; sets the walk east of the table (33.4 at 3 in of overlap)"
+    },
+    {
+      "what": "does the bench plinth have a toe recess, and how deep",
+      "why": "a 28-in round foot touches the south seat front at 2 in of overlap"
+    }
+  ],
+  "pinned_layouts": [
+    {
+      "id": "today",
+      "label": "Today's 51 x 34 table and one chair",
+      "items": "owned nook_table as surveyed; owned chair",
+      "purpose": "baseline; must be valid"
+    },
+    {
+      "id": "angela_48x32_pill_overlap_2",
+      "label": "Angela's 48 x 32 pill, 2 in over both seats",
+      "items": "generic pill 48 x 32 x 30 at x 15.6-63.6, y 54.9-86.9, long axis east-west; twin-column base on a 28 x 16 plate (hardt_ravello32) centred at (39.6, 70.9); one chair (article_ulka) on the north side at x 34-52",
+      "purpose": "Angela's request at the overlap that suits a shallow seat; see expected-checks-kitchen.json. Still fits after the 16 Nov reconciliation: 11.1 / 11.0 in of body room, 2.4 in south entry, 32.4 in walk to the opening (was 34.9 with width 98.5)"
+    },
+    {
+      "id": "angela_48x32_pill_overlap_3",
+      "label": "The same table 3 in over both seats (the room survey's test position)",
+      "items": "generic pill 48 x 32 x 30 at x 14.6-62.6, y 55.9-87.9; same base and chair",
+      "purpose": "matches room-kitchen.json table_fit; shows what one more inch of overlap costs: 10.1 / 10.0 in of body room, 3.4 in south entry, 33.4 in walk. Conditional: fails the 9-in minimum if usable seat is under 12.0"
+    },
+    {
+      "id": "jarvis48_overlap_2",
+      "label": "Jarvis 48 x 30 walnut racetrack (first on the shortlist), 2 in over both seats",
+      "items": "jarvis48 at x 15.6-63.6, y 56.9-86.9; base spread unpublished, shown as 'ask the maker'; one chair north",
+      "purpose": "the nearest in-catalog match to Angela's size; still fits: 11.1 / 11.0 in of body room, 2.4 in south entry, 32.4 in walk, 20.7 in west entry"
+    },
+    {
+      "id": "angela_48x32_south_gap_as_today",
+      "label": "48 x 32 pill kept 4.5 in back from the south seat, as today's table sits",
+      "items": "generic pill 48 x 32 x 30 at x 15.6-63.6, y 48.4-80.4",
+      "purpose": "keeps today's 17.5 in of body room on the south bench; costs 6.5 in of the north side"
+    }
+  ],
+  "ranking": "filter invalid; cluster by (table shape and size class, long axis, overlap pattern, number of chairs); pick distinct representatives; sort by the plain_policy priorities; show Today plus the pinned layouts and four more first, then up to eight; if fewer exist, say why",
+  "plain_text": {
+    "layout_sentence": "one sentence of at most 25 words per layout, saying what changes and its main trade-off (e.g. '48 x 32 pill, 2 in over both benches: 11 in of body room, 3 in less than you would like, kitchen walkway unchanged.')",
+    "verdict": "at most three short sentences at the top: does Angela's 48 x 32 fit and how it sits; the best in-stock match; the one measurement that matters most",
+    "details": "full measures per layout with +/- and the difference from Today in an expandable section and the tables"
+  },
+  "optional": {
+    "east_end_chair": "a chair at the table's east end; it sits in the way to the bar cabinet and the south bench entry, so it is a guests-only state",
+    "bench_cushions_or_pillows": "not modelled; thicker back cushions cost seat depth inch for inch"
+  },
+  "excluded": {
+    "we_silhouette48": "marble top, not the warm-wood direction",
+    "ikea_norden, ikea_tonstad, we_mosco32, castlery_brooke": "seat 2-3; smaller than today's table",
+    "castlery_vincentbench47": "a loose bench on the north side blocks the slide-in entry to the west bench"
+  },
+  "doors": {
+    "everyday_state": {
+      "dining_opening": "cased opening, no door",
+      "bar_cabinet_doors_and_microwave": "closed"
+    },
+    "rules": "no hinged room doors in the nook. Bar cabinet doors and the microwave door must open fully with chairs tucked (door swing size is a measure-first item).",
+    "report": "which chair states block the bar unit"
+  },
+  "windows": {
+    "model": "3D, as the primary bedroom. Both single-hung windows sit above the banquette backs (stools about 34 in, back caps about 33.7).",
+    "operable": "reached by kneeling on or leaning over the bench; the table edge must leave the sash reachable: horizontal reach from the table edge to the glass at most 30 in (limit). A 32-in-wide table with 2 in of overlap leaves about 15.5 in from its edge to the wall.",
+    "glass_hidden": "none by a 30-in table; report only for tall centrepieces or a high-backed chair"
+  },
+  "preferences": [
+    "seat back to table edge near 14-16 in on the bench used daily (Today: about 17.5 on the south bench, 10.5 on the west)",
+    "slide-in entry at least as easy as Today on each bench",
+    "foot room of 4 in or more between the base and each seat front",
+    "two comfortable everyday seats and four guest seats",
+    "the pendant roughly over the table centre (pendant at x 43.8, y 57.8, +/-3 from the electrical sheet; today's table centre is 6.5 in off, a 48 x 32 at 2-3 in of overlap is 14-15 in off; report the offset; moving a pendant is an electrician job)",
+    "close to 48 x 32, pill or boat, pedestal, walnut or oak",
+    "rounded ends near the chamfered corner seat (at the same overlap a square corner reaches about 6.5 in further over the corner seat than a pill end)",
+    "cost; in stock rather than made to order"
+  ],
+  "calibration": {
+    "rule": "Today (51 x 34 clipped-corner table on one column, one chair on the north side) must classify as valid. Any rule Today fails becomes a comparison ('2 in tighter than today'), never invalid. Enforce with a test.",
+    "today_values": {
+      "table": "x 15.0-66.0, y 46.4-80.4 (+/-3)",
+      "overlap_west_seat": 2.6,
+      "overlap_south_seat": -4.5,
+      "back_cushion_to_table_edge_west": 10.5,
+      "back_cushion_to_table_edge_south": 17.5,
+      "south_bench_entry_past_table_end": 0,
+      "west_bench_entry_counter_end_to_table": 10.2,
+      "table_east_end_to_dining_opening_plane": 30,
+      "chair_corner_to_east_cabinet_corner": 30.6
+    },
+    "consequence": "the 9-in seat minimum and the 24-in walkway both sit below Today's 10.5 and 30.0, so Today is valid; with +/-3 in on the table position Today is 'conditional' on the worst case, which the test must accept as valid-by-calibration"
+  },
+  "movables": "the pet station (mat, fountain, bowls) and loose chairs are movable: place the pet station where it blocks no route and no bench entry, and report where it went",
+  "wall_items_policy": "the corner receptacle (digital frame) stays reachable; the pendant offset from the table centre is reported, never a failure",
+  "envelopes": "compute and show, with +/-: the longest table for each shape (rectangle, clipped, boat, pill) at overlaps 0, 2 and 3 in; the widest table that keeps 9, 11 and 14 in of seat room; the largest pedestal foot (round and rectangular) that keeps 4 in of foot room; the largest round table. One short table on the page, computed by the engine.",
+  "parametric_sweep": "besides catalog tables, evaluate generic tops: pill, boat, oval, rectangle and clipped-corner at lengths 42 to 56 in 2-in steps and widths 24 to 36 in 2-in steps; round 36 to 48; overlap over each bench from -4 to +4 in 1-in steps, independently; base as a round foot 20, 24, 28 in or a plate 28 x 16 or 30 x 22. Name the catalog tables nearest the best generic sizes. Label generic pieces 'generic size, no product chosen'.",
+  "rotation": "table long axis east-west or north-south; round tables centred on the corner diagonal; chairs on any open side. Prune, but report how many arrangements were evaluated.",
+  "sources": [
+    {
+      "id": "nkba_g7",
+      "claim": "kitchen walkway at least 36 in wide",
+      "url": "https://nkba-ps.com/images/downloads/Awards/nkba_kitchen_planning_guidelines_pre_2023.pdf",
+      "kind": "trade guideline (NKBA Kitchen Planning Guideline 7), not code"
+    },
+    {
+      "id": "nkba_g8",
+      "claim": "32 in from table edge to an obstruction with no traffic behind; 36 to edge past a seated diner; 44 to walk past",
+      "url": "https://nkba-ps.com/images/downloads/Awards/nkba_kitchen_planning_guidelines_pre_2023.pdf",
+      "kind": "trade guideline (Guideline 8), not code"
+    },
+    {
+      "id": "nkba_g9",
+      "claim": "at a 30-in-high table allow each diner 24 in of width and 18 in of knee depth",
+      "url": "https://nkba-ps.com/images/downloads/Awards/nkba_kitchen_planning_guidelines_pre_2023.pdf",
+      "kind": "trade guideline (Guideline 9), not code"
+    },
+    {
+      "id": "bhg_banquette",
+      "claim": "seat height 18; 9 to 12 in between seat and table top; 18 in minimum seat depth not counting the back; table overhangs the seat 4 to 5 in; 21 in of bench per person minimum; bench about 12 in longer than the table to slide in; pedestal avoids knocked knees",
+      "url": "https://www.bhg.com/rooms/dining-room/themes/banquette-design/",
+      "kind": "consumer design guide"
+    },
+    {
+      "id": "modernacre_banquette",
+      "claim": "seat 18 high and 18-20 deep; table edge overlaps the seat 3 to 4 in; pedestal or trestle",
+      "url": "https://www.modernacrestudio.com/articles/built-in-banquette-design-dimensions-breakfast-nook",
+      "kind": "design studio article"
+    },
+    {
+      "id": "trend_booth",
+      "claim": "usable seat depth 16-18; table edge overlaps the seat 1 to 2 in; seat back to table edge about 14-16 in (diner), 15-18 (casual), 18-20 (fine dining); 22-24 in of bench per diner",
+      "url": "https://trendcontractfurnishings.com/guides/banquette-booth-dimensions",
+      "kind": "commercial booth maker's guide"
+    },
+    {
+      "id": "irc_r311_6",
+      "claim": "hallway width not less than 36 in (reference only; a nook is not a hallway)",
+      "url": "https://up.codes/s/hallways",
+      "kind": "model code text, reference only"
+    },
+    {
+      "id": "room_file_table_fit",
+      "claim": "feet at least 4 in inside the seat fronts; base no larger than about 26 x 16",
+      "url": "room-kitchen.json table_fit.pedestal",
+      "kind": "this project's survey"
+    }
+  ],
+  "assumptions_not_sourced": [
+    "9 in as the least seat-back-to-table distance an adult can use: set below Today's 10.5 so Today passes; change it after sitting at the west bench",
+    "a seated diner on a loose chair reaches 20 in from the table edge; a tucked chair sticks out its depth minus 6 in",
+    "24 in as the hard minimum for the kitchen-to-dining walkway (the primary bedroom uses 20): this route carries plates and is walked many times a day; Daniel can change it"
+  ]
+}

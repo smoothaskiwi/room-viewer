@@ -1,0 +1,38 @@
+Council pick B2 · Smaller table lengthwise, with a shallow sideboard
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Mid-Century Extendable Dining Table 39–55 [table]
+  north: 51½ in
+  east: 47 in
+  south: 67½ in
+  west: 53 in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-0]
+  north: 56½ in
+  east: 79½ in
+  south: 81½ in
+  west: 40½ in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-1]
+  north: 81½ in
+  east: 80 in
+  south: 56½ in
+  west: 31½ in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-2]
+  north: 56½ in
+  east: 30 in
+  south: 81½ in
+  west: 84 in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-3]
+  north: 81½ in
+  east: 31½ in
+  south: 56½ in
+  west: 80 in
+
+Heidi 50" Sideboard - Walnut [article_heidiside-0]
+  north: ½ in
+  east: 36½ in
+  south: 141 in
+  west: 36½ in

@@ -1,0 +1,153 @@
+{
+  "room": {
+    "width_x": 96,
+    "depth_y": 102.4,
+    "width_x_unc": 1.5,
+    "depth_y_unc": 2,
+    "ceiling_z": 100,
+    "shape": "polygon",
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        96,
+        0
+      ],
+      [
+        96,
+        102.4
+      ],
+      [
+        0,
+        102.4
+      ]
+    ],
+    "open_sides": "north edge open to the kitchen aisle; east edge: the 97-in opening to the dining room spans y -30.6 to 66.4, of which y -30.6 to 0 is filled by the east cabinet run's last cabinet, so y 0 to 66.4 is open floor",
+    "ceiling_basis": "P (8'-4\" on A1)",
+    "appearance": "warm white walls, white Shaker cabinets with white quartz tops, grey wood-look vinyl plank floor, greige upholstered banquette, brushed-silver dome pendant",
+    "width_basis": "P layout return 96 = 66 open + 27 MW cabinet + 3 filler ('Daniel G Layout.jpg', Apr 2024); E1 scales 97 +/-2; video solve gave 98.5 +/-1.5 (within 1.7 sigma) - tape check listed",
+    "depth_basis": "M video 102.4 +/-1.5; documents give 103 +/-1: 233 long side (layout; v5 19'-5\") minus east run end 130 from the north wall (layout strings 37.5+1.5+15+30+3+18 = 105, + 3DB24 24 + back panel ~0.75)"
+  },
+  "openings": [
+    {
+      "wall": "north",
+      "openings": [
+        {
+          "wall": "north",
+          "type": "open side",
+          "offset_from_corner": 0,
+          "width": 96,
+          "sill": 0,
+          "head": 100
+        }
+      ]
+    },
+    {
+      "wall": "east",
+      "openings": [
+        {
+          "id": "dining_opening",
+          "wall": "east",
+          "type": "cased opening, round-top arch on the dining side (door schedule mark 1)",
+          "opening_y": [
+            0,
+            66.4
+          ],
+          "width": 66.4,
+          "head_height": 80,
+          "note": "both earlier numbers were right: 97 in is jamb to jamb (A1 schedule mark 1 8'-1\" x 6'-8\"; v5 p6 8'-1\"; dining-side chain 2'-0\" + 8'-1\" + 3'-1\" = 158 = dining depth; kitchen-side chain 100 wall + 97 + 36 stub = 233); the north 30.6 in is cabinet, so 66.4 in is walkable into the nook",
+          "basis": "P A1 door schedule + v5 p6 + layout stub 36 (24+12); cabinet end M dining video t013 (panel ~31 in wide against 36-in counter height); M nook solve 65.7",
+          "width_unc": 2,
+          "full_opening_y": [
+            -30.6,
+            66.4
+          ],
+          "full_width": 97,
+          "blocked_y": [
+            -30.6,
+            0
+          ],
+          "blocked_by": "east run end: 3DB24 three-drawer base (24 W) with PBP back panel facing the dining room, counter top 36 high; its dining-side face is set back about 5 in (wall thickness) from the dining wall plane",
+          "stub_wall_y": [
+            66.4,
+            102.4
+          ],
+          "plane_x": 96,
+          "offset_from_corner": 0,
+          "sill": 0,
+          "head": 80
+        }
+      ]
+    },
+    {
+      "wall": "south",
+      "openings": [
+        {
+          "id": "south_window",
+          "wall": "south",
+          "type": "window",
+          "opening_x": [
+            34.1,
+            64.4
+          ],
+          "operable": "single-hung",
+          "plan_tag": "(E) 2/6 3/10 SH",
+          "casing_x": [
+            30.6,
+            67.9
+          ],
+          "casing_unc": 2,
+          "stool_top_z": 34,
+          "stool_top_z_unc": 1.5,
+          "basis": "opening P; stool M; casing A",
+          "offset_from_corner": 34.1,
+          "width": 30.300000000000004,
+          "sill": 34,
+          "head": 80
+        }
+      ]
+    },
+    {
+      "wall": "west",
+      "openings": [
+        {
+          "id": "west_window",
+          "wall": "west",
+          "type": "window",
+          "opening_y": [
+            39.7,
+            69.9
+          ],
+          "operable": "single-hung",
+          "plan_tag": "(E) 2/6 3/10 SH",
+          "casing_y": [
+            36.2,
+            73.4
+          ],
+          "casing_unc": 2,
+          "stool_top_z": 34,
+          "stool_top_z_unc": 1.5,
+          "note": "stool sits directly above the banquette back cap",
+          "basis": "opening P; stool height M (frame 49); casing A (3.5 in)",
+          "offset_from_corner": 39.7,
+          "width": 30.200000000000003,
+          "sill": 34,
+          "head": 80
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "pendant",
+      "xy": [
+        43.8,
+        57.8
+      ],
+      "uncertainty": 3,
+      "assumed": false
+    }
+  ]
+}

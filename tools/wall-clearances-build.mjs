@@ -6,7 +6,8 @@ import {clearanceHTML,clearanceText} from '../src/wall-clearances.mjs';
 const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export async function amendWallClearances(out){
  const [raw,data]=await Promise.all(['render-spec.json','layouts.json'].map(n=>fs.readFile(path.join(out,n),'utf8').then(JSON.parse)));
- for(const n of ['wall-clearances.mjs','wall-clearances-overlay.mjs','wall-clearances-ui.mjs','explorer-app.mjs','explorer-3d.mjs','explorer.css'])await fs.copyFile(path.join(repo,'src',n),path.join(out,n));
+ const dining=(await fs.readFile(path.join(out,'index.html'),'utf8')).includes('src="dining-app.mjs"');
+ for(const n of dining?['wall-clearances.mjs','wall-clearances-overlay.mjs','wall-clearances-ui.mjs']:['wall-clearances.mjs','wall-clearances-overlay.mjs','wall-clearances-ui.mjs','explorer-app.mjs','explorer-3d.mjs','explorer.css'])await fs.copyFile(path.join(repo,'src',n),path.join(out,n));
  let html=await fs.readFile(path.join(out,'index.html'),'utf8');
  html=html.replace(/<!-- wall-gap-controls:start -->[\s\S]*?<!-- wall-gap-controls:end -->\n?/g,'').replace(/<!-- wall-gap-list:start -->[\s\S]*?<!-- wall-gap-list:end -->\n?/g,'');
  const controls=`<!-- wall-gap-controls:start -->
@@ -20,9 +21,11 @@ export async function amendWallClearances(out){
 </section>
 <!-- wall-gap-controls:end -->
 `;
+ if(!dining){
  if(!html.includes('<div class="visual">')||!html.includes('<noscript>'))throw Error('Expected explorer entrypoint markers missing');
  html=html.replace('<div class="visual">',controls+'<div class="visual">').replace('<noscript>',`<!-- wall-gap-list:start -->\n${clearanceHTML(raw,data.layouts)}\n<!-- wall-gap-list:end -->\n<noscript>`);
  await fs.writeFile(path.join(out,'index.html'),html);
+ }
  const current=new Set(data.layouts.map(l=>`wall-clearances-${l.id}.txt`));
  for(const n of await fs.readdir(out))if(/^wall-clearances-.*\.txt$/.test(n)&&!current.has(n))await fs.rm(path.join(out,n));
  for(const l of data.layouts)await fs.writeFile(path.join(out,`wall-clearances-${l.id}.txt`),clearanceText(raw,l));

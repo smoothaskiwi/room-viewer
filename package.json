@@ -6,11 +6,12 @@
   "type": "module",
   "scripts": {
     "build": "node tools/build.mjs",
-    "test": "npm run build && node tools/explorer-test.mjs && node tools/explorer-browser.mjs && node tools/wall-clearances-browser.mjs",
-    "verify": "node tools/explorer-browser.mjs --screenshots"
+    "test": "npm run build && node tools/explorer-test.mjs && node tools/explorer-browser.mjs && node tools/wall-clearances-browser.mjs && node tools/activity-browser.mjs",
+    "verify": "node tools/explorer-browser.mjs --screenshots && node tools/activity-browser.mjs --screenshots"
   },
   "license": "UNLICENSED",
   "dependencies": {
+    "@flatten-js/core": "1.6.15",
     "three": "0.187.0",
     "zod": "4.6.7"
   },
