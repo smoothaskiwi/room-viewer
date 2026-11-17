@@ -3,7 +3,7 @@ import path from 'node:path';
 import {project} from './project.mjs';
 import {validate,councilSchema} from './schemas.mjs';
 import {table} from './activity-rules.mjs';
-import {shape} from './shapes.mjs';
+import {shape,canonicalShape} from './shapes.mjs';
 import {isNook} from './activity-inputs.mjs';
 import {finishCandidate} from './activity-candidates.mjs';
 const faceRotation={south:0,west:90,north:180,east:270};
@@ -12,15 +12,15 @@ export function councilCandidates(document,room,cat,file='council fixture'){
  for(const [i,p]of doc.layouts.entries()){
   const candidate={id:p.id,title:'Council pick '+doc.designer+(i+1)+' · '+p.title,pinned:true,council:{designer:doc.designer,label:'Council pick '+doc.designer+(i+1),proposal_title:p.title,hand_checks_ignored:true},chairs:[],extra:[],proposal_failures:[],proposal_summary:p.summary,relocation:p.moves_to_other_room??[],source_proposal:{id:p.id,designer:doc.designer}},explicitChairs=[];
   for(const q of p.placements){
-   const built=room.fixed?.[q.catalog_id];const c=cat[q.catalog_id]??cat['rh_'+q.catalog_id]??(built?{id:q.catalog_id,label:built.label,category:q.catalog_id==='pet_station'?'pet':'fixed',approximate:true,layout_ready:false,price:0,h:10}:null),rotation=q.faces?faceRotation[q.faces]:q.rotation,form=q.shape??(/pill|racetrack/i.test(q.note??'')?'pill':/oval/i.test(q.note??'')?'oval':undefined),id=q.catalog_id;
+   const built=room.fixed?.[q.catalog_id];const c=cat[q.catalog_id]??cat['rh_'+q.catalog_id]??(built?{id:q.catalog_id,label:built.label,category:q.catalog_id==='pet_station'?'pet':'fixed',approximate:true,layout_ready:false,price:0,h:10}:null),rotation=q.faces?faceRotation[q.faces]:q.rotation,id=q.catalog_id;let form=q.shape??(/pill|racetrack/i.test(q.note??'')?'pill':/oval/i.test(q.note??'')?'oval':undefined);if(form){form=canonicalShape(form);if(!['round','oval','pill','rectangle','boat','clipped'].includes(form)){candidate.proposal_failures.push('unsupported table shape '+form);form=undefined;}}
    if(id==='kitchen-banquette')continue; // fixed: never moved by a proposal
    const isTable=c?.category?.includes('table')&&!/side|coffee/.test(id)||/generic.*(?:pill|boat|table|oval|rectangle|round)/.test(id)||/kitchen-nook-table/.test(id),isChair=c?.category?.includes('chair')||/chair/.test(id),isBoard=c?.category==='sideboard'||/sideboard|media-console/.test(id);
    let w=q.footprint_w,d=q.footprint_d;
-   if(c?.layout_ready){const cw=rotation%180?c.dims_in.d??c.w:c.dims_in.w??c.d,cd=rotation%180?c.dims_in.w??c.d:c.dims_in.d??c.w;
+   if(c?.layout_ready){const extension=isTable&&q.state==='extended',long=extension?(c.extra_dims.extended_w??c.dims_in.w):c.dims_in.w,short=c.dims_in.d;if(extension&&!c.extra_dims.extended_w)candidate.proposal_failures.push('extended size unpublished for '+id);const cw=rotation%180?short??c.w:long??c.d,cd=rotation%180?long??c.d:short??c.w;
     if([cw,cd].every(Number.isFinite)&&!c.approximate){if(Math.abs(w-cw)>.25||Math.abs(d-cd)>.25)candidate.proposal_failures.push('catalog dimensions disagree for '+id+' (engine uses '+cw+' × '+cd+')');w=cw;d=cd;}
    }
    if(!c&&!/^generic[-_]/.test(id))candidate.proposal_failures.push('Unresolved catalog id '+id+'; not a verified product');
-   if(isTable){if(candidate.table)candidate.proposal_failures.push('multiple dining tables');candidate.table=table(room,cat,c?.id??id,{x:q.x,y:q.y,w,d,rotation,shape:form});}
+   if(isTable){if(candidate.table)candidate.proposal_failures.push('multiple dining tables');candidate.table=table(room,cat,c?.id??id,{x:q.x,y:q.y,w,d,rotation,shape:form,state:q.state==='extended'?'extended':'closed'});}
    else if(isChair)explicitChairs.push({...q,w,d,rotation});
    else {const f=shape({id:id+'-'+candidate.extra.length,catalog_id:c?.id??id,label:c?.label??id,x:q.x,y:q.y,w,d,h:c?.h??30,rotation,kind:isBoard?'sideboard':/rug/.test(id)?'rug':/pet|bowl|fountain/.test(id)?'pet':'other',wall:q.y<room.room.depth_y/2?'north':'south',faces:q.faces??'south'});if(isBoard&&!candidate.sideboard)candidate.sideboard=f;else if(f.kind==='rug')candidate.rug=f;else candidate.extra.push(f);}
   }

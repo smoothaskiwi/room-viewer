@@ -7,7 +7,7 @@ export function builtins(room){
  const f=room.fixed,b=f.banquette;
  return [...banquetteSolids(b),shape({id:'west-counter',kind:'cabinet',label:'Fixed west counter',x:0,y:0,w:f.west_counter.top_front_x,d:f.west_counter.y[1],h:f.west_counter.counter_z}),shape({id:'bar-cabinet',kind:'cabinet',label:'Fixed bar cabinet',x:f.bar_cabinet.x[0],y:f.bar_cabinet.y[0],w:f.bar_cabinet.x[1]-f.bar_cabinet.x[0],d:f.bar_cabinet.depth,h:36})];
 }
-export function table(room,cat,id,{x,y,w,d,rotation=0,shape:form,base}={}){
+export function table(room,cat,id,{x,y,w,d,rotation=0,shape:form,base,state='closed'}={}){
  const c=cat[id],knownSize=!!c?.layout_ready,transposed=rotation%180!==0;
  w??=transposed?c?.w:c?.d;d??=transposed?c?.d:c?.w;
  if(![w,d].every(v=>Number.isFinite(v)&&v>0))throw Error('Missing table dimensions '+id);
@@ -15,7 +15,7 @@ export function table(room,cat,id,{x,y,w,d,rotation=0,shape:form,base}={}){
  const e=c?.extra_dims??{},bw=base?.w??e.base_w,bd=base?.d??e.base_d;
  const known=!!(bw&&bd),bW=(transposed?bd:bw)??Math.min(28,w-4),bD=(transposed?bw:bd)??Math.min(28,d-4);
  t.base=shape({id:'table-base',label:known?'Table base footprint':'Illustrative base envelope — ask maker, not a measured footprint',kind:'base',x:x+(w-bW)/2,y:y+(d-bD)/2,w:bW,d:bD,h:base?.h??2,shape:base?.shape??(Math.abs(bW-bD)<.01?'round':'rectangle'),known,basis:base?.basis??(known?'Published base dimensions in supplied catalog':'Unknown base: conservative 28-in illustrative floor envelope; no stability approval')});
- t.base_type=c?.base_type??(e.leg_spacing_closed_w?'four legs':'pedestal (illustrative)');t.leg_spacing=e.leg_spacing_closed_w?[e.leg_spacing_closed_w,e.leg_spacing_d]:null;
+ t.table_state=state;t.base_type=c?.base_type??(e.leg_spacing_closed_w?'four legs':'pedestal (illustrative)');t.leg_spacing=e.leg_spacing_closed_w?[state==='extended'?(e.leg_spacing_extended_w??e.leg_spacing_closed_w):e.leg_spacing_closed_w,e.leg_spacing_d]:null;
  t.underside=e.apron_clearance_h??28;t.underside_known=e.apron_clearance_h!=null;
  return t;
 }

@@ -14,6 +14,7 @@ import {metricsRows,keyRows,announcement,esc} from '../src/dining-format.mjs';
 import {planSVG} from '../src/dining-plan.mjs';
 import {clearanceRows} from '../src/wall-clearances.mjs';
 import './shapes-test.mjs';
+import './council-test.mjs';
 const rooms=JSON.parse(await fs.readFile(path.join(repo,'docs/rooms.json'),'utf8'));let values=0,layouts=0,samples=0;
 function audit(want,got,p=''){
  for(const [k,v]of Object.entries(want)){if(k==='meta')continue;const q=p+'.'+k,a=got?.[k]??got?.[k.replaceAll('.','_')];

@@ -2,8 +2,9 @@ import F from '@flatten-js/core';
 const {Point,Polygon,Arc,Segment,BooleanOperations,Relations}=F;
 const p=([x,y])=>new Point(x,y), TAU=2*Math.PI;
 export const rectPolygon=({x,y,w,d})=>[[x,y],[x+w,y],[x+w,y+d],[x,y+d]];
+export const canonicalShape=name=>({circle:'round',circular:'round',ellipse:'oval',elliptical:'oval',racetrack:'pill',capsule:'pill',stadium:'pill',rect:'rectangle',rectangular:'rectangle',square:'rectangle'}[String(name).toLowerCase().trim()]??String(name).toLowerCase().trim());
 export function shape(s) {
- const f={x:0,y:0,z:0,h:30,rotation:0,shape:'rectangle',...s};
+ const f={x:0,y:0,z:0,h:30,rotation:0,shape:'rectangle',...s};f.shape=canonicalShape(f.shape);
  if(f.shape==='polygon'&&f.polygon)return f;
  let pts=[];const {x,y,w,d}=f,cx=x+w/2,cy=y+d/2;
  if(['round','oval','boat'].includes(f.shape)) {
@@ -45,7 +46,7 @@ export function overlaps(a,b) {
  return BooleanOperations.intersect(core(a),core(b)).area()>1e-5;
 }
 export function gap(a,b){const [distance,line]=core(a).distanceTo(core(b));return {distance,from:[line.ps.x,line.ps.y],to:[line.pe.x,line.pe.y]};}
-export function inside(s,polygon){const poly=new Polygon(polygon.map(p));return (s.polygon||rectPolygon(s)).every(v=>poly.contains(p(v)));}
+export function inside(s,polygon){const poly=new Polygon(polygon.map(p));if(!(s.polygon||rectPolygon(s)).every(v=>poly.contains(p(v))))return false;const b=poly.box,rectangle=polygon.length===4&&Math.abs(poly.area()-(b.xmax-b.xmin)*(b.ymax-b.ymin))<1e-7;return rectangle||BooleanOperations.subtract(core(s),poly).area()<1e-7;}
 export function banquetteSolids(b) {
  const west=b.west_leg,south=b.south_leg,front=west.x[1],back=b.back_cushion_thickness;
  const polygon=[[west.x[0],west.y[0]],[front,west.y[0]],[front,west.seat_front_y[1]],[south.seat_front_x[0],south.y[0]],[south.x[1],south.y[0]],[south.x[1],south.y[1]],[west.x[0],west.y[1]]];

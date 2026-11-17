@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {activityInputs} from './activity-inputs.mjs';
+import {councilCandidates} from './council.mjs';
+import {shape} from './shapes.mjs';
+assert.equal(shape({x:0,y:0,w:48,d:30,shape:'racetrack'}).shape,'pill');
+assert.equal(shape({x:0,y:0,w:48,d:48,shape:'circle'}).shape,'round');
+const {room,catalog}=await activityInputs('dining-room');
+const proposal={room:'dining-room',designer:'B',layouts:[{id:'extended-size-fixture',title:'Published extension',summary:'Show the maker’s actual extended state, not a fabricated size.',placements:[{catalog_id:'we_mc39',x:45.5,y:51.5,rotation:90,faces:'west',state:'extended',footprint_w:32,footprint_d:55}]}]};
+const candidate=councilCandidates(proposal,room,catalog.items)[0];assert.deepEqual(candidate.proposal_failures,[]);assert.equal(candidate.table.w,32);assert.equal(candidate.table.d,55);assert.equal(candidate.table.table_state,'extended');assert.deepEqual(candidate.table.leg_spacing,[50,26]);
+proposal.layouts[0].placements[0].footprint_d=60;assert.ok(councilCandidates(proposal,room,catalog.items)[0].proposal_failures.some(f=>f.includes('dimensions disagree')),'Unpublished enlargement must still be rejected');
+proposal.layouts[0].placements[0].shape='unrecognised organic top';assert.ok(councilCandidates(proposal,room,catalog.items)[0].proposal_failures.some(f=>f.includes('unsupported table shape')),'Unknown shape is an explicit failure, not an unlabelled rectangle');
+console.log('PASS council aliases, exact catalog extension state / leg spacing, mismatched sizes and unknown shapes refused');

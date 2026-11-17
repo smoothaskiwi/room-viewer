@@ -17,4 +17,7 @@ assert.equal(overlaps(pill,solids[1]),false,'top clears tall back');
 assert.ok(Math.abs(gap(shape({x:25.6,y:62.9,w:28,d:16,shape:'rectangle'}),solids[0]).distance-6.4/Math.SQRT2)<1e-6,'chamfer is closer than either straight seat front');
 assert.equal(inside(shape({x:1,y:1,w:2,d:2}),[[0,0],[10,0],[10,10],[0,10]]),true);
 assert.equal(inside(shape({x:8,y:8,w:4,d:4}),[[0,0],[10,0],[10,10],[0,10]]),false);
+const concave=[[0,0],[10,0],[10,3],[3,3],[3,7],[10,7],[10,10],[0,10]];
+assert.equal(inside(shape({x:1,y:1,w:8,d:8}),concave),false,'All four corners inside is insufficient across a concave room notch');
+assert.equal(inside(shape({x:0,y:0,w:2,d:10}),concave),true,'A fully contained footprint may touch the room boundary');
 console.log('PASS flatten shape fixtures: pill/oval/chamfer, exact arc area, pedestal/plinth, polygon containment');
