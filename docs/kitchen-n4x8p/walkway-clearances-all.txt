@@ -1,0 +1,371 @@
+Today — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 31.5 in conservative moving-disk bottleneck at x 70.3 in, y 15.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 25.5 in conservative moving-disk bottleneck at x 69.3 in, y 13.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 14.5 in conservative moving-disk bottleneck at x 73.3 in, y 12.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 31.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 25.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 14.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Odie Café Table - Walnut — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 41 in conservative moving-disk bottleneck at x 60.8 in, y 17.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 36.5 in conservative moving-disk bottleneck at x 60.3 in, y 14.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 28.5 in conservative moving-disk bottleneck at x 58.8 in, y 6.3 in; source nearest objects chair-1 / west-counter.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 41 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 36.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 28.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Mid-Century Extendable Dining Table 39–55 — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 37.5 in conservative moving-disk bottleneck at x 60.3 in, y 14.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 33.5 in conservative moving-disk bottleneck at x 60.3 in, y 12.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 27 in conservative moving-disk bottleneck at x 59.8 in, y 5.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 37.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 33.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 27 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Mid-Century Extendable Dining Table 39–55 — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 40 in conservative moving-disk bottleneck at x 60.8 in, y 16.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 36 in conservative moving-disk bottleneck at x 61.3 in, y 15.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 27.5 in conservative moving-disk bottleneck at x 60.8 in, y 8.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 40 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 36 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 27.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Generic size, no product chosen — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 41.5 in conservative moving-disk bottleneck at x 59.8 in, y 17.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 37.5 in conservative moving-disk bottleneck at x 59.8 in, y 14.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 29.5 in conservative moving-disk bottleneck at x 60.8 in, y 12.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 41.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 37.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 29.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+48 × 32 pill, 2-in overlap — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 44 in conservative moving-disk bottleneck at x 119.8 in, y 43.8 in; source nearest objects pet-station / wall-east.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 39 in conservative moving-disk bottleneck at x 62.3 in, y 17.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 29.5 in conservative moving-disk bottleneck at x 62.8 in, y 12.3 in; source nearest objects chair-1 / west-counter.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 44 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 39 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 29.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+48 × 32 pill, 3-in overlap — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 44.5 in conservative moving-disk bottleneck at x 60.8 in, y 20.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 40 in conservative moving-disk bottleneck at x 62.3 in, y 18.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 30 in conservative moving-disk bottleneck at x 62.8 in, y 12.8 in; source nearest objects chair-1 / west-counter.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 44.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 40 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 30 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Jarvis 48 × 30 racetrack — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 45.5 in conservative moving-disk bottleneck at x 60.8 in, y 20.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 40.5 in conservative moving-disk bottleneck at x 62.3 in, y 18.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 31 in conservative moving-disk bottleneck at x 62.8 in, y 13.3 in; source nearest objects chair-1 / west-counter.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 45.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 40.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 31 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+48 × 32 pill, south gap as Today — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 38 in conservative moving-disk bottleneck at x 62.3 in, y 17.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 33.5 in conservative moving-disk bottleneck at x 62.8 in, y 14.3 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 24.5 in conservative moving-disk bottleneck at x 62.3 in, y 8.8 in; source nearest objects chair-1 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 38 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 33.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 24.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Council pick A1 · Angela's walnut pill, 48 x 32, made to size on a slim plate base — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 45.5 in conservative moving-disk bottleneck at x 60.3 in, y 20.3 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 40.5 in conservative moving-disk bottleneck at x 61.3 in, y 17.3 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 31.5 in conservative moving-disk bottleneck at x 60.8 in, y 11.3 in; source nearest objects council-chair-0 / west-counter.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 45.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 40.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 31.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Council pick A2 · In-stock walnut oval on a tulip base, set 1 in back from the south seat like today — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 47.5 in conservative moving-disk bottleneck at x 60.8 in, y 21.8 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 42.5 in conservative moving-disk bottleneck at x 60.8 in, y 18.3 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 33 in conservative moving-disk bottleneck at x 60.3 in, y 12.3 in; source nearest objects council-chair-0 / west-counter.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 47.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 42.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 33 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Council pick A3 · Solid walnut 48 x 30 racetrack flush with the south seat, two chairs out — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 41 in conservative moving-disk bottleneck at x 67.3 in, y 20.8 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 35.5 in conservative moving-disk bottleneck at x 67.3 in, y 17.8 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 24 in conservative moving-disk bottleneck at x 67.3 in, y 11.3 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 41 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 35.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 24 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Council pick B1 · Walnut racetrack, one chair and the two benches — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 39 in conservative moving-disk bottleneck at x 114.8 in, y 19.8 in; source nearest objects pet_station-0 / wall-east.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 39 in conservative moving-disk bottleneck at x 95.8 in, y 20.3 in; source nearest objects pet_station-0 / wall-east.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 36 in conservative moving-disk bottleneck at x 59.3 in, y 12.8 in; source nearest objects council-chair-0 / pet_station-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 39 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 39 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 36 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Council pick B2 · Round pedestal opens the corner — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 32.5 in conservative moving-disk bottleneck at x 58.3 in, y 10.3 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 31.5 in conservative moving-disk bottleneck at x 58.3 in, y 9.3 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 27.5 in conservative moving-disk bottleneck at x 58.3 in, y 2.3 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 32.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 31.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 27.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Council pick C1 · Solid walnut pill on a wood pedestal, pulled 2 in off the south bench — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 41 in conservative moving-disk bottleneck at x 67.3 in, y 20.8 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 33.5 in conservative moving-disk bottleneck at x 67.3 in, y 16.3 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 22.5 in conservative moving-disk bottleneck at x 66.8 in, y 10.8 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 41 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 33.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 22.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Council pick C2 · In-stock walnut tulip oval, the try-it-this-month table — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 43.5 in conservative moving-disk bottleneck at x 68.8 in, y 21.8 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 35.5 in conservative moving-disk bottleneck at x 64.8 in, y 17.3 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 24.5 in conservative moving-disk bottleneck at x 65.3 in, y 11.3 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 43.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 35.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 24.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.
+
+========================================
+
+Council pick C3 · Exact 48 x 32 in white oak on a single round pedestal — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 39 in conservative moving-disk bottleneck at x 67.3 in, y 19.8 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 31.5 in conservative moving-disk bottleneck at x 67.3 in, y 15.3 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 20.5 in conservative moving-disk bottleneck at x 66.8 in, y 9.8 in; source nearest objects council-chair-1 / council-chair-0.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 39 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 31.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 20.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.

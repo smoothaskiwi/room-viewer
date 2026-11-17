@@ -4,8 +4,8 @@ Model-derived shortest 3D gaps from each rotated overall furniture envelope to t
 Mid-Century Extendable Dining Table 39–55 [table]
   north: 51½ in
   east: 47 in
-  south: 67½ in
-  west: 53 in
+  south: 51½ in
+  west: 48 in
 
 Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-0]
   north: 56½ in

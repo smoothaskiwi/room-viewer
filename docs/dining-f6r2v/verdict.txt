@@ -299,24 +299,90 @@ Measurement that settles it: Tape chandelier centre and room size; verify arch j
 Hard failures: None at best estimate
 Scenario failures: None in tested scenarios
 
-Council pick B2 · Smaller table lengthwise, with a shallow sideboard [invalid]
-32.0 × 39.0 rectangle north–south, 4 chairs, north sideboard; arch walk 30.5 inches.
-Class: invalid
-Table: 32.0 × 39.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 39–55
+Council pick B2 · Smaller table lengthwise, with a shallow sideboard [valid]
+32.0 × 55.0 rectangle north–south, 4 chairs, north sideboard; arch walk 30.5 inches.
+Class: valid
+Table: 32.0 × 55.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 39–55
 Everyday main walk: 30.5 ±3.0 in (-1.5 vs Today)
 Seated main walk: 31.0 ±3.0 in (-1.0 vs Today)
 Chairs pulled out main walk: 23.0 ±3.0 in (-9.0 vs Today)
 Everyday seats: 4; six guests are occasional, not the everyday route state
 Table edge to west / east arch planes: 45.5 / 45.5 ±2.0 in
-Table edge to north / south wall: 51.5 / 67.5 ±2.0 in
-Table edge to north / south storage: 34.5 / 67.5 ±2.0 in
+Table edge to north / south wall: 51.5 / 51.5 ±2.0 in
+Table edge to north / south storage: 34.5 / 51.5 ±2.0 in
 Smallest usable chair pullout: 45.5 ±2.0 in (24 hard / 32 guide)
 Smallest remainder after 32-in pullout: 13.5 ±2.0 in; not the table-edge gap
 North seated backs → north storage: 14.5 ±2.0 in
 Sideboard operation allowance: 34.5 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
-Light centre offset: 8.0 in from ASSUMED centre ±12 in; position not on electrical plan
-Owned rug beyond long sides: 16.5 in, 7.5 short of 24-in guide
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 8.5 in, 15.5 short of 24-in guide
 New cost: $2,194; dated catalog, not delivered quote
 Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
-Hard failures: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39)
-Scenario failures: room smaller: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39) / light west: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39) / light east: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39) / light north: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39) / light south: proposal: catalog dimensions disagree for we_mc39 (engine uses 32 × 39)
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick C1 · Oval table under the light, the walnut console stays as the sideboard [invalid]
+60.0 × 42.0 oval east–west, 4 chairs, north sideboard; arch walk 40.0 inches.
+Class: invalid
+Table: 60.0 × 42.0 × 30.2 in, oval; Mid-Century Rounded Extendable Dining Table 60–80 oval
+Everyday main walk: 40.0 ±3.0 in (+8.0 vs Today)
+Seated main walk: 36.0 ±3.0 in (+4.0 vs Today)
+Chairs pulled out main walk: 24.0 ±3.0 in (-8.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 59.0 / 57.0 ±2.0 in
+Table edge to north / south storage: 39.5 / 57.0 ±2.0 in
+Smallest usable chair pullout: 39.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 7.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 19.5 ±2.0 in
+Sideboard operation allowance: 24.5 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 1.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 15.0 in, 9.0 short of 24-in guide
+New cost: $1,495; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: proposal: unsupported table shape rounded oval, bounding box given
+Scenario failures: room smaller: proposal: unsupported table shape rounded oval, bounding box given / light west: proposal: unsupported table shape rounded oval, bounding box given / light east: proposal: unsupported table shape rounded oval, bounding box given / light north: proposal: unsupported table shape rounded oval, bounding box given / light south: proposal: unsupported table shape rounded oval, bounding box given
+
+Council pick C2 · Round 42 that opens to an oval, slim Heidi sideboard [invalid]
+42.0 × 42.0 rectangle east–west, 4 chairs, north sideboard; arch walk 40.0 inches.
+Class: invalid
+Table: 42.0 × 42.0 × 30.4 in, rectangle; Mid-Century Rounded Extendable Dining Table 42–60
+Everyday main walk: 40.0 ±3.0 in (+8.0 vs Today)
+Seated main walk: 37.0 ±3.0 in (+5.0 vs Today)
+Chairs pulled out main walk: 25.0 ±3.0 in (-7.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 40.5 / 40.5 ±2.0 in
+Table edge to north / south wall: 58.0 / 58.0 ±2.0 in
+Table edge to north / south storage: 41.0 / 58.0 ±2.0 in
+Smallest usable chair pullout: 40.5 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 8.5 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 21.0 ±2.0 in
+Sideboard operation allowance: 26.0 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 15.0 in, 9.0 short of 24-in guide
+New cost: $2,194; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: proposal: unsupported table shape round, 42 diameter, bounding box given
+Scenario failures: room smaller: proposal: unsupported table shape round, 42 diameter, bounding box given / light west: proposal: unsupported table shape round, 42 diameter, bounding box given / light east: proposal: unsupported table shape round, 42 diameter, bounding box given / light north: proposal: unsupported table shape round, 42 diameter, bounding box given / light south: proposal: unsupported table shape round, 42 diameter, bounding box given
+
+Council pick C3 · Table moved north, a straight walk between the arches [conditional]
+60.0 × 38.0 rectangle east–west, 4 chairs, south sideboard; arch walk 41.0 inches.
+Class: conditional
+Table: 60.0 × 38.0 × 30.0 in, rectangle; Mid-Century Extendable Dining Table 60–80 rectangular
+Everyday main walk: 41.0 ±3.0 in (+9.0 vs Today)
+Seated main walk: 36.0 ±3.0 in (+4.0 vs Today)
+Chairs pulled out main walk: 24.0 ±3.0 in (-8.0 vs Today)
+Everyday seats: 4; six guests are occasional, not the everyday route state
+Table edge to west / east arch planes: 31.5 / 31.5 ±2.0 in
+Table edge to north / south wall: 44.0 / 76.0 ±2.0 in
+Table edge to north / south storage: 44.0 / 56.5 ±2.0 in
+Smallest usable chair pullout: 44.0 ±2.0 in (24 hard / 32 guide)
+Smallest remainder after 32-in pullout: 12.0 ±2.0 in; not the table-edge gap
+North seated backs → north storage: 24.0 ±2.0 in
+Sideboard operation allowance: 41.5 in to tucked chairs / table; 16-in provisional door allowance, maker travel unverified
+Light centre offset: 16.0 in from ASSUMED centre ±12 in; position not on electrical plan
+Owned rug beyond long sides: 17.0 in, 7.0 short of 24-in guide
+New cost: $1,495; dated catalog, not delivered quote
+Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
+Hard failures: None at best estimate
+Scenario failures: room smaller: inside room: dining-media-console-0

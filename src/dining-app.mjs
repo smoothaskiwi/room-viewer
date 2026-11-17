@@ -1,6 +1,7 @@
 import {esc,announcement,metricsRows,keyRows,measurementTable} from './dining-format.mjs';
 import {planSVG,legend} from './dining-plan.mjs';
 import {mountClearanceUI} from './wall-clearances-ui.mjs';
+import {mountActivityWalkways} from './activity-walkways-ui.mjs';
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 
@@ -16,6 +17,8 @@ let favorites=[];
 try{favorites=JSON.parse(localStorage.getItem(`dining-favourites-${roomId}`)||'[]');}catch{}
 
 const wallGapUI=mountClearanceUI(raw,()=>selected,()=>three);
+const walkwayData=await fetch('activity-walkways.json').then(r=>r.json());
+const walkwayUI=mountActivityWalkways(walkwayData,()=>selected,()=>chairState,()=>three,async state=>{chairState=state;await render();});
 
 for(const el of $$('[data-plan]'))el.innerHTML=planSVG(room,layouts.find(l=>l.id===el.dataset.plan),{compact:true,state:'tucked'});
 
@@ -77,7 +80,7 @@ async function render(){
   }
  }
 
- wallGapUI.sync();
+ wallGapUI.sync();walkwayUI.sync();
 
  const viewLabel=$(`[data-view="${view}"]`)?.textContent||view;
  $('#announcer').textContent=announcement(l,viewLabel,chairState);

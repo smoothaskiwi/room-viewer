@@ -18,6 +18,7 @@ import './round8-test.mjs';
 import './round9a-test.mjs';
 import './wall-clearances-test.mjs';
 import './walkway-clearances-test.mjs';
+import './activity-walkways-test.mjs';
 import './walkway-owner-contract-test.mjs';
 import './activity-test.mjs';
 import {photoProtect} from '../src/photo-masks.mjs';

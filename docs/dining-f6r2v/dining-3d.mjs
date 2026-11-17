@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {clearanceOverlay} from './wall-clearances-overlay.mjs';
 import {wallPatches} from './wall-clearances.mjs';
+import {activityWalkwayOverlay} from './activity-walkways-overlay.mjs';
 
 const MCM={
  table:'#a0845e',tableBase:'#7d6545',
@@ -39,7 +40,7 @@ export async function start3D(host,spec){
  controls.minDistance=30;controls.maxDistance=500;
  controls.addEventListener('change',draw);
 
- const gapOverlay=clearanceOverlay(host,spec);
+ const gapOverlay=clearanceOverlay(host,spec),walkway=activityWalkwayOverlay(host);
  let gapPiece=null,gapEnabled=true;
  let roomGroup,itemsGroup,current;
 
@@ -187,7 +188,7 @@ export async function start3D(host,spec){
   camera.aspect=w/h;camera.updateProjectionMatrix();
   if(roomGroup){const W=spec.room.width_x,D=spec.room.depth_y;roomGroup.traverse(mesh=>{const wall=mesh.userData.wall;if(wall)mesh.visible=wall==='north'?camera.position.y<=0:wall==='south'?camera.position.y>=-D:wall==='west'?camera.position.x>=0:camera.position.x<=W;});}
   renderer.render(scene,camera);
-  gapOverlay.draw(camera);
+  gapOverlay.draw(camera);walkway.draw(camera);
  }
 
  function defaultCamera(W,D,H){
@@ -230,6 +231,9 @@ export async function start3D(host,spec){
    gapOverlay.update(gapPiece,{enabled,isPhoto:false});draw();
   },
   clearance:()=>gapOverlay.debug(),
+  setWalkway(route,gap,enabled=false){walkway.update(route,gap,{enabled});draw();},
+  walkway:()=>walkway.debug(),
+  restoreCamera(c){camera.position.fromArray(c.position);controls.target.fromArray(c.target);camera.lookAt(controls.target);draw();},
   camera:()=>({position:camera.position.toArray(),target:controls.target.toArray()}),
   orbit(action){
    const d=camera.position.clone().sub(controls.target);
@@ -238,6 +242,6 @@ export async function start3D(host,spec){
    if(action==='up')d.z+=12;if(action==='down')d.z-=12;
    camera.position.copy(controls.target).add(d);camera.lookAt(controls.target);draw();
   },
-  dispose(){gapOverlay.dispose();renderer.dispose();controls.dispose();}
+  dispose(){walkway.dispose();gapOverlay.dispose();renderer.dispose();controls.dispose();}
  };
 }

@@ -277,9 +277,9 @@ Hard failures: None at best estimate
 Scenario failures: None in tested scenarios
 
 Council pick B1 · Walnut racetrack, one chair and the two benches [valid]
-48.0 × 30.0 racetrack, 2.0/2.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
+48.0 × 30.0 pill, 2.0/2.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
 Class: valid
-Table: 48.0 × 30.0 × 30.0 in, racetrack; Jarvis Racetrack — Walnut/Pure D 48 × 30
+Table: 48.0 × 30.0 × 30.0 in, pill; Jarvis Racetrack — Walnut/Pure D 48 × 30
 Everyday main walk: 39.0 ±3.0 in (+7.5 vs Today)
 Seated main walk: 39.0 ±3.0 in (+13.5 vs Today)
 Chairs pulled out main walk: 36.0 ±3.0 in (+21.5 vs Today)
@@ -300,9 +300,9 @@ Hard failures: None at best estimate
 Scenario failures: None in tested scenarios
 
 Council pick B2 · Round pedestal opens the corner [valid]
-48.0 × 48.0 circle, 1.0/0.0-inch bench overlaps; 31.4 inches east to dining, one north chair.
+48.0 × 48.0 round, 1.0/0.0-inch bench overlaps; 31.4 inches east to dining, one north chair.
 Class: valid
-Table: 48.0 × 48.0 × 30.0 in, circle; Anton Round Pedestal Dining Table 48
+Table: 48.0 × 48.0 × 30.0 in, round; Anton Round Pedestal Dining Table 48
 Everyday main walk: 32.5 ±3.0 in (+1.0 vs Today)
 Seated main walk: 31.5 ±3.0 in (+6.0 vs Today)
 Chairs pulled out main walk: 27.5 ±3.0 in (+13.0 vs Today)
@@ -320,4 +320,73 @@ Counted seats: 3: 1 west, 1 south, 1 loose; corner not counted. 21-in minimum, n
 New cost: Not fully priced; generic / quote-only components are not free
 Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
 Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
+
+Council pick C1 · Solid walnut pill on a wood pedestal, pulled 2 in off the south bench [invalid]
+48.0 × 30.0 pill, 1.0/-2.0-inch bench overlaps; 31.4 inches east to dining, one north chair.
+Class: invalid
+Table: 48.0 × 30.0 × 30.0 in, pill; Jarvis Racetrack — Walnut/Pure D 48 × 30
+Everyday main walk: 41.0 ±3.0 in (+9.5 vs Today)
+Seated main walk: 33.5 ±3.0 in (+8.0 vs Today)
+Chairs pulled out main walk: 22.5 ±3.0 in (+8.0 vs Today)
+Overlap west / south: 1.0 ±1.8 in (-1.6 vs Today) / -2.0 ±1.8 in (+2.5 vs Today)
+Knee room west bench: 12.1 ±1.8 in (+1.6 vs Today)
+Knee room south bench: 15.0 ±1.8 in (-2.5 vs Today)
+South bench end entry: 1.4 ±2.0 in (+1.4 vs Today)
+West bench entry at counter: 16.7 ±2.0 in (+6.5 vs Today)
+Table east edge → dining plane: 31.4 ±2.0 in (+1.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 10.6 ±3.0 in (+4.1 vs Today)
+Counted seats: 4: 1 west, 1 south, 2 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: $2,780; dated catalog, not delivered quote
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: proposal: unsupported table shape pill (racetrack), semicircular ends, long axis east-west
+Scenario failures: None in tested scenarios
+
+Council pick C2 · In-stock walnut tulip oval, the try-it-this-month table [invalid]
+48.0 × 27.5 oval, 2.0/-2.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
+Class: invalid
+Table: 48.0 × 27.5 × 28.5 in, oval; Lippa 48 Oval — Walnut EEI-2019-WAL
+Everyday main walk: 43.5 ±3.0 in (+12.0 vs Today)
+Seated main walk: 35.5 ±3.0 in (+10.0 vs Today)
+Chairs pulled out main walk: 24.5 ±3.0 in (+10.0 vs Today)
+Overlap west / south: 2.0 ±1.8 in (-0.6 vs Today) / -2.0 ±1.8 in (+2.5 vs Today)
+Knee room west bench: 11.1 ±1.8 in (+0.6 vs Today)
+Knee room south bench: 15.0 ±1.8 in (-2.5 vs Today)
+South bench end entry: 2.4 ±2.0 in (+2.4 vs Today)
+West bench entry at counter: 19.2 ±2.0 in (+9.0 vs Today)
+Table east edge → dining plane: 32.4 ±2.0 in (+2.4 vs Today)
+Foot room west / south / chamfer: Unknown: ask maker; not zero
+Base: Unknown footprint; Unknown base: conservative 28-in illustrative floor envelope; no stability approval
+Underside / apron height: 27.5 in published
+Pendant centre offset: 12.1 ±3.0 in (+5.6 vs Today)
+Counted seats: 4: 1 west, 1 south, 2 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: $635; dated catalog, not delivered quote
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: proposal: unsupported table shape oval, long axis east-west
+Scenario failures: None in tested scenarios
+
+Council pick C3 · Exact 48 x 32 in white oak on a single round pedestal [invalid]
+48.0 × 32.0 oval, 1.0/-2.0-inch bench overlaps; 31.4 inches east to dining, one north chair.
+Class: invalid
+Table: 48.0 × 32.0 × 29.5 in, oval; 48 × 32 white-oak oval top + Argent-28
+Everyday main walk: 39.0 ±3.0 in (+7.5 vs Today)
+Seated main walk: 31.5 ±3.0 in (+6.0 vs Today)
+Chairs pulled out main walk: 20.5 ±3.0 in (+6.0 vs Today)
+Overlap west / south: 1.0 ±1.8 in (-1.6 vs Today) / -2.0 ±1.8 in (+2.5 vs Today)
+Knee room west bench: 12.1 ±1.8 in (+1.6 vs Today)
+Knee room south bench: 15.0 ±1.8 in (-2.5 vs Today)
+South bench end entry: 1.4 ±2.0 in (+1.4 vs Today)
+West bench entry at counter: 14.7 ±2.0 in (+4.5 vs Today)
+Table east edge → dining plane: 31.4 ±2.0 in (+1.4 vs Today)
+Foot room west / south / chamfer: 9.0 / 4.0 / 4.0 in, scenario base envelope
+Base: 28.0 × 28.0 in; Published base dimensions in supplied catalog
+Underside / apron height: Unknown; 28-in illustration, ask maker
+Pendant centre offset: 9.6 ±3.0 in (+3.1 vs Today)
+Counted seats: 4: 1 west, 1 south, 2 loose; corner not counted. 21-in minimum, not 24-in comfort.
+New cost: $1,813; dated catalog, not delivered quote
+Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
+Hard failures: proposal: unsupported table shape oval as sold (ask for a true racetrack), long axis east-west
 Scenario failures: None in tested scenarios

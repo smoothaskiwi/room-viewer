@@ -1,0 +1,19 @@
+Council pick A1 · Angela's walnut pill, 48 x 32, made to size on a slim plate base — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 45.5 in conservative moving-disk bottleneck at x 60.3 in, y 20.3 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 40.5 in conservative moving-disk bottleneck at x 61.3 in, y 17.3 in; source nearest objects council-chair-0 / table.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 31.5 in conservative moving-disk bottleneck at x 60.8 in, y 11.3 in; source nearest objects council-chair-0 / west-counter.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 45.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 40.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 31.5 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.

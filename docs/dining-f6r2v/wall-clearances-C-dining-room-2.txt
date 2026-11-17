@@ -1,0 +1,38 @@
+Council pick C2 · Round 42 that opens to an oval, slim Heidi sideboard
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Mid-Century Rounded Extendable Dining Table 42–60 [table]
+  north: 58 in
+  east: 44½ in
+  south: 58 in
+  west: 45½ in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-0]
+  north: 43 in
+  east: 51½ in
+  south: 94 in
+  west: 55 in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-1]
+  north: 94 in
+  east: 52 in
+  south: 43 in
+  west: 52 in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-2]
+  north: 69 in
+  east: 82 in
+  south: 69 in
+  west: 41 in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-3]
+  north: 69 in
+  east: 39½ in
+  south: 69 in
+  west: 83 in
+
+Heidi 50" Sideboard - Walnut [article_heidiside-0]
+  north: ½ in
+  east: 36½ in
+  south: 141 in
+  west: 36½ in

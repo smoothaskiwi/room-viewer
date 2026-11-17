@@ -1,0 +1,38 @@
+Council pick C3 · Table moved north, a straight walk between the arches
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Mid-Century Extendable Dining Table 60–80 rectangular [table]
+  north: 44 in
+  east: 32 in
+  south: 76 in
+  west: 37½ in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-0]
+  north: 29 in
+  east: 62 in
+  south: 108 in
+  west: 41½ in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-1]
+  north: 29 in
+  east: 41 in
+  south: 108 in
+  west: 62 in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-2]
+  north: 76 in
+  east: 66½ in
+  south: 61 in
+  west: 47½ in
+
+Nosh Dining Chair - Walnut and Hemlock Green · tucked [council-chair-3]
+  north: 76 in
+  east: 47½ in
+  south: 61 in
+  west: 66½ in
+
+Low media console [dining-media-console-0]
+  north: 138½ in
+  east: 41½ in
+  south: ½ in
+  west: 18½ in

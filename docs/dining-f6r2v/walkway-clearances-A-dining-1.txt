@@ -1,0 +1,20 @@
+Council pick A1 · Walnut-console sideboard stays on the old TV wall; 60 x 38 extension table just south of centre — walkways
+Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
+Room tolerance: x ±2 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
+LOCAL SNAPSHOT EDGE GAPS — not operating space
+main-walk — Everyday · chairs tucked: 34 in conservative moving-disk bottleneck at x 107.3 in, y 112.8 in; source nearest objects table / wall-east.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-seated — Diners seated: 31 in conservative moving-disk bottleneck at x 107.3 in, y 122.8 in; source nearest objects wall-east / council-chair-3.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+main-walk-pulled — Chairs pulled out: 19 in conservative moving-disk bottleneck at x 86.8 in, y 147.8 in; source nearest objects council-chair-3 / wall-south.
+No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
+Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
+SEPARATE USE STATES
+tucked: 34 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+seated: 31 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+pulled: 19 in route diameter; chair snapshot solid overlaps: none in retained envelopes.
+dining-media-console-0: 33 in tucked standing envelope; 16 in provisional door/drawer allowance not flagged failed; maker drawer travel unknown, not an actual drawer-open clearance.
+Doors / closets: no hinged-door or closet-use model in these room variants; no opening clearance or open-door route is claimed.
+Chair states are overall retained body envelopes, not seated-person, knee or accessible-route approval. Fixed banquette overlap/body room remains in the original Measurements table.

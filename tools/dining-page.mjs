@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {clearanceHTML,clearanceText} from '../src/wall-clearances.mjs';
+import {amendActivityWalkways} from './activity-walkways-build.mjs';
 import {planSVG} from '../src/dining-plan.mjs';
 import {esc,card,metricsRows,keyRows,announcement,measurementTable} from '../src/dining-format.mjs';
 
@@ -198,6 +199,7 @@ ${metricsNoscript}
   await fs.writeFile(path.join(out,`wall-clearances-${l.id}.txt`),clearanceText(renderSpec,l));
  }
 
+ await amendActivityWalkways(out);
  return {
   layouts:layouts.length,
   pieces:layouts.reduce((n,l)=>n+l.footprints.length,0),
