@@ -6,6 +6,7 @@ import {catalog} from './catalog.mjs';
 import {loadRentalOwned,wholeHouseReuse,resolveOwned,ownedColour} from './rental-owned.mjs';
 import {rentalSafety,rentalPiece,shoppingList,rankRentals,evaluateRental,rentalLayoutSchema} from './rental.mjs';
 import {shopHTML,shoppingText,shoppingCSV,rentalPlan} from '../src/rental-view.mjs';
+import {builderVariants} from './rental-variants.mjs';
 let checks=0;const ok=(v,s)=>{assert.ok(v,s);checks++;};
 const pages=JSON.parse(await fs.readFile(path.join(repo,'data/rooms.json'))),cat=(await catalog({owned:{}},{candidate_items:[]})).items;
 const inputs=await Promise.all(pages.map(async page=>({page,room:JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/room-'+page.room+'.json'))),today:JSON.parse(await fs.readFile(path.join(repo,'docs',page.slug,'layouts.json'))).layouts.find(l=>l.today||l.id==='today')})));
@@ -38,4 +39,16 @@ if(process.argv.includes('--ui')){ok(shopHTML(shop).includes('You own')&&shopHTM
 const consolePlan=rentalPlan(living.room,{footprints:[{...fp,kind:'storage',x:30,y:1,w:66,d:18}],styling:[],geometry:{screen:{x:63,y:10}}});ok(consolePlan.includes('<text x="63" y="15" dominant-baseline'),'owned console number clears its tag and TV line');
 const ownedLampPlan=rentalPlan(living.room,{footprints:[],styling:[{id:'living-floor-lamp-a',owned:true,owned_id:'living-floor-lamp-a',category:'lamp',name:'Owned floor lamp',x:12,y:12}]});ok(ownedLampPlan.includes('data-owned-tag="living-floor-lamp-a"'),'owned lamps carry a plan tag too');
 const layered=rentalPlan(living.room,{footprints:[{...fp,w:18,d:18,kind:'nightstand'}],styling:[{id:'lamp',category:'lamp',x:fp.x+9,y:fp.y+9,height_in:22}]});ok(layered.indexOf('data-owned-tag')>layered.indexOf('<circle'),'owned tags paint above surface lamps');
+// Round 12 parent rulings: the actual final designer originals remain untouched.
+const primary=inputs.find(i=>i.page.room==='primary-bedroom'),pb=JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/brief-primary-bedroom.json')));
+const finalProposal=async(d,r)=>JSON.parse(await fs.readFile(path.join(project,'council/room-designs-2026-11-17-rental',d,'pinned-'+r+'.json'))).layouts.find(l=>l.tier==='reuse');
+const king=await finalProposal('B','primary-bedroom'),kingResult=evaluateRental(primary.room,pb,cat,king,{scenarios:false});
+ok(!kingResult.failures.some(s=>/queen.*required/i.test(s))&&cat['primary-bed'].dims_in.w===76&&cat['primary-bed'].dims_in.d===80,'queen-or-larger accepts the 76 × 80 owned king');
+ok(kingResult.warnings.some(s=>/headboard.*gap/i.test(s)),'headboard-less king has an explicitly unpriced headboard gap');
+const cube=await finalProposal('C','primary-bedroom'),cubeVariant=builderVariants('primary-bedroom',[cube],cat).find(l=>l.original_id===cube.id);
+ok(evaluateRental(primary.room,pb,cat,cube,{scenarios:false}).failures.some(s=>/cube storage.*not allowed/i.test(s)),'cube storage is forbidden even when owned');
+ok(cubeVariant&&!cubeVariant.placements.some(q=>/cube/.test(q.owned_id??q.catalog_id))&&/adjusted by builder/i.test(cubeVariant.builder_adjustment)&&/nine.*storage.*lost/i.test(cubeVariant.builder_adjustment),'cube-free additive variant discloses lost nine-cube storage');
+const dining=inputs.find(i=>i.page.room==='dining-room'),db=JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/brief-dining-room.json'))),tv=await finalProposal('A','dining-room'),tvVariant=builderVariants('dining-room',[tv],cat).find(l=>l.original_id===tv.id);
+ok(evaluateRental(dining.room,db,cat,tv,{scenarios:false}).failures.some(s=>/No TV.*dining room/i.test(s)),'retained dining TV and bracket violate the true-dining-room ruling');
+ok(tvVariant&&!tvVariant.keeps.some(s=>/\bTV\b|bracket/i.test(s))&&tvVariant.placements.some(q=>q.catalog_id==='dining-media-console')&&/adjusted by builder/i.test(tvVariant.builder_adjustment),'additive dining variant removes TV/bracket but keeps sideboard');
 console.log('PASS reuse support: '+checks+' checks; inventory, estimates, zero spend, care, schema, geometry, ranking and whole-house conflicts.');

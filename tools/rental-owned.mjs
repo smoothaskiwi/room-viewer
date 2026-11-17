@@ -45,6 +45,8 @@ export async function loadRentalOwned(items,inputs){
   // Today can carry usable owned pieces absent from the descriptive room inventory.
   for(const t of rows.filter(t=>t.catalog_id&&!resolveOwned(items,t.catalog_id)&&t.owned))items[t.catalog_id]=record(t.catalog_id,{name:t.label,room:roomId,dims_in:{w:null,d:null,h:null},photo_estimate:{w:t.w,d:t.d,h:t.h,unc:[2,2,2]},finish:t.label});
  }
+ // Rental king is the owner's confirmed mattress size; do not change retained Today geometry.
+ if(items['primary-bed']){const c=items['primary-bed'];c.dims_in={w:76,d:80,h:28};c.w=80;c.d=76;c.h=28;c.has_headboard=false;c.mattress_top_in=24;c.dimension_basis='Owner-confirmed 76 × 80 king mattress on low dark base, no headboard; location and base envelope not tape-verified';}
  // Reuse of rug estimates needs no invented manufacturer thickness.
  for(const c of Object.values(items).filter(c=>c.owned_id))if(c.kind==='rug'&&c.dims_in.w&&c.dims_in.d&&!c.dims_in.h){c.dims_in.h=c.h=.2;c.dimension_uncertainty??=[12,12,.2];c.dimension_uncertainty[2]=.2;c.layout_ready=true;c.dimension_basis+='; rug thickness illustrative 0.2 ± 0.2 in';}
  return items;

@@ -1,6 +1,13 @@
 // Additive builder corrections; designer submissions remain byte-for-byte source inputs.
 export function builderVariants(room,proposals,cat){
- const out=[...proposals],moves={
+ const out=[...proposals];
+ for(const p of proposals.filter(p=>p.tier==='reuse')){
+  let note,change;
+  if(p.id==='C-primary-bedroom-reuse1'){note='cube organiser removed: nine open storage cubes lost (about 11,979 cu in estimated, not drawer volume); closet supplies clothing storage, no replacement dresser priced';change=q=>{q.placements=q.placements.filter(f=>!/cube/.test(f.owned_id??f.catalog_id));q.keeps=(q.keeps??[]).filter(s=>!/cube/i.test(s));q.removes=[...(q.removes??[]),'Owned cube organiser leaves; nine open storage cubes lost.'];q.hero_view=String(q.hero_view).replace('black cube storage and ','');};}
+  if(p.id==='A-dining-room-reuse1'){note='TV and bracket removed from dining; walnut console retained only as a serving sideboard';change=q=>{const tv=f=>/\bTV\b|television|tv[ _-]*bracket/i.test(typeof f==='string'?f:[f.owned_id,f.catalog_id,f.id,f.name].join(' '));q.placements=q.placements.filter(f=>!tv(f));q.styling=q.styling.filter(f=>!tv(f));q.keeps=(q.keeps??[]).filter(s=>!tv(s));q.removes=[...(q.removes??[]),'Dining TV and bracket leave; true dining room, console is a sideboard.'];for(const f of q.placements)if(f.catalog_id==='dining-media-console')f.note=f.care_note='Reuse as a dining sideboard; inspect hinges, protect wood top and anchor as needed. No dining TV.';};}
+  if(change){const q=structuredClone(p);change(q);q.id+='-adjusted';q.original_id=p.id;q.builder_adjustment='adjusted by builder: '+note;q.title+=' — adjusted by builder';q.summary=q.builder_adjustment+'.';out.push(q);}
+ }
+ const moves={
   'C-living-room-q1':{index:7,dy:-5,note:'side table moved 5 in toward the north wall to open the seating approach'},
   'C-living-room-v1':{index:3,dx:10,note:'coffee table moved 10 in east to open the seating approach'},
   'B-kitchen-v1':{index:1,dy:.5,note:'west breakfast chair tucked 0.5 in closer to the table to clear the counter doors'}
