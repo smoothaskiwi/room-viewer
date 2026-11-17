@@ -16,7 +16,7 @@ export function briefBands(l,cat={}){const m=l.measures??{},walk=l.routes?.narro
    {id:'walk',label:'walk to bathroom, closet and bed sides',band:step(walk,[20,24,30]),max:3,value:walk,text:'walk '+inch(walk)},
    {id:'bed_sides',label:'bed-side room',band:l.today?0:step(sides,[15,18,24]),max:3,value:sides,text:l.today?'bed stored, no sleeping place':'narrower bed side '+inch(sides)},
    {id:'daily_use',label:'what the room still does every day',band:daily,max:2,value:daily,text:daily===2?'desk and gym stay':daily===1?'desk stays, gym leaves':'desk and gym leave'},
-   {id:'desk_room',label:'room behind the desk',band:family.includes('desk')?step(desk,[30,36]):0,max:2,value:desk??null,text:family.includes('desk')?'behind desk '+inch(desk):'no desk'},
+   {id:'desk_room',label:'room behind the desk',band:family.includes('desk')?step(desk,[30,36]):0,max:2,value:desk??null,text:l.today?'desk present; working clearance not measured':family.includes('desk')?'behind desk '+inch(desk):'no desk'},
    {id:'storage',label:'guest storage',band:Math.min(3,(m.nightstands??0)+(dresser?1:0)),max:3,value:m.nightstands??0,text:(m.nightstands??0)+' nightstand'+(m.nightstands===1?'':'s')+(dresser?' and a dresser':'')},
    {id:'glass',label:'glass left visible',band:glass==null?0:glass<=0.5?2:glass<10?1:0,max:2,value:glass??null,text:glass==null?'glass not measured':Math.round(glass)+'% glass hidden'},
    robust(l),

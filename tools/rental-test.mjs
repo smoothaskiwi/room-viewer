@@ -12,7 +12,7 @@ for(const id of ['primary-bedroom','guest-bedroom','living-room','dining-room','
  const l=evaluateRental(room,brief,cat,p);assert.ok(['valid','conditional','invalid'].includes(l.class));assert.equal(l.family,'rental');assert.equal(l.hero_camera.position[2],54);assert.ok(Number.isFinite(l.shop.total));assert.ok(Math.abs(l.shop.total-l.shop.furniture-l.shop.styling)<.001);assert.ok(l.footprints.length);assert.ok(l.geometry.routes?.destinations?.length||l.failures.length);checks+=8;
  const outside=structuredClone(p);outside.placements[0].x=999;assert.equal(evaluateRental(room,brief,cat,outside,{scenarios:false}).class,'invalid');checks++;
  const absent=await readRentalCouncil(id,path.join(repo,'data/absent-council'));assert.equal(absent.missing,true);assert.deepEqual(absent.errors,[]);checks+=2;
- if(id==='guest-bedroom'){assert.ok(!l.footprints.some(f=>/gym|cat|guest.desk/.test(f.catalog_id)));checks++;}
+ if(id==='guest-bedroom'){assert.ok(!l.footprints.some(f=>/gym|cat|guest.desk/.test(f.catalog_id)));checks++;const baseline=JSON.parse(await fs.readFile(path.join(repo,'docs/guest-v2n7q/layouts.json'))).layouts.find(l=>l.today);assert.match(baseline.tradeoff,/desk present/);assert.doesNotMatch(baseline.tradeoff,/no desk/);checks+=2;}
  console.log(id+': '+l.class+'; '+l.headline+' '+l.failures.length+' failures, '+l.conditions.length+' conditions.');
 }
 assert.ok(rentalSafety(cat.article_sven_sleeper).failures.some(s=>/Velvet/.test(s)));checks++;

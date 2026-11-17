@@ -18,6 +18,7 @@ try{
   assert.equal(await p.$eval('#rental-detail>p:nth-of-type(2)',e=>e.textContent),l.class+' · '+l.headline);checks++;
   assert.equal(await p.$$eval('#rental-detail .rental-shop li',es=>es.length),l.shop.items.length);checks++;
   const links=await p.$$eval('#rental-detail .rental-shop li a',es=>es.map(e=>[e.target,e.rel,e.href]));assert(links.every(a=>a[0]==='_blank'&&a[1].includes('noopener')));checks++;
+  await p.click('#rental-detail [data-copy-shop]');await p.waitForFunction(()=>document.querySelector('#rental-detail .copy-result')?.textContent.length);const copied=await p.$eval('#rental-detail .copy-result',e=>({note:e.textContent,value:e.querySelector('textarea')?.value}));assert(copied.note==='List copied.'||copied.value?.includes(l.shop.items[0].name));checks++;
   const csv=await p.$eval('#rental-detail .rental-shop-actions a',e=>e.href),csvResponse=await fetch(csv);assert.equal(csvResponse.status,200);assert((await csvResponse.text()).includes('Quantity'));checks++;
   if(save){await p.$eval('#rental-plan',e=>e.scrollIntoView({block:'center'}));await p.screenshot({path:path.join(out,r.room+'-'+size+'-plan.png')});shots.push(r.room+'-'+size+'-plan.png');}
   await p.click('[data-rental-mode="listing"]');await p.waitForFunction(()=>window.__rental?.mode==='listing');assert.equal(await p.evaluate(()=>window.__rental.three().camera().position[2]),54);checks++;assert.equal(await p.evaluate(()=>window.__rental.three().camera().fov),74);checks++;
