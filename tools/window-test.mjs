@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {windowReport,windowStandoff} from './windows.mjs';
+const room={room:{width_x:128.5,depth_y:139.7,baseboard_projection:.75},openings:[{id:'north_window',type:'window',wall:'north',opening_x:[18.5,54.5],stool_x:[15,58],stool_projection:2,stool_top_z:28,sill_z:30,head_z:82,egress_candidate:true}]};
+const piece=(depth,height)=>({id:'test',kind:'dresser',x:18.5,y:2,w:36,d:depth,h:height,faces:'south'});
+const low=windowReport(room,[piece(16,33)])[0];
+assert.equal(low.reachable,true);assert.equal(low.comfortable,true);assert.equal(low.pieces[0].reach,18);assert.ok(low.glass_hidden_pct>0&&low.glass_hidden_pct<6);
+const tall=windowReport(room,[piece(24,50)])[0];assert.equal(tall.comfortable,false);assert.equal(tall.reachable,false);
+const east={...room.openings[0],stool_top_z:27.7};assert.equal(windowStandoff(24,east,.75),.75);assert.equal(windowStandoff(27,east,.75),2);
+assert.equal(windowReport(room,[piece(16,27)])[0].glass_hidden_pct,0);
+assert.equal(windowReport(room,[piece(16,33),piece(16,33)])[0].glass_hidden_pct,low.glass_hidden_pct,'Overlapping silhouettes must not double count glass');
+console.log('PASS 3D windows: shallow/low reachable; deep/tall not comfortable/openable; 24-high table under 27.7 stool; union glass area.');

@@ -1,11 +1,12 @@
 {
   "meta": {
-    "version": "1.3 (16 Nov 2026)",
+    "version": "1.4 (16 Nov 2026)",
     "room": "primary-bedroom",
     "status": "defaults proposed by the agent; Daniel can change any of them in plain words",
     "change": "1.0 marked Today invalid (bed north side 15-17 in, window approach, switch behind the sorter, unknown drawer volume), although the household lives in it every day. 1.1 calibrates: anything Today already has is at most a comparison, never invalid.",
     "change_1_2": "1.1 measured the main walkway with the white door standing open at its stop, which made both pinned dresser layouts invalid at 13-16 in. Whether that door is usually open is unknown (asked). 1.2 measures the main walkway with doors in their everyday state and reports each door-open state separately; an open-door pinch is a warning until Daniel says the door stays open. Plain text is shortened.",
-    "change_1_3": "Daniel: the white door leads to the primary bathroom and is often closed; about 105 degrees open is acceptable; the cube organiser goes (only Today keeps it); keep the long layout descriptions and add a short summary."
+    "change_1_3": "Daniel: the white door leads to the primary bathroom and is often closed; about 105 degrees open is acceptable; the cube organiser goes (only Today keeps it); keep the long layout descriptions and add a short summary.",
+    "change_1_4": "Daniel: north nightstand is 18 in unless evidence says otherwise; judge windows in 3D (a piece's height and depth, not the width it covers: a shallow, low dresser under a window is fine); explore all permutations of position, rotation and size, including generic depths. Correction: no children in the household; child-safety flags removed."
   },
   "plain_policy": "Keep a queen Miles bed reachable from both sides; nothing may collide or stop a door short; the main walkway from the hall door past the foot of the bed must stay at least 20 inches; bed sides at least 15 inches (today's north side is about 16.75); everything else is a trade-off measured against today. Priorities in order: main walkway, bed-side room, storage, fewest changes, cost.",
   "pinned": {
@@ -85,9 +86,12 @@
     "preference": "more opening is better for the bathroom door; at least 90 degrees required; about 105 is acceptable to the owner; report the open-door gap at the bed foot as a trade-off"
   },
   "windows": {
-    "policy": "each window must stay openable: reachable from a standing spot within 24 in horizontally, over pieces no taller than 36 in (nightstands and dressers below the sill are fine). A piece taller than the stool covering more than half the opening's width is a warning (egress); a headboard over casing or stool is a warning; no route to the glass is required"
+    "model": "3D. Judge each piece in front of a window by its height and depth, not by the width it covers. Window coverage by width is no longer a warning.",
+    "operable": "an adult standing at the piece's front can open the sash if the horizontal reach from the piece's front edge to the glass plane is at most 24 in (comfortable) or 30 in (limit) and the piece's top is at most 40 in high. Single-hung windows: unlock at the meeting rail, lift the lower sash. Past the limit the window counts as not openable: a warning, and invalid only if it leaves the bedroom with no openable egress-candidate window.",
+    "glass_hidden": "report the percentage of glass area hidden (piece height above the visible glass bottom x overlapping width, over the glass area) as a preference; pieces at or below the stool top hide none",
+    "stool_and_casing": "a piece may slide under a stool only if its top is below the stool's underside (stool top minus 1 in); otherwise it stands off the wall by the stool projection (the casing depth beside the opening); a headboard over a casing or stool is a warning"
   },
-  "child_safety": "anchor every dresser and chest; flag climbable pieces under a window",
+  "child_safety": "none: the household has no children (Daniel, 16 Nov 2026). Note manufacturer anti-tip kits for tall pieces as ordinary advice only.",
   "classes": {
     "invalid": "collision, a door short of its required angle, main route below 20 in, a bed side below 15 in, or a required item missing, at the best estimate",
     "conditional": "passes at the best estimate but fails in a plausible joint scenario; name the measurement that settles it",
@@ -155,5 +159,8 @@
       }
     ],
     "rule_of_thumb": "each inch shorter adds about 2.5-3 degrees of door opening between 56 and 40 in; below about 34 in the door folds nearly flat; gaps assume the bed 2 in off the east wall (add 1.25 if flush)"
-  }
+  },
+  "envelopes": "for every wall run and window, compute and show the largest piece that passes each rule: maximum depth, height and length, with +/- (e.g. 'Under the north window: up to 24 in deep and 40 in tall keeps it easy to open; up to 27 in tall hides no glass'; 'West wall: up to 56.9 in long; each inch of depth costs an inch of walkway'). One short table per wall on the page, computed by the engine.",
+  "parametric_sweep": "besides catalog pieces, evaluate generic storage at depths 14, 16, 18 and 20 in, lengths in 2-in steps from 30 in to the span, heights 30-36 in (dresser) and 44-54 in (chest), on every wall run including under windows. Show the depth and length trade-offs, and name the catalog pieces nearest the best generic sizes. Label generic pieces 'generic size, no product chosen'.",
+  "rotation": "every piece may take any quarter turn where its front stays usable (drawer fronts face open floor; a nightstand's drawer faces the bed or the room); beds take all four headings and may float off walls; low pieces may sit under windows. Prune, but report how many arrangements were evaluated."
 }

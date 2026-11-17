@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {repo} from './project.mjs';
 import {explore} from './explore.mjs';
-import {esc,card,routeText,storageText,money,dresserTradeoffTable} from '../src/explorer-format.mjs';
+import {esc,card,routeText,storageText,money,dresserTradeoffTable,envelopeTables,depthTradeoffTables} from '../src/explorer-format.mjs';
 import {planSVG} from '../src/explorer-plan.mjs';
 const out=process.env.ROOM_OUTPUT_DIR||path.join(repo,'docs/primary-bedroom-b7q4m');await fs.mkdir(out,{recursive:true});
 const {room,brief,profile,catalog,data}=await explore();const write=(n,v)=>fs.writeFile(path.join(out,n),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n');
@@ -153,12 +153,12 @@ ${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + ranked layouts</
 <div id="gallery">${data.layouts.map((l,i)=>card(l,room,i).replace('<div class="mini-plan" data-plan="'+l.id+'"></div>','<div class="mini-plan" data-plan="'+l.id+'">'+planSVG(room,l,{compact:true})+'</div>')).join('')}</div>
 <div class="toolbar"><button id="compare-open">Compare any two options</button></div>
 <button id="show-more" aria-expanded="false"${data.layouts.some((l,i)=>i>4&&!l.pinned)?'':' hidden'}>Show all ranked options</button>
-${dresserTradeoffTable(data.dresser_length_tradeoff)}
+${envelopeTables(data.envelopes)}${depthTradeoffTables(data.parametric_sweep)}${dresserTradeoffTable(data.dresser_length_tradeoff)}
 ${ranked}<details>
 <summary>The brief and search coverage</summary>
-<p class="policy">${esc(brief.plain_policy)}</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
-<p>${data.search.generated} storage/sorter combinations generated; ${data.search.evaluated_analytic} checked after incremental pruning; ${data.search.distinct_clusters} distinct families. ${data.search.analytic_survivors} passed analytic filters; ${data.search.feasible} distinct passing representatives retained. Search includes floating beds (3- and 6-in wall offsets), centred beds and 15/18/24-in side constraint boundaries; not proof of a global optimum.</p>
-<p>Brief 1.3 is calibrated to Today: only collisions, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Windows, storage and reach are warnings compared with Today. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
+<p class="policy">${esc(brief.plain_policy)}</p><p>The policy’s old north-side reference predates the owner’s 18-in table correction: Today now measures 17.75 in; the tables and rankings use that corrected value. The newer rotation section permits all four bed headings.</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
+<p>${data.parametric_sweep.counts.evaluated} generic size/rotation/anchor cases; ${data.search.generated} complete storage/sorter combinations evaluated; ${data.search.evaluated_analytic} checked after incremental pruning; ${data.search.distinct_clusters} distinct families. ${data.search.analytic_survivors} passed analytic filters; ${data.search.feasible} distinct passing representatives retained. Search includes floating beds (3- and 6-in wall offsets), centred beds and 15/18/24-in side constraint boundaries; not proof of a global optimum.</p>
+<p>Brief 1.4 is calibrated to Today: only collisions, no openable egress-candidate, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Glass-hidden area, storage and ordinary reach are trade-offs; window width coverage is not a warning. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
 </details><details>
 <summary>What we ruled out</summary>
 <ul>${data.ruled_out.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
@@ -166,13 +166,13 @@ ${ranked}<details>
 <details>
 <summary>Measurements that settle the next version</summary>
 <ul>${room.measurements_requested.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
-<p>Pinned queen at y 17.5 ends at 82.1 in: 3.0 in short of east glass, 0.8 in over casing, 1.8 in over the assumed stool. Setback 2.0 ± 0.75 in; if the stool begins beyond 82.1 in, use baseboard-only 0.75 in instead. This conditional setback improves the local gap; the table keeps it separate from the everyday route and door-open warnings.</p>
+<p>Pinned queen at y 18.5 ends at 83.1 in: 2.0 in short of east glass, 1.8 in over casing, 2.8 in over the assumed stool. Setback 2.0 ± 0.75 in; if the stool begins beyond 83.1 in, use baseboard-only 0.75 in instead. This conditional setback improves the local gap; the table keeps it separate from the everyday route and door-open warnings.</p>
 </details>
 <noscript>
 <p>JavaScript is disabled. The comparison gallery, plans and ranked text table above still work; interactive 3D requires JavaScript.</p>
 </noscript>
 </main>
-<footer>Prices are dated US public item prices, not delivered quotes. No purchase-ready, code, escape-window or child-safety approval is claimed. Window operation, door handles/stops and anchoring need on-site verification. No external runtime requests.</footer>
+<footer>Prices are dated US public item prices, not delivered quotes. No purchase-ready, code, escape-window approval is claimed. Window operation, door handles/stops and anchoring need on-site verification. No external runtime requests.</footer>
 <div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true">
 </div>
 <script type="module" src="explorer-app.mjs">
@@ -180,4 +180,4 @@ ${ranked}<details>
 </body>
 </html>`);
 await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence+'\nDetails: '+l.long_description).join('\n\n')+'\n');
-console.log(`Round 6 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.3 everyday doors; separate open-door warnings; Today is valid.`);
+console.log(`Round 7 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.4 everyday doors; separate open-door warnings; Today is valid.`);

@@ -9,4 +9,4 @@ assert.ok(data.layouts.every(l=>l.measures.difference_from_today),'Every measure
 assert.ok(data.layouts.find(l=>l.id==='today').scenarios.every(s=>s.failures.length===0),'Today also passes every joint scenario; do not hide a baseline failure by relabeling it.');
 const ranked=data.layouts.filter(l=>l.recommended&&!l.pinned),tuple=l=>[l.measures.route,Math.min(...l.bed_sides),l.measures.storage_volume,-l.changes,-l.cost];
 for(let i=1;i<ranked.length;i++){const a=tuple(ranked[i-1]),b=tuple(ranked[i]),first=a.findIndex((n,j)=>Math.abs(n-b[j])>1e-8);assert.ok(first<0||a[first]>=b[first],'Plain-policy priority order is lexicographic, never cost before room.');}
-console.log('PASS brief 1.3 calibration: Today valid; four passing alternatives; north-bed search; Today differences; policy ranking.');
+console.log('PASS brief 1.4 calibration: Today valid; four passing alternatives; north-bed search; Today differences; policy ranking.');

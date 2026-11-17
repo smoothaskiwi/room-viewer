@@ -5,7 +5,8 @@
     "units": "inches",
     "coordinates": "x east from the inside face of the west wall, y south from the inside face of the north wall, z up from the floor",
     "precedence": "room-survey-addendum-2026-11-16 (photos 1-5 solved, video) overrides scene-spec 1.4, which overrides room-survey.md; owner statements are constraints (dresser span about 57; north nightstand against the north wall)",
-    "status": "photo metrology, not tape-verified; *_unc about 1 sigma; basis M measured, A assumed, D derived, O owner statement"
+    "status": "photo metrology, not tape-verified; *_unc about 1 sigma; basis M measured, A assumed, D derived, O owner statement",
+    "version_note_1_1": "16 Nov 2026: north nightstand 18 in (owner); king north edge 18.5"
   },
   "room": {
     "width_x": 128.5,
@@ -231,15 +232,15 @@
         127.5
       ],
       "y": [
-        17.5,
-        93.4
+        18.5,
+        94.4
       ],
       "unc": 1,
       "foot_x_unc": 1.5,
       "base_foot_x": 55,
       "mattress_top_z": 24,
       "head": "east",
-      "basis": "M photos 1, 3, 5"
+      "basis": "M photos 1, 3, 5; north edge set to 18.5 because it touches the owner's 18-in nightstand (photo 17.5 +/- 1)"
     },
     "nightstand_north": {
       "label": "Small wood nightstand",
@@ -249,13 +250,13 @@
       ],
       "y": [
         0.5,
-        17.5
+        18.5
       ],
-      "w_along_wall": 17,
-      "w_unc": 2,
+      "w_along_wall": 18,
+      "w_unc": 1,
       "depth": 18.5,
       "top_z": 24.3,
-      "basis": "M; owner says about 18 in, against the north wall"
+      "basis": "owner: 18 in wide, against the north wall (16 Nov 2026); photo estimate 17 +/- 2 is consistent"
     },
     "nightstand_south": {
       "label": "Wood two-drawer nightstand, splayed legs",
