@@ -1,44 +1,59 @@
 {
   "images": {
-    "images": 542,
+    "images": 436,
+    "source_images": 542,
     "products": 387,
     "missing": 0,
-    "bytes": 7092158
+    "bytes": 5497200
   },
   "rooms": [
     {
       "room": "primary-bedroom",
-      "layouts": 0,
+      "layouts": 6,
       "fixtures": 1,
-      "classes": {},
+      "classes": {
+        "conditional": 2,
+        "invalid": 4
+      },
       "errors": []
     },
     {
       "room": "kitchen",
-      "layouts": 0,
+      "layouts": 6,
       "fixtures": 1,
-      "classes": {},
+      "classes": {
+        "valid": 4,
+        "conditional": 1,
+        "invalid": 1
+      },
       "errors": []
     },
     {
       "room": "dining-room",
-      "layouts": 0,
+      "layouts": 6,
       "fixtures": 1,
-      "classes": {},
+      "classes": {
+        "conditional": 3,
+        "invalid": 3
+      },
       "errors": []
     },
     {
       "room": "living-room",
-      "layouts": 0,
+      "layouts": 6,
       "fixtures": 1,
-      "classes": {},
+      "classes": {
+        "invalid": 6
+      },
       "errors": []
     },
     {
       "room": "guest-bedroom",
-      "layouts": 0,
+      "layouts": 6,
       "fixtures": 1,
-      "classes": {},
+      "classes": {
+        "invalid": 6
+      },
       "errors": []
     }
   ]

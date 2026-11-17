@@ -3,6 +3,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {repo,project} from './project.mjs';
 import {catalog} from './catalog.mjs';
+import {rentalPiece} from './rental.mjs';
+import {styleSize,shoppingCSV} from '../src/rental-view.mjs';
 import {evaluateRental,rankRentals,rentalSafety,readRentalCouncil,shoppingList,listingCamera} from './rental.mjs';
 const cat=(await catalog({owned:{}},{candidate_items:[]})).items;let checks=0;
 for(const id of ['primary-bedroom','guest-bedroom','living-room','dining-room','kitchen']){
@@ -20,4 +22,13 @@ const cloth={label:'Performance sofa',category:'sofa',kind:'sofa',category_group
 assert.ok(rentalSafety({...cloth,fabric:{...cloth.fabric,cleaning_code:null}}).failures.length);checks++;
 assert.ok(rentalSafety({...cloth,fabric:{...cloth.fabric,abrasion_rubs:30000,abrasion_test:'Martindale'}}).failures.length);checks++;
 assert.deepEqual(rankRentals([{id:'a',class:'valid',score:[2],shop:{total:100},fixture:false},{id:'b',class:'invalid',score:[9],shop:{total:1},fixture:false}]).map(l=>l.id),['a','b']);checks++;
+
+assert.equal(rentalPiece({catalog_id:'task',rotation:0,x:0,y:0,footprint_w:24,footprint_d:24},{task:{category:'chair',label:'FLINTAN Office chair',dims_in:{w:24,d:24}}}).kind,'desk-chair');checks++;
+assert.ok(rentalSafety({...cloth,label:'Paper-wrap desk',category:'desk',kind:'desk',fabric:null,materials:'paper-wrap laminate'}).failures.length);checks++;
+assert.ok(rentalSafety({...cloth,fabric:null}).failures.length,'Unknown sofa fabric cannot pass');checks++;
+assert.deepEqual(styleSize({category:'rug',size_in:"5' x 8'"}),[60,96]);checks++;
+assert.deepEqual(styleSize({category:'rug',size_in:'5x8'}),[60,96]);checks++;
+assert.deepEqual(styleSize({category:'art',size_in:'24x36'}),[24,36]);checks++;
+assert.ok(shoppingCSV({items:[{name:'=HYPERLINK("bad")',qty:1,group:'styling'}],furniture:0,styling:0,total:0,complete:false}).includes("'=HYPERLINK"));checks++;
+
 console.log('PASS rental engine: '+checks+' checks; five room fixtures, bounds, real geometry, safety, missing council, tier costs, ranking and listing cameras.');

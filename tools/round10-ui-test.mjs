@@ -1,3 +1,4 @@
+import './owner-harness.mjs';
 // Round 10 UI regression: phone-first detail order, initial hash focus/scroll, Back to the originating card,
 // compare share hash, forced 3D fallbacks (?no3d=1 and ?webgl=0), selected-state text parity and More options (n).
 // Runs against the built docs/ tree (owner builds first). Usage: node tools/round10-ui-test.mjs

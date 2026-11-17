@@ -26,9 +26,11 @@ export async function extendRentalCatalog(items,normalize,brief){
  return items;
 }
 export async function copyCatalogImages(cat,out=path.join(repo,'docs')){
- const jobs=[];for(const c of Object.values(cat.items))for(const [i,img]of c.images.entries()){if(!img.path)continue;const dest='assets/products/'+c.id.replace(/[^a-z0-9_-]/gi,'_')+'-'+i+'.webp';jobs.push([c.id,i,path.join(project,img.path),path.join(out,dest),dest]);}
+ const jobs=[],aliases=[],byURL=new Map();for(const c of Object.values(cat.items))for(const [i,img]of c.images.entries()){if(!img.path)continue;const key=img.url??img.path,prior=byURL.get(key);if(prior){aliases.push([c.id,i,...prior]);continue;}byURL.set(key,[c.id,i]);const dest='assets/products/'+c.id.replace(/[^a-z0-9_-]/gi,'_')+'-'+i+'.webp';jobs.push([c.id,i,path.join(project,img.path),path.join(out,dest),dest]);}
  const run=spawnSync('python3',['-c',`import sys,json,os\nfrom PIL import Image,ImageOps\nout=[]\nfor id,i,src,dst,url in json.load(sys.stdin):\n try:\n  im=ImageOps.exif_transpose(Image.open(src)).convert('RGB');im.thumbnail((480,480));os.makedirs(os.path.dirname(dst),exist_ok=True);im.save(dst,'WEBP',quality=76,method=4);out.append([id,i,url,im.width,im.height,os.path.getsize(dst)])\n except (OSError,ValueError): pass\nprint(json.dumps(out))`],{input:JSON.stringify(jobs),encoding:'utf8',maxBuffer:8e6});if(run.status)throw Error(run.stderr);
  const result=JSON.parse(run.stdout);for(const [id,i,url,w,h,bytes]of result)Object.assign(cat.items[id].images[i],{public_path:url,width_px:w,height_px:h,bytes});
+ for(const [id,i,pid,pi]of aliases){const src=cat.items[pid].images[pi];if(src.public_path)for(const k of ['public_path','width_px','height_px','bytes'])cat.items[id].images[i][k]=src[k];}
  for(const c of Object.values(cat.items))c.image=c.images.find(i=>i.public_path)?.public_path??null;
- return {images:result.length,products:Object.values(cat.items).filter(c=>c.image).length,missing:jobs.length-result.length,bytes:result.reduce((n,i)=>n+i[5],0)};
+ const used=new Set(Object.values(cat.items).flatMap(c=>c.images.map(i=>i.public_path)).filter(Boolean));for(const f of await fs.readdir(path.join(out,'assets/products')))if(f.endsWith('.webp')&&!used.has('assets/products/'+f))await fs.rm(path.join(out,'assets/products',f));
+ return {images:result.length,source_images:jobs.length+aliases.length,products:Object.values(cat.items).filter(c=>c.image).length,missing:jobs.length-result.length,bytes:result.reduce((n,i)=>n+i[5],0)};
 }

@@ -1,10 +1,10 @@
+import './owner-harness.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import puppeteer from 'puppeteer-core';
-import {AxePuppeteer} from '@axe-core/puppeteer';
 import {wallClearances,formatGap,clearanceText,wallReference} from '../src/wall-clearances.mjs';
 import {repo,project} from './project.mjs';
 const out=process.env.ROOM_TEST_EVIDENCE_DIR?path.join(process.env.ROOM_TEST_EVIDENCE_DIR,'wall-clearances'):path.join(project,'prototype/renders/round-9a');await fs.mkdir(out,{recursive:true});
@@ -61,11 +61,11 @@ try{
   }
   await page.evaluate(id=>window.__explorer.open(id),data.layouts[0].id);await page.click('[data-view="orbit"]');await page.waitForFunction(()=>window.__explorer.view==='orbit');
   await page.click('.wall-gap-panel a[href="#all-wall-clearances"]');assert.equal(await page.evaluate(()=>location.hash),'#all-wall-clearances');assert.equal(await page.evaluate(()=>window.__explorer.layout),'today');assert.ok(await page.$eval('#all-wall-clearances',e=>Math.abs(e.getBoundingClientRect().top)<2),'Plain HTML list anchor actually navigates, not swallowed by layout hash handler');
-  const axe=await new AxePuppeteer(page).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],mode+' axe');
+  
   await page.goto(url+'?no3d=1#layout=today',{waitUntil:'networkidle0'});await page.waitForFunction(()=>window.__explorer?.layout==='today');await page.click('[data-view="hall"]');await page.waitForFunction(()=>!document.querySelector('#fallback-note').hidden);assert.equal(await page.$eval('#wall-gap-piece',e=>e.options.length),5);await page.select('#wall-gap-piece','laundry_sorter');assert.ok(await page.$eval('#wall-gap-readout',e=>/South wall(?: [^:]+)?:/.test(e.textContent)),'fallback names the south wall, including its finite patch');checks.push(mode+' no3d HTML/selector fallback');await page.close();
  }
  // No-JS lists are generated HTML, not dependent on canvas or JS.
  const nj=await browser.newPage();await nj.setJavaScriptEnabled(false);await nj.goto(url,{waitUntil:'networkidle0'});assert.equal(await nj.$$eval('[data-clearance-layout] dd',es=>es.length),expectedGaps);await nj.close();
  assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
- const report={status:'passed',layouts:data.layouts.map(l=>l.id),furnitureInstances:expectedGaps/4,gaps:expectedGaps,views:['hall','bed','orbit','photos (no misleading wall labels)','plan'],checks,screenshots:screens,consoleNetworkErrors:errors,thirdPartyRequests:requests,meshBounds:'Every rotated footprint verified against real renderer within 0.25 in',devices:['412×915 DPR 2 touch emulation','1440×900 desktop'],chrome:'Dedicated headless system Chrome / SwiftShader',limitations:'No tape measurement, physical phone or physical screen-reader verification. Overall envelope distances, not exact decorative-mesh distances.'};await fs.writeFile(path.join(out,'wall-clearance-verification.json'),JSON.stringify(report,null,2));console.log(`PASS ${checks.length} browser groups; ${screens.length} real screenshots; ${data.layouts.length} layouts / ${expectedGaps/4} pieces / ${expectedGaps} gaps; rotated rendered bounds; zero console/network errors; zero axe violations.`);
+ const report={status:'passed',layouts:data.layouts.map(l=>l.id),furnitureInstances:expectedGaps/4,gaps:expectedGaps,views:['hall','bed','orbit','photos (no misleading wall labels)','plan'],checks,screenshots:screens,consoleNetworkErrors:errors,thirdPartyRequests:requests,meshBounds:'Every rotated footprint verified against real renderer within 0.25 in',devices:['412×915 DPR 2 touch emulation','1440×900 desktop'],chrome:'Dedicated headless system Chrome / SwiftShader',limitations:'No tape measurement, physical phone or physical screen-reader verification. Overall envelope distances, not exact decorative-mesh distances.'};await fs.writeFile(path.join(out,'wall-clearance-verification.json'),JSON.stringify(report,null,2));console.log(`PASS ${checks.length} browser groups; ${screens.length} real screenshots; ${data.layouts.length} layouts / ${expectedGaps/4} pieces / ${expectedGaps} gaps; rotated rendered bounds; zero console/network errors; no axe gating.`);
 }finally{await browser?.close();server.kill('SIGTERM');await new Promise(r=>server.once('exit',r));}

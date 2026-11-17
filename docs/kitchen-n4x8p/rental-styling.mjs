@@ -15,18 +15,19 @@ export function addRentalStyling(T,g,l,room,redraw){
   for(let i=0;i<2;i++)box(ew?(f.head==='east'?px-4:px+8):f.x+10+i*(f.w-20)/2,ew?f.y+9+i*(f.d-18)/2:(f.head==='north'?py+8:py-4),28,ew?7:(f.w-24)/2,ew?(f.d-24)/2:7,5,pal[2]);
   log.push({category:'bedding',palette:pal,head:[headX,headY]});
  }
- for(const [index,s]of (l.styling??[]).entries()){
+ const styled=(l.styling??[]).flatMap(s=>{if(!/lamp|sconce/.test(s.category)||/pendant|chandelier/.test(s.category)||Number.isFinite(s.x))return [s];const stands=l.footprints.filter(f=>f.kind==='nightstand');return Array.from({length:s.qty??1},(_,i)=>{const f=stands[i%Math.max(1,stands.length)],floor=/floor/i.test(s.name+' '+s.category);return {...s,qty:1,x:f&&!floor?f.x+f.w/2:12+i*24,y:f&&!floor?f.y+f.d/2:12,height_in:f&&!floor?f.h:0};});});
+ for(const [index,s]of styled.entries()){
   const cat=s.category.toLowerCase(),[w,h]=styleSize(s,/rug/.test(cat)?[60,96]:[30,20]);let x=s.x??W/2,y=s.y??D/2,z=s.height_in??0;
   if(/rug/.test(cat)){const map=texture(s);box(s.x??(W-w)/2,s.y??(D-h)/2,.08,w,h,.1,map?'#ffffff':pal[1],map?{map}:{});}
   else if(/art|mirror/.test(cat)){
-   const wall=s.wall??(bed?bed.head:'north'),centre=wall==='north'||wall==='south'?(s.x??(bed?bed.x+bed.w/2:W/2)):(s.y??(bed?bed.y+bed.d/2:D/2)),bottom=s.height_in!=null?s.height_in-h/2:bed?bed.h+8:54;
+   const wall=s.wall??(bed?bed.head:'north'),centre=wall==='north'||wall==='south'?(s.x??(bed?bed.x+bed.w/2:W/2)):(s.y??(bed?bed.y+bed.d/2:D/2)),bottom=Math.min(room.room.ceiling_z-h-3,Math.max(s.height_in!=null?s.height_in-h/2:bed?bed.h+8:54,bed?bed.h+6:4));
    const horizontal=['north','south'].includes(wall),map=texture(s),depth=1.3,wx=horizontal?centre-w/2:wall==='west'?1:W-depth-1,wy=horizontal?(wall==='north'?1:D-depth-1):centre-w/2;
    box(wx,wy,bottom,horizontal?w:depth,horizontal?depth:w,h,pal[0]);
    const plane=new T.Mesh(new T.PlaneGeometry(w-2,h-2),material(map?'#ffffff':pal[2],{map,side:T.DoubleSide}));
    if(wall==='north'){plane.rotation.x=Math.PI/2;plane.position.set(centre,wy+depth+.05,bottom+h/2);}else if(wall==='south'){plane.rotation.x=Math.PI/2;plane.position.set(centre,wy-.05,bottom+h/2);}else{plane.rotation.x=Math.PI/2;plane.rotation.y=Math.PI/2;plane.position.set(wall==='west'?wx+depth+.05:wx-.05,centre,bottom+h/2);}g.add(plane);
   }
   else if(/curtain|rod|shade/.test(cat)){
-   const wall=s.wall??'north',os=room.openings.filter(o=>o.wall===wall&&/window|glass/.test(o.type));for(const o of os){const a=o.opening_x??o.opening_y,rod=Math.min(room.room.ceiling_z-4,s.height_in??94),horizontal=['north','south'].includes(wall),a0=a[0]-8,a1=a[1]+8;
+   const os=room.openings.filter(o=>(!s.wall||o.wall===s.wall)&&/window|glass/.test(o.type));for(const o of os){const wall=o.wall;const a=o.opening_x??o.opening_y,rod=Math.min(room.room.ceiling_z-4,s.height_in??94),horizontal=['north','south'].includes(wall),a0=a[0]-8,a1=a[1]+8;
     if(horizontal){box(a0,wall==='north'?2:D-3,rod,a1-a0,1,1,'#343a35');if(!/rod/.test(cat)){box(a0,wall==='north'?2:D-3,1,12,1.3,rod-1,pal[1]);box(a1-12,wall==='north'?2:D-3,1,12,1.3,rod-1,pal[1]);}}
     else{box(wall==='west'?2:W-3,a0,rod,1,a1-a0,1,'#343a35');if(!/rod/.test(cat)){box(wall==='west'?2:W-3,a0,1,1.3,12,rod-1,pal[1]);box(wall==='west'?2:W-3,a1-12,1,1.3,12,rod-1,pal[1]);}}
    }

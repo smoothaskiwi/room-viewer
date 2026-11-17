@@ -1,8 +1,1 @@
-{
-  "available": true,
-  "photos": [
-    "photo1-web.jpg",
-    "photo2-web.jpg",
-    "photo3-web.jpg"
-  ]
-}
+{"available":true,"photos":["photo1-web.jpg","photo2-web.jpg","photo3-web.jpg"]}

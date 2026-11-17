@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import path from 'node:path';
 import {repo,project} from './project.mjs';
 import {validate,loadJSON,roomSchema,briefSchema,productFileSchema,catalogSchema} from './schemas.mjs';
 import {catalog,productFiles,mergeProduct} from './catalog.mjs';
@@ -20,7 +21,7 @@ malformed=structuredClone(brief);delete malformed.style.direction;assert.throws(
 assert.throws(()=>validate(productFileSchema,{products:{bad:{name:'Bad',dims_in:{w:12,d:-1,h:30}}}},'products-fixture.json'),/products.bad.dims_in.d:/);
 await assert.rejects(loadJSON(new URL('./package-does-not-exist.json',import.meta.url),briefSchema),/Cannot load/);
 const conflict={};mergeProduct(conflict,{id:'same',w:1,d:2,h:3,sources:[],images:[],source_files:['a']});assert.throws(()=>mergeProduct(conflict,{id:'same',w:2,d:2,h:3,sources:[],images:[],source_files:['b']}),/Conflicting catalog dimensions for same.w/);
-const imported=await catalog(room,brief);assert.equal(Object.keys(imported.items).length,177);
+const imported=await catalog(room,brief),unified=JSON.parse(await fs.readFile(path.join(repo,'docs/catalog.json'),'utf8')).items;assert.ok(Object.keys(imported.items).every(id=>imported.items[id].owned||unified[id]),'Unified source catalog is a subset of published catalog, which may include council-only accessories');assert.ok(Object.keys(imported.items).length>177,'Original catalog plus rental sources');
 for(const file of productFiles)assert.ok(Object.values(imported.items).some(f=>f.source_files.includes(file)),file+' source merged');
 assert.equal(productFiles.length,7);
 for(const f of Object.values(C)){assert.ok(f.style_reason&&f.style_basis&&f.tier_basis);if(f.owned&&f.approximate)assert.ok(f.dimension_basis);}
@@ -60,4 +61,4 @@ const exhaustive=[...Map.groupBy(all,r=>r.family).values()].flatMap(rs=>candidat
 const ids=rs=>[...new Set(rs.map(r=>r.id))].sort();assert.deepEqual(ids(collectCandidates(ctx).candidates),ids(exhaustive));
 const merged=new FamilyFronts();for(let shard=0;shard<3;shard++)for(const r of collectCandidates(ctx,shard,3).candidates)merged.add(r);assert.deepEqual(ids(merged.values()),ids(exhaustive));
 assert.ok(data.search.retained_candidates<=data.search.distinct_clusters*14);assert.ok(data.search.workers>1);assert.ok(data.search.peak_rss_kib*1024<1_000_000_000,'Bedroom target <1 GB RSS');
-console.log(`PASS Round 9a: zod path errors; seven sources / 177 products; duplicate conflict and photo uncertainty; style/budget policy; every storage back face and concrete summary; ${all.length}-candidate real fixture exhaustive/bounded/3-shard parity; whole-process RSS bound.`);
+console.log(`PASS Round 9a: zod path errors; seven original sources plus rental catalog; duplicate conflict and photo uncertainty; style/budget policy; every storage back face and concrete summary; ${all.length}-candidate real fixture exhaustive/bounded/3-shard parity; whole-process RSS bound.`);
