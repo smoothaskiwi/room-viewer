@@ -5,6 +5,7 @@ import {repo,project} from './project.mjs';
 import {catalog,normalizeProduct} from './catalog.mjs';
 import {copyCatalogImages,publicValue,rentalFields} from './rental-catalog.mjs';
 import {readRentalCouncil,evaluateRental,rankRentals,shoppingList,designerProduct,joinFabricLines} from './rental.mjs';
+import {builderVariants,sofaSwapVariants} from './rental-variants.mjs';
 import {applyRoomAppearance} from './room-appearance.mjs';
 import {esc,rentalPlan,money,shoppingCSV} from '../src/rental-view.mjs';
 const json=async file=>JSON.parse(await fs.readFile(file,'utf8'));
@@ -29,7 +30,7 @@ export async function buildRentals(){
  await fs.writeFile(path.join(repo,'docs/catalog.json'),JSON.stringify(publicValue(cat))+'\n');
  const report=[];
  for(const {page,room,brief,council,fixture}of inputs){const out=path.join(repo,'docs',page.slug),data=await json(path.join(out,'layouts.json')),layouts=[],errors=[...council.errors];
-  for(const proposal of council.layouts){try{layouts.push(evaluateRental(room,brief,cat.items,proposal));}catch(e){errors.push(proposal.title+': '+e.message);}}
+  for(const proposal of builderVariants(page.room,council.layouts,cat.items)){try{layouts.push(evaluateRental(room,brief,cat.items,proposal));}catch(e){errors.push(proposal.title+': '+e.message);}}
   const fixtures=fixture.layouts.map(p=>evaluateRental(room,brief,cat.items,p)),ranked=['quality','value','mixed'].flatMap(t=>rankRentals(layouts.filter(l=>l.tier===t)));
   for(const l of [...ranked,...fixtures])for(const s of l.styling){const c=cat.items[s.catalog_id??s.id]??Object.values(cat.items).find(c=>c.purchase_url===s.purchase_url);s.image=c?.image??null;}
   const owner_shops=Object.fromEntries(data.layouts.map(l=>[l.id,shoppingList({placements:l.footprints??l.placements??[],styling:[]},cat.items)]));

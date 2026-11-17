@@ -18,10 +18,10 @@
     },
     {
       "room": "kitchen",
-      "layouts": 6,
+      "layouts": 7,
       "fixtures": 1,
       "classes": {
-        "conditional": 5,
+        "conditional": 6,
         "invalid": 1
       },
       "errors": []
@@ -37,11 +37,11 @@
     },
     {
       "room": "living-room",
-      "layouts": 6,
+      "layouts": 8,
       "fixtures": 1,
       "classes": {
         "valid": 3,
-        "conditional": 1,
+        "conditional": 3,
         "invalid": 2
       },
       "errors": []
