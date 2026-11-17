@@ -113,9 +113,9 @@
           "price_date": "2026-11-17",
           "purchase_url": "https://ikea.com/us/en/p/storsegel-table-lamp-ash-white-60573576",
           "qty": 1,
-          "x": 118,
-          "y": 12,
-          "height_in": 24,
+          "x": 117,
+          "y": 11,
+          "height_in": 22,
           "placement": "On north nightstand."
         },
         {
@@ -127,9 +127,9 @@
           "price_date": "2026-11-17",
           "purchase_url": "https://ikea.com/us/en/p/storsegel-table-lamp-ash-white-60573576",
           "qty": 1,
-          "x": 118,
-          "y": 94,
-          "height_in": 24,
+          "x": 117,
+          "y": 95.5,
+          "height_in": 22,
           "placement": "On south nightstand."
         },
         {
