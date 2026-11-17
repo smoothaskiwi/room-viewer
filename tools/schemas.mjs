@@ -38,6 +38,7 @@ export const catalogItemSchema = object({
   id:string,label:string,category:string,kind:string,dims_in:dimensionsSchema,
   w:positive.nullable(),d:positive.nullable(),h:positive.nullable(),
   extra_dims:z.unknown(),price:nonnegative.nullable(),price_date:string.nullable(),
+  purchase_url:z.url().nullable().optional(),price_usd:nonnegative.nullable().optional(),retailer:string.nullable().optional(),category_group:z.enum(['furniture','styling']).optional(),rental_fit:z.unknown().optional(),
   finish:string.nullable(),images:z.array(z.unknown()),sources:z.array(z.unknown()),owned:z.boolean(),
   style_fit:z.enum(['strong','partial','weak']),style_reason:string,style_basis:string,
   tier:z.enum(['budget','mid','premium','quality','value','mixed']),tier_basis:string,dimension_basis:string,

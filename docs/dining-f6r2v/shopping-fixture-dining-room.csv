@@ -1,0 +1,10 @@
+﻿"Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL"
+"furniture","Mid-Century Extendable Dining Table 60–80 rectangular","West Elm","899","1","899.00","2026-11-17","https://www.westelm.com/products/mid-century-modern-extendable-dining-table-h10973/"
+"furniture","Nosh Dining Chair - Walnut and Hemlock Green","Article","149","4","596.00","2026-11-17","https://www.article.com/product/24359/nosh-dining-chair-walnut-and-hemlock-green"
+"styling","Oia (abstract)","Juniper Print Shop","139","1","139.00","2026-11-17","https://juniperprintshop.com/products/oia"
+"styling","Ruthanne Washable Striped Rug, Ivory","Rugs USA","215.99","1","215.99","2026-11-17","https://rugsusa.com/products/ruthanne-washable-striped-rug-ivory"
+"styling","STOCKHOLM 2025 Pendant lamp","IKEA","299.99","1","299.99","2026-11-17","https://www.ikea.com/us/en/p/stockholm-2025-pendant-lamp-glass-brass-plated-20585958"
+
+"Furniture total","1495"
+"Styling total","654.98"
+"Total","2149.98"

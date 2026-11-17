@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {addRentalStyling} from './rental-styling.mjs';
 import {furnitureColor} from './home-format.mjs';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {clearanceOverlay} from './wall-clearances-overlay.mjs';
@@ -179,8 +180,7 @@ export async function start3D(host,spec){
  renderer.toneMapping=THREE.ACESFilmicToneMapping;
  renderer.shadowMap.enabled=true;
  renderer.setClearColor(0xe8e6dc,1);
- renderer.domElement.setAttribute('aria-label','Illustrative room 3D. All measures are in the HTML table.');
- renderer.domElement.setAttribute('role','img');
+ if(!spec.rental_room){renderer.domElement.setAttribute('aria-label','Illustrative room 3D. All measures are in the HTML table.');renderer.domElement.setAttribute('role','img');}
  host.append(renderer.domElement);
 
  const scene=new THREE.Scene();
@@ -215,7 +215,7 @@ export async function start3D(host,spec){
  }
 
  const kit=makeKit(THREE,spec,mat,box,cylinder),pal=kit.pal;
- let appearanceLog=null;
+ let appearanceLog=null,stylingLog=[];
  function buildRoom(W,D,H,openings){
   const g=new THREE.Group(),log={floor:pal.floor.kind,walls:pal.walls,arches:[],windows:[],fixtures:[],context:[]};
   const cream=mat(pal.walls,{emissive:pal.walls,emissiveIntensity:.06});
@@ -261,6 +261,7 @@ export async function start3D(host,spec){
   for(const f of chairs)buildChair(g,f,state);
   for(const f of [...(l.fixed||[]),...(l.doors||[])])buildFixed(g,f);
   if(l.screen){const s=l.screen,fire=l.fixed.find(f=>f.id==='chimney-breast');if(fire){box(g,fire.x-.6,62.5,0,.55,33,33,mat('#b48a3c',{metalness:.6,roughness:.35}));box(g,fire.x-.8,64,1,.7,30,30,mat('#252321'));box(g,fire.x-1,50.67,50.065,.8,56.66,31.87,mat('#191f24'));}if(l.family.startsWith('tv_on_console'))box(g,s.x-28.33,s.y,s.z-15.935,56.66,.8,31.87,mat('#191f24'));}
+  if(l.family==='rental'&&spec.rental_room)stylingLog=addRentalStyling(THREE,g,l,spec.rental_room,draw);
   return g;
  }
 
@@ -270,7 +271,7 @@ export async function start3D(host,spec){
   else if(f.kind==='rug')buildRug(g,f);
   else if(f.kind==='chair'||f.kind==='desk-chair')buildChair(g,f,'tucked');
   else if(f.kind==='bed'){box(g,f.x,f.y,7,f.w,f.d,9,mat('#936b43'));box(g,f.x+1,f.y+1,16,f.w-2,f.d-2,8,mat('#e8dfcf'));const ew=['east','west'].includes(f.head);box(g,f.head==='east'?f.x+f.w-2:f.x,f.head==='south'?f.y+f.d-2:f.y,7,ew?2:f.w,ew?f.d:2,f.h-7,mat('#936b43'));}
-  else if(f.kind==='sofa'){box(g,f.x,f.y,5,f.w,f.d,16,mat(furnitureColor(f)));const ns=['north','south'].includes(f.faces);box(g,f.faces==='west'?f.x+f.w-4:f.x,f.faces==='north'?f.y+f.d-4:f.y,21,ns?f.w:4,ns?4:f.d,f.h-21,mat(furnitureColor(f)));}
+  else if(f.kind==='sofa'){box(g,f.x,f.y,5,f.w,f.d,16,mat(f.rental_color??furnitureColor(f)));const ns=['north','south'].includes(f.faces);box(g,f.faces==='west'?f.x+f.w-4:f.x,f.faces==='north'?f.y+f.d-4:f.y,21,ns?f.w:4,ns?4:f.d,f.h-21,mat(f.rental_color??furnitureColor(f)));}
   else if(f.kind==='coffee'||f.kind==='desk')buildTable(g,f);
   else if(f.kind==='gym'){box(g,f.x,f.y,0,f.w,f.d,3,mat('#303736'));box(g,f.x,f.y,3,f.w,4,f.h-3,mat('#404746'));}
   else if(['storage','dresser','nightstand'].includes(f.kind))box(g,f.x,f.y,0,f.w,f.d,f.h,mat(f.color||'#98714b'));
@@ -297,7 +298,7 @@ export async function start3D(host,spec){
  }
 
  function buildChair(g,f,state){
-  const seatH=18,seatMat=mat(furnitureColor(f)),backMat=mat(furnitureColor(f));
+  const seatH=18,seatMat=mat(f.rental_color??furnitureColor(f)),backMat=mat(f.rental_color??furnitureColor(f));
   const legH=seatH-1.5;
   for(const [lx,ly] of [[f.x+.8,f.y+.8],[f.x+f.w-.8,f.y+.8],[f.x+f.w-.8,f.y+f.d-.8],[f.x+.8,f.y+f.d-.8]])
    cylinder(g,lx,ly,0,.4,legH,mat(MCM.tableBase));
@@ -331,6 +332,8 @@ export async function start3D(host,spec){
  }
 
  function buildFixed(g,f){
+  if(spec.rental_room&&['seat','back'].includes(f.kind)&&kit.upholstered(g,f,extrusion))return;
+  if(spec.rental_room&&f.kind==='cabinet'){kit.cabinet(g,f);return;}
   if(f.kind==='seat'||f.kind==='back'){
    const benchMat=mat(f.kind==='seat'?MCM.bench:MCM.benchBack);
    extrusion(g,f,f.z||0,f.h,benchMat);
@@ -388,7 +391,7 @@ export async function start3D(host,spec){
  }
 
  THREE.DefaultLoadingManager.onLoad=()=>requestAnimationFrame(draw);
- new ResizeObserver(draw).observe(host);
+ const observer=new ResizeObserver(draw);observer.observe(host);
 
  return {
   show,draw,
@@ -402,7 +405,9 @@ export async function start3D(host,spec){
   setWalkway(route,gap,enabled=false){walkway.update(route,gap,{enabled});draw();},
   walkway:()=>walkway.debug(),
   restoreCamera(c){camera.position.fromArray(c.position);controls.target.fromArray(c.target);camera.lookAt(controls.target);draw();},
-  camera:()=>({position:camera.position.toArray(),target:controls.target.toArray()}),
+  camera:()=>({position:camera.position.toArray(),target:controls.target.toArray(),...(spec.rental_room?{fov:camera.fov}: {})}),
+  listingPhoto(c){camera.fov=c.fov??74;camera.position.set(c.position[0],-c.position[1],c.position[2]);controls.target.set(c.target[0],-c.target[1],c.target[2]);camera.lookAt(controls.target);draw();},
+  styling:()=>stylingLog,
   appearance:()=>({palette:pal.text,display_only:true,...appearanceLog}),
   orbit(action){
    const d=camera.position.clone().sub(controls.target);
@@ -411,6 +416,6 @@ export async function start3D(host,spec){
    if(action==='up')d.z+=12;if(action==='down')d.z-=12;
    camera.position.copy(controls.target).add(d);camera.lookAt(controls.target);draw();
   },
-  dispose(){walkway.dispose();gapOverlay.dispose();renderer.dispose();controls.dispose();}
+  dispose(){observer.disconnect();walkway.dispose();gapOverlay.dispose();renderer.dispose();controls.dispose();}
  };
 }

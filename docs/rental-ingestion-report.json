@@ -1,0 +1,45 @@
+{
+  "images": {
+    "images": 542,
+    "products": 387,
+    "missing": 0,
+    "bytes": 7092158
+  },
+  "rooms": [
+    {
+      "room": "primary-bedroom",
+      "layouts": 0,
+      "fixtures": 1,
+      "classes": {},
+      "errors": []
+    },
+    {
+      "room": "kitchen",
+      "layouts": 0,
+      "fixtures": 1,
+      "classes": {},
+      "errors": []
+    },
+    {
+      "room": "dining-room",
+      "layouts": 0,
+      "fixtures": 1,
+      "classes": {},
+      "errors": []
+    },
+    {
+      "room": "living-room",
+      "layouts": 0,
+      "fixtures": 1,
+      "classes": {},
+      "errors": []
+    },
+    {
+      "room": "guest-bedroom",
+      "layouts": 0,
+      "fixtures": 1,
+      "classes": {},
+      "errors": []
+    }
+  ]
+}

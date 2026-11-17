@@ -200,5 +200,6 @@ if(!process.env.ROOM_OUTPUT_DIR&&!process.env.ROOM_BEDROOM_ONLY){
 }
 // Only current layout downloads belong in the static deployment.
 for(const r of rooms){const root=path.join(repo,'docs',r.slug),published=JSON.parse(await fs.readFile(path.join(root,'layouts.json'),'utf8')),keep=new Set(published.layouts.flatMap(l=>['wall-clearances-'+l.id+'.txt','walkway-clearances-'+l.id+'.txt']));for(const f of await fs.readdir(root))if(/^(wall|walkway)-clearances-.+\.txt$/.test(f)&&!f.endsWith('-all.txt')&&!keep.has(f))await fs.unlink(path.join(root,f));}
+if(!process.env.ROOM_OUTPUT_DIR&&!process.env.ROOM_BEDROOM_ONLY){const {buildRentals}=await import('./rental-build.mjs');await buildRentals();}
 console.log('Build peak RSS: '+process.resourceUsage().maxRSS+' KiB');
 console.log(`Round 10 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.7 storage-before-style ranking and placement sanity; everyday doors; separate open-door warnings; Today is valid.`);
