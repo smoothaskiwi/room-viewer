@@ -6,7 +6,7 @@ import puppeteer from 'puppeteer-core';
 import {AxePuppeteer} from '@axe-core/puppeteer';
 import {repo,project} from './project.mjs';
 import {routeText,keyRows,metricsRows} from '../src/explorer-format.mjs';
-const shots=process.argv.includes('--screenshots'),output=path.join(project,'prototype/renders/round-9a');await fs.mkdir(output,{recursive:true});
+const shots=process.argv.includes('--screenshots'),output=process.env.ROOM_TEST_EVIDENCE_DIR?path.join(process.env.ROOM_TEST_EVIDENCE_DIR,'explorer'):path.join(project,'prototype/renders/round-9a');await fs.mkdir(output,{recursive:true});
 const data=JSON.parse(await fs.readFile(path.join(repo,'docs/primary-bedroom-b7q4m/layouts.json'),'utf8')),errors=[],screens=[],checks=[];
 const server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',path.join(repo,'docs')],{stdio:['ignore','pipe','pipe']});
 const port=await new Promise((resolve,reject)=>{let s='';server.stdout.on('data',b=>{s+=b.toString();const m=s.match(/port (\d+)/);if(m)resolve(+m[1]);});server.on('error',reject);setTimeout(()=>reject(Error('HTTP server did not start')),8000).unref();});

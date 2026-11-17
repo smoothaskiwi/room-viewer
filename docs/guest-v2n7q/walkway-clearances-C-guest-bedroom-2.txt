@@ -1,0 +1,7 @@
+bathroom · everyday: 17.5 in; guest-desk-3 / article_nera-0
+closet · everyday: 28.0 in; entry-leaf / wall-south
+bed-side-a · everyday: 17.5 in; guest-desk-3 / article_nera-0
+bed-side-b · everyday: 28.0 in; wall-east / entry-leaf
+bed-foot · everyday: 17.5 in; guest-desk-3 / article_nera-0
+east-panel · everyday: 17.5 in; guest-desk-3 / article_nera-0
+desk-chair · everyday: 28.0 in; entry-leaf / wall-south

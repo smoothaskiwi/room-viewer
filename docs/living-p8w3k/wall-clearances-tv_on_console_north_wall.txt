@@ -1,0 +1,44 @@
+65-in TV on the walnut console on the north wall; sofa faces it
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Low media console [dining-media-console-101.5-0.5]
+  north: ½ in
+  east: 39½ in
+  south: 138½ in
+  west: 101½ in
+
+White upholstered sofa [living-sofa-89-104]
+  north: 104 in
+  east: 27 in
+  south: 16 in
+  west: 89 in
+
+Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-106.25-65]
+  north: 65 in
+  east: 44½ in
+  south: 71 in
+  west: 109½ in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-70-29]
+  north: 29 in
+  east: 104 in
+  south: 99 in
+  west: 70 in
+
+cabinet (planning envelope) [cabinet-0.75-123]
+  north: 123 in
+  east: 189½ in
+  south: 3 in
+  west: 1 in
+
+cat posts (planning envelope) [cat_posts-57-140]
+  north: 140 in
+  east: 131 in
+  south: 2 in
+  west: 57 in
+
+cat posts (planning envelope) [cat_posts-184-140]
+  north: 140 in
+  east: 4 in
+  south: 2 in
+  west: 184 in

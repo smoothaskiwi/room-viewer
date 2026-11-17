@@ -7,6 +7,7 @@ import {amendWallClearances} from './wall-clearances-build.mjs';
 import {amendWalkwayClearances} from './walkway-clearances-build.mjs';
 import {annotateRoutes} from './route-contract.mjs';
 import {buildHouse} from './house.mjs';
+import {extendHomeHouse} from './home-house.mjs';
 import {esc,card,routeText,storageText,money,dresserTradeoffTable,envelopeTables,depthTradeoffTables} from '../src/explorer-format.mjs';
 import {planSVG} from '../src/explorer-plan.mjs';
 const out=process.env.ROOM_OUTPUT_DIR||path.join(repo,'docs/primary-bedroom-b7q4m');await fs.mkdir(out,{recursive:true});
@@ -190,9 +191,10 @@ await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence+'\n
 await amendWallClearances(out);
 await amendWalkwayClearances(out);
 if(!process.env.ROOM_OUTPUT_DIR&&!process.env.ROOM_BEDROOM_ONLY){
- for(const r of rooms.filter(r=>r.room!=='primary-bedroom')){execFileSync(process.execPath,[path.join(repo,'tools/activity-build.mjs'),r.room],{cwd:repo,stdio:'inherit',env:process.env});await amendWallClearances(path.join(repo,'docs',r.slug));}
- await fs.writeFile(path.join(repo,'docs/rooms.json'),JSON.stringify(rooms,null,2)+'\n');await buildHouse(rooms);
- const index=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room layout explorer</title><link rel="icon" href="data:,"><style>body{font:18px/1.5 system-ui,sans-serif;max-width:45rem;margin:3rem auto;padding:0 20px;color:#253b31;background:#f7f5ee}a{display:block;padding:18px;background:#dce8df;margin:12px 0;border-radius:8px;color:inherit}h1{font-size:2rem}</style></head><body><main><h1>Room layouts</h1><p>Compare measured furniture arrangements. Planning models, not installation drawings. Two adults, two cats; no child zones.</p><nav aria-label="Rooms">${rooms.map(r=>`<a href="${r.path}">${esc(r.title)}</a>`).join('')}</nav><p><a href="house-walk.txt">Joined kitchen → dining → living reference walk</a></p><p>Every room has a text table, plan, illustrative 3D, comparison and wall clearances. No kitchen or dining photo plates yet.</p></main></body></html>`;
+ for(const r of rooms.filter(r=>['kitchen','dining-room'].includes(r.room))){execFileSync(process.execPath,[path.join(repo,'tools/activity-build.mjs'),r.room],{cwd:repo,stdio:'inherit',env:process.env});await amendWallClearances(path.join(repo,'docs',r.slug));}
+ for(const r of rooms.filter(r=>['living-room','guest-bedroom'].includes(r.room)))execFileSync(process.execPath,[path.join(repo,'tools/home-build.mjs'),r.room],{cwd:repo,stdio:'inherit',env:process.env});
+ await fs.writeFile(path.join(repo,'docs/rooms.json'),JSON.stringify(rooms,null,2)+'\n');await buildHouse(rooms);await extendHomeHouse(rooms);
+ const index=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room layout explorer</title><link rel="icon" href="data:,"><style>body{font:18px/1.5 system-ui,sans-serif;max-width:45rem;margin:3rem auto;padding:0 20px;color:#253b31;background:#f7f5ee}a{display:block;padding:18px;background:#dce8df;margin:12px 0;border-radius:8px;color:inherit}h1{font-size:2rem}</style></head><body><main><h1>Room layouts</h1><p>Compare measured furniture arrangements. Planning models, not installation drawings. Two adults, two cats; no child zones.</p><nav aria-label="Rooms">${rooms.map(r=>`<a href="${r.path}">${esc(r.title)}</a>`).join('')}</nav><p><a href="house-walk.txt">Joined kitchen → dining → living reference walk</a></p><p>Every room has a text table, plan, illustrative 3D, comparison and wall clearances. No photo plates supplied for the four new rooms.</p></main></body></html>`;
  await fs.writeFile(path.join(repo,'docs/index.html'),index);
 }
 console.log('Build peak RSS: '+process.resourceUsage().maxRSS+' KiB');

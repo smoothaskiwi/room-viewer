@@ -1,0 +1,26 @@
+Queen head east · guest only
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Lenia Queen Panel Bed - Walnut [article_lenia_queen-43.75-21.5]
+  north: 21½ in
+  east: 0 in · contact
+  south: 58½ in
+  west: 44 in
+
+Miles Mini Nightstand (16") [miles_nightstand_16-111.5-5.5]
+  north: 5½ in
+  east: 0 in · contact
+  south: 122 in
+  west: 111½ in
+
+Miles Mini Nightstand (16") [miles_nightstand_16-111.5-85]
+  north: 85 in
+  east: 0 in · contact
+  south: 42½ in
+  west: 111½ in
+
+Seb 6-Drawer Dresser [castlery_sebdresser-2-125.8]
+  north: 126 in
+  east: 67½ in
+  south: 0 in · contact
+  west: 2 in

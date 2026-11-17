@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';import path from 'node:path';import {fileURLTo
 import {walkwayText,routeSummary} from '../src/activity-walkways.mjs';
 import {project} from './project.mjs';
 import {createHash} from 'node:crypto';
-const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),out=process.env.ACTIVITY_WALKWAY_EVIDENCE_DIR||path.join(project,'prototype/renders/round-9b/walkway-activity');await fs.mkdir(out,{recursive:true});
+const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),out=process.env.ACTIVITY_WALKWAY_EVIDENCE_DIR||(process.env.ROOM_TEST_EVIDENCE_DIR?path.join(process.env.ROOM_TEST_EVIDENCE_DIR,'walkway-activity'):path.join(project,'prototype/renders/round-9b/walkway-activity'));await fs.mkdir(out,{recursive:true});
 const baselineRef=process.env.ACTIVITY_WALKWAY_BASELINE_REF||'35ed980',root=await fs.mkdtemp(path.join(process.env.TMPDIR||repo,'activity-walkway-web-')),preimages=path.join(root,'preimages');await fs.mkdir(preimages);
 execFileSync('tar',['-x','-C',preimages],{input:execFileSync('git',['archive',baselineRef,'docs/rooms.json','docs/kitchen-n4x8p','docs/dining-f6r2v','src','tools/dining-page.mjs'],{cwd:repo,maxBuffer:24*1024*1024})});
 await fs.mkdir(path.join(root,'current'));await fs.symlink(path.join(repo,'docs'),path.join(root,'current/docs'),'dir');

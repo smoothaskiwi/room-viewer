@@ -1,0 +1,26 @@
+Council pick A1 · Walnut low queen on the east wall, Machinto nightstands, boucle reading chair
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Nera Queen Low Profile Bed - Walnut [article_nera-0]
+  north: 21½ in
+  east: 0 in · contact
+  south: 60 in
+  west: 44½ in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-1]
+  north: 1 in
+  east: 0 in · contact
+  south: 122½ in
+  west: 108½ in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-2]
+  north: 84 in
+  east: 0 in · contact
+  south: 39½ in
+  west: 108½ in
+
+Henredon Murphy Swivel Boucle Chair, Cream [living-white-chair-3]
+  north: 113 in
+  east: 94½ in
+  south: 1 in
+  west: 1 in

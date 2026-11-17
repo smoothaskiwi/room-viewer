@@ -1,0 +1,14 @@
+Today: sofa north, other seats unsurveyed
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-67.5-0.5]
+  north: ½ in
+  east: 51½ in
+  south: 121½ in
+  west: 67½ in
+
+Dark wood computer desk [living-desk-150-133]
+  north: 133 in
+  east: 6 in
+  south: 1 in
+  west: 150 in

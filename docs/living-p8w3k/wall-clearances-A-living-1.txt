@@ -1,0 +1,38 @@
+Council pick A1 · White sofa floats facing the fireplace TV, cognac swivels flank the hearth
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-0]
+  north: 35 in
+  east: 94 in
+  south: 35 in
+  west: 72 in
+
+Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-1]
+  north: 52½ in
+  east: 55 in
+  south: 52½ in
+  west: 127½ in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-2]
+  north: 8 in
+  east: 24 in
+  south: 120 in
+  west: 150 in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-3]
+  north: 120 in
+  east: 24 in
+  south: 8 in
+  west: 150 in
+
+sofa side tables (planning envelope) [sofa_side_tables-4]
+  north: 12 in
+  east: 114 in
+  south: 124 in
+  west: 72 in
+
+sofa side tables (planning envelope) [sofa_side_tables-5]
+  north: 124 in
+  east: 1 in
+  south: 12 in
+  west: 185 in

@@ -32,7 +32,7 @@ const u=activityWalkways(room,lUse);assert.ok(u.use[0].chairConflicts.includes('
 const layout=build([a,b]);layout.states.seated={chairs:[],route:{...route,id:'main-walk-seated',width:11,bottleneck:{...route.bottleneck,width:11,state:'seated'}}};layout.routes.destinations.push(layout.states.seated.route);
 const data=activityWalkways(room,layout);assert.equal(data.routes[0].width,17.5);assert.deepEqual(data.routes[0].path,route.path);assert.deepEqual(data.routes[0].bottleneck,route.bottleneck);assert.equal(data.routes[1].width,11);assert.ok(walkwayText(layout,data).includes('not an exact edge-to-edge'));
 let layouts=0,states=0,staticGaps=0,without=[];
-for(const entry of JSON.parse(await fs.readFile(new URL('../docs/rooms.json',import.meta.url),'utf8')).filter(r=>r.room!=='primary-bedroom')){
+for(const entry of JSON.parse(await fs.readFile(new URL('../docs/rooms.json',import.meta.url),'utf8')).filter(r=>['kitchen','dining-room'].includes(r.room))){
  const base=new URL('../docs/'+entry.path,import.meta.url),r=JSON.parse(await fs.readFile(new URL('room.json',base),'utf8')),d=JSON.parse(await fs.readFile(new URL('layouts.json',base),'utf8'));
  for(const l of d.layouts){const w=activityWalkways(r,l);layouts++;assert.equal(w.routes.length,3);states+=w.routes.length;for(const q of w.routes){const original=l.routes.destinations.find(x=>x.id===q.id);assert.equal(q.width,original.width);assert.deepEqual(q.path,original.path);assert.deepEqual(q.bottleneck,original.bottleneck);assert.equal(q.blocked,!(original.width>0&&original.path.length>1));assert.ok(walkwayText(l,w).includes(q.id));}staticGaps+=w.gaps.length;if(!w.gaps.length)without.push(l.id);}
 }

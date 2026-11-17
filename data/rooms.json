@@ -1,5 +1,37 @@
 [
-  {"room":"primary-bedroom","slug":"primary-bedroom-b7q4m","title":"Primary bedroom","path":"primary-bedroom-b7q4m/","layouts":"layouts.json"},
-  {"room":"kitchen","slug":"kitchen-n4x8p","title":"Kitchen nook","path":"kitchen-n4x8p/","layouts":"layouts.json"},
-  {"room":"dining-room","slug":"dining-f6r2v","title":"Dining room","path":"dining-f6r2v/","layouts":"layouts.json"}
+  {
+    "room": "primary-bedroom",
+    "slug": "primary-bedroom-b7q4m",
+    "title": "Primary bedroom",
+    "path": "primary-bedroom-b7q4m/",
+    "layouts": "layouts.json"
+  },
+  {
+    "room": "kitchen",
+    "slug": "kitchen-n4x8p",
+    "title": "Kitchen nook",
+    "path": "kitchen-n4x8p/",
+    "layouts": "layouts.json"
+  },
+  {
+    "room": "dining-room",
+    "slug": "dining-f6r2v",
+    "title": "Dining room",
+    "path": "dining-f6r2v/",
+    "layouts": "layouts.json"
+  },
+  {
+    "room": "living-room",
+    "slug": "living-p8w3k",
+    "title": "Living room",
+    "path": "living-p8w3k/",
+    "layouts": "layouts.json"
+  },
+  {
+    "room": "guest-bedroom",
+    "slug": "guest-v2n7q",
+    "title": "Guest bedroom",
+    "path": "guest-v2n7q/",
+    "layouts": "layouts.json"
+  }
 ]

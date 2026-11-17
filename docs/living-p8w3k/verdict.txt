@@ -1,0 +1,77 @@
+The white sofa works in the top-ranked arrangement. The cognac sofa also fits in a two-sofa option, with worse fireplace-TV angles. Measure the hearth and chair sweeps first.
+today [valid] Today stays valid by calibration; walks are not measured because movable objects have no surveyed positions.
+
+
+layout-049bfb424c [conditional] sofa on north wall; walk 34.0 in.
+
+
+layout-34a2538a1e [conditional] two sofas; walk 34.0 in.
+
+
+layout-604454de07 [invalid] tv on console; fails model checks.
+way into group 18: at least one seating approach
+
+layout-2321960d98 [invalid] sofa faces fireplace; fails model checks.
+way into group 18: at least one seating approach
+
+layout-a62b2b77bf [invalid] sofa faces fireplace; fails model checks.
+way into group 18: at least one seating approach
+
+layout-2c115508c3 [invalid] sofa on north wall; fails model checks.
+swivel sweep clear living-cognac-swivels-140-111: radius 21.21 in; cat_posts-134-141
+
+layout-0f0bac1d2e [invalid] tv on console; fails model checks.
+collision: living-sofa-86-104 / living-desk-155-134
+desk behind edge 30: 0.0 in
+
+layout-3fa968e8e8 [invalid] two sofas; fails model checks.
+collision: dining-sofa-72-104 / living-desk-155-134
+collision: cat_posts-184-141 / living-desk-155-134
+
+sofa_faces_fireplace [invalid] White sofa floats facing the fireplace TV; boucle chairs flank the hearth; fails model checks.
+owned quantity living-white-chair: requested 2; owned 1
+
+tv_on_console_north_wall [invalid] 65-in TV on the walnut console on the north wall; sofa faces it; fails model checks.
+way into group 18: at least one seating approach
+
+two_sofas_facing [invalid] White sofa on the north wall, cognac sofa facing it, fireplace at the end; fails model checks.
+collision: dining-sofa-66-103 / cat_posts-57-140
+collision: living-cognac-swivels-162-112 / cat_posts-184-140
+swivel sweep clear living-cognac-swivels-162-112: radius 21.21 in; cat_posts-184-140
+
+A-living-1 [invalid] Council pick A1; fails model checks.
+two cat posts: both posts retained; positions assumed
+swivel sweep clear living-cognac-swivels-3: radius 21.21 in; sofa_side_tables-5
+
+A-living-2 [invalid] Council pick A2; fails model checks.
+two cat posts: both posts retained; positions assumed
+swivel sweep clear living-cognac-swivels-4: radius 21.21 in; living-sofa-0, shell
+
+A-living-3 [invalid] Council pick A3; fails model checks.
+two cat posts: both posts retained; positions assumed
+swivel sweep clear living-cognac-swivels-3: radius 21.21 in; living-cognac-swivels-4-swivel
+swivel sweep clear living-cognac-swivels-4: radius 21.21 in; living-sofa-1, living-cognac-swivels-3-swivel
+
+B-living-room-2 [conditional] Council pick B2; walk 37.0 in.
+
+
+B-living-room-1 [invalid] Council pick B1; fails model checks.
+swivel sweep clear living-cognac-swivels-3: radius 21.21 in; living-cognac-swivels-4-swivel
+swivel sweep clear living-cognac-swivels-4: radius 21.21 in; living-cognac-swivels-3-swivel
+
+B-living-room-3 [invalid] Council pick B3; fails model checks.
+swivel sweep clear living-cognac-swivels-4: radius 21.21 in; dining-media-console-0
+
+C-living-room-1 [invalid] Council pick C1; fails model checks.
+swivel sweep clear living-cognac-swivels-2: radius 21.21 in; hearth, dining-green-chair-4-swivel
+swivel sweep clear living-cognac-swivels-3: radius 21.21 in; living-rh-tables-6, cat_posts-9, hearth
+swivel sweep clear dining-green-chair-4: radius 23.38 in; living-cognac-swivels-2-swivel, shell
+
+C-living-room-2 [invalid] Council pick C2; fails model checks.
+swivel sweep clear living-cognac-swivels-2: radius 21.21 in; living-cognac-swivels-3-swivel
+swivel sweep clear living-cognac-swivels-3: radius 21.21 in; living-cognac-swivels-2-swivel
+
+C-living-room-3 [invalid] Council pick C3; fails model checks.
+Catalog dimensions disagree: dining-green-chair submitted 31 × 35; engine 35 × 31
+fixed keep-out dining-green-chair-3: chimney-breast
+swivel sweep clear dining-green-chair-3: radius 23.38 in; chimney-breast, hearth

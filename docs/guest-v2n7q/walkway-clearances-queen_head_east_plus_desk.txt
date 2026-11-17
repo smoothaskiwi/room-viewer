@@ -1,0 +1,7 @@
+bathroom · everyday: 20.5 in; article_lenia_queen-43.75-21.5 / guest-office-chair-8-106.5
+closet · everyday: 28.0 in; entry-leaf / wall-south
+bed-side-a · everyday: 20.5 in; article_lenia_queen-43.75-21.5 / guest-office-chair-8-106.5
+bed-side-b · everyday: 28.0 in; wall-east / entry-leaf
+bed-foot · everyday: 20.5 in; article_lenia_queen-43.75-21.5 / guest-office-chair-8-106.5
+east-panel · everyday: 20.0 in; article_lenia_queen-43.75-21.5 / wall-north
+desk-chair · everyday: 27.0 in; article_lenia_queen-43.75-21.5 / guest-office-chair-8-106.5

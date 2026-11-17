@@ -1,0 +1,11 @@
+dining_arch ↔ hall_opening · everyday: 48.0 in; wall-north / wall-west
+dining_arch ↔ entry_arch · everyday: 37.0 in; cabinet-0.75-123 / wall-south
+hall_opening ↔ entry_arch · everyday: 37.0 in; cabinet-0.75-123 / wall-south
+seat-living-sofa-89-104 · everyday: 17.5 in; living-sofa-89-104 / article_leniacoffee-106.25-65
+seat-living-cognac-swivels-70-29 · everyday: 16.0 in; article_leniacoffee-106.25-65 / living-cognac-swivels-70-29
+storage-dining-media-console-101.5-0.5 · everyday: 16.0 in; article_leniacoffee-106.25-65 / chimney-breast
+storage-cabinet-0.75-123 · everyday: 31.0 in; wall-north / wall-west
+group-entry-north · everyday: 16.0 in; article_leniacoffee-106.25-65 / living-sofa-89-104
+group-entry-south · everyday: 15.0 in; living-sofa-89-104 / wall-south
+east-window-north · everyday: 16.0 in; article_leniacoffee-106.25-65 / chimney-breast
+east-window-south · everyday: 16.0 in; living-sofa-89-104 / chimney-breast

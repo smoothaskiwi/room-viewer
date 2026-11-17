@@ -1,0 +1,68 @@
+Council pick C2 · Least change: sofa stays on the wall, swivels opposite, desk stays
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-0]
+  north: ½ in
+  east: 50 in
+  south: 119½ in
+  west: 66 in
+
+Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-1]
+  north: 55½ in
+  east: 63½ in
+  south: 80½ in
+  west: 89 in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-2]
+  north: 95 in
+  east: 94 in
+  south: 33 in
+  west: 80 in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-3]
+  north: 95 in
+  east: 56 in
+  south: 33 in
+  west: 118 in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-4]
+  north: ½ in
+  east: 29 in
+  south: 139½ in
+  west: 155 in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-5]
+  north: 18 in
+  east: 0 in · contact
+  south: 120 in
+  west: 186 in
+
+Dark wood computer desk [living-desk-6]
+  north: 133½ in
+  east: ½ in
+  south: ½ in
+  west: 155½ in
+
+cabinet (planning envelope) [cabinet-7]
+  north: 143½ in
+  east: 114 in
+  south: ½ in
+  west: 58 in
+
+cat posts (planning envelope) [cat_posts-8]
+  north: ½ in
+  east: ½ in
+  south: 141½ in
+  west: 187½ in
+
+cat posts (planning envelope) [cat_posts-9]
+  north: 141½ in
+  east: 96 in
+  south: ½ in
+  west: 92 in
+
+Light area rug [living-rug-10]
+  north: 25 in
+  east: 30 in
+  south: 25 in
+  west: 30 in

@@ -1,0 +1,32 @@
+Council pick B2 · Full guest bed and a proper shallow workstation
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Lenia Full Panel Bed - Walnut [article_lenia_full-0]
+  north: 27 in
+  east: 1 in
+  south: 59 in
+  west: 47 in
+
+Miles Mini Nightstand (16") [miles_nightstand_16-1]
+  north: 11 in
+  east: 1 in
+  south: 116½ in
+  west: 110½ in
+
+Miles Mini Nightstand (16") [miles_nightstand_16-2]
+  north: 84½ in
+  east: 5 in
+  south: 43 in
+  west: 106½ in
+
+Jeune French Contemporary Desk [rh_rhbc_prod963089-3]
+  north: 123 in
+  east: 80 in
+  south: 1 in
+  west: 1 in
+
+Grey mesh ergonomic office chair [guest-office-chair-4]
+  north: 97 in
+  east: 100 in
+  south: 21 in
+  west: 1 in

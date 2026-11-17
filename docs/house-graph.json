@@ -18,7 +18,19 @@
       },
       {
         "id": "living-room",
-        "modelled": false
+        "modelled": true
+      },
+      {
+        "id": "guest-bedroom",
+        "modelled": true,
+        "joined": false,
+        "note": "Local room model available; house transform not surveyed"
+      },
+      {
+        "id": "primary-bedroom",
+        "modelled": true,
+        "joined": false,
+        "note": "Local room model available; house transform not surveyed"
       }
     ],
     "edges": [
@@ -50,7 +62,8 @@
   },
   "reference_layouts": {
     "kitchen": "angela_48x32_pill_overlap_2",
-    "dining-room": "table_60x36_under_light_east_west"
+    "dining-room": "table_60x36_under_light_east_west",
+    "living-room": "layout-049bfb424c"
   },
   "reference_routes": [
     {
@@ -4612,5 +4625,41 @@
       "id": "kitchen-to-living-pulled"
     }
   ],
-  "note": "Exact joined 0.5-in polygon route for this reference pair only, not a guarantee for arbitrary cross-room selections. Kitchen aisle approach and living-room exit extend 48 in solely to keep opening geometry honest; living-room furniture is not modelled. The 5.1-in wall-plane offset and shared transform require tape confirmation."
+  "note": "Exact joined 0.5-in polygon route for this reference pair only, not a guarantee for arbitrary cross-room selections. Kitchen aisle approach and living-room exit extend 48 in solely to keep opening geometry honest; living-room furnishing is modelled in the added reference components. The 5.1-in wall-plane offset and shared transform require tape confirmation. Living reference now modelled with named layout layout-049bfb424c. Component minima describe this reference only.",
+  "extended_walks": [
+    {
+      "id": "front-vestibule-to-kitchen",
+      "width": 34,
+      "components": [
+        {
+          "room": "kitchen/dining",
+          "layout": "table_60x36_under_light_east_west",
+          "width": 38
+        },
+        {
+          "room": "living-room",
+          "layout": "layout-049bfb424c",
+          "width": 34
+        }
+      ],
+      "definition": "Minimum of individually solved connected-room components at matching surveyed arches; shared jamb/wall thickness needs tape. Front door is outside the living room, so this starts at the vestibule arch."
+    },
+    {
+      "id": "bedroom-hall-to-kitchen",
+      "width": 37,
+      "components": [
+        {
+          "room": "kitchen/dining",
+          "layout": "table_60x36_under_light_east_west",
+          "width": 38
+        },
+        {
+          "room": "living-room",
+          "layout": "layout-049bfb424c",
+          "width": 37
+        }
+      ],
+      "definition": "Minimum of individually solved connected-room components at matching surveyed arches; shared jamb/wall thickness needs tape. Front door is outside the living room, so this starts at the vestibule arch."
+    }
+  ]
 }

@@ -1,0 +1,7 @@
+bathroom · everyday: 28.0 in; article_nera-0 / wall-west
+closet · everyday: 28.0 in; entry-leaf / miles_nightstand_16-2
+bed-side-a · everyday: 28.0 in; article_nera-0 / wall-north
+bed-side-b · everyday: 28.0 in; wall-east / entry-leaf
+bed-foot · everyday: 28.0 in; article_nera-0 / wall-west
+east-panel · everyday: 25.0 in; article_nera-0 / wall-north
+storage-article_cooper6-3 · everyday: 28.0 in; article_cooper6-3 / article_nera-0

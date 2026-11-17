@@ -1,0 +1,14 @@
+Today: office and gym, movables unsurveyed
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Computer desk [guest-desk-6-115]
+  north: 115 in
+  east: 68½ in
+  south: ½ in
+  west: 6 in
+
+Stored bed parts; identity unverified [stored-bed]
+  north: 20 in
+  east: ½ in
+  south: 43½ in
+  west: 112 in

@@ -1,0 +1,44 @@
+Council pick A3 · TV at eye height on a low walnut unit on the north wall, sofa faces it
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Seno 63" Low Media Unit - Walnut [article_senomedia-0]
+  north: ½ in
+  east: 40½ in
+  south: 141½ in
+  west: 100½ in
+
+White upholstered sofa [living-sofa-1]
+  north: 95 in
+  east: 28 in
+  south: 25 in
+  west: 88 in
+
+Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-2]
+  north: 57 in
+  east: 45½ in
+  south: 79 in
+  west: 107 in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-3]
+  north: 22 in
+  east: 114 in
+  south: 106 in
+  west: 60 in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-4]
+  north: 64 in
+  east: 114 in
+  south: 64 in
+  west: 65 in
+
+sofa side tables (planning envelope) [sofa_side_tables-5]
+  north: 114 in
+  east: 118 in
+  south: 26 in
+  west: 64 in
+
+sofa side tables (planning envelope) [sofa_side_tables-6]
+  north: 114 in
+  east: 4 in
+  south: 26 in
+  west: 178 in

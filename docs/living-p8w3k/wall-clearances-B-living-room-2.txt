@@ -1,0 +1,62 @@
+Council pick B2 · Face the fireplace; keep Henredon and Wells
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-0]
+  north: 36 in
+  east: 96 in
+  south: 37 in
+  west: 72 in
+
+Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-1]
+  north: 52½ in
+  east: 57 in
+  south: 52½ in
+  west: 125½ in
+
+Henredon Murphy Swivel Boucle Chair, Cream [living-white-chair-2]
+  north: 11 in
+  east: 8 in
+  south: 117½ in
+  west: 165 in
+
+Wells Leather Tight Back Petite Swivel Armchair [dining-green-chair-3]
+  north: 112 in
+  east: 8 in
+  south: 11 in
+  west: 165 in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-4]
+  north: 47 in
+  east: 136 in
+  south: 91 in
+  west: 50½ in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-5]
+  north: 88 in
+  east: 136 in
+  south: 50 in
+  west: 51½ in
+
+cabinet (planning envelope) [cabinet-6]
+  north: 123 in
+  east: 189½ in
+  south: 1 in
+  west: 1 in
+
+cat posts (planning envelope) [cat_posts-7]
+  north: 1 in
+  east: 46 in
+  south: 139½ in
+  west: 140 in
+
+cat posts (planning envelope) [cat_posts-8]
+  north: 139½ in
+  east: 129 in
+  south: 1 in
+  west: 57 in
+
+Light area rug [living-rug-9]
+  north: 25 in
+  east: 30 in
+  south: 25 in
+  west: 30 in

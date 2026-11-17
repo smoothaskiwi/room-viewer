@@ -1,0 +1,62 @@
+tv on console · desk leaves
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-101-104]
+  north: 104 in
+  east: 18 in
+  south: 18 in
+  west: 101 in
+
+Wells Leather Tight Back Petite Swivel Armchair [dining-green-chair-70-29]
+  north: 29 in
+  east: 99 in
+  south: 98 in
+  west: 70 in
+
+Low media console [dining-media-console-104-0.5]
+  north: ½ in
+  east: 34 in
+  south: 139½ in
+  west: 104 in
+
+Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-107-66]
+  north: 66 in
+  east: 43½ in
+  south: 70 in
+  west: 110½ in
+
+Light area rug [living-rug-30-25]
+  north: 25 in
+  east: 30 in
+  south: 25 in
+  west: 30 in
+
+cat posts (planning envelope) [cat_posts-184-1]
+  north: 1 in
+  east: 4 in
+  south: 141 in
+  west: 184 in
+
+cat posts (planning envelope) [cat_posts-134-141]
+  north: 141 in
+  east: 54 in
+  south: 1 in
+  west: 134 in
+
+cabinet (planning envelope) [cabinet-0.75-123]
+  north: 123 in
+  east: 189½ in
+  south: 3 in
+  west: 1 in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-50-0.5]
+  north: ½ in
+  east: 134 in
+  south: 139½ in
+  west: 50 in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-50-136]
+  north: 136 in
+  east: 134 in
+  south: 4 in
+  west: 50 in

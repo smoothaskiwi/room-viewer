@@ -1,0 +1,50 @@
+White sofa on the north wall, cognac sofa facing it, fireplace at the end
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-66-0.5]
+  north: ½ in
+  east: 50 in
+  south: 119½ in
+  west: 66 in
+
+Cognac leather sofa [dining-sofa-66-103]
+  north: 103 in
+  east: 50 in
+  south: 17 in
+  west: 66 in
+
+Amoeba 42.5" Coffee Table - Walnut [article_amoeba-88.75-55.5]
+  north: 55½ in
+  east: 73 in
+  south: 72 in
+  west: 90½ in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-162-14]
+  north: 14 in
+  east: 12 in
+  south: 114 in
+  west: 162 in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-162-112]
+  north: 112 in
+  east: 12 in
+  south: 16 in
+  west: 162 in
+
+cabinet (planning envelope) [cabinet-0.75-123]
+  north: 123 in
+  east: 189½ in
+  south: 3 in
+  west: 1 in
+
+cat posts (planning envelope) [cat_posts-57-140]
+  north: 140 in
+  east: 131 in
+  south: 2 in
+  west: 57 in
+
+cat posts (planning envelope) [cat_posts-184-140]
+  north: 140 in
+  east: 4 in
+  south: 2 in
+  west: 184 in

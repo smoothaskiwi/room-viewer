@@ -1,0 +1,32 @@
+Council pick A2 · Two sofas face each other, fireplace at the head, one swivel at each end
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-0]
+  north: ½ in
+  east: 44 in
+  south: 119½ in
+  west: 72 in
+
+Cognac leather sofa [dining-sofa-1]
+  north: 105 in
+  east: 44 in
+  south: 15 in
+  west: 72 in
+
+Amoeba 42.5" Coffee Table - Walnut [article_amoeba-2]
+  north: 57 in
+  east: 67 in
+  south: 71 in
+  west: 96½ in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-3]
+  north: 57 in
+  east: 134 in
+  south: 71 in
+  west: 44 in
+
+Cognac barrel swivel armchairs [living-cognac-swivels-4]
+  north: 6 in
+  east: 10 in
+  south: 122 in
+  west: 164 in

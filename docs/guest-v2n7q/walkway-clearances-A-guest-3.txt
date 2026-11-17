@@ -1,0 +1,7 @@
+bathroom · everyday: 22.0 in; article_lenia_full-0 / guest-office-chair-4
+closet · everyday: 28.0 in; wall-east / entry-leaf
+bed-side-a · everyday: 22.0 in; smart_gym-5 / article_lenia_full-0
+bed-side-b · everyday: 28.0 in; wall-east / entry-leaf
+bed-foot · everyday: 22.0 in; article_lenia_full-0 / guest-office-chair-4
+east-panel · everyday: 20.5 in; article_lenia_full-0 / smart_gym-5
+desk-chair · everyday: 22.5 in; guest-office-chair-4 / article_lenia_full-0

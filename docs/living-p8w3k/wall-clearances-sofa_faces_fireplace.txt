@@ -1,0 +1,44 @@
+White sofa floats facing the fireplace TV; boucle chairs flank the hearth
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-72-35]
+  north: 35 in
+  east: 94 in
+  south: 35 in
+  west: 72 in
+
+Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-127-52.25]
+  north: 52½ in
+  east: 55 in
+  south: 52½ in
+  west: 127½ in
+
+Henredon Murphy Swivel Boucle Chair, Cream [living-white-chair-160-17]
+  north: 17 in
+  east: 14½ in
+  south: 110 in
+  west: 160 in
+
+Henredon Murphy Swivel Boucle Chair, Cream [living-white-chair-160-111.5]
+  north: 111½ in
+  east: 14½ in
+  south: 15½ in
+  west: 160 in
+
+cabinet (planning envelope) [cabinet-0.75-123]
+  north: 123 in
+  east: 189½ in
+  south: 3 in
+  west: 1 in
+
+cat posts (planning envelope) [cat_posts-57-140]
+  north: 140 in
+  east: 131 in
+  south: 2 in
+  west: 57 in
+
+cat posts (planning envelope) [cat_posts-140-1]
+  north: 1 in
+  east: 48 in
+  south: 141 in
+  west: 140 in

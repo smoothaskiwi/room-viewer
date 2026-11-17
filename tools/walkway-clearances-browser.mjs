@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import puppeteer from 'puppeteer-core';
 import {AxePuppeteer} from '@axe-core/puppeteer';
 import {localGaps,gapText,routeInfo,routeDescription,walkwayText} from '../src/walkway-clearances.mjs';
-const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),out=process.env.WALKWAY_EVIDENCE_DIR||path.join(project,'prototype/renders/round-9b/walkway-bedroom');await fs.mkdir(out,{recursive:true});
+const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),out=process.env.WALKWAY_EVIDENCE_DIR||(process.env.ROOM_TEST_EVIDENCE_DIR?path.join(process.env.ROOM_TEST_EVIDENCE_DIR,'walkway-bedroom'):path.join(project,'prototype/renders/round-9b/walkway-bedroom'));await fs.mkdir(out,{recursive:true});
 // Baseline is the committed pre-overlay viewer, not a mutable sibling directory.
 const baselineRef=process.env.WALKWAY_BASELINE_REF||'537d383',root=await fs.mkdtemp(path.join(process.env.TMPDIR||repo,'walkway-web-')),preimage=path.join(root,'preimages');await fs.mkdir(preimage);
 execFileSync('tar',['-x','-C',preimage],{input:execFileSync('git',['archive',baselineRef,'docs/primary-bedroom-b7q4m'],{cwd:repo,maxBuffer:16*1024*1024})});

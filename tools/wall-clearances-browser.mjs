@@ -7,7 +7,7 @@ import puppeteer from 'puppeteer-core';
 import {AxePuppeteer} from '@axe-core/puppeteer';
 import {wallClearances,formatGap,clearanceText} from '../src/wall-clearances.mjs';
 import {repo,project} from './project.mjs';
-const out=path.join(project,'prototype/renders/round-9a');await fs.mkdir(out,{recursive:true});
+const out=process.env.ROOM_TEST_EVIDENCE_DIR?path.join(process.env.ROOM_TEST_EVIDENCE_DIR,'wall-clearances'):path.join(project,'prototype/renders/round-9a');await fs.mkdir(out,{recursive:true});
 const capture=process.argv.includes('--screenshots');
 const baseDir=path.join(repo,'docs/primary-bedroom-b7q4m');
 const data=JSON.parse(await fs.readFile(path.join(baseDir,'layouts.json'),'utf8')),raw=JSON.parse(await fs.readFile(path.join(baseDir,'render-spec.json'),'utf8'));

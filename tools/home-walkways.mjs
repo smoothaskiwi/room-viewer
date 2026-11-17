@@ -1,0 +1,4 @@
+// New shape-aware adapter; retained bedroom/dining annotations stay unchanged.
+import {routeCrossings} from './activity-walkways-geometry.mjs';
+import {routeLabel,inch} from '../src/home-format.mjs';
+export function homeWalkways(room,l){const routes=[...l.routes.destinations,...(l.approaches?.destinations??[])],obstacles=[...l.footprints.filter(f=>f.kind!=='rug'),...(l.fixed??[]).filter(f=>f.kind!=='hearth'),...(l.doors??[])],gaps=routes.flatMap(q=>routeCrossings(room,obstacles,q));return {layout:l.id,routes,gaps,obstacle_ids:obstacles.map(f=>f.id),definition:'Route diameter is a conservative moving-disk bottleneck. Local boundary crossings are separate snapshot gaps, never operating space. Swivel sweeps, gym and door use states are separate.',text:routes.map(q=>routeLabel(q)+': '+inch(q.width)+'; '+q.bottleneck.between.join(' / ')).join('\n')};}
