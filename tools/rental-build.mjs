@@ -4,7 +4,7 @@ import {spawnSync} from 'node:child_process';
 import {repo,project} from './project.mjs';
 import {catalog,normalizeProduct} from './catalog.mjs';
 import {copyCatalogImages,publicValue,rentalFields} from './rental-catalog.mjs';
-import {readRentalCouncil,evaluateRental,rankRentals,shoppingList} from './rental.mjs';
+import {readRentalCouncil,evaluateRental,rankRentals,shoppingList,designerProduct,joinFabricLines} from './rental.mjs';
 import {applyRoomAppearance} from './room-appearance.mjs';
 import {esc,rentalPlan,money,shoppingCSV} from '../src/rental-view.mjs';
 const json=async file=>JSON.parse(await fs.readFile(file,'utf8'));
@@ -16,10 +16,12 @@ export async function buildRentals(){
  const rooms=await json(path.join(repo,'data/rooms.json')),cat=await catalog({owned:{}},{candidate_items:[]}),inputs=[];
  for(const page of rooms){const room=applyRoomAppearance(await json(path.join(project,'prototype/explorer/room-'+page.room+'.json')),page.room),brief=await json(path.join(project,'prototype/explorer/brief-'+page.room+'.json')),council=await readRentalCouncil(page.room,process.env.RENTAL_COUNCIL_DIR),fixture=await json(path.join(repo,'data/rental-fixtures/pinned-'+page.room+'.json'));inputs.push({page,room,brief,council,fixture});
   // New furniture needs published canonical dimensions; submitted floor rectangles alone are not specifications.
-  for(const p of council.layouts)for(const row of [...p.placements,...p.styling]){const id=row.catalog_id??row.id;if(cat.items[id])continue;const match=Object.values(cat.items).find(c=>c.purchase_url&&c.purchase_url===row.purchase_url);if(match){row.catalog_id=match.id;if(!row.catalog_id)row.id=match.id;continue;}if(!row.purchase_url)continue;if(row.catalog_id&&!row.dims_in)continue;
-   const f={...row,name:row.name??id,dims_in:row.dims_in??{w:null,d:null,h:null}},n=normalizeProduct(id,f,{file:'rental-council',brief:{candidate_items:[]}});cat.items[id]=publicValue({...n,...rentalFields(f,'rental-council'),category_group:row.catalog_id?'furniture':'styling',tier:p.tier});
+  for(const p of council.layouts)for(const row of [...p.placements,...p.styling]){const id=row.catalog_id??row.id;if(cat.items[id])continue;const match=Object.values(cat.items).find(c=>c.purchase_url&&c.purchase_url===row.purchase_url);if(match){row.catalog_id=match.id;continue;}if(!row.purchase_url)continue;
+   if(row.catalog_id){const f=designerProduct(row);if(f)cat.items[id]=publicValue(f);continue;}
+   const f={...row,name:row.name??id,dims_in:row.dims_in??{w:null,d:null,h:null}},n=normalizeProduct(id,f,{file:'rental-council',brief:{candidate_items:[]}});cat.items[id]=publicValue({...n,...rentalFields(f,'rental-council'),category_group:'styling',tier:p.tier});
   }
  }
+ joinFabricLines(cat.items);
  const images=await copyCatalogImages(cat);
  // Inline council-only images are downloaded at build time, never from Angela's browser.
  const remote=[];for(const c of Object.values(cat.items))if(!c.image&&c.images[0]?.url&&c.source_files.includes('rental-council'))remote.push([c.id,c.images[0].url,path.join(repo,'docs/assets/products/'+c.id.replace(/[^a-z0-9_-]/gi,'_')+'-council.webp')]);

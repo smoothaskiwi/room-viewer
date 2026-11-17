@@ -3,7 +3,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {z} from 'zod';
 import {project,repo} from './project.mjs';
-export const rentalSources=['products/rental-bedrooms-2026-11-17/specs.json','products/rental-living-dining-2026-11-17/specs.json','products/rental-styling-2026-11-17/specs.json','inspiration/bedrooms-2026-11-17/shop-the-look.json','inspiration/living-dining-nook-2026-11-17/shop-the-look.json'];
+export const rentalSources=['products/rental-bedrooms-2026-11-17/specs.json','products/rental-living-dining-2026-11-17/specs.json','products/rental-styling-2026-11-17/specs.json','inspiration/bedrooms-2026-11-17/shop-the-look.json','inspiration/living-dining-nook-2026-11-17/shop-the-look.json','products/value-sofas-2026-11-17/specs.json'];
 const record=z.object({id:z.string().optional(),name:z.string(),price_usd:z.number().nonnegative().nullable().optional()}).passthrough();
 const sourceSchema=z.object({products:z.record(z.string(),record).optional(),items:z.array(record).optional()}).passthrough().refine(s=>s.products||s.items,'products or items required');
 const privacy=new RegExp('\\b(?:'+['47'+'51','D'+' St','d'+'-st','Sacra'+'mento'].join('|')+')\\b','ig');

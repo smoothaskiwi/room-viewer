@@ -33,18 +33,36 @@ export function shoppingList(layout,cat){
  const rows=[...items.values()],total=g=>rows.filter(r=>!g||r.group===g).reduce((n,r)=>n+(r.price_usd??0)*r.qty,0),unknown=rows.filter(r=>r.price_usd===null).map(r=>r.name);
  const cents=n=>Math.round(n*100)/100;return {items:rows,furniture:cents(total('furniture')),styling:cents(total('styling')),total:cents(total()),unknown,complete:!unknown.length};
 }
+export function designerProduct(row){
+ const f={...row,...row.product_details},dims=f.dims_in;
+ if(!dims||!['w','d','h'].every(k=>Number.isFinite(dims[k])&&dims[k]>0)||!Number.isFinite(f.price_usd)||!/^https?:/.test(f.purchase_url??'')||!(f.image_url||f.images?.[0]?.url))return null;
+ const role=row.role??'',category=f.category??(/sofa/.test(role)?'sofa':/chair/.test(role)?'chair':/desk/.test(role)?'desk':/bed/.test(role)?'bed':/sofa/i.test(f.name)?'sofa':/chair/i.test(f.name)?'chair':'other');
+ return {...f,id:row.catalog_id,label:f.name,category,kind:category,dims_in:dims,h:dims.h,w:dims.d,d:dims.w,layout_ready:true,owned:false,category_group:'furniture',provenance:'designer-supplied',source_files:['rental-council'],images:f.images??[{url:f.image_url}],price:f.price_usd};
+}
+export function joinFabricLines(items){
+ // Sumner is the same published Room & Board fabric across colours, not a sofa-brand guess.
+ const same=c=>/\bsumner\b/i.test([c.label,c.materials,c.selected_variant,JSON.stringify(c.fabric)].join(' '));
+ const source=Object.values(items).filter(same).find(c=>c.fabric&&(c.fabric.abrasion_rubs||c.fabric.abrasion_double_rubs));
+ if(source){const f=source.fabric,line={...f,abrasion_rubs:f.abrasion_rubs??f.abrasion_double_rubs,abrasion_test:f.abrasion_test??f.test,fabric_line:'Sumner',joined_from:source.id};for(const c of Object.values(items).filter(same))c.fabric={...line,...(typeof c.fabric==='object'?c.fabric:{}),abrasion_rubs:c.fabric?.abrasion_rubs??c.fabric?.abrasion_double_rubs??line.abrasion_rubs,abrasion_test:c.fabric?.abrasion_test??c.fabric?.test??line.abrasion_test};}
+ return items;
+}
 export function rentalSafety(c){
- const failures=[],conditions=[],warnings=[],s=[c.label,c.materials,c.selected_variant,typeof c.fabric==='string'?c.fabric:c.fabric?.composition].filter(Boolean).join(' ').toLowerCase(),upholstered=(typeof c.fabric==='string'?!!c.fabric:!!c.fabric?.composition)||/upholster|velvet|boucl[eé]/.test(s)||/sofa|upholstered/.test(c.category??''),furniture=c.category_group==='furniture';
- if(/velvet|boucl[eé]/.test(s))failures.push('Velvet or bouclé is excluded for rental wear.');
- if(furniture&&/paper.wrap|foil|low.pressure laminate|oiled finish/.test(s))failures.push('Paper/foil wrap, chip-prone laminate or oiled finish is excluded for rental turnover.');
- if(furniture&&/\bglass\b|\bmarble\b|mirrored|open cane|rattan/.test(s))failures.push('Fragile glass, marble, mirrored furniture or open cane/rattan is excluded.');
+ const failures=[],conditions=[],warnings=[],materials=typeof c.materials==='string'?c.materials:JSON.stringify(c.materials??''),s=[c.label,materials,c.selected_variant,typeof c.fabric==='object'?c.fabric?.composition:''].filter(Boolean).join(' ').toLowerCase(),furniture=c.category_group==='furniture';
+ const woodBed=(c.kind==='bed'||c.category==='bed')&&!/upholster|velvet|boucl[eé]/.test(c.label??'')&&/wood|birch|oak|walnut|pine|veneer/.test(materials.toLowerCase());
+ const upholstered=!woodBed&&(/sofa|upholster/.test(c.category??'')||(/chair|bed|headboard/.test(c.category??'')&&(!!c.fabric||/upholster|velvet|boucl[eé]/.test(s))));
+ if(furniture&&/velvet|boucl[eé]/.test(s))failures.push('Velvet or bouclé is excluded for rental wear.');
+ // IKEA lists foil on hidden backs/interiors together with lacquered veneer faces. Real veneer is not foil.
+ const realVeneer=/(oak|walnut|birch|beech) veneer|veneered (oak|walnut|birch|beech)/.test(materials.toLowerCase())&&/lacquer|stain|veneered/.test(materials.toLowerCase());
+ if(furniture&&(/melamine/.test(s)||(!realVeneer&&/paper.wrap|paper foil|plastic foil|\bfoil\b/.test(s))))failures.push('Foil, paper-wrap or melamine tops/fronts are excluded.');
+ if(furniture&&/\bglass\b|\bmarble\b|mirrored/.test(s))failures.push('Glass, marble or mirrored furniture tops are excluded.');
  if(furniture&&upholstered&&/\bwhite\b|ivory upholstery/.test(s))failures.push('White upholstery is excluded; white washable bedding is allowed.');
- if(furniture&&upholstered){const f=c.fabric&&typeof c.fabric==='object'?c.fabric:{},a=c.abrasion_rating,rubs=f.abrasion_rubs??a?.rubs??a?.value??(typeof a==='number'?a:null),test=f.abrasion_test??a?.test??'',head=c.kind==='bed',min=head?15000:30000,actualMin=/martindale/i.test(test)?(head?20000:40000):min,code=f.cleaning_code??c.cleaning_code;
-  if(!(rubs>=actualMin))failures.push('Upholstery abrasion '+(rubs??'unknown')+'; requires '+actualMin+' '+(/martindale/i.test(test)?'Martindale rubs':'double rubs')+'.');
-  if(!['W','WS','W/S'].includes(String(code).toUpperCase()))failures.push('Cleaning code W or WS is not verified; exclude until documented.');
+ if(furniture&&upholstered){const f=c.fabric&&typeof c.fabric==='object'?c.fabric:{},a=c.abrasion_rating,rubs=f.abrasion_rubs??f.abrasion_double_rubs??a?.rubs??a?.value??(typeof a==='number'?a:null),test=f.abrasion_test??f.test??a?.test??'',head=c.kind==='bed'||c.category==='bed',min=head?15000:30000,code=String(f.cleaning_code??c.cleaning_code??'').toUpperCase();
+  if(rubs==null)conditions.push('Confirm fabric rating before buying: '+min.toLocaleString('en-US')+' double rubs required.');
+  else if(/martindale/i.test(test))conditions.push('Confirm fabric rating in double rubs before buying; published '+rubs.toLocaleString('en-US')+' Martindale cycles are not a double-rub result.');
+  else if(rubs<min)failures.push('Published upholstery abrasion '+rubs+' double rubs is below '+min+'.');
+  if(!['W','WS','SW','W/S'].includes(code))conditions.push('Confirm cleaning code W or WS before buying.');
  }
- if(['dresser','chest'].includes(c.category)||c.kind==='dresser'){if(c.h>=27){conditions.push('Anchor to wall before guest occupancy.');if(c.anti_tip?.kit_included!==true)conditions.push('Confirm anti-tip kit and applicable stability compliance.');}}
- if(/rug/.test(c.category)){const wash=[c.care,c.materials,c.rental_fit].map(v=>typeof v==='string'?v:JSON.stringify(v)).join(' ').toLowerCase();if(/non.washable|not washable/.test(wash))failures.push('Non-washable rug is excluded.');else if(!/machine wash|washable/.test(wash))conditions.push('Verify rug washability before buying.');}
+ if((['dresser','chest'].includes(c.category)||c.kind==='dresser')&&c.h>=27)conditions.push('Anchor to wall before guest occupancy.');
  return {failures,conditions,warnings};
 }
 function primaryGeometry(room,brief,fs){
@@ -58,11 +76,12 @@ function primaryGeometry(room,brief,fs){
 function activityCandidate(room,fs,cat){const p=fs.find(f=>f.kind==='table'),t=p?{...table(room,cat,p.catalog_id,{x:p.x,y:p.y,rotation:p.rotation,shape:p.shape}),id:p.id}:null,chairs=fs.filter(f=>f.kind==='chair').map(f=>{const cx=f.x+f.w/2,cy=f.y+f.d/2,side=t?cy<t.y?'north':cy>t.y+t.d?'south':cx<t.x?'west':'east':'north';return {id:f.id,catalog_id:f.catalog_id,side,offset:['north','south'].includes(side)?cx-t.x:cy-t.y,proposal_position:[f.x,f.y],proposal_wd:[f.w,f.d]};});return {id:'rental',table:t,chairs,sideboard:fs.find(f=>f.kind==='storage'),extra:fs.filter(f=>!['chair','table','storage','rug'].includes(f.kind)),rug:fs.find(f=>f.kind==='rug')};}
 export function evaluateRental(room,brief,cat,proposal,{scenarios=true}={}){
  if(room.meta.room==='kitchen-nook')room={...room,meta:{...room.meta,room:'kitchen'}};
- const p=rentalLayoutSchema.parse(proposal),fs=p.placements.map((q,i)=>rentalPiece(q,cat,i)),failures=[],conditions=[],warnings=[];
+ const p=rentalLayoutSchema.parse(proposal);cat={...cat};for(const q of p.placements){if(!cat[q.catalog_id]){const n=designerProduct(q);if(n)cat[q.catalog_id]=n;}}joinFabricLines(cat);const fs=p.placements.map((q,i)=>rentalPiece(q,cat,i)),failures=[],conditions=[...(p.conditions??[])],warnings=[];
+ for(const d of fs.filter(f=>f.kind==='desk')){const chairs=fs.filter(f=>['chair','desk-chair'].includes(f.kind)&&overlaps(shape({...d,x:d.x-1,y:d.y-32,w:d.w+2,d:d.d+64,polygon:undefined}),f)).sort((a,b)=>Math.hypot(a.x+a.w/2-d.x-d.w/2,a.y+a.d/2-d.y-d.d/2)-Math.hypot(b.x+b.w/2-d.x-d.w/2,b.y+b.d/2-d.y-d.d/2));if(chairs[0])chairs[0].kind='desk-chair';}
  for(const [i,q]of p.placements.entries()){const f=fs[i],c=cat[q.catalog_id];if(!c)failures.push('Product not in catalog: '+(q.name??q.catalog_id)+'.');else if(!c.layout_ready)conditions.push('Verify dimensions for '+c.label+'.');else if(Math.abs(q.footprint_w-f.w)>.26||Math.abs(q.footprint_d-f.d)>.26)failures.push(f.label+': submitted footprint differs from the published product dimensions.');if(c?.owned&&!p.reuse)failures.push(f.label+' is owned; rental layouts start empty unless labelled reuse.');}
  let geometry;
  if(room.meta.room==='primary-bedroom'&&fs.some(f=>f.kind==='bed'))geometry=primaryGeometry(room,brief,fs);
- else if(['living-room','guest-bedroom'].includes(room.meta.room)){geometry=evaluateHome(room,brief,cat,{...p,placements:fs,family:room.meta.room==='guest-bedroom'?'guest_only':'rental',relocation:['cat posts moved out for rental']},{scenarios});if(room.meta.room==='guest-bedroom')geometry.open_doors=[{door:'closet',width:geometry.open_closet?.routes?.narrowest??null}];}
+ else if(['living-room','guest-bedroom'].includes(room.meta.room)){geometry=evaluateHome(room,brief,cat,{...p,placements:fs,family:'rental',relocation:['cat posts moved out for rental']},{scenarios});if(room.meta.room==='guest-bedroom')geometry.open_doors=[{door:'closet',width:geometry.open_closet?.routes?.narrowest??null}];}
  else if(['dining-room','kitchen'].includes(room.meta.room)){geometry=evaluateActivity(room,brief,cat,activityCandidate(room,fs,cat),{scenarios});geometry.routes={narrowest:geometry.measures.route,destinations:[{id:'Main walk',...geometry.states.tucked.route}]};}
  else geometry={failures:[],warnings:[],routes:{narrowest:null,destinations:[]},measures:{}};
  failures.push(...geometry.failures);warnings.push(...geometry.warnings??[]);if(geometry.scenarios?.some(s=>s.failures.length))conditions.push('One or more room-size or opening scenarios fail; tape-check the conditions.');
@@ -71,14 +90,17 @@ export function evaluateRental(room,brief,cat,proposal,{scenarios=true}={}){
  for(const f of fs){if(!inside(f,room.room.polygon??rectPolygon({x:0,y:0,w:room.room.width_x,d:room.room.depth_y})))failures.push(f.label+' lies outside the room.');for(const b of fixed)if(overlaps(f,b))failures.push(f.label+' overlaps '+b.label+'.');}
  if(!['kitchen','dining-room'].includes(room.meta.room))for(let i=0;i<fs.length;i++)for(const g of fs.slice(i+1))if(![fs[i].kind,g.kind].includes('rug')&&overlaps(fs[i],g)&&!([fs[i].kind,g.kind].includes('desk-chair')&&[fs[i].kind,g.kind].includes('desk')))failures.push(fs[i].label+' overlaps '+g.label+'.');
  const bed=fs.find(f=>f.kind==='bed'),stands=fs.filter(f=>f.kind==='nightstand'),bedroom=/bedroom/.test(room.meta.room),mtr=p.use!=='STR';
- if(bedroom){if(!bed||/full|twin|king/i.test(cat[bed.catalog_id]?.label??''))failures.push('A queen bed with headboard is required.');if(stands.length!==2||new Set(stands.map(f=>f.catalog_id)).size!==1)failures.push('Two identical nightstands are required.');if(bed){const top=p.mattress_top_in??26;for(const f of stands)if(f.h>top||f.h<top-3)failures.push(f.label+': nightstand must be 0–3 in below the mattress top ('+top+' in).');if(p.mattress_top_in==null)conditions.push('Mattress top assumed at 26 in; verify the selected mattress and frame.');}
-  const curtains=p.styling.filter(s=>/curtain|blackout|shade/.test(s.category+' '+s.name+' '+s.placement));const windows=room.openings.filter(o=>/window|glass/.test(o.type));for(const o of windows)if(!curtains.some(s=>s.wall===o.wall||s.window_id===o.id||/all windows|both windows/.test(s.placement??'')||new RegExp('\\b'+o.wall+'\\b','i').test(s.placement??'')))(mtr?failures:conditions).push('Blackout coverage not specified for the '+o.wall+' window.');
-  if(!fs.some(f=>['dresser','storage'].includes(f.kind))&&!room.openings.some(o=>/closet/.test(o.id)))failures.push('Month-long clothing storage is missing.');
-  if(p.styling.filter(s=>/lamp|sconce/.test(s.category)).reduce((n,s)=>n+(s.qty??1),0)<2)conditions.push('Provide a lamp and reachable power at each nightstand.');
+ if(bedroom){if(!bed||/full|twin|king/i.test(cat[bed.catalog_id]?.label??''))failures.push('A queen bed is required.');
+  const top=p.mattress_top_in??26;for(const f of stands)if(f.h>top+2||f.h<top-6)warnings.push(f.label+': bedside height is outside the preferred mattress-height band.');
+  if(p.mattress_top_in==null)conditions.push('Measure assembled mattress height before choosing the final bedside height.');
+  if(stands.length!==2)warnings.push('Paired bedsides are preferred, not required.');
+  if(!p.styling.some(s=>/curtain|blackout|shade/.test(s.category+' '+s.name)))warnings.push('Blackout is preferred for mid-term guests.');
+  if(!fs.some(f=>['dresser','storage'].includes(f.kind)))warnings.push('Use the closet for month-long clothing storage; a dresser is preferred.');
  }
- if(mtr&&bedroom&&!fs.some(f=>f.kind==='desk'))conditions.push('MTR needs a 40–48 in desk and task chair elsewhere in the house.');
- for(const f of fs.filter(f=>f.kind==='desk')){const c=cat[f.catalog_id];if(mtr&&(c?.dims_in.w<40||c?.dims_in.w>48))failures.push('MTR desk must be 40–48 in wide.');if(!fs.some(f=>f.kind==='desk-chair'))failures.push('Desk needs a supportive task chair.');conditions.push('Verify a reachable outlet and daylight at the workspace.');}
- if(room.meta.room==='living-room'&&fs.filter(f=>['sofa','chair'].includes(f.kind)).reduce((n,f)=>n+(f.kind==='sofa'?3:1),0)<5)failures.push('Provide at least five living-room seats.');
+ if(mtr&&bedroom&&!fs.some(f=>f.kind==='desk'))warnings.push('Choose a 40–48 in desk elsewhere in the house for mid-term guests.');
+ for(const f of fs.filter(f=>f.kind==='desk')){if(f.w<40||f.w>48)warnings.push('A 40–48 in desk is preferred for mid-term guests.');const chairs=fs.filter(f=>f.kind==='desk-chair');if(!chairs.length)conditions.push('Choose a supportive adjustable task chair for the workspace.');else for(const chair of chairs)if(!/adjust|office|ergonomic|task|tenley|flintan/i.test([chair.label,cat[chair.catalog_id]?.materials,JSON.stringify(cat[chair.catalog_id]?.extra_dims)].join(' ')))conditions.push('Mid-term desk chair is fixed-height; check comfortable seated fit or choose an adjustable chair.');conditions.push('Verify a reachable outlet at the workspace.');}
+ const seats=fs.filter(f=>['sofa','chair'].includes(f.kind)).reduce((n,f)=>n+(f.kind==='sofa'?3:1),0);
+ if(room.meta.room==='living-room'&&seats<4)failures.push('Provide at least four living-room seats.');
  if(room.meta.room==='dining-room'&&fs.filter(f=>f.kind==='chair').length<4)failures.push('Provide at least four dining seats.');
  const shop=shoppingList(p,cat);for(const item of shop.items){if(!/^https?:\/\//.test(item.purchase_url??''))failures.push(item.name+': purchase link missing.');if(item.price_usd===null)conditions.push(item.name+': price unverified.');const c=cat[item.id];if(c){const safe=rentalSafety(c);failures.push(...safe.failures.map(s=>item.name+': '+s));conditions.push(...safe.conditions.map(s=>item.name+': '+s));}else conditions.push(item.name+': durability and product identity need verification.');}
  const min=geometry.routes?.narrowest??geometry.measures?.route??null,sides=geometry.measures.bed_sides??(bed?bedSides({...room,room:{baseboard_projection:0,...room.room}},fs):[]),foot=geometry.measures.bed_foot??null;
