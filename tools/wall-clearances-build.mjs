@@ -23,6 +23,8 @@ export async function amendWallClearances(out){
  if(!html.includes('<div class="visual">')||!html.includes('<noscript>'))throw Error('Expected explorer entrypoint markers missing');
  html=html.replace('<div class="visual">',controls+'<div class="visual">').replace('<noscript>',`<!-- wall-gap-list:start -->\n${clearanceHTML(raw,data.layouts)}\n<!-- wall-gap-list:end -->\n<noscript>`);
  await fs.writeFile(path.join(out,'index.html'),html);
+ const current=new Set(data.layouts.map(l=>`wall-clearances-${l.id}.txt`));
+ for(const n of await fs.readdir(out))if(/^wall-clearances-.*\.txt$/.test(n)&&!current.has(n))await fs.rm(path.join(out,n));
  for(const l of data.layouts)await fs.writeFile(path.join(out,`wall-clearances-${l.id}.txt`),clearanceText(raw,l));
  return {layouts:data.layouts.length,pieces:data.layouts.reduce((n,l)=>n+l.footprints.length,0),gaps:data.layouts.reduce((n,l)=>n+l.footprints.length*4,0)};
 }

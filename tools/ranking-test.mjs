@@ -12,5 +12,5 @@ other=clone();other.windows[0].comfortable=false;other.bed_sides=[30,30];assert.
 other=clone();other.footprints.pop();other.cost=1;other.measures.route=29;assert.ok(compareLayouts(base,other)<0,'Two nightstands precede cost and raw inches');
 other=clone();other.footprints[1].generic=true;other.cost=0;assert.ok(compareLayouts(base,other)<0,'A real product wins within equal earlier bands');
 other=clone();other.measures.route=25;assert.ok(compareLayouts(other,base)<0,'Raw walkway breaks only equal-band/factor ties');
-assert.equal(rankingKey(base).length,11);
+assert.equal(rankingKey(base).length,12);
 console.log('PASS Round 8 ranking fixtures: exact band thresholds; window-before-raw-inches; doubled headboard; operating access; two nightstands; real products; final raw tie-break.');

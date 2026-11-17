@@ -147,7 +147,7 @@ await write('index.html',`<!doctype html>
 <h1>Bedroom layouts</h1>
 <p class="notice compact">Not tape-verified · illustrative furniture</p>
 <p class="verdict">${esc(verdictSentences[0])}</p>
-<details class="verdict-details"><summary>Depth limits and requested dressers</summary><p>${esc(verdictSentences.slice(1).join(' '))}</p></details>
+<details class="verdict-details"><summary>Requested dressers and deciding measurements</summary><p>${esc(verdictSentences.slice(1).join(' '))}</p></details>
 </header>
 <main>
 ${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + ranked layouts</h2>
@@ -158,9 +158,9 @@ ${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + ranked layouts</
 ${envelopeTables(data.envelopes)}${depthTradeoffTables(data.parametric_sweep)}${dresserTradeoffTable(data.dresser_length_tradeoff)}
 ${ranked}<details>
 <summary>The brief and search coverage</summary>
-<p class="policy">${esc(brief.plain_policy)}</p><p>The policy’s old north-side reference predates the owner’s 18-in table correction: Today now measures 17.75 in; the tables and rankings use that corrected value. The newer rotation section permits all four bed headings. Its old priorities sentence is superseded by brief.ranking: walkway band, window light/access, bedside band, two nightstands, storage band, real products, changes and cost, then raw walkway.</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
+<p class="policy">${esc(brief.plain_policy)}</p><p>The policy’s old north-side reference predates the owner’s 18-in table correction: Today now measures 17.75 in; the tables and rankings use that corrected value. The newer rotation section permits all four bed headings. Its old priorities sentence is superseded by brief.ranking: walkway band, window light/access, bedside band, style fit, two nightstands, storage band, real products, changes and cost, then raw walkway.</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
 <p>${data.parametric_sweep.counts.evaluated} generic size/rotation/anchor cases; ${data.search.generated} complete storage/sorter combinations evaluated; ${data.search.evaluated_analytic} checked after incremental pruning; ${data.search.distinct_clusters} distinct families. ${data.search.analytic_survivors} passed analytic filters; ${data.search.feasible} distinct passing representatives retained. Search includes floating beds (3- and 6-in wall offsets), centred beds and 15/18/24-in side constraint boundaries; not proof of a global optimum.</p>
-<p>Brief 1.5 is calibrated to Today: only collisions, no openable egress-candidate, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Glass-hidden area, storage and ordinary reach are trade-offs; window width coverage is not a warning. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
+<p>Brief 1.6 is calibrated to Today: only collisions, no openable egress-candidate, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Glass-hidden area, storage and ordinary reach are trade-offs; window width coverage is not a warning. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
 </details><details>
 <summary>What we ruled out</summary>
 <ul>${data.ruled_out.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
@@ -184,4 +184,4 @@ ${ranked}<details>
 await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence+'\nDetails: '+l.long_description).join('\n\n')+'\n');
 await amendWallClearances(out);
 console.log('Build peak RSS: '+process.resourceUsage().maxRSS+' KiB');
-console.log(`Round 8 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.5 everyday doors; separate open-door warnings; Today is valid.`);
+console.log(`Round 9a built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.6 style and placement sanity; everyday doors; separate open-door warnings; Today is valid.`);

@@ -1,29 +1,23 @@
-Bed east, generic size west; laundry south
+Bed east, dresser east; laundry south
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Miles Wood & Upholstered Bed — Queen [bed]
-  north: 20½ in
+  north: 19½ in
+  east: 5 in
+  south: 55½ in
+  west: 39 in
+
+Wood two-drawer nightstand, splayed legs [nightstand_north]
+  north: ½ in
+  east: 6 in
+  south: 120½ in
+  west: 108½ in
+
+Nera 3-Drawer Chest [article_nera3]
+  north: 90 in
   east: 2 in
-  south: 54½ in
-  west: 42 in
-
-Small wood nightstand [nightstand_north]
-  north: 2½ in
-  east: 3 in
-  south: 119½ in
-  west: 107 in
-
-Wood two-drawer nightstand, splayed legs [nightstand_south]
-  north: 86 in
-  east: 3 in
-  south: 34½ in
-  west: 111½ in
-
-generic size, no product chosen (56 long × 14 deep × 36 high in) [generic-14-56-36]
-  north: 1 in
-  east: 114½ in
-  south: 83 in
-  west: 0 in · contact
+  south: 14 in
+  west: 109½ in
 
 Rolling laundry sorter [laundry_sorter]
   north: 121 in

@@ -6,7 +6,7 @@ import {checkRules} from './rules.mjs';
 import {runPlacement,wallRuns,storageSlots} from './size-sweep.mjs';
 const site=repo+'/docs/primary-bedroom-b7q4m/',read=async n=>JSON.parse(await fs.readFile(site+n+'.json','utf8'));
 const data=await read('layouts'),room=await read('room'),brief=await read('brief'),cat=(await read('catalog')).items,html=await fs.readFile(site+'index.html','utf8');
-assert.match(brief.meta.version,/1\.[45]/);assert.equal(room.owned.nightstand_north.w_along_wall,18);assert.equal(room.owned.king_bed.y[0],18.5);
+assert.match(brief.meta.version,/1\.[456]/);assert.equal(room.owned.nightstand_north.w_along_wall,18);assert.equal(room.owned.king_bed.y[0],18.5);
 assert.deepEqual(data.audit.updated_request_56.headboard_y,[18.5,83.1]);assert.equal(data.audit.updated_request_56.headboard_vs_east_casing_overlap,1.8);assert.equal(data.audit.updated_request_56.headboard_vs_east_stool_overlap_assumed,2.8);assert.equal(data.audit.updated_request_56.east_window_opening_clear,2);
 const generic=data.layouts.filter(l=>l.footprints.some(f=>f.generic));assert.ok(generic.length<=2);for(const l of generic){assert.match(l.sentence,/generic size, no product chosen/);assert.match(l.long_description,/unpriced/);}
 const sweep=data.parametric_sweep;assert.deepEqual(sweep.counts.depths,[14,16,18,20]);assert.ok(sweep.counts.evaluated>20000);for(const v of Object.values(sweep.counts.rotations))assert.ok(v>0);assert.ok(sweep.counts.heights.includes(36)&&sweep.counts.heights.includes(54));
@@ -23,5 +23,5 @@ const allTall=[{...low,h:60,w:43,x:15,d:28},{...low,id:'east',x:99,y:80.3,w:29.5
 const template=data.layouts[0].footprints.filter(f=>!['dresser','storage'].includes(f.kind));const closed=checkRules(room,brief,[...template,...allTall]);assert.ok(closed.rules.some(r=>r.id==='egress available'&&!r.passes));const one=checkRules(room,brief,[...template,allTall[0]]);assert.ok(one.rules.find(r=>r.id==='egress available').passes);
 for(const l of data.layouts){assert.ok(!l.warnings.some(w=>/\bcovered\b.*%|%.*\bcovered\b/i.test(w)));for(const w of l.windows){assert.ok('glass_hidden_pct' in w);assert.ok(w.pieces.every(p=>(p.reach===null||Number.isFinite(p.reach))&&Number.isFinite(p.top)&&Number.isFinite(p.standoff)));}}
 const banned=new RegExp(['tod'+'dler','clim'+'bable','fit window '+'stops or guards'].join('|'),'i');assert.ok(!banned.test(JSON.stringify(data)));assert.ok(!banned.test(html));assert.ok(!banned.test(JSON.stringify(brief)));
-assert.ok(data.verdict.includes('18.2')&&data.verdict.includes('22 inches depth'));assert.equal(data.verdict.split(/(?<=[.!?])\s+/).length,3);
+assert.ok(html.includes('18.2')&&html.includes('22 inches deep'),'Depth limits remain on the page, not in the short verdict');assert.equal(data.verdict.split(/(?<=[.!?])\s+/).length,3);
 console.log('PASS Round 7: expected checks 1.1; 18-in stand; window reach/height/glass/stool + all-egress fixture; every wall rule envelope; depth/length/height/four-turn sweep counts; four bed headings; ≤2 labelled generics; catalog sizes; owner correction; static data parity.');

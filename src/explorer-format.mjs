@@ -7,12 +7,19 @@ export const routeText=l=>`${measured(l.measures.route,l.measures.route_unc,l.me
 export const rangeText=l=>`${l.measures.route_min.toFixed(1)}–${l.measures.route_max.toFixed(1)} in (joint scenarios, not a confidence interval)`;
 export const money=n=>n.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2});
 export function storagePlain(l){const ratio=l.measures.storage_volume/l.measures.today_volume-1,a=Math.abs(ratio),direction=ratio>=0?'more':'less';return a<.05?'about the same storage as the cubes':a<.2?`a little ${direction} storage than the cubes`:a<.43?`about a third ${direction} storage than the cubes`:a<.65?`about half ${direction} storage than the cubes`:a<.9?`much ${direction} storage than the cubes`:ratio>0?'at least twice the cubes’ storage':'very little storage compared with the cubes';}
+export function productName(f){
+ if(f.generic)return 'generic size, no product chosen';
+ const names={noak3:'Noak three-drawer dresser',noak6:'Noak six-drawer dresser',article_nera3:'Nera three-drawer chest',article_nera5:'Nera five-drawer chest',article_cooper5:'Cooper chest',article_cooper6:'Cooper dresser',we_midcentury_56:'Mid-Century dresser',miles_dresser_48:'Miles dresser',miles_chest_34:'Miles chest',article_lenia:'Lenia chest',ikea_rast6:'RAST dresser',walker_paris:'Paris dresser'};
+ return names[f.catalog_id]??f.label.replace(/ - .*/, '').replace(/\s*\([^)]*\)/g,'');
+}
 export function layoutSentence(l){
- if(l.id==='today')return 'Keep the king and cubes; the north bedside stays tight.';
- if(l.pinned)return `Queen and ${l.footprints.find(f=>f.kind==='dresser').catalog_id==='we_midcentury_56'?'Mid-Century':'Miles'} dresser: ${storagePlain(l)}, but the open white door pinches.`;
- const stands=l.footprints.filter(f=>f.kind==='nightstand').length===2?'two nightstands':'one nightstand';
- const clear=!l.windows.some(w=>w.glass_hidden_pct>.05),access=l.windows.every(w=>w.comfortable);
- return l.mix==='generic size'?`Queen ${l.head}, generic size, no product chosen; ${stands}, ${clear?'clear windows, but no matching product fits':'but some window glass is hidden'}.`:`Queen ${l.head}, ${l.mix} ${l.storageWall}; ${stands}, ${clear?'clear glass':'some glass hidden'}, ${l.measures.storage_volume<l.measures.today_volume*.75?'but less storage':'with furniture moved'}.`;
+ if(l.id==='today')return 'Keep the king, cubes west, two nightstands and laundry south; the north bedside stays tight.';
+ const f=l.footprints.find(f=>['dresser','storage'].includes(f.kind)),wall=f.wall??l.storageWall;
+ const nightstands=l.footprints.filter(f=>f.kind==='nightstand'),newNames=nightstands.filter(f=>!f.owned).map(productName).join(' and ');
+ const stands=newNames?newNames+(nightstands.some(f=>f.owned)?' and owned nightstand':''):nightstands.length===2?'two nightstands':'one nightstand';
+ if(l.pinned)return `Queen east; ${productName(f)} west, ${stands}; ${storagePlain(l)}, but bathroom-open walkway pinches.`;
+ const clear=!l.windows.some(w=>w.glass_hidden_pct>.05),budget=l.budget_option?'budget option, ':'';
+ return `Queen ${l.head}; ${productName(f)} against ${wall} wall; laundry ${l.rackWall}, ${stands}, ${budget}${clear?'clear glass':'some glass hidden'}.`;
 }
 export function storageText(l){const m=l.measures,pct=Math.round(100*m.difference_from_today.storage_volume/m.today_volume);return `${measured(m.storage_volume,m.storage_unc,m.difference_from_today.storage_volume,'cu in')} (${pct>=0?'+':''}${pct}%); ${m.storage_estimate?'estimate: 0.55 × case above legs':l.footprints.some(f=>f.kind==='storage')?'assumed nine 11-inch cubes':'published drawer interiors'}; planning allowance, not a confidence bound`;}
 export function doorText(l,d){const stops=l.scenarios.map(s=>s.doors.find(x=>x.id===d.id)),unc=Math.max(...stops.map(x=>Math.abs(x.open_rest-d.open_rest)));return `${measured(d.open_rest,unc,l.measures.difference_from_today.door_open_angles.find(x=>x.id===d.id).value,'deg')}; modeled open stop; installed stop unknown`;}
@@ -42,6 +49,8 @@ export function metricsRows(l){const m=l.measures;return [...keyRows(l),
  ...l.doors.filter(d=>d.id!=='shaker_door').map(d=>[d.id.replaceAll('_',' ')+' open stop',doorText(l,d)]),
  ['Changes from Today',String(l.changes)],
  ['Ranking',l.ranking_reason||'Baseline or pinned request; not ranked'],
+ ['Product style and tier',l.footprints.filter(f=>['dresser','storage'].includes(f.kind)).map(f=>`${f.label}: ${f.style_fit} style fit — ${f.style_reason}; ${f.tier} tier${l.budget_option?'; budget option':''}`).join('; ')],
+ ['Storage back against wall',l.placement_sanity?.map(p=>`${p.label}: back to ${p.wall} wall, ${p.gap.toFixed(2)} in; ${p.reason} permits ${p.allowed_standoff.toFixed(2)} in`).join('; ')||'Not reported'],
  ['Real-product substitution',l.replacement?`${l.replacement.generic.length} × ${l.replacement.generic.depth} × ${l.replacement.generic.height} in generic size replaced by ${l.replacement.product}; fit and ranking recomputed`:'Catalog pieces used directly; any generic remains explicitly labelled'],
  ['Drawer standing for every piece (one at a time)',l.drawers.map(d=>`${d.id.replaceAll('_',' ')}: ${inch(d.standing)}${d.estimate?' (estimated travel)':''}`).join('; ')],
  ...l.windows.map(w=>[w.id.replaceAll('_',' ')+' piece height/depth',w.pieces.map(p=>`${p.label}${p.headboard?' headboard':''}: ${p.blocks_operating_spot?'operating spot front-to-glass '+p.reach.toFixed(1)+' in; ':'not between the operating spot and sash; '}top ${p.top.toFixed(1)} in; ${p.under_stool?'fits below stool':'needs stool standoff'} ${p.standoff.toFixed(2)} in; ${p.glass_hidden_pct.toFixed(1)}% glass hidden`).join('; ')||'No overlapping furniture']),

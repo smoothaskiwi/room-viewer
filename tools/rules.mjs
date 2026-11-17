@@ -1,5 +1,6 @@
 import {footprint,headboardFootprint} from '../src/footprint.mjs';
 import {windowReport} from './windows.mjs';
+import {backContact} from './placement.mjs';
 export const overlap=(a,b)=>a.x<b.x+b.w-.001&&b.x<a.x+a.w-.001&&a.y<b.y+b.d-.001&&b.y<a.y+a.d-.001;
 export const placed=footprint;
 export function doorPolygon(o,deg,room){
@@ -45,7 +46,9 @@ export function approachRegions(room,fs){const bed=fs.find(f=>f.kind==='bed'),ou
 export function checkRules(room,brief,fs,{routes=null,fast=false}={}){const rules=[],warnings=[],drawers=[],windows=[];const add=(id,ok,detail)=>rules.push({id,passes:!!ok,detail});
  for(const f of fs){add('bounds '+f.id,f.x>=0&&f.y>=0&&f.x+f.w<=room.room.width_x+.001&&f.y+f.d<=room.room.depth_y+.001,'Furniture inside room');for(const g of fs)if(f.id<g.id)add('collision '+f.id+' / '+g.id,!physicalHit(f,g),'Height-aware physical solids must not overlap');}
  for(const f of fs.filter(f=>f.owned))add('owned inventory '+f.catalog_id,fs.filter(g=>g.catalog_id===f.catalog_id).length===1,'One instance of each owned piece; no cloning');
- const bed=fs.find(f=>f.kind==='bed'),stores=fs.filter(f=>['dresser','storage'].includes(f.kind));add('required items',!!bed&&fs.filter(f=>f.kind==='bed').length===1&&fs.some(f=>f.kind==='rack')&&stores.length>0,'One bed, storage and laundry sorter stay');
+ const bed=fs.find(f=>f.kind==='bed'),stores=fs.filter(f=>['dresser','storage'].includes(f.kind));
+ if(brief.placement_sanity&&!/explicitly allows floating/.test(brief.storage_placement??''))for(const f of stores){const c=backContact(room,f);add('storage back '+f.id,c.passes,`${f.label}: back to ${c.wall} wall, ${c.gap.toFixed(2)} in; allowed ${c.allowed_standoff.toFixed(2)} in (${c.reason})`);}
+ add('required items',!!bed&&fs.filter(f=>f.kind==='bed').length===1&&fs.some(f=>f.kind==='rack')&&stores.length>0,'One bed, storage and laundry sorter stay');
  for(const f of fs)if(bed?.catalog_id===brief.pinned.bed&&Object.keys(brief.excluded||{}).some(id=>id.replace(/^owned /,'')===f.catalog_id))add('excluded '+f.catalog_id,false,'Owner-excluded item; Today is the retained baseline only');
  const sides=bed?bedSides(room,fs):[0,0];add('both bed sides',Math.min(...sides)>=brief.passage.bed_side_strip.hard_min,'Usable strip widths (not disk routes); 15 required, 18 tight, 24 comfortable');
  for(const t of trimBoxes(room))for(const f of fs)if(f.kind!=='rack'&&solids(f).some(s=>s.z<t.z+t.h&&s.z+s.h>t.z&&overlap(s,t)))add('trim '+f.id+' / '+t.id,false,'Physical height-aware trim intersection; movable sorter may touch casing');

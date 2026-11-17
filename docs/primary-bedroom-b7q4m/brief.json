@@ -1,31 +1,19 @@
 {
   "meta": {
-    "version": "1.5 (16 Nov 2026)",
+    "version": "1.6 (16 Nov 2026)",
     "room": "primary-bedroom",
     "status": "defaults proposed by the agent; Daniel can change any of them in plain words",
     "change": "1.0 marked Today invalid (bed north side 15-17 in, window approach, switch behind the sorter, unknown drawer volume), although the household lives in it every day. 1.1 calibrates: anything Today already has is at most a comparison, never invalid.",
     "change_1_2": "1.1 measured the main walkway with the white door standing open at its stop, which made both pinned dresser layouts invalid at 13-16 in. Whether that door is usually open is unknown (asked). 1.2 measures the main walkway with doors in their everyday state and reports each door-open state separately; an open-door pinch is a warning until Daniel says the door stays open. Plain text is shortened.",
     "change_1_3": "Daniel: the white door leads to the primary bathroom and is often closed; about 105 degrees open is acceptable; the cube organiser goes (only Today keeps it); keep the long layout descriptions and add a short summary.",
     "change_1_4": "Daniel: north nightstand is 18 in unless evidence says otherwise; judge windows in 3D (a piece's height and depth, not the width it covers: a shallow, low dresser under a window is fine); explore all permutations of position, rotation and size, including generic depths. Correction: no children in the household; child-safety flags removed.",
-    "change_1_5": "Round 7 ranked first a layout with the queen centred across the east window (headboard hiding 39% of the glass), a 54-in generic chest in front of the north window and one nightstand, because ranking compared exact walkway inches first and treated windows only as warnings. 1.5 ranks in bands, makes window light and access a ranking factor, and asks for real products before generic sizes."
+    "change_1_5": "Round 7 ranked first a layout with the queen centred across the east window (headboard hiding 39% of the glass), a 54-in generic chest in front of the north window and one nightstand, because ranking compared exact walkway inches first and treated windows only as warnings. 1.5 ranks in bands, makes window light and access a ranking factor, and asks for real products before generic sizes.",
+    "change_1_6": "Round 8 ranked a $230 Walker Edison dresser first and placed an IKEA RAST 8.5 in off the east wall, end-on to the south wall, labelled 'south'. 1.6 adds style fit and placement sanity."
   },
-  "plain_policy": "Keep a queen Miles bed reachable from both sides; nothing may collide or stop a door short; the main walkway from the hall door past the foot of the bed must stay at least 20 inches; bed sides at least 15 inches (today's north side is about 16.75); everything else is a trade-off measured against today. Priorities in order: main walkway, bed-side room, storage, fewest changes, cost.",
   "pinned": {
     "bed": "miles_queen",
     "bed_finish": "Toasted Oak frame, Twill Sand headboard"
   },
-  "required": {
-    "bed": 1,
-    "bed_both_sides_reachable": true,
-    "storage": "compare storage with today's nine cube-organiser cubes (assumed 11 x 11 x 11 in each); for dressers without a published drawer volume use an estimate of 0.55 x the case volume above the legs, labelled 'estimate'; less storage than today is a warning, not invalid",
-    "nightstands": "two preferred; one allowed with a warning; existing pieces allowed",
-    "laundry_sorter": "must stay in the room"
-  },
-  "bed_orientations": [
-    "head east (today)",
-    "head north (rotated 90 degrees)",
-    "head south only if no door swing behind it (closet wall)"
-  ],
   "candidate_items": [
     "miles_queen",
     "miles_chest_34",
@@ -47,8 +35,16 @@
     "miles_dresser_70": "too wide for any span",
     "owned cube_organiser": "owner: the cube storage goes in every new layout (Today still shows it as the baseline)"
   },
+  "required": {
+    "bed": 1,
+    "bed_both_sides_reachable": true,
+    "storage": "compare storage with today's nine cube-organiser cubes (assumed 11 x 11 x 11 in each); for dressers without a published drawer volume use an estimate of 0.55 x the case volume above the legs, labelled 'estimate'; less storage than today is a warning, not invalid",
+    "nightstands": "two preferred; one allowed with a warning; existing pieces allowed",
+    "laundry_sorter": "must stay in the room"
+  },
   "passage": {
     "main_route": {
+      "hard_min": 20,
       "from": "hall door clear opening",
       "to": [
         "foot of the bed",
@@ -57,23 +53,22 @@
         "white door",
         "closet door approach"
       ],
-      "hard_min": 20,
       "note": "measured with doors in their everyday state; below 20 is invalid; 24 tight, 30 comfortable, 36 generous are rules of thumb; IRC R311.6 36-in hallway is a reference only"
     },
     "bed_side_strip": {
       "hard_min": 15,
       "note": "width of the strip beside each long side of the bed, measured on its own (the destination, not a route through it); 18 tight, 24 comfortable"
     },
-    "body_model": "routes use floor-level obstacles (anything from the floor to 24 in high) plus anything above 24 in that projects more than 3 in from the wall; window stools and casings projecting 3 in or less do not narrow routes (people pass them), but still count for furniture collisions",
     "drawer_standing": {
+      "hard_min": 8,
       "report": "standing space in front of a fully open drawer, one drawer at a time",
       "guides": {
         "tight": 16,
         "comfortable": 24
       },
-      "hard_min": 8,
       "note": "below 16 is a warning"
     },
+    "body_model": "routes use floor-level obstacles (anything from the floor to 24 in high) plus anything above 24 in that projects more than 3 in from the wall; window stools and casings projecting 3 in or less do not narrow routes (people pass them), but still count for furniture collisions",
     "doors": "white door and closet door: at least 90 degrees (a piece may be the stop); entry door: fully open to the south wall. Report each resting angle."
   },
   "doors": {
@@ -86,6 +81,19 @@
     "report": "main walkway with doors in their everyday state (decides the class); separately, the narrowest point with the white door open at its stop and with the closet door open, each with the difference from Today; below 20 in with a door open is a warning, not invalid, unless the brief marks that door as usually open",
     "preference": "more opening is better for the bathroom door; at least 90 degrees required; about 105 is acceptable to the owner; report the open-door gap at the bed foot as a trade-off"
   },
+  "ranking": "filter invalid; cluster (bed wall, route pattern, furniture mix); pick distinct representatives; then sort lexicographically by BANDS, not raw inches: (1) main walkway band: 30+ comfortable, 24-30 tight, 20-24 minimal; (2) windows: no headboard or piece taller than 40 in in front of window glass, each window comfortable to open (glass hidden by pieces above the stool, as % of each window, smaller is better; a headboard over glass counts double); (3) bed-side band: both sides 24+, 18-24, 15-18; (4) style fit per brief.style; (5) two nightstands (owned or new) over one; (6) storage band versus Today: at least as much, within 25% less, more than 25% less; (7) real catalog product over generic size; (8) fewer changes; (9) lower cost. Within equal bands, prefer the larger raw walkway. Show Today plus four distinct valid or conditional layouts first, then up to eight; pinned layouts always shown. Each card states in plain words why it ranks where it does when a window or nightstand factor decided it.",
+  "style": {
+    "direction": "Angela: mid-century modern; warm walnut or oak, tapered legs, simple lines; should sit well with the Miles bed in Toasted Oak",
+    "catalog_tags": "each catalog piece gets style_fit (strong / partial / weak, with a one-line reason from its materials, finish and form) and tier (budget / mid / premium); record the basis",
+    "ranking": "insert after the bed-side band: (style) strong before partial before weak; budget-tier pieces are recommended only when no mid or premium piece reaches the same bands, and are labelled 'budget option'"
+  },
+  "placement_sanity": "storage pieces stand with their back against a wall (gap = baseboard, or the stool or casing standoff where a window requires it) unless the brief explicitly allows floating; the wall label comes from the back face's contact; drawer fronts face open floor; a piece is never left a few inches off a wall without a named reason; summaries name what changes concretely (e.g. 'queen where the king is, Paris dresser on the west wall') instead of 'with furniture moved'",
+  "plain_policy": "Keep a queen Miles bed reachable from both sides; nothing may collide or stop a door short; the main walkway from the hall door past the foot of the bed must stay at least 20 inches; bed sides at least 15 inches (today's north side is about 16.75); everything else is a trade-off measured against today. Priorities in order: main walkway, bed-side room, storage, fewest changes, cost.",
+  "bed_orientations": [
+    "head east (today)",
+    "head north (rotated 90 degrees)",
+    "head south only if no door swing behind it (closet wall)"
+  ],
   "windows": {
     "model": "3D. Judge each piece in front of a window by its height and depth, not by the width it covers. Window coverage by width is no longer a warning.",
     "operable": "an adult standing at the piece's front can open the sash if the horizontal reach from the piece's front edge to the glass plane is at most 24 in (comfortable) or 30 in (limit) and the piece's top is at most 40 in high. Single-hung windows: unlock at the meeting rail, lift the lower sash. Past the limit the window counts as not openable: a warning, and invalid only if it leaves the bedroom with no openable egress-candidate window.",
@@ -100,7 +108,6 @@
     "conditional": "passes at the best estimate but fails in a plausible joint scenario; name the measurement that settles it",
     "preference": "warnings and trade-offs, each stated as a difference from Today"
   },
-  "ranking": "filter invalid; cluster (bed wall, route pattern, furniture mix); pick distinct representatives; then sort lexicographically by BANDS, not raw inches: (1) main walkway band: 30+ comfortable, 24-30 tight, 20-24 minimal; (2) windows: no headboard or piece taller than 40 in in front of window glass, each window comfortable to open (glass hidden by pieces above the stool, as % of each window, smaller is better; a headboard over glass counts double); (3) bed-side band: both sides 24+, 18-24, 15-18; (4) two nightstands (owned or new) over one; (5) storage band versus Today: at least as much, within 25% less, more than 25% less; (6) real catalog product over generic size; (7) fewer changes; (8) lower cost. Within equal bands, prefer the larger raw walkway. Show Today plus four distinct valid or conditional layouts first, then up to eight; pinned layouts always shown. Each card states in plain words why it ranks where it does when a window or nightstand factor decided it.",
   "calibration": {
     "rule": "Today (the arrangement the household lives in) must classify as valid. Any rule that Today fails is a preference comparison ('tighter than today by X in'), not invalid. Enforce with a test.",
     "today_reference": "report every measure for Today and show each layout's difference from Today"

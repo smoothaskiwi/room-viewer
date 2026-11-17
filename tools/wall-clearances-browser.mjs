@@ -6,14 +6,16 @@ import {fileURLToPath} from 'node:url';
 import puppeteer from 'puppeteer-core';
 import {AxePuppeteer} from '@axe-core/puppeteer';
 import {wallClearances,formatGap,clearanceText} from '../src/wall-clearances.mjs';
-const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),root=path.dirname(repo),out=path.join(root,'evidence');await fs.mkdir(out,{recursive:true});
+import {repo,project} from './project.mjs';
+const out=path.join(project,'prototype/renders/round-9a');await fs.mkdir(out,{recursive:true});
+const capture=process.argv.includes('--screenshots');
 const baseDir=path.join(repo,'docs/primary-bedroom-b7q4m');
 const data=JSON.parse(await fs.readFile(path.join(baseDir,'layouts.json'),'utf8')),raw=JSON.parse(await fs.readFile(path.join(baseDir,'render-spec.json'),'utf8'));
 const errors=[],requests=[],checks=[],screens=[];let browser;
-const server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',root],{stdio:['ignore','pipe','pipe']});
+const server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',path.join(repo,'docs')],{stdio:['ignore','pipe','pipe']});
 const port=await new Promise((resolve,reject)=>{let s='';server.stdout.on('data',b=>{s+=b;const m=s.match(/port (\d+)/);if(m)resolve(+m[1]);});server.on('error',reject);setTimeout(()=>reject(Error('Server did not start')),8000).unref();});
-const prefix=`http://127.0.0.1:${port}`,url=prefix+'/work/docs/primary-bedroom-b7q4m/',baseline=prefix+'/preimages/docs/primary-bedroom-b7q4m/';
-async function shot(page,name){await page.$eval('#three-host',e=>e.scrollIntoView({block:'center'}));await new Promise(r=>setTimeout(r,80));await page.screenshot({path:path.join(out,name+'.png')});screens.push(name+'.png');}
+const prefix=`http://127.0.0.1:${port}`,url=prefix+'/primary-bedroom-b7q4m/';
+async function shot(page,name){if(!capture)return;await page.$eval('#three-host',e=>e.scrollIntoView({block:'center'}));await new Promise(r=>setTimeout(r,80));await page.screenshot({path:path.join(out,name+'.png')});screens.push(name+'.png');}
 async function labelsCheck(page,expected){const info=await page.evaluate(()=>{
  const labels=[...document.querySelectorAll('.wall-gap-label')];const rects=labels.map(e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height,font:parseFloat(getComputedStyle(e).fontSize)};});
  const host=document.querySelector('#three-host').getBoundingClientRect();let overlaps=0;
@@ -23,10 +25,7 @@ async function labelsCheck(page,expected){const info=await page.evaluate(()=>{
 }
 try{
  browser=await puppeteer.launch({executablePath:'/usr/sbin/google-chrome-stable',headless:true,args:['--headless=new','--enable-unsafe-swiftshader','--use-angle=swiftshader','--no-sandbox']});
- // Collect actual untouched renderer bounds, independently of analytic envelope.
- const old=await browser.newPage(),oldBounds={};await old.goto(baseline,{waitUntil:'networkidle0'});await old.waitForFunction(()=>window.__explorer?.ready);
- for(const l of data.layouts){await old.evaluate(id=>window.__explorer.open(id),l.id);await old.click('[data-view="hall"]');await old.waitForFunction(()=>window.__explorer?.view==='hall');oldBounds[l.id]=await old.evaluate(()=>window.__explorer.bounds());}
- await old.close();await fs.writeFile(path.join(out,'baseline-mesh-bounds.json'),JSON.stringify(oldBounds,null,2));
+ const expectedGaps=data.layouts.reduce((n,l)=>n+l.footprints.length*4,0);
  for(const phone of [true,false]){
   const mode=phone?'phone':'desktop',page=await browser.newPage();await page.setViewport(phone?{width:412,height:915,deviceScaleFactor:2,isMobile:true,hasTouch:true}:{width:1440,height:900,deviceScaleFactor:1});
   page.on('pageerror',e=>errors.push(mode+': '+e.message));page.on('console',m=>{if(m.type()==='error')errors.push(mode+': '+m.text());});page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});page.on('requestfailed',r=>errors.push('Request failed '+r.url()));page.on('request',r=>{if(!r.url().startsWith(prefix)&&!r.url().startsWith('data:'))requests.push(r.url());});
@@ -37,7 +36,7 @@ try{
    await page.evaluate(id=>window.__explorer.open(id),l.id);assert.equal(await page.$eval('#wall-gap-piece',e=>e.options.length),l.footprints.length);
    for(const view of ['hall','bed','orbit']){
     await page.click(`[data-view="${view}"]`);await page.waitForFunction(v=>window.__explorer.view===v,{timeout:15000},view);assert.ok(await page.evaluate(()=>window.__explorer.webgl),'Real WebGL required');
-    assert.deepEqual(await page.evaluate(()=>window.__explorer.bounds()),oldBounds[l.id],`${l.id} actual rendered bounds unchanged`);
+    const bounds=await page.evaluate(()=>window.__explorer.bounds());for(const f of l.footprints){const b=bounds[l.id+'--'+f.id];assert.ok(b);for(const [actual,want]of [[b.min[0],f.x],[b.min[1],f.y],[b.max[0],f.x+f.w],[b.max[1],f.y+f.d]])assert.ok(Math.abs(actual-want)<=.25,'Rotated footprint/mesh integration');}
     const camera=await page.evaluate(()=>window.__explorer.camera());
     for(const f of l.footprints){
      await page.select('#wall-gap-piece',f.id);assert.deepEqual(await page.evaluate(()=>window.__explorer.camera()),camera,'Selecting a piece preserves camera');
@@ -66,7 +65,7 @@ try{
   await page.goto(url+'?no3d=1#layout=today',{waitUntil:'networkidle0'});await page.waitForFunction(()=>window.__explorer?.layout==='today');await page.click('[data-view="hall"]');await page.waitForFunction(()=>!document.querySelector('#fallback-note').hidden);assert.equal(await page.$eval('#wall-gap-piece',e=>e.options.length),5);await page.select('#wall-gap-piece','laundry_sorter');assert.ok(await page.$eval('#wall-gap-readout',e=>e.textContent.includes('South:')));checks.push(mode+' no3d HTML/selector fallback');await page.close();
  }
  // No-JS lists are generated HTML, not dependent on canvas or JS.
- const nj=await browser.newPage();await nj.setJavaScriptEnabled(false);await nj.goto(url,{waitUntil:'networkidle0'});assert.equal(await nj.$$eval('[data-clearance-layout] dd',es=>es.length),152);await nj.close();
+ const nj=await browser.newPage();await nj.setJavaScriptEnabled(false);await nj.goto(url,{waitUntil:'networkidle0'});assert.equal(await nj.$$eval('[data-clearance-layout] dd',es=>es.length),expectedGaps);await nj.close();
  assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
- const report={status:'passed',layouts:data.layouts.map(l=>l.id),furnitureInstances:38,gaps:152,views:['hall','bed','orbit','photos (no misleading wall labels)','plan'],checks,screenshots:screens,consoleNetworkErrors:errors,thirdPartyRequests:requests,baselineBounds:'baseline-mesh-bounds.json',devices:['412×915 DPR 2 touch emulation','1440×900 desktop'],chrome:'Dedicated headless system Chrome / SwiftShader',limitations:'No tape measurement, physical phone or physical screen-reader verification. Overall envelope distances, not exact decorative-mesh distances.'};await fs.writeFile(path.join(out,'verification.json'),JSON.stringify(report,null,2));console.log(`PASS ${checks.length} browser groups; ${screens.length} real screenshots; 8 variants / 38 pieces / 152 gaps; unchanged rendered bounds; zero console/network errors; zero axe violations.`);
+ const report={status:'passed',layouts:data.layouts.map(l=>l.id),furnitureInstances:expectedGaps/4,gaps:expectedGaps,views:['hall','bed','orbit','photos (no misleading wall labels)','plan'],checks,screenshots:screens,consoleNetworkErrors:errors,thirdPartyRequests:requests,meshBounds:'Every rotated footprint verified against real renderer within 0.25 in',devices:['412×915 DPR 2 touch emulation','1440×900 desktop'],chrome:'Dedicated headless system Chrome / SwiftShader',limitations:'No tape measurement, physical phone or physical screen-reader verification. Overall envelope distances, not exact decorative-mesh distances.'};await fs.writeFile(path.join(out,'wall-clearance-verification.json'),JSON.stringify(report,null,2));console.log(`PASS ${checks.length} browser groups; ${screens.length} real screenshots; ${data.layouts.length} layouts / ${expectedGaps/4} pieces / ${expectedGaps} gaps; rotated rendered bounds; zero console/network errors; zero axe violations.`);
 }finally{await browser?.close();server.kill('SIGTERM');await new Promise(r=>server.once('exit',r));}

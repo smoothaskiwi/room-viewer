@@ -6,12 +6,13 @@
   "type": "module",
   "scripts": {
     "build": "node tools/build.mjs",
-    "test": "npm run build && node tools/explorer-test.mjs && node tools/explorer-browser.mjs",
+    "test": "npm run build && node tools/explorer-test.mjs && node tools/explorer-browser.mjs && node tools/wall-clearances-browser.mjs",
     "verify": "node tools/explorer-browser.mjs --screenshots"
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "three": "0.187.0"
+    "three": "0.187.0",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@axe-core/puppeteer": "^4.14.0",

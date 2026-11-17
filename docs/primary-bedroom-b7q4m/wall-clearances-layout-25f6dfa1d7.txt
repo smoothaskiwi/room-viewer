@@ -1,4 +1,4 @@
-Bed east, dresser south; laundry south
+Bed east, dresser west; laundry south
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Miles Wood & Upholstered Bed — Queen [bed]
@@ -13,11 +13,17 @@ Small wood nightstand [nightstand_north]
   south: 120½ in
   west: 107 in
 
-RAST 6-drawer dresser [ikea_rast6]
-  north: 90 in
-  east: 8½ in
-  south: 1 in
-  west: 106 in
+Wood two-drawer nightstand, splayed legs [nightstand_south]
+  north: 85 in
+  east: 3 in
+  south: 35½ in
+  west: 111½ in
+
+Noak 3-Drawer Dresser [noak3]
+  north: 2 in
+  east: 112 in
+  south: 102½ in
+  west: 1 in
 
 Rolling laundry sorter [laundry_sorter]
   north: 121 in

@@ -1,4 +1,4 @@
-# Bedroom layout explorer — round 8
+# Bedroom layout explorer — round 9a
 
 Static, accessible three.js + SVG bedroom comparison. Agents generate and audit layouts at build time; the phone only reads the resulting gallery. No login, CDN, remote API, or client-side solver.
 
@@ -11,7 +11,7 @@ npm test
 npm run verify
 ```
 
-Both commands start their own `python3 -m http.server` on a dynamically assigned **127.0.0.1-only** port and stop it in `finally`. Verification uses dedicated **headless** system Chrome with SwiftShader, never the user's visible browser. It writes evidence to the owning project's `prototype/renders/round-8/`.
+Both commands start their own `python3 -m http.server` on a dynamically assigned **127.0.0.1-only** port and stop it in `finally`. Verification uses dedicated **headless** system Chrome with SwiftShader, never the user's visible browser. It writes evidence to the owning project's `prototype/renders/round-9a/`.
 
 To browse manually, serve `docs/` with a loopback HTTP server and open `/primary-bedroom-b7q4m/`. Stop that server when finished. Commit does not publish; pushing remains a separate owner action.
 
@@ -25,17 +25,27 @@ To browse manually, serve `docs/` with a loopback HTTP server and open `/primary
 
 ## Pipeline and contract
 
-`tools/catalog.mjs` compiles dimensions, owned inventory, published drawer volume/travel and labelled estimates, dated prices and finishes. Official downloaded images supply only a provisional colour sample; geometry is parametric and illustrative. Brief 1.5 retains explicit estimates when specifications omit values: travel = case depth minus 3 in; storage = 0.55 × case volume above the legs (6-in legs assumed if unpublished). Estimates and planning uncertainty are labelled, never passed off as product specifications.
+`tools/catalog.mjs` compiles dimensions, owned inventory, published drawer volume/travel and labelled estimates, dated prices and finishes. Official downloaded images supply only a provisional colour sample; geometry is parametric and illustrative. Brief 1.6 retains explicit estimates when specifications omit values: travel = case depth minus 3 in; storage = 0.55 × case volume above the legs (6-in legs assumed if unpublished). Estimates and planning uncertainty are labelled, never passed off as product specifications.
 
-`tools/explore.mjs` enumerates allowed head walls and current/corner/centred/window/15/18/24-in constraint boundaries and 3/6-in off-wall positions, owned/new nightstands on either side (or one with a warning), allowed storage pieces (the owner-excluded cubes are never generated), and laundry positions. It prunes incrementally, checks 3D trim/stool layers, one-sided swept door leaves, drawer standing space, inventory multiplicity, 3D window access and switches/registers. Tall storage receives ordinary manufacturer anti-tip advice only. It filters analytic failures, retains local Pareto trade-offs, clusters by bed wall/storage mix/laundry route pattern, then ranks lexicographically by walkway band, window light and access (headboard over glass counts double), bedside band, two nightstands, storage band, real products, changes and dated cost; raw walkway breaks only equal-factor ties. Only non-invalid layouts can be recommendations.
+`tools/explore.mjs` enumerates allowed head walls and current/corner/centred/window/15/18/24-in constraint boundaries and 3/6-in off-wall positions, owned/new nightstands on either side (or one with a warning), allowed storage pieces (the owner-excluded cubes are never generated), and laundry positions. It prunes incrementally, checks 3D trim/stool layers, one-sided swept door leaves, drawer standing space, inventory multiplicity, 3D window access and switches/registers. Tall storage receives ordinary manufacturer anti-tip advice only. It filters analytic failures, retains local Pareto trade-offs, clusters by bed wall/storage mix/laundry route pattern, then ranks lexicographically by walkway band, window light and access (headboard over glass counts double), bedside band, style fit, two nightstands, storage band, real products, changes and dated cost; raw walkway breaks only equal-factor ties. Only non-invalid layouts can be recommendations.
 
 `tools/routes.mjs` computes build-time conservative **0.5-inch Euclidean distance transforms**, disk width = twice radius, and max–min paths without diagonal corner cutting. It chooses the shortest route at the widest capacity, retains exact-geometry diagnostic bounds, and reports the conservative lower estimate without sub-grid inflation. Endpoints are approach regions, not furniture centres. Doorway width, individual drawer standing space and the familiar local/90° door gaps stay separate. Joint survey/camera/worst-plausible scenarios re-anchor wall-adjacent pieces; they are not statistical confidence intervals.
 
 The canonical head/front faces east. Placement x/y is the minimum corner **after** rotation: 0 east, 90 south, 180 west, 270 north. A source room supplies geometry; the bedroom activity rules are not a universal living-room solver.
 
+## Round 9a engine foundation
+
+- `tools/schemas.mjs` uses pinned zod to validate room, brief, every product source and the normalised catalog on load. Errors identify the source and field path; unknown brief ids and conflicting duplicate dimensions fail rather than being skipped.
+- `tools/catalog.mjs` merges all seven supplied source files, including all MCM categories, nook tables, owned-photo estimates, candidate hypotheses and unowned Machinto variants: 177 canonical records, plus eight generated reference sizes. `dims_in` stays manufacturer W/D/H; engine w/d remains depth/width before rotation. Images/sources, extra dimensions, dated prices, owned flags and photo uncertainty stay explicit. Style and price-tier judgments record their heuristic basis.
+- `tools/search.mjs` yields candidates. Five worker threads partition bed anchors; each family retains at most eight proxy-rank, four bedside and two few-change candidates in sorted bounded structures. Merge is deterministic and associative; no array of all passing layouts exists. Routes run in a second worker phase. Non-budget band evidence survives family selection. Reference envelope/depth tables are still computed independently, not inferred from a discarded survivor archive.
+- `tools/ranking.mjs` inserts strong/partial/weak style after bedside bands. Budget furniture is eligible only without a route-tested mid/premium product in the same earlier bands and is labelled “budget option.” This remains a sampled bounded search, not exhaustive continuous optimisation.
+- `tools/placement.mjs` requires storage backs at baseboard or named window-stool/casing standoffs; fronts face open floor. Concrete summaries name the product and back-contact wall. Beds may still float as permitted by the brief.
+- `npm test` includes synthetic and real reduced-generator exhaustive/bounded/sharded equivalence, complete-versus-incremental analytic checks, schema errors, duplicate conflicts, style/budget fixtures, every storage back contact and summary, plus all retained geometry/browser checks. The Family wall-clearance geometry and 50 browser groups also run against the newly generated layouts, with dynamic piece/gap counts and no stale fixed-ID assumptions.
+- Search time and whole-process peak RSS (all worker threads included) are logged and stored in `layouts.json.search`. Round 7 independent audit: 168 seconds / 4,219 MB; Round 8 successful peak 1,910,392 KiB. Round 9a meets the under-30-second / under-1-GB target on the development host; exact final measurements live in the owning project’s Round 9a evidence and build notes.
+
 ## The actual result
 
-Brief **1.5** keeps **Today valid** (26-in conservative main route, 17.75/26.6-in side strips). Five distinct ranked alternatives pass at the best estimate; their individual joint-scenario classes remain visible. All four and both pinned dresser requests are visible. Only Today retains the cubes. The bounded search is not a global-optimum claim.
+Brief **1.6** keeps **Today valid** (26-in conservative main route, 17.75/26.6-in side strips). Five distinct ranked alternatives pass at the best estimate; their individual joint-scenario classes remain visible. All four and both pinned dresser requests are visible. Only Today retains the cubes. The bounded search is not a global-optimum claim.
 
 Hard checks: height-aware collisions/room bounds, required items, white/closet doors ≥90° and entry fully open, main routes ≥20 in, bed strips ≥15 in, one-open-drawer standing ≥8 in. Below 16-in standing, storage shortfall, switch reach, receptacles and glass-hidden area are preferences. Window operation is a warning unless no openable egress-candidate remains (then invalid). Body routes ignore above-24-in wall projections ≤3 in; furniture collisions still include trim/stools. Main paths end at side-strip **entrances**, never inside the 15-in strip or at the glass. The strip measure excludes the head-end table and uses the usable middle of the long side.
 
@@ -57,7 +67,7 @@ Tracked files and `git log -p main` are leak-scanned. Never push `local-history-
 
 ## Round 8 sizes, window light and geometry
 
-The owner's north nightstand is 18 in; king and pinned queen north edge 18.5 in. Audit 1.1 pins the queen headboard to 18.5–83.1: 1.8 in casing span overlap, 2.8 in assumed stool overlap, 2 in clear of glass. Inputs are copied unchanged. Raised headboards use their actual thin rotated solids for glass area; per-piece reach is reported only for a piece between the best operating spot and sash. Nearest-wall text labels derive from the rotated footprint shared by plan data, window checks and audited 3D.
+The owner's north nightstand is 18 in; king and pinned queen north edge 18.5 in. Audit 1.1 pins the queen headboard to 18.5–83.1: 1.8 in casing span overlap, 2.8 in assumed stool overlap, 2 in clear of glass. Inputs are copied unchanged. Raised headboards use their actual thin rotated solids for glass area; per-piece reach is reported only for a piece between the best operating spot and sash. Storage wall labels now use the back face contacting the wall, not the nearest end; other furniture retains nearest-wall labels. The rotated footprint is shared by plan data, window checks and audited 3D.
 
 `tools/windows.mjs` evaluates piece-front to assumed glass/wall plane (24 in comfortable, 30 limit) over tops at most 40 in, union glass-hidden area, and strictly-under-stool height (top minus 1 in). Higher pieces stand off by stool projection. No width-coverage warning or width-based egress penalty remains. At least one egress-candidate must remain openable; this is planning, not code approval. Sash recess, locks and operating force remain unmeasured.
 
@@ -65,7 +75,7 @@ The owner's north nightstand is 18 in; king and pinned queen north edge 18.5 in.
 
 Four compact wall tables expose plain Deepest / Tallest / Longest rows with their limits, ± allowances, and “not limiting” heights instead of meaningless scalar probe values; three depth/length tables show conservative moving route, local gap, door angle, drawer standing and window reach, plus nearest catalog sizes. An envelope's scalar maxima are not one guaranteed-fitting box. West reference: 18.225-in depth with estimated depth-minus-3 drawer travel (8-in standing); 21.45-in depth for a straight 20-in walkway only. North sash comfort: 22-in cabinet depth plus 2-in stool standoff, 40-in height; below 27-in top slides beneath the 28-in stool. Full owner-edge window dresser fits can still fail bedside/drawer rules. Physical tape and real hardware remain necessary.
 
-## Round 8 verification and bounded-search memory
+## Historical Round 8 verification and memory repair
 
 Run **one** `npm test` at a time, then `npm run verify`. Both use dedicated headless Chrome with a loopback Python server; browser cleanup stops the server in `finally`. `python3 tools/round8-evidence.py` indexes actual PNGs and derives inspection sheets without inventing images. Evidence stays outside the public repository.
 
