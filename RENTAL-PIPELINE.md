@@ -8,7 +8,7 @@ Local-only tooling for the five room pages. Product research and council inputs 
 npm run rental:ingest
 ```
 
-This re-reads all five rental research/shop sources, reads the dated rental council's A/B/C pinned room files, re-evaluates geometry and rental rules, ranks the actual schemes across quality/value tiers (cost breaks same-tier score ties), copies compressed local product images, rebuilds rental-first pages, and regenerates shopping CSVs. It does not repeat the owner-layout search and does not publish anything. `npm run build` also runs this step after the complete owner build.
+This re-reads all five rental research/shop sources, reads the dated rental council's A/B/C pinned room files, re-evaluates geometry and rental rules, ranks the actual schemes across quality/value tiers (price breaks equal-score ties), copies compressed local product images, rebuilds rental-first pages, and regenerates shopping CSVs. It does not repeat the owner-layout search and does not publish anything. `npm run build` also runs this step after the complete owner build.
 
 Optional `RENTAL_COUNCIL_DIR` selects another council root. A missing root or missing designer/room file produces no fake proposals; malformed submissions are listed in the ingestion report. New furniture needs sourced canonical dimensions, not just its proposed footprint. Hand checks and submitted cost totals are not treated as engine proof.
 

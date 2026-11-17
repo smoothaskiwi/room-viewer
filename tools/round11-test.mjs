@@ -11,6 +11,8 @@ for(const page of pages){const data=JSON.parse(await fs.readFile(repo+'/docs/'+p
   if(l.builder_adjustment&&!l.sofa_swap){const original=ls.find(o=>o.id===l.original_id);ok(original.class==='invalid','original real failure retained');ok(!l.failures.length,'small adjustment solves nominal geometry');const changes=l.placements.filter((p,i)=>JSON.stringify(p)!==JSON.stringify(original.placements[i]));ok(changes.length===1,'only one piece moved');}
   if(l.sofa_swap){const original=ls.find(o=>o.id===l.original_id);ok(original,'swap original kept');ok(Math.abs(original.shop.total-l.shop.total-l.sofa_swap.savings_usd)<.01,'swap saving equals actual total difference');ok(l.placements.some(p=>p.catalog_id==='ikea_ekholma_kilanda_brown_red'),'researched exact sofa');ok(l.class==='conditional'&&!l.failures.length,'Martindale/cleaning caveat shown, no invented double-rub equivalence');}
   for(const s of placedStyling(l).filter(s=>/rug/.test(s.category))){const [w,h]=styleSize(s,[60,96]),x=s.x??(data.room.room.width_x-w)/2,y=s.y??(data.room.room.depth_y-h)/2;ok(x>=0&&y>=0&&x+w<=data.room.room.width_x&&y+h<=data.room.room.depth_y,l.id+' rug inside walls');}
+  if(l.id==='A-guest-bedroom-q1')ok(l.conditions.some(c=>/142\.35/.test(c)),'published guest depth condition carried to buying checks');
+  if(l.id==='C-living-room-v1-value-sofa-swap')ok(l.headline.includes('18.0 in')&&!l.headline.includes('1.0 in;'),'show viable seating approach, not unused blocked alternative');
   if(page.room==='living-room')ok(rentalPlan(data.room,l).includes('data-tv'),'living plan names the television');
  }
 }
