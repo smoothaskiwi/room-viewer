@@ -1,8 +1,10 @@
 import assert from 'node:assert/strict';
-import {activityInputs} from './activity-inputs.mjs';
+import {activityInputs,tableShape} from './activity-inputs.mjs';
 import {councilCandidates} from './council.mjs';
 import {shape} from './shapes.mjs';
 assert.equal(shape({x:0,y:0,w:48,d:30,shape:'racetrack'}).shape,'pill');
+for(const [note,form]of [['pill (racetrack), semicircular ends, long axis east-west','pill'],['oval as sold (ask for a true racetrack), long axis east-west','oval'],['rounded oval, bounding box given','oval'],['round, 42 diameter, bounding box given','round']])assert.equal(shape({x:0,y:0,w:42,d:42,shape:note}).shape,form,'Council README permits a shape note: '+note);
+assert.equal(tableShape({footprint:'circle',label:'Mid-Century Rounded Extendable Dining Table'}),'round','Published footprint wins over descriptive collection name');
 assert.equal(shape({x:0,y:0,w:48,d:48,shape:'circle'}).shape,'round');
 const {room,catalog}=await activityInputs('dining-room');
 const proposal={room:'dining-room',designer:'B',layouts:[{id:'extended-size-fixture',title:'Published extension',summary:'Show the maker’s actual extended state, not a fabricated size.',placements:[{catalog_id:'we_mc39',x:45.5,y:51.5,rotation:90,faces:'west',state:'extended',footprint_w:32,footprint_d:55}]}]};

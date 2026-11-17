@@ -2,7 +2,7 @@ import F from '@flatten-js/core';
 const {Point,Polygon,Arc,Segment,BooleanOperations,Relations}=F;
 const p=([x,y])=>new Point(x,y), TAU=2*Math.PI;
 export const rectPolygon=({x,y,w,d})=>[[x,y],[x+w,y],[x+w,y+d],[x,y+d]];
-export const canonicalShape=name=>({circle:'round',circular:'round',ellipse:'oval',elliptical:'oval',racetrack:'pill',capsule:'pill',stadium:'pill',rect:'rectangle',rectangular:'rectangle',square:'rectangle'}[String(name).toLowerCase().trim()]??String(name).toLowerCase().trim());
+export const canonicalShape=name=>{const text=String(name).toLowerCase().trim(),token=text.match(/^(?:true\s+|rounded\s+)?(rectangle|rectangular|rect|square|oval|elliptical|ellipse|round|circle|circular|pill|racetrack|capsule|stadium|boat|clipped|polygon)\b/)?.[1]??text;return {circle:'round',circular:'round',ellipse:'oval',elliptical:'oval',racetrack:'pill',capsule:'pill',stadium:'pill',rect:'rectangle',rectangular:'rectangle',square:'rectangle'}[token]??token;};
 export function shape(s) {
  const f={x:0,y:0,z:0,h:30,rotation:0,shape:'rectangle',...s};f.shape=canonicalShape(f.shape);
  if(f.shape==='polygon'&&f.polygon)return f;

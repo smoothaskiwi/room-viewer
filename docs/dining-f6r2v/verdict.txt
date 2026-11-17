@@ -321,9 +321,9 @@ Measurement that settles it: Tape chandelier centre and room size; verify arch j
 Hard failures: None at best estimate
 Scenario failures: None in tested scenarios
 
-Council pick C1 · Oval table under the light, the walnut console stays as the sideboard [invalid]
+Council pick C1 · Oval table under the light, the walnut console stays as the sideboard [valid]
 60.0 × 42.0 oval east–west, 4 chairs, north sideboard; arch walk 40.0 inches.
-Class: invalid
+Class: valid
 Table: 60.0 × 42.0 × 30.2 in, oval; Mid-Century Rounded Extendable Dining Table 60–80 oval
 Everyday main walk: 40.0 ±3.0 in (+8.0 vs Today)
 Seated main walk: 36.0 ±3.0 in (+4.0 vs Today)
@@ -340,13 +340,13 @@ Light centre offset: 1.0 in from ASSUMED centre ±12 in; position not on electri
 Owned rug beyond long sides: 15.0 in, 9.0 short of 24-in guide
 New cost: $1,495; dated catalog, not delivered quote
 Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
-Hard failures: proposal: unsupported table shape rounded oval, bounding box given
-Scenario failures: room smaller: proposal: unsupported table shape rounded oval, bounding box given / light west: proposal: unsupported table shape rounded oval, bounding box given / light east: proposal: unsupported table shape rounded oval, bounding box given / light north: proposal: unsupported table shape rounded oval, bounding box given / light south: proposal: unsupported table shape rounded oval, bounding box given
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
 
-Council pick C2 · Round 42 that opens to an oval, slim Heidi sideboard [invalid]
-42.0 × 42.0 rectangle east–west, 4 chairs, north sideboard; arch walk 40.0 inches.
-Class: invalid
-Table: 42.0 × 42.0 × 30.4 in, rectangle; Mid-Century Rounded Extendable Dining Table 42–60
+Council pick C2 · Round 42 that opens to an oval, slim Heidi sideboard [valid]
+42.0 × 42.0 round east–west, 4 chairs, north sideboard; arch walk 40.0 inches.
+Class: valid
+Table: 42.0 × 42.0 × 30.4 in, round; Mid-Century Rounded Extendable Dining Table 42–60
 Everyday main walk: 40.0 ±3.0 in (+8.0 vs Today)
 Seated main walk: 37.0 ±3.0 in (+5.0 vs Today)
 Chairs pulled out main walk: 25.0 ±3.0 in (-7.0 vs Today)
@@ -362,8 +362,8 @@ Light centre offset: 0.0 in from ASSUMED centre ±12 in; position not on electri
 Owned rug beyond long sides: 15.0 in, 9.0 short of 24-in guide
 New cost: $2,194; dated catalog, not delivered quote
 Measurement that settles it: Tape chandelier centre and room size; verify arch jambs, sideboard travel and window stool.
-Hard failures: proposal: unsupported table shape round, 42 diameter, bounding box given
-Scenario failures: room smaller: proposal: unsupported table shape round, 42 diameter, bounding box given / light west: proposal: unsupported table shape round, 42 diameter, bounding box given / light east: proposal: unsupported table shape round, 42 diameter, bounding box given / light north: proposal: unsupported table shape round, 42 diameter, bounding box given / light south: proposal: unsupported table shape round, 42 diameter, bounding box given
+Hard failures: None at best estimate
+Scenario failures: None in tested scenarios
 
 Council pick C3 · Table moved north, a straight walk between the arches [conditional]
 60.0 × 38.0 rectangle east–west, 4 chairs, south sideboard; arch walk 41.0 inches.

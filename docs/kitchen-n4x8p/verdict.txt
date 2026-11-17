@@ -322,9 +322,9 @@ Measurement that settles it: Tape usable seat depth to the cushion face, base fo
 Hard failures: None at best estimate
 Scenario failures: None in tested scenarios
 
-Council pick C1 · Solid walnut pill on a wood pedestal, pulled 2 in off the south bench [invalid]
+Council pick C1 · Solid walnut pill on a wood pedestal, pulled 2 in off the south bench [valid]
 48.0 × 30.0 pill, 1.0/-2.0-inch bench overlaps; 31.4 inches east to dining, one north chair.
-Class: invalid
+Class: valid
 Table: 48.0 × 30.0 × 30.0 in, pill; Jarvis Racetrack — Walnut/Pure D 48 × 30
 Everyday main walk: 41.0 ±3.0 in (+9.5 vs Today)
 Seated main walk: 33.5 ±3.0 in (+8.0 vs Today)
@@ -342,12 +342,12 @@ Pendant centre offset: 10.6 ±3.0 in (+4.1 vs Today)
 Counted seats: 4: 1 west, 1 south, 2 loose; corner not counted. 21-in minimum, not 24-in comfort.
 New cost: $2,780; dated catalog, not delivered quote
 Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
-Hard failures: proposal: unsupported table shape pill (racetrack), semicircular ends, long axis east-west
+Hard failures: None at best estimate
 Scenario failures: None in tested scenarios
 
-Council pick C2 · In-stock walnut tulip oval, the try-it-this-month table [invalid]
+Council pick C2 · In-stock walnut tulip oval, the try-it-this-month table [valid]
 48.0 × 27.5 oval, 2.0/-2.0-inch bench overlaps; 32.4 inches east to dining, one north chair.
-Class: invalid
+Class: valid
 Table: 48.0 × 27.5 × 28.5 in, oval; Lippa 48 Oval — Walnut EEI-2019-WAL
 Everyday main walk: 43.5 ±3.0 in (+12.0 vs Today)
 Seated main walk: 35.5 ±3.0 in (+10.0 vs Today)
@@ -365,12 +365,12 @@ Pendant centre offset: 12.1 ±3.0 in (+5.6 vs Today)
 Counted seats: 4: 1 west, 1 south, 2 loose; corner not counted. 21-in minimum, not 24-in comfort.
 New cost: $635; dated catalog, not delivered quote
 Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
-Hard failures: proposal: unsupported table shape oval, long axis east-west
+Hard failures: None at best estimate
 Scenario failures: None in tested scenarios
 
-Council pick C3 · Exact 48 x 32 in white oak on a single round pedestal [invalid]
+Council pick C3 · Exact 48 x 32 in white oak on a single round pedestal [valid]
 48.0 × 32.0 oval, 1.0/-2.0-inch bench overlaps; 31.4 inches east to dining, one north chair.
-Class: invalid
+Class: valid
 Table: 48.0 × 32.0 × 29.5 in, oval; 48 × 32 white-oak oval top + Argent-28
 Everyday main walk: 39.0 ±3.0 in (+7.5 vs Today)
 Seated main walk: 31.5 ±3.0 in (+6.0 vs Today)
@@ -388,5 +388,5 @@ Pendant centre offset: 9.6 ±3.0 in (+3.1 vs Today)
 Counted seats: 4: 1 west, 1 south, 2 loose; corner not counted. 21-in minimum, not 24-in comfort.
 New cost: $1,813; dated catalog, not delivered quote
 Measurement that settles it: Tape usable seat depth to the cushion face, base footprint, bench end and bar front.
-Hard failures: proposal: unsupported table shape oval as sold (ask for a true racetrack), long axis east-west
+Hard failures: None at best estimate
 Scenario failures: None in tested scenarios

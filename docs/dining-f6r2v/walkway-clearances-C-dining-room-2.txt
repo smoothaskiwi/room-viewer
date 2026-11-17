@@ -5,10 +5,10 @@ LOCAL SNAPSHOT EDGE GAPS — not operating space
 main-walk — Everyday · chairs tucked: 40 in conservative moving-disk bottleneck at x 111.8 in, y 104.3 in; source nearest objects wall-east / council-chair-3.
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-seated — Diners seated: 37 in conservative moving-disk bottleneck at x 71.3 in, y 138.8 in; source nearest objects council-chair-1 / wall-south.
+main-walk-seated — Diners seated: 37 in conservative moving-disk bottleneck at x 141.8 in, y 102.3 in; source nearest objects wall-east / council-chair-3.
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-pulled — Chairs pulled out: 25 in conservative moving-disk bottleneck at x 146.8 in, y 108.3 in; source nearest objects wall-east / council-chair-3.
+main-walk-pulled — Chairs pulled out: 25 in conservative moving-disk bottleneck at x 80.3 in, y 145.3 in; source nearest objects wall-south / council-chair-1.
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
 SEPARATE USE STATES

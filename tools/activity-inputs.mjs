@@ -3,8 +3,9 @@ import path from 'node:path';
 import {project} from './project.mjs';
 import {catalog as unifiedCatalog} from './catalog.mjs';
 import {activityRoomSchema,activityBriefSchema,loadJSON} from './schemas.mjs';
+import {canonicalShape} from './shapes.mjs';
 export const isNook=room=>!!room.fixed?.banquette;
-export function tableShape(c) {const t=[c.footprint,c.label].join(' ').toLowerCase();return /ellipse|true.*oval/.test(t)?'oval':/pill|racetrack/.test(t)?'pill':/boat/.test(t)?'boat':/round|circle|diameter/.test(t)&&!/rounded|rect/.test(t)?'round':/oval|lippa/.test(t)?'oval':'rectangle';}
+export function tableShape(c) {const published=canonicalShape(c.footprint);if(['round','oval','pill','boat','rectangle'].includes(published))return published;const t=[c.footprint,c.label].join(' ').toLowerCase();return /ellipse|true.*oval/.test(t)?'oval':/pill|racetrack/.test(t)?'pill':/boat/.test(t)?'boat':/round|circle|diameter/.test(t)&&!/rounded|rect/.test(t)?'round':/oval|lippa/.test(t)?'oval':'rectangle';}
 export async function activityInputs(roomId){
  if(!['kitchen','dining-room'].includes(roomId))throw Error('Unknown room '+roomId);
  const root=path.join(project,'prototype/explorer'),room=await loadJSON(path.join(root,'room-'+roomId+'.json'),activityRoomSchema),brief=await loadJSON(path.join(root,'brief-'+roomId+'.json'),activityBriefSchema);
