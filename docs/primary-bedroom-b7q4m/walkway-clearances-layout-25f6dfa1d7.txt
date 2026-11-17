@@ -1,0 +1,32 @@
+Bed east, dresser west; laundry south — walkway measurements
+
+Model-derived, not tape-verified: room ±1½ in plus item estimates. Static gap, not door/drawer use clearance; local pairs focus on bed-to-furniture circulation spans, not an exhaustive all-pairs inventory; envelopes exclude projecting trim and hardware. Labels rounded to 0.1 in for reading, not measurement precision. Conservative moving-disk bottlenecks are not exact gaps between two obstacles. Grid spacing is not an error guarantee; uncertainty can flip fit. Bed-side routes reach entrance regions only, not travel along each bedside. Door/closet routes reach approach regions, not passage through closed doors. Chair-use zones are not evaluated. No accessibility or compliance verdict. Photo overlays stay off.
+
+ROUTES — everyday doors
+foot of bed: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 90.75 in; grid 0.5 in.
+entrance bed north side: Conservative moving-disk route; 25 in; bottleneck centre x 29.25, y 34.25 in; grid 0.5 in.
+entrance bed south side: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 104.75 in; grid 0.5 in.
+front of noak3: Conservative moving-disk route; 25 in; bottleneck centre x 29.25, y 36.75 in; grid 0.5 in.
+shaker_door: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 90.75 in; grid 0.5 in.
+closet_door: Conservative moving-disk route; 28 in; bottleneck centre x 61.75, y 106.75 in; grid 0.5 in.
+
+LOCAL STATIC BED-TO-FURNITURE GAPS
+Miles Wood & Upholstered Bed — Queen ↔ Noak 3-Drawer Dresser: 25.8 in static gap, not door/drawer use clearance; boundaries (16.4, 35.6) → (42.2, 35.6) in; associated routes: entrance bed north side, front of noak3; item dimension estimates ±unknown / ±unknown in (not a propagated error bound).
+Miles Wood & Upholstered Bed — Queen ↔ Rolling laundry sorter: 36.9 in static gap, not door/drawer use clearance; boundaries (52.1, 84.1) → (52.1, 121.0) in; associated routes: closet_door; item dimension estimates ±unknown / ±8 in (not a propagated error bound).
+
+SEPARATE USE STATES AND UNCERTAINTY
+Existing all-destination route scenario range: 22–26 in; not a per-destination uncertainty bound.
+Scenario best-estimate: all-destination route 25 in, bed-to-storage 25.8 in.
+Scenario survey: all-destination route 26 in, bed-to-storage 27.3 in.
+Scenario camera-fit: all-destination route 25 in, bed-to-storage 25.8 in.
+Scenario worst-plausible: all-destination route 22 in, bed-to-storage 23.5 in.
+Doorway clear opening: 28.6 in ±1.5 in.
+shaker_door: everyday closed (owner: often closed; leads to the primary bathroom), leaf 0.0°; model contact stop 157.7° (not an installed-hardware guarantee).
+entry_door: everyday open against the south wall, leaf 90.0°; model contact stop 180.0° (not an installed-hardware guarantee).
+closet_door: everyday closed, leaf 0.0°; model contact stop 180.0° (not an installed-hardware guarantee).
+shaker_door open-door route check at 157.7°: 25 in conservative route bottleneck; Between Noak 3-Drawer Dresser and bed; route to entrance bed north side; x 29.25, y 34.25 in; model uncertainty ±4 in. Not a static pair gap or full sweep clearance.
+closet_door open-door route check at 90.0°: 25 in conservative route bottleneck; Between Noak 3-Drawer Dresser and bed; route to entrance bed north side; x 29.25, y 34.25 in; model uncertainty ±3 in. Not a static pair gap or full sweep clearance.
+nightstand_north: drawer extension 15.5 in, standing 75 in (estimated travel); separate from closed-furniture static gap.
+nightstand_south: drawer extension 10.8 in, standing 100.9 in (estimated travel); separate from closed-furniture static gap.
+noak3: drawer extension 12.7 in, standing 13.1 in (estimated travel); separate from closed-furniture static gap.
+Chair-use zone: not evaluated. Door sweep / operating space is separate from everyday walking routes.

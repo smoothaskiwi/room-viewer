@@ -1,9 +1,11 @@
 import {esc,announcement,metricsRows,routeText,measurementTable} from './explorer-format.mjs';
 import {planSVG,legend} from './explorer-plan.mjs';
 import {mountClearanceUI} from './wall-clearances-ui.mjs';
+import {mountWalkwayUI} from './walkway-clearances-ui.mjs';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const [data,room,raw]=await Promise.all(['layouts.json','room.json','render-spec.json'].map(p=>fetch(p).then(r=>r.json())));const layouts=data.layouts;let selected=layouts[0],view='plan',drawer=false,swings=true,labels=true,three=null,photoIndex=0,no3d=new URLSearchParams(location.search).has('no3d'),favorites=[];
 const wallGapUI=mountClearanceUI(raw,()=>selected,()=>three);
+const walkwayUI=mountWalkwayUI(()=>selected,()=>three);
 try{favorites=JSON.parse(localStorage.getItem('room-layout-favourites')||'[]');}catch{}
 for(const el of $$('[data-plan]'))el.innerHTML=planSVG(room,layouts.find(l=>l.id===el.dataset.plan),{compact:true});
 function syncFav(){for(const b of $$('[data-fav]')){const yes=favorites.includes(b.dataset.fav);b.setAttribute('aria-pressed',String(yes));b.textContent=yes?'★ Saved':'☆ Save';}}
@@ -13,8 +15,8 @@ async function render(){const l=selected;$('#detail-title').textContent=l.title;
  $('#view-note').textContent=view==='plan'?l.routes.definition+' Amber circle: limiting disk. Dashed 22-in marker is illustrative.':view==='photos'?'Illustrative reconstruction of hidden king/cube regions; original protected pixels preserved. Fade to zero or compare the unedited original below. Not photographic evidence of the proposed fit.':'Illustrative parametric furniture, sampled colour; measured external dimensions. Doors pictured '+(swings?'everyday':'all closed')+'; route numbers always use the brief’s everyday states, not this visual toggle. Use the same HTML measurements below.';
  if(view!=='plan'&&!(view==='photos'&&!l.photoEligible)){if(no3d){view='plan';$('#fallback-note').hidden=false;await render();return;}try{if(!three){const probe=document.createElement('canvas'),gl=probe.getContext('webgl2');if(!gl){no3d=true;$('#fallback-note').hidden=false;view='plan';await render();return;}gl.getExtension('WEBGL_lose_context')?.loseContext();const m=await import('./explorer-3d.mjs');three=await m.start3D($('#three-host'),raw);}await three.show(l,view,{drawer,swings,photoIndex,fade:Number($('#fade').value)});}catch(e){no3d=true;$('#fallback-note').hidden=false;view='plan';await render();return;}}
  if(view==='orbit')$('#view-note').textContent+=' Cutaway: the near west and south walls are hidden so the furniture stays visible.';
- wallGapUI.sync();
- $('#announcer').textContent=announcement(l,$(`[data-view="${view}"]`).textContent);window.__explorer={ready:true,layout:l.id,view,webgl:!!three,routeText:routeText(l),bounds:()=>three?.bounds(),walls:()=>three?.walls(),clearance:()=>three?.clearance(),camera:()=>three?.camera(),open:openOption,all:data};}
+ wallGapUI.sync();walkwayUI.sync();
+ $('#announcer').textContent=announcement(l,$(`[data-view="${view}"]`).textContent);window.__explorer={ready:true,layout:l.id,view,webgl:!!three,routeText:routeText(l),bounds:()=>three?.bounds(),walls:()=>three?.walls(),clearance:()=>three?.clearance(),walkway:()=>three?.walkway(),camera:()=>three?.camera(),open:openOption,all:data};}
 async function openOption(id,{scroll=true}={}){selected=layouts.find(l=>l.id===id)||layouts[0];view='plan';drawer=false;swings=true;photoIndex=0;$('#detail').hidden=false;history.replaceState(null,'','#layout='+selected.id);await render();if(scroll){$('#detail-title').focus();$('#detail').scrollIntoView({behavior:'instant',block:'start'});}}
 for(const b of $$('[data-open]'))b.addEventListener('click',()=>openOption(b.dataset.open));for(const b of $$('[data-fav]'))b.addEventListener('click',()=>{const id=b.dataset.fav;favorites=favorites.includes(id)?favorites.filter(f=>f!==id):[...favorites,id];try{localStorage.setItem('room-layout-favourites',JSON.stringify(favorites));}catch{}syncFav();$('#announcer').textContent=(favorites.includes(id)?'Saved ':'Removed ')+layouts.find(l=>l.id===id).title;});
 $('#show-more').addEventListener('click',()=>{const expanding=$('#show-more').getAttribute('aria-expanded')!=='true';$$('.extra').forEach(el=>el.hidden=!expanding);$('#show-more').setAttribute('aria-expanded',String(expanding));$('#show-more').textContent=expanding?'Show fewer options':'Show all ranked options';});

@@ -1,0 +1,30 @@
+Bed east, generic size east; laundry south — walkway measurements
+
+Model-derived, not tape-verified: room ±1½ in plus item estimates. Static gap, not door/drawer use clearance; local pairs focus on bed-to-furniture circulation spans, not an exhaustive all-pairs inventory; envelopes exclude projecting trim and hardware. Labels rounded to 0.1 in for reading, not measurement precision. Conservative moving-disk bottlenecks are not exact gaps between two obstacles. Grid spacing is not an error guarantee; uncertainty can flip fit. Bed-side routes reach entrance regions only, not travel along each bedside. Door/closet routes reach approach regions, not passage through closed doors. Chair-use zones are not evaluated. No accessibility or compliance verdict. Photo overlays stay off.
+
+ROUTES — everyday doors
+foot of bed: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 90.75 in; grid 0.5 in.
+entrance bed north side: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 58.75 in; grid 0.5 in.
+entrance bed south side: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 104.75 in; grid 0.5 in.
+front of generic-20-40-36: Conservative moving-disk route; 28 in; bottleneck centre x 61.75, y 106.75 in; grid 0.5 in.
+shaker_door: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 90.75 in; grid 0.5 in.
+closet_door: Conservative moving-disk route; 28 in; bottleneck centre x 61.75, y 106.75 in; grid 0.5 in.
+
+LOCAL STATIC BED-TO-FURNITURE GAPS
+Miles Wood & Upholstered Bed — Queen ↔ Rolling laundry sorter: 37.7 in static gap, not door/drawer use clearance; boundaries (52.1, 83.3) → (52.1, 121.0) in; associated routes: front of generic-20-40-36, closet_door; item dimension estimates ±unknown / ±8 in (not a propagated error bound).
+
+SEPARATE USE STATES AND UNCERTAINTY
+Existing all-destination route scenario range: 28–28 in; not a per-destination uncertainty bound.
+Scenario best-estimate: all-destination route 28 in, bed-to-storage 106.5 in.
+Scenario survey: all-destination route 28 in, bed-to-storage 108 in.
+Scenario camera-fit: all-destination route 28 in, bed-to-storage 106.5 in.
+Scenario worst-plausible: all-destination route 28 in, bed-to-storage 105 in.
+Doorway clear opening: 28.6 in ±1.5 in.
+shaker_door: everyday closed (owner: often closed; leads to the primary bathroom), leaf 0.0°; model contact stop 180.0° (not an installed-hardware guarantee).
+entry_door: everyday open against the south wall, leaf 90.0°; model contact stop 180.0° (not an installed-hardware guarantee).
+closet_door: everyday closed, leaf 0.0°; model contact stop 111.1° (not an installed-hardware guarantee).
+shaker_door open-door route check at 180.0°: 28 in conservative route bottleneck; Between hall north jamb and bed; route to foot of bed; x 15.25, y 90.75 in; model uncertainty ±0 in. Not a static pair gap or full sweep clearance.
+closet_door open-door route check at 90.0°: 28 in conservative route bottleneck; Between hall north jamb and bed; route to foot of bed; x 15.25, y 90.75 in; model uncertainty ±0 in. Not a static pair gap or full sweep clearance.
+nightstand_north: drawer extension 15.5 in, standing 91.5 in (estimated travel); separate from closed-furniture static gap.
+generic-20-40-36: drawer extension 17 in, standing 27.5 in (estimated travel); separate from closed-furniture static gap.
+Chair-use zone: not evaluated. Door sweep / operating space is separate from everyday walking routes.

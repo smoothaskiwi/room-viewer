@@ -4,6 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {repo} from './project.mjs';
 import {explore} from './explore.mjs';
 import {amendWallClearances} from './wall-clearances-build.mjs';
+import {amendWalkwayClearances} from './walkway-clearances-build.mjs';
 import {annotateRoutes} from './route-contract.mjs';
 import {buildHouse} from './house.mjs';
 import {esc,card,routeText,storageText,money,dresserTradeoffTable,envelopeTables,depthTradeoffTables} from '../src/explorer-format.mjs';
@@ -187,6 +188,7 @@ ${ranked}<details>
 </html>`);
 await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence+'\nDetails: '+l.long_description).join('\n\n')+'\n');
 await amendWallClearances(out);
+await amendWalkwayClearances(out);
 if(!process.env.ROOM_OUTPUT_DIR&&!process.env.ROOM_BEDROOM_ONLY){
  for(const r of rooms.filter(r=>r.room!=='primary-bedroom')){execFileSync(process.execPath,[path.join(repo,'tools/activity-build.mjs'),r.room],{cwd:repo,stdio:'inherit',env:process.env});await amendWallClearances(path.join(repo,'docs',r.slug));}
  await fs.writeFile(path.join(repo,'docs/rooms.json'),JSON.stringify(rooms,null,2)+'\n');await buildHouse(rooms);

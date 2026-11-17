@@ -17,6 +17,8 @@ import './round7-test.mjs';
 import './round8-test.mjs';
 import './round9a-test.mjs';
 import './wall-clearances-test.mjs';
+import './walkway-clearances-test.mjs';
+import './walkway-owner-contract-test.mjs';
 import './activity-test.mjs';
 import {photoProtect} from '../src/photo-masks.mjs';
 const site=path.join(repo,'docs/primary-bedroom-b7q4m'),json=async n=>JSON.parse(await fs.readFile(path.join(site,n),'utf8')),data=await json('layouts.json'),room=await json('room.json'),brief=await json('brief.json'),cat=(await json('catalog.json')).items,expected=JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/expected-checks-primary-bedroom.json'),'utf8'));let groups=0,numeric=0,states=0;
