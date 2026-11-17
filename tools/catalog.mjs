@@ -4,6 +4,7 @@ import {spawnSync} from 'node:child_process';
 import {project,repo} from './project.mjs';
 import {loadJSON,validate,productFileSchema,ownedFileSchema,outletFileSchema,catalogSchema} from './schemas.mjs';
 import {styleTags} from './style.mjs';
+import {extendRentalCatalog} from './rental-catalog.mjs';
 export const productFiles=['miles-specs.json',...['storage-candidates-2026-11-16','shallow-storage-2026-11-16','mcm-catalog-2026-11-16','nook-table-search-2026-11-16','rh-outlet-2026-11-16','owned-furniture'].map(d=>d+'/specs.json')];
 const milesIds={bed_queen:'miles_queen',dresser_34:'miles_chest_34',dresser_48:'miles_dresser_48',dresser_60:'miles_dresser_60',dresser_70:'miles_dresser_70',nightstand_22:'miles_nightstand_22',nightstand_16:'miles_nightstand_16',armoire_38:'miles_armoire_38',dresser_49_topper:'miles_dresser_49_topper'};
 const privateTokens=new RegExp('\\b(?:'+['47'+'51','D'+' St','d'+'-st','Sacra'+'mento'].join('|')+')\\b','ig');
@@ -69,6 +70,7 @@ export async function catalog(room,brief) {
   const run=spawnSync('python3',['-c',`import sys,json\nfrom PIL import Image\nout={}\nfor id,p in json.load(sys.stdin):\n try:\n  im=Image.open(p).convert('RGB'); im.thumbnail((120,120))\n  a=sorted([p for p in im.getdata() if max(p)-min(p)>18 and 45<sum(p)/3<205 and p[0]>=p[2]],key=sum)\n  out[id]='#%02x%02x%02x'%tuple(a[len(a)//2] if a else (183,155,120))\n except OSError: pass\nprint(json.dumps(out))`],{input:JSON.stringify(sample.map(f=>[f.id,path.join(project,'products',f.images[0].path)])),encoding:'utf8'});
   if(run.status)throw Error(run.stderr);
   for(const [id,color] of Object.entries(JSON.parse(run.stdout)))Object.assign(items[id],{color,color_sample:'Median warm midtone from supplied official gallery; finish provisional'});
+  await extendRentalCatalog(items,normalizeProduct,brief);
   return validate(catalogSchema,{meta:{date:'2026-11-16',units:'inches',appearance:'Illustrative parametric geometry; sampled colour is not a finish guarantee.',source_files:productFiles,unknowns:'null means unknown; photo estimates carry dimension_basis and uncertainty. Canonical dims_in is W/D/H; engine w/d is depth/width before rotation.',style:'Brief style heuristics, not product quality certification; tier is explicitly heuristic.'},items},'normalised catalog');
 }
 if(process.argv[1]===new URL(import.meta.url).pathname){const room=JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/room-primary-bedroom.json'),'utf8'));const brief=JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/brief-primary-bedroom.json'),'utf8'));const cat=await catalog(room,brief);await fs.writeFile(path.join(repo,'docs/primary-bedroom-b7q4m/catalog.json'),JSON.stringify(cat,null,2)+'\n');console.log('Catalog items',Object.keys(cat.items).length);}

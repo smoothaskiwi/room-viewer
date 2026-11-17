@@ -40,7 +40,7 @@ export const catalogItemSchema = object({
   extra_dims:z.unknown(),price:nonnegative.nullable(),price_date:string.nullable(),
   finish:string.nullable(),images:z.array(z.unknown()),sources:z.array(z.unknown()),owned:z.boolean(),
   style_fit:z.enum(['strong','partial','weak']),style_reason:string,style_basis:string,
-  tier:z.enum(['budget','mid','premium']),tier_basis:string,dimension_basis:string,
+  tier:z.enum(['budget','mid','premium','quality','value','mixed']),tier_basis:string,dimension_basis:string,
 });
 export const catalogSchema = object({meta:z.record(string,z.unknown()),items:z.record(string,catalogItemSchema)}).superRefine((c,ctx) => {
   for(const [id,f] of Object.entries(c.items)) if(id!==f.id) ctx.addIssue({code:'custom',path:['items',id,'id'],message:'catalog key and id must agree'});
