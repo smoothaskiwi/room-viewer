@@ -1,5 +1,5 @@
 // Illustrative styling layers; never added to furniture collision envelopes.
-import {styleSize} from './rental-view.mjs';
+import {styleSize,placedStyling} from './rental-view.mjs';
 export function addRentalStyling(T,g,l,room,redraw){
  const pal=l.palette??['#9b7751','#e8e0d0','#778569'],W=room.room.width_x,D=room.room.depth_y,log=[];
  const material=(color,more={})=>new T.MeshStandardMaterial({color,roughness:.85,...more});
@@ -15,7 +15,7 @@ export function addRentalStyling(T,g,l,room,redraw){
   for(let i=0;i<2;i++)box(ew?(f.head==='east'?px-4:px+8):f.x+10+i*(f.w-20)/2,ew?f.y+9+i*(f.d-18)/2:(f.head==='north'?py+8:py-4),28,ew?7:(f.w-24)/2,ew?(f.d-24)/2:7,5,pal[2]);
   log.push({category:'bedding',palette:pal,head:[headX,headY]});
  }
- const styled=(l.styling??[]).flatMap(s=>{if(!/lamp|sconce/.test(s.category)||/pendant|chandelier/.test(s.category)||Number.isFinite(s.x))return [s];const stands=l.footprints.filter(f=>f.kind==='nightstand');return Array.from({length:s.qty??1},(_,i)=>{const f=stands[i%Math.max(1,stands.length)],floor=/floor/i.test(s.name+' '+s.category);return {...s,qty:1,x:f&&!floor?f.x+f.w/2:12+i*24,y:f&&!floor?f.y+f.d/2:12,height_in:f&&!floor?f.h:0};});});
+ const styled=placedStyling(l);
  for(const [index,s]of styled.entries()){
   const cat=s.category.toLowerCase(),[w,h]=styleSize(s,/rug/.test(cat)?[60,96]:[30,20]);let x=s.x??W/2,y=s.y??D/2,z=s.height_in??0;
   if(/rug/.test(cat)){const map=texture(s);box(s.x??(W-w)/2,s.y??(D-h)/2,.08,w,h,.1,map?'#ffffff':pal[1],map?{map}:{});}

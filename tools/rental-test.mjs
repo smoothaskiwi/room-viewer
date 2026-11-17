@@ -4,7 +4,7 @@ import path from 'node:path';
 import {repo,project} from './project.mjs';
 import {catalog} from './catalog.mjs';
 import {rentalPiece} from './rental.mjs';
-import {styleSize,shoppingCSV} from '../src/rental-view.mjs';
+import {styleSize,shoppingCSV,rentalPlan,placedStyling} from '../src/rental-view.mjs';
 import {evaluateRental,rankRentals,rentalSafety,readRentalCouncil,shoppingList,listingCamera} from './rental.mjs';
 const cat=(await catalog({owned:{}},{candidate_items:[]})).items;let checks=0;
 for(const id of ['primary-bedroom','guest-bedroom','living-room','dining-room','kitchen']){
@@ -30,5 +30,9 @@ assert.deepEqual(styleSize({category:'rug',size_in:"5' x 8'"}),[60,96]);checks++
 assert.deepEqual(styleSize({category:'rug',size_in:'5x8'}),[60,96]);checks++;
 assert.deepEqual(styleSize({category:'art',size_in:'24x36'}),[24,36]);checks++;
 assert.ok(shoppingCSV({items:[{name:'=HYPERLINK("bad")',qty:1,group:'styling'}],furniture:0,styling:0,total:0,complete:false}).includes("'=HYPERLINK"));checks++;
+
+
+const view={palette:['#654321','#eeeecc','#228855'],footprints:[{id:'b',kind:'bed',x:20,y:30,w:60,d:80,head:'north'},{kind:'nightstand',x:2,y:30,w:15,d:15,h:24}],styling:[{id:'r',category:'rug',image:'assets/products/sample.webp',size_in:'5x8'},{id:'a',category:'art',size_in:'24x36',wall:'north'},{id:'c',category:'curtain',wall:'north'},{id:'l',category:'lamp',qty:2}]},vr={room:{width_x:128,depth_y:140},openings:[{type:'window',wall:'north',opening_x:[18,54]}]},plan=rentalPlan(vr,view);
+for(const mark of ['data-styling="rug"','data-styling="art"','data-styling="curtain"','<image href=']){assert.ok(plan.includes(mark));checks++;}assert.equal(placedStyling(view).filter(s=>s.category==='lamp').length,2);checks++;
 
 console.log('PASS rental engine: '+checks+' checks; five room fixtures, bounds, real geometry, safety, missing council, tier costs, ranking and listing cameras.');
