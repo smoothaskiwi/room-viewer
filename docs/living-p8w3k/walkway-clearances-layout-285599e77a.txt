@@ -1,9 +1,0 @@
-dining_arch ↔ hall_opening · everyday: 41.0 in; living-rh-tables-54-0.5 / wall-north
-dining_arch ↔ entry_arch · everyday: 37.0 in; cabinet-0.75-123 / wall-south
-hall_opening ↔ entry_arch · everyday: 37.0 in; cabinet-0.75-123 / wall-south
-seat-living-sofa-66-36 · everyday: 16.0 in; living-sofa-66-36 / article_amoeba-119-52
-seat-living-white-chair-158-12 · everyday: 16.0 in; article_amoeba-119-52 / living-white-chair-158-12
-seat-living-white-chair-158-112 · everyday: 16.0 in; article_amoeba-119-52 / living-white-chair-158-112
-storage-cabinet-0.75-123 · everyday: 31.0 in; living-rh-tables-54-0.5 / wall-north
-east-window-north · everyday: 11.0 in; living-white-chair-158-12 / wall-east
-east-window-south · everyday: 5.5 in; chimney-breast / living-white-chair-158-112
