@@ -4,4 +4,4 @@ bed-side-a · everyday: 28.0 in; article_lenia_queen-43.75-21.5 / wall-north
 bed-side-b · everyday: 28.0 in; castlery_sebdresser-2-125.8 / article_lenia_queen-43.75-21.5
 bed-foot · everyday: 28.0 in; article_lenia_queen-43.75-21.5 / wall-west
 east-panel · everyday: 20.0 in; article_lenia_queen-43.75-21.5 / wall-north
-storage-castlery_sebdresser-2-125.8 · everyday: 28.0 in; castlery_sebdresser-2-125.8 / article_lenia_queen-43.75-21.5
+storage-castlery sebdresser-2-125.8 · everyday: 28.0 in; castlery_sebdresser-2-125.8 / article_lenia_queen-43.75-21.5

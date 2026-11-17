@@ -1,0 +1,5 @@
+// Categories and explicit attributes, never the instance id, decide whether an opening check is needed.
+export const hasOpening=f=>Boolean(f.has_doors||f.has_drawers||f.door_swing||f.drawer_count||Number.isFinite(f.drawer_extension)||(!/(?:open |cube|bookcase|shelv)/i.test([f.label,f.catalog_id].join(' '))&&/nightstand|dresser|chest|sideboard|buffet|console|cabinet|storage/.test([f.kind,f.category].join(' '))));
+export const openingTravel=f=>Number.isFinite(f.drawer_extension)?f.drawer_extension:16;
+export function openingGap(room,f,others){const horizontal=['east','west'].includes(f.faces),positive=['east','south'].includes(f.faces??'south'),a=horizontal?'x':'y',b=horizontal?'y':'x',size=horizontal?'w':'d',span=horizontal?'d':'w',start=f[a]+(positive?f[size]:0);let gap=positive?(horizontal?room.room.width_x:room.room.depth_y)-start:start;
+ for(const o of others.filter(o=>o.id!==f.id&&o.kind!=='rug')){if(Math.min(f[b]+f[span],o[b]+o[span])<=Math.max(f[b],o[b]))continue;const lo=o[a],hi=lo+o[size],d=positive?lo-start:start-hi;if(d>=-1e-7)gap=Math.min(gap,d);else if(lo<start&&hi>start)gap=0;}return Math.max(0,gap);}

@@ -1,4 +1,4 @@
-import {esc,announcement,metricsRows,keyRows,measurementTable} from './dining-format.mjs';
+import {esc,announcement,activeStateSummary,metricsRows,keyRows,measurementTable} from './dining-format.mjs';
 import {planSVG,legend} from './dining-plan.mjs';
 import {mountClearanceUI} from './wall-clearances-ui.mjs';
 import {mountActivityWalkways} from './activity-walkways-ui.mjs';
@@ -9,8 +9,11 @@ const [data,room,raw]=await Promise.all(
  ['layouts.json','room.json','render-spec.json'].map(p=>fetch(p).then(r=>r.json()))
 );
 const layouts=data.layouts;
-let selected=layouts[0],view='plan',chairState='tucked',three=null;
-const no3d=new URLSearchParams(location.search).has('webgl')&&new URLSearchParams(location.search).get('webgl')==='0';
+const STATES=['tucked','seated','pulled'],VIEWS=['plan','3d'];
+let selected=layouts[0],view='plan',chairState='tucked',three=null,origin=null;
+// Both forced-fallback spellings: ?no3d / ?no3d=1 (bedroom convention) and ?webgl=0.
+const query=new URLSearchParams(location.search);
+const no3d=(query.has('no3d')&&query.get('no3d')!=='0')||query.get('webgl')==='0';
 const roomId=data.room_id;
 
 let favorites=[];
@@ -21,6 +24,58 @@ const walkwayData=await fetch('activity-walkways.json').then(r=>r.json());
 const walkwayUI=mountActivityWalkways(walkwayData,()=>selected,()=>chairState,()=>three,async state=>{chairState=state;await render();});
 
 for(const el of $$('[data-plan]'))el.innerHTML=planSVG(room,layouts.find(l=>l.id===el.dataset.plan),{compact:true,state:'tucked'});
+
+// ---- Selected-state text: activeStateSummary (owner formatter, l.states[state].route) feeds the sentence,
+// key numbers, measurement table, plan image name, compare captions and the live announcement.
+function keyMetricsHTML(l,state){
+ const rows=keyRows(l,state);
+ return `<table><caption>Key numbers · chairs ${esc(state)}</caption><tbody>${rows.map(([k,v])=>`<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</tbody></table>`;
+}
+
+// ---- Phone-first detail order. The page template is owned by the builder; reorganise once, after overlays mount.
+function arrangeDetail(){
+ const detail=$('#detail'),visual=detail?.querySelector('.visual');
+ if(!visual||detail.dataset.arranged)return;detail.dataset.arranged='true';
+ let anchor=visual;
+ const place=el=>{if(el){anchor.after(el);anchor=el;}};
+ for(const sel of ['#fallback-note','#view-note','#legend','#orbit-controls'])place(detail.querySelector(sel));
+ const keys=document.createElement('section');keys.className='key-metrics';keys.id='key-metrics';keys.setAttribute('aria-label','Key numbers for the selected chair state');place(keys);
+ place(detail.querySelector('.actions'));
+ const about=document.createElement('details');about.className='detail-about';about.innerHTML='<summary>About this option</summary>';
+ for(const sel of ['#description','#measurement-note']){const el=detail.querySelector(sel);if(el)about.append(el);}
+ place(about);
+ const adv=document.createElement('details');adv.className='advanced-controls';adv.id='advanced-controls';
+ adv.innerHTML='<summary>Advanced controls: wall gaps and walkways</summary>';
+ for(const el of detail.querySelectorAll('.wall-gap-panel,.activity-walkway-panel,.walkway-panel'))adv.append(el);
+ if(adv.children.length>1)place(adv);
+}
+arrangeDetail();
+
+// Compare sits under the gallery heading, not after 18 cards.
+const compareOpenBtn=$('#compare-open'),galleryTitle=$('#gallery-title');
+if(compareOpenBtn&&galleryTitle){const wrap=document.createElement('div');wrap.className='gallery-tools';galleryTitle.after(wrap);wrap.append(compareOpenBtn);}
+
+// ---- Shortlist / More options (n). Supports data.shortlist ids (array or {ids}) or per-layout boolean `shortlist`.
+function shortlistIds(){
+ const s=data.shortlist;
+ const ids=Array.isArray(s)?s:Array.isArray(s?.ids)?s.ids:layouts.some(l=>typeof l.shortlist==='boolean')?layouts.filter(l=>l.shortlist).map(l=>l.id):null;
+ return ids?new Set([layouts[0].id,...ids]):null;
+}
+let moreBtn=$('#show-more');
+function moreLabel(){
+ if(!moreBtn)return;const n=$$('[data-layout-card].extra').length,open=moreBtn.getAttribute('aria-expanded')==='true';
+ moreBtn.hidden=!n;moreBtn.textContent=open?`Fewer options (hide ${n})`:`More options (${n})`;
+}
+function setMore(expanded){$$('[data-layout-card].extra').forEach(el=>el.hidden=!expanded);moreBtn?.setAttribute('aria-expanded',String(expanded));moreLabel();}
+(function setupMore(){
+ const ids=shortlistIds(),cards=$$('[data-layout-card]');
+ if(ids)for(const c of cards){const extra=!ids.has(c.dataset.layoutCard);c.classList.toggle('extra',extra);c.hidden=extra;}
+ if(!$$('[data-layout-card].extra').length){if(moreBtn)moreBtn.hidden=true;return;}
+ if(!moreBtn&&cards.length){moreBtn=document.createElement('button');moreBtn.id='show-more';moreBtn.className='secondary';moreBtn.setAttribute('aria-expanded','false');cards.at(-1).after(moreBtn);}
+ moreBtn.setAttribute('aria-controls','gallery');
+ moreBtn.addEventListener('click',()=>setMore(moreBtn.getAttribute('aria-expanded')!=='true'));
+ setMore(false);
+})();
 
 function syncFav(){
  for(const b of $$('[data-fav]')){
@@ -35,9 +90,9 @@ async function render(){
  const l=selected;
  $('#detail-title').textContent=l.title;
  $('#class-readout').textContent=l.class+(l.recommended?' · recommended':l.pinned?' · pinned':'');
- $('#sentence').textContent=l.sentence;
+ $('#sentence').textContent=activeStateSummary(l,chairState)+(l.tradeoff?' '+l.tradeoff:'');
  $('#description').textContent=l.description||l.summary||'';
- $('#detail-table').innerHTML=measurementTable(l);
+ $('#detail-table').innerHTML=measurementTable(l,chairState);
  $('#legend').textContent=legend(l);
  $('#measurement-note').textContent=l.measurement||'';
  $('#warnings').innerHTML=l.warnings.map(t=>`<li>${esc(t)}</li>`).join('');
@@ -52,13 +107,16 @@ async function render(){
  $('#three-host').hidden=view==='plan';
  $('#orbit-controls').hidden=view!=='3d';
 
- const route=l.states?.[chairState]?.route;
  $('#detail-plan').innerHTML=planSVG(room,l,{state:chairState});
+ // The plan builder names the image from the everyday sentence; name it from the selected state instead.
+ const svg=$('#detail-plan svg[aria-label]');
+ if(svg)svg.setAttribute('aria-label',`${l.title}. Plan, north up. ${activeStateSummary(l,chairState)}`);
+ if($('#key-metrics'))$('#key-metrics').innerHTML=keyMetricsHTML(l,chairState);
 
  if(view==='plan'){
-  $('#view-note').textContent=`Plan view, chairs ${chairState}. North is at the top. ${l.state_metrics?.[chairState]||''}.`;
+  $('#view-note').textContent=`Plan view, chairs ${chairState}. North is at the top.`;
  }else{
-  $('#view-note').textContent=`3D view, chairs ${chairState}. Illustrative parametric furniture, warm MCM colours.`;
+  $('#view-note').textContent=`3D view, chairs ${chairState}. Illustrative parametric furniture; colours approximate.`;
  }
 
  if(view!=='plan'){
@@ -88,34 +146,45 @@ async function render(){
 
  window.__dining={
   ready:true,layout:l.id,view,state:chairState,webgl:!!three,clearance:()=>three,
-  open:openOption,all:data
+  open:openOption,openCompare,all:data
  };
 }
 
+// ---- Share hash: layout/view/state when the detail is open, compare=A,B when the comparison is open.
 function updateHash(){
  const p=new URLSearchParams();
- p.set('room',roomId);p.set('layout',selected.id);
- p.set('view',view);p.set('state',chairState);
- history.replaceState(null,'','#'+p.toString());
+ p.set('room',roomId);
+ if(!$('#detail').hidden){p.set('layout',selected.id);p.set('view',view);p.set('state',chairState);}
+ if($('#compare')&&!$('#compare').hidden)p.set('compare',$('#compare-a').value+','+$('#compare-b').value);
+ const hash=[...p.keys()].length>1?'#'+p.toString():'';
+ history.replaceState(null,'',location.pathname+location.search+hash);
 }
 
 function readHash(){
  if(!location.hash||location.hash.length<2)return null;
  try{
   const p=new URLSearchParams(location.hash.slice(1));
-  return {layout:p.get('layout'),view:p.get('view'),state:p.get('state')};
+  const [a,b]=(p.get('compare')||'').split(',');
+  return {layout:p.get('layout'),view:p.get('view'),state:p.get('state'),compare:a&&b?[a,b]:null};
  }catch{return null;}
 }
 
-async function openOption(id,{scroll=true,desiredView='plan',desiredState='tucked'}={}){
+function reveal(target,focusEl){
+ if(!target)return;
+ focusEl?.focus({preventScroll:true});
+ target.scrollIntoView({behavior:'instant',block:'start'});
+}
+
+async function openOption(id,{scroll=true,desiredView='plan',desiredState='tucked',from=null}={}){
  selected=layouts.find(l=>l.id===id)||layouts[0];
+ origin=from||selected.id;
  view=desiredView;chairState=desiredState;
  $('#detail').hidden=false;
  await render();
- if(scroll){$('#detail-title').focus();$('#detail').scrollIntoView({behavior:'instant',block:'start'});}
+ if(scroll)reveal($('#detail'),$('#detail-title'));
 }
 
-for(const b of $$('[data-open]'))b.addEventListener('click',()=>openOption(b.dataset.open));
+for(const b of $$('[data-open]'))b.addEventListener('click',()=>openOption(b.dataset.open,{from:b.dataset.open}));
 
 for(const b of $$('[data-fav]'))b.addEventListener('click',()=>{
  const id=b.dataset.fav;
@@ -123,13 +192,6 @@ for(const b of $$('[data-fav]'))b.addEventListener('click',()=>{
  try{localStorage.setItem(`dining-favourites-${roomId}`,JSON.stringify(favorites));}catch{}
  syncFav();
  $('#announcer').textContent=(favorites.includes(id)?'Saved ':'Removed ')+layouts.find(l=>l.id===id).title;
-});
-
-if($('#show-more'))$('#show-more').addEventListener('click',()=>{
- const expanding=$('#show-more').getAttribute('aria-expanded')!=='true';
- $$('.extra').forEach(el=>el.hidden=!expanding);
- $('#show-more').setAttribute('aria-expanded',String(expanding));
- $('#show-more').textContent=expanding?'Show fewer options':'Show all options';
 });
 
 for(const b of $$('[data-view]'))b.addEventListener('click',async()=>{
@@ -142,9 +204,13 @@ for(const b of $$('[data-chair]'))b.addEventListener('click',async()=>{
 
 for(const b of $$('[data-orbit]'))b.addEventListener('click',()=>three?.orbit(b.dataset.orbit));
 
+// Back returns to the card that opened the detail (or the selected layout's card after a share link).
 $('#back-gallery')?.addEventListener('click',()=>{
- $('#detail').hidden=true;$('#gallery-title').focus();
- $('#gallery').scrollIntoView({block:'start'});
+ $('#detail').hidden=true;updateHash();
+ const card=$(`[data-layout-card="${CSS.escape(origin||selected.id)}"]`);
+ if(card?.hidden)setMore(true);
+ if(card)reveal(card,card.querySelector('[data-open]'));
+ else reveal($('#gallery'),$('#gallery-title'));
 });
 
 $('#share')?.addEventListener('click',async()=>{
@@ -160,38 +226,44 @@ function compare(){
  const a=layouts.find(l=>l.id===$('#compare-a').value);
  const b=layouts.find(l=>l.id===$('#compare-b').value);
  if(!a||!b)return;
- $('#compare-plans').innerHTML=[a,b].map((l,i)=>`<section><h3>${i?'B':'A'} · ${esc(l.title)}</h3>${planSVG(room,l,{state:chairState})}<p>${esc(l.sentence)}</p></section>`).join('');
- const ar=metricsRows(a),br=metricsRows(b);
+ $('#compare-plans').innerHTML=[a,b].map((l,i)=>`<section><h3>${i?'B':'A'} · ${esc(l.title)}</h3>${planSVG(room,l,{state:chairState})}<p>${esc(activeStateSummary(l,chairState))}</p></section>`).join('');
+ const ar=metricsRows(a,chairState),br=metricsRows(b,chairState);
  const len=Math.min(ar.length,br.length);
  $('#compare-table').innerHTML=`<table><caption>A / B comparison</caption><thead><tr><th scope="col">Measure</th><th scope="col">A</th><th scope="col">B</th></tr></thead><tbody>${ar.slice(0,len).map(([k,v],i)=>`<tr><th scope="row">${esc(k===br[i]?.[0]?k:k+' / '+(br[i]?.[0]||''))}</th><td>${esc(v)}</td><td>${esc(br[i]?.[1]||'')}</td></tr>`).join('')}</tbody></table>`;
  $('#announcer').textContent='Comparison: '+a.title+' vs '+b.title;
+ updateHash();
+}
+function openCompare(a,b,{scroll=true}={}){
+ if(!$('#compare'))return;
+ if(a&&layouts.some(l=>l.id===a))$('#compare-a').value=a;
+ if(b&&layouts.some(l=>l.id===b))$('#compare-b').value=b;
+ $('#compare').hidden=false;compare();
+ if(scroll)reveal($('#compare'),$('#compare-title'));
 }
 
-for(const id of ['compare-a','compare-b'])$(('#'+id))?.addEventListener('change',compare);
-$('#compare-open')?.addEventListener('click',()=>{
- $('#compare').hidden=false;compare();
- $('#compare-title')?.focus();$('#compare').scrollIntoView({block:'start'});
-});
+for(const id of ['compare-a','compare-b'])$('#'+id)?.addEventListener('change',compare);
+$('#compare-open')?.addEventListener('click',()=>openCompare());
 $('#compare-close')?.addEventListener('click',()=>{
- $('#compare').hidden=true;$('#compare-open')?.focus();
+ $('#compare').hidden=true;updateHash();$('#compare-open')?.focus();
 });
 
 $('#reset')?.addEventListener('click',()=>render());
 
 syncFav();
 
-window.addEventListener('hashchange',()=>{
- const h=readHash();
- if(h?.layout)openOption(h.layout,{scroll:true,desiredView:['plan','3d'].includes(h.view)?h.view:'plan',desiredState:['tucked','seated','pulled'].includes(h.state)?h.state:'tucked'});
-});
-
-const initHash=readHash();
-if(initHash?.layout){
- if(initHash.state&&['tucked','seated','pulled'].includes(initHash.state))chairState=initHash.state;
- if(initHash.view&&['plan','3d'].includes(initHash.view))view=initHash.view;
- await openOption(initHash.layout,{scroll:false,desiredView:view,desiredState:chairState});
-}else{
- window.__dining={ready:true,all:data,open:openOption};
+async function applyHash(h,{initial=false}={}){
+ if(!h)return false;
+ let acted=false;
+ if(h.layout&&(initial||h.layout!==selected.id||$('#detail').hidden||(h.view||'plan')!==view||(h.state||'tucked')!==chairState)){
+  await openOption(h.layout,{scroll:!h.compare,desiredView:VIEWS.includes(h.view)?h.view:'plan',desiredState:STATES.includes(h.state)?h.state:'tucked'});
+  acted=true;
+ }
+ if(h.compare){openCompare(...h.compare);acted=true;}
+ return acted;
 }
+window.addEventListener('hashchange',()=>{applyHash(readHash());});
+
+await applyHash(readHash(),{initial:true});
+if(!window.__dining)window.__dining={ready:true,all:data,open:openOption,openCompare};
 
 document.documentElement.dataset.ready='true';

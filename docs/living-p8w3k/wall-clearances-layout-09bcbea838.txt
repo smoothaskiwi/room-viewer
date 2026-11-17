@@ -1,0 +1,62 @@
+two sofas · desk kept
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+White upholstered sofa [living-sofa-72-0.5]
+  North wall east of hall opening: ½ in
+  East wall north of east window north: 47 in
+  South wall east of entry arch: 121½ in
+  West wall north of dining arch: 72 in
+
+Cognac leather sofa [dining-sofa-72-104]
+  North wall east of hall opening: 104 in
+  East wall south of east window north: 44 in
+  South wall east of entry arch: 17 in
+  West wall south of dining arch: 72 in
+
+Amoeba 42.5" Coffee Table - Walnut [article_amoeba-96-55]
+  North wall east of hall opening: 55 in
+  East wall south of east window north: 65½ in
+  South wall east of entry arch: 72½ in
+  West wall north of dining arch: 97½ in
+
+Light area rug [living-rug-30-25]
+  North wall east of hall opening: 25 in
+  East wall below east window north: 30 in
+  South wall east of entry arch: 25 in
+  West wall north of dining arch: 30 in
+
+cat posts (planning envelope) [cat_posts-184-1]
+  North wall east of hall opening: 1 in
+  East wall north of east window north: 4 in
+  South wall east of entry arch: 141 in
+  West wall north of dining arch: 184 in
+
+cat posts (planning envelope) [cat_posts-184-141]
+  North wall east of hall opening: 141 in
+  East wall south of east window north: 4 in
+  South wall east of entry arch: 1 in
+  West wall south of dining arch: 184 in
+
+cabinet (planning envelope) [cabinet-0.75-123]
+  North wall west of hall opening: 123 in
+  East wall south of east window north: 189½ in
+  South wall west of entry arch: 3 in
+  West wall south of dining arch: 1 in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-50-0.5]
+  North wall east of hall opening: ½ in
+  East wall north of east window north: 134 in
+  South wall east of entry arch: 139½ in
+  West wall north of dining arch: 50 in
+
+RH Machinto Open Nightstands used as end tables [living-rh-tables-50-136]
+  North wall east of hall opening: 136 in
+  East wall south of east window north: 134 in
+  South wall east of entry arch: 4 in
+  West wall south of dining arch: 50 in
+
+Dark wood computer desk [living-desk-155-134]
+  North wall east of hall opening: 134 in
+  East wall south of east window north: 1 in
+  South wall east of entry arch: 0 in · contact
+  West wall south of dining arch: 155 in

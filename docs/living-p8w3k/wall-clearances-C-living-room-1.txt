@@ -2,67 +2,67 @@ Council pick C1 · Sofa turned to face the fire and the TV
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 White upholstered sofa [living-sofa-0]
-  north: 35 in
-  east: 95 in
-  south: 35 in
-  west: 71 in
+  North wall east of hall opening: 35 in
+  East wall below east window north: 95 in
+  South wall east of entry arch: 35 in
+  West wall north of dining arch: 71 in
 
 Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-1]
-  north: 52½ in
-  east: 56 in
-  south: 52½ in
-  west: 126½ in
+  North wall east of hall opening: 52½ in
+  East wall south of east window north: 56 in
+  South wall east of entry arch: 52½ in
+  West wall north of dining arch: 126½ in
 
 Cognac barrel swivel armchairs [living-cognac-swivels-2]
-  north: 20 in
-  east: 14 in
-  south: 108 in
-  west: 160 in
+  North wall east of hall opening: 20 in
+  East wall below east window north: 14 in
+  South wall east of entry arch: 108 in
+  West wall north of dining arch: 160 in
 
 Cognac barrel swivel armchairs [living-cognac-swivels-3]
-  north: 108 in
-  east: 14 in
-  south: 20 in
-  west: 160 in
+  North wall east of hall opening: 108 in
+  East wall south of east window north: 14 in
+  South wall east of entry arch: 20 in
+  West wall south of dining arch: 160 in
 
 Wells Leather Tight Back Petite Swivel Armchair [dining-green-chair-4]
-  north: 4 in
-  east: 55½ in
-  south: 119 in
-  west: 117½ in
+  North wall east of hall opening: 4 in
+  East wall north of east window north: 55½ in
+  South wall east of entry arch: 119 in
+  West wall north of dining arch: 117½ in
 
 RH Machinto Open Nightstands used as end tables [living-rh-tables-5]
-  north: 15 in
-  east: 95 in
-  south: 123 in
-  west: 91 in
+  North wall east of hall opening: 15 in
+  East wall below east window north: 95 in
+  South wall east of entry arch: 123 in
+  West wall north of dining arch: 91 in
 
 RH Machinto Open Nightstands used as end tables [living-rh-tables-6]
-  north: 139½ in
-  east: 0 in · contact
-  south: ½ in
-  west: 184 in
+  North wall east of hall opening: 139½ in
+  East wall south of east window north: 0 in · contact
+  South wall east of entry arch: ½ in
+  West wall south of dining arch: 184 in
 
 cabinet (planning envelope) [cabinet-7]
-  north: 63 in
-  east: 133½ in
-  south: 63 in
-  west: 61½ in
+  North wall east of hall opening: 63 in
+  East wall south of east window north: 133½ in
+  South wall east of entry arch: 63 in
+  West wall north of dining arch: 61½ in
 
 cat posts (planning envelope) [cat_posts-8]
-  north: ½ in
-  east: 116 in
-  south: 141½ in
-  west: 72 in
+  North wall east of hall opening: ½ in
+  East wall north of east window north: 116 in
+  South wall east of entry arch: 141½ in
+  West wall north of dining arch: 72 in
 
 cat posts (planning envelope) [cat_posts-9]
-  north: 141½ in
-  east: 38 in
-  south: ½ in
-  west: 150 in
+  North wall east of hall opening: 141½ in
+  East wall south of east window north: 38 in
+  South wall east of entry arch: ½ in
+  West wall south of dining arch: 150 in
 
 Light area rug [living-rug-10]
-  north: 7 in
-  east: 26 in
-  south: 7 in
-  west: 70 in
+  North wall east of hall opening: 7 in
+  East wall north of east window north: 26 in
+  South wall east of entry arch: 7 in
+  West wall north of dining arch: 70 in

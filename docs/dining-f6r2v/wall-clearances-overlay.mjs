@@ -1,12 +1,12 @@
 import * as THREE from 'three';
-import {wallClearances,formatGap} from './wall-clearances.mjs';
+import {wallClearances,formatGap,wallReference} from './wall-clearances.mjs';
 const COLORS=['#175bb2','#9b3e19','#6941a5','#176447'];
 export function clearanceOverlay(host,spec){
  const NS='http://www.w3.org/2000/svg',svg=document.createElementNS(NS,'svg');svg.classList.add('wall-gap-lines');svg.setAttribute('aria-hidden','true');
  const rail=document.createElement('div');rail.className='wall-gap-rail';rail.setAttribute('aria-hidden','true');host.append(svg,rail);
  let gaps=[],piece=null,on=true,photo=false;
  function update(f,{enabled=true,isPhoto=false}={}){piece=f;on=enabled;photo=isPhoto;gaps=f?wallClearances(spec,f):[];rail.replaceChildren();svg.replaceChildren();
-  for(const [i,g]of gaps.entries()){const label=document.createElement('span');label.className='wall-gap-label';label.style.borderColor=COLORS[i];label.textContent=`${g.wall[0].toUpperCase()+g.wall.slice(1)} · ${formatGap(g)}`;rail.append(label);}
+  for(const [i,g]of gaps.entries()){const label=document.createElement('span');label.className='wall-gap-label';label.style.borderColor=COLORS[i];label.textContent=`${wallReference(g,spec)} · ${formatGap(g)}`;rail.append(label);}
   rail.hidden=svg.hidden=!on||photo||!f;
  }
  function draw(camera){if(!on||photo||!piece)return;const w=host.clientWidth,h=host.clientHeight;svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.replaceChildren();

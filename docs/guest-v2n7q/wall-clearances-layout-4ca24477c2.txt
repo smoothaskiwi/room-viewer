@@ -1,0 +1,32 @@
+Full head east · guest plus desk
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Lenia Full Panel Bed - Walnut [article_lenia_full-48-30.5]
+  North wall east of sliding door: 30½ in
+  East wall north of entry door: 0 in · contact
+  South wall west of closet door: 55½ in
+  West wall south of bath pocket door: 48 in
+
+Miles Mini Nightstand (16") [miles_nightstand_16-111.5-14.5]
+  North wall east of sliding door: 14½ in
+  East wall north of entry door: 0 in · contact
+  South wall east of closet door: 113 in
+  West wall north of bath pocket door: 111½ in
+
+Miles Mini Nightstand (16") [miles_nightstand_16-111.5-88]
+  North wall east of sliding door: 88 in
+  East wall north of entry door: 0 in · contact
+  South wall east of closet door: 39½ in
+  West wall south of bath pocket door: 111½ in
+
+Jeune French Contemporary Desk [rh_rhbc_prod963089-0.5-97.5]
+  North wall west of sliding door: 97½ in
+  East wall north of entry door: 106 in
+  South wall west of closet door: 0 in · contact
+  West wall south of bath pocket door: ½ in
+
+Grey mesh ergonomic office chair [guest-office-chair-14.5-117.5]
+  North wall west of sliding door: 117½ in
+  East wall south of entry door: 86 in
+  South wall west of closet door: 0 in · contact
+  West wall south of bath pocket door: 14½ in

@@ -1,14 +1,14 @@
-Council pick B2 · Round pedestal opens the corner — walkways
+Council pick B2 · 48.0 × 48.0 round: shallow bench overlap — walkways
 Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
 Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
 LOCAL SNAPSHOT EDGE GAPS — not operating space
-main-walk — Everyday · chairs tucked: 32.5 in conservative moving-disk bottleneck at x 58.3 in, y 10.3 in; source nearest objects council-chair-0 / table.
+Everyday · chairs tucked: 32.5 in moving-disk minimum; in-room reference near Freestanding dining chairs · tucked and Anton Round Pedestal Dining Table 48. These are nearest references, not an exact static gap between two objects. [Route record: main-walk]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-seated — Diners seated: 31.5 in conservative moving-disk bottleneck at x 58.3 in, y 9.3 in; source nearest objects council-chair-0 / table.
+Diners seated: 31.5 in moving-disk minimum; in-room reference near Freestanding dining chairs · seated and Anton Round Pedestal Dining Table 48. These are nearest references, not an exact static gap between two objects. [Route record: main-walk-seated]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-pulled — Chairs pulled out: 27.5 in conservative moving-disk bottleneck at x 58.3 in, y 2.3 in; source nearest objects council-chair-0 / table.
+Chairs pulled out: 27.5 in moving-disk minimum; in-room reference near Freestanding dining chairs · pulled and Anton Round Pedestal Dining Table 48. These are nearest references, not an exact static gap between two objects. [Route record: main-walk-pulled]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
 SEPARATE USE STATES

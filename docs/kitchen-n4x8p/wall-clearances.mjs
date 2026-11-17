@@ -45,6 +45,7 @@ export function wallClearances(spec,f){
  });
 }
 export function inches(n){if(Math.abs(n)<EPS)return '0';if(Math.abs(n)<.25)return '<½';const q=Math.round(Math.abs(n)*2)/2;return (n<0?'−':'')+(q%1?`${Math.floor(q)||''}½`:String(q));}
+export function wallReference(g,spec){const name=g.wall[0].toUpperCase()+g.wall.slice(1)+' wall',p=g.patch,os=(spec?.openings??[]).filter(x=>x.wall===g.wall).flatMap(x=>x.openings??[]);if(!p||!os.length)return name;const axis=['west','east'].includes(g.wall)?['north','south']:['west','east'];for(const o of os){const label=String(o.label??o.id??o.type??'opening').replaceAll('_',' ');if(p.b<=o.offset_from_corner+1e-6)return name+' '+axis[0]+' of '+label;if(p.a>=o.offset_from_corner+o.width-1e-6)return name+' '+axis[1]+' of '+label;if(p.z0>=o.head-1e-6)return name+' above '+label;if(p.z1<=o.sill+1e-6)return name+' below '+label;}return name+' face';}
 export function formatGap(g){
  if(g.distance===null)return 'no wall surface';
  if(g.status==='overlap')return `0 in · overlap ${inches(g.penetration)} in`;
@@ -56,6 +57,6 @@ export function clearanceText(spec,l){return `${l.title}
 ${CLEARANCE_NOTE}
 
 `+clearanceRows(spec,l).map(f=>`${f.label} [${f.id}]
-`+f.gaps.map(g=>`  ${g.wall}: ${formatGap(g)}`).join('\n')).join('\n\n')+'\n';}
+`+f.gaps.map(g=>`  ${wallReference(g,spec)}: ${formatGap(g)}`).join('\n')).join('\n\n')+'\n';}
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-export function clearanceHTML(spec,layouts){return `<section id="all-wall-clearances" aria-labelledby="all-wall-title"><h2 id="all-wall-title">Furniture to every wall</h2><p>${escape(CLEARANCE_NOTE)}</p><p>Choose a piece above the 3D view for four uncluttered labels and colour-matched shortest-gap lines. Labels stay readable while you orbit; a line outside the camera is not drawn. No wall is invented across an opening.</p>${layouts.map(l=>`<details data-clearance-layout="${escape(l.id)}"><summary>${escape(l.title)} · all pieces / four walls</summary><a download href="wall-clearances-${encodeURIComponent(l.id)}.txt">Download this layout’s plain-text measurements</a>${clearanceRows(spec,l).map(f=>`<section><h3>${escape(f.label)}</h3><dl>${f.gaps.map(g=>`<div><dt>${g.wall[0].toUpperCase()+g.wall.slice(1)} wall face</dt><dd>${escape(formatGap(g))}</dd></div>`).join('')}</dl></section>`).join('')}</details>`).join('')}</section>`;}
+export function clearanceHTML(spec,layouts){return `<section id="all-wall-clearances" aria-labelledby="all-wall-title"><h2 id="all-wall-title">Furniture to every wall</h2><p>${escape(CLEARANCE_NOTE)}</p><p>Choose a piece above the 3D view for four uncluttered labels and colour-matched shortest-gap lines. Labels stay readable while you orbit; a line outside the camera is not drawn. No wall is invented across an opening.</p>${layouts.map(l=>`<details data-clearance-layout="${escape(l.id)}"><summary>${escape(l.title)} · all pieces / four walls</summary><a download href="wall-clearances-${encodeURIComponent(l.id)}.txt">Download this layout’s plain-text measurements</a>${clearanceRows(spec,l).map(f=>`<section><h3>${escape(f.label)}</h3><dl>${f.gaps.map(g=>`<div><dt>${escape(wallReference(g,spec))}</dt><dd>${escape(formatGap(g))}</dd></div>`).join('')}</dl></section>`).join('')}</details>`).join('')}</section>`;}

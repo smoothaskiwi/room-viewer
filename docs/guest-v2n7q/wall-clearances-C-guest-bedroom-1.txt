@@ -2,37 +2,37 @@ Council pick C1 · Walnut queen on the east wall, no desk
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Nera Queen Low Profile Bed - Walnut [article_nera-0]
-  north: 24½ in
-  east: 0 in · contact
-  south: 57 in
-  west: 44½ in
+  North wall east of sliding door: 24½ in
+  East wall north of entry door: 0 in · contact
+  South wall west of closet door: 57 in
+  West wall north of bath pocket door: 44½ in
 
 Miles Mini Nightstand (16") [miles_nightstand_16-1]
-  north: 8½ in
-  east: 0 in · contact
-  south: 119 in
-  west: 111½ in
+  North wall east of sliding door: 8½ in
+  East wall north of entry door: 0 in · contact
+  South wall east of closet door: 119 in
+  West wall north of bath pocket door: 111½ in
 
 Miles Mini Nightstand (16") [miles_nightstand_16-2]
-  north: 86½ in
-  east: 0 in · contact
-  south: 41 in
-  west: 111½ in
+  North wall east of sliding door: 86½ in
+  East wall north of entry door: 0 in · contact
+  South wall east of closet door: 41 in
+  West wall south of bath pocket door: 111½ in
 
 Nera 3-Drawer Chest [article_nera3-3]
-  north: 92 in
-  east: 109 in
-  south: 16 in
-  west: ½ in
+  North wall west of sliding door: 92 in
+  East wall north of entry door: 109 in
+  South wall west of closet door: 16 in
+  West wall south of bath pocket door: ½ in
 
 Tall freestanding mirror [guest-mirror-4]
-  north: 141 in
-  east: 68½ in
-  south: 0 in · contact
-  west: 36 in
+  North wall west of sliding door: 141 in
+  East wall south of entry door: 68½ in
+  South wall west of closet door: 0 in · contact
+  West wall south of bath pocket door: 36 in
 
 Rectangular patterned rug [dining-rug-5]
-  north: 1½ in
-  east: 30½ in
-  south: 34 in
-  west: 24 in
+  North wall west of sliding door: 1½ in
+  East wall north of entry door: 30½ in
+  South wall west of closet door: 34 in
+  West wall north of bath pocket door: 24 in

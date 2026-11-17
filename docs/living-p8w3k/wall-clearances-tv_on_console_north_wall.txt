@@ -2,43 +2,43 @@
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Low media console [dining-media-console-101.5-0.5]
-  north: ½ in
-  east: 39½ in
-  south: 138½ in
-  west: 101½ in
+  North wall east of hall opening: ½ in
+  East wall north of east window north: 39½ in
+  South wall east of entry arch: 138½ in
+  West wall north of dining arch: 101½ in
 
 White upholstered sofa [living-sofa-89-104]
-  north: 104 in
-  east: 27 in
-  south: 16 in
-  west: 89 in
+  North wall east of hall opening: 104 in
+  East wall south of east window north: 27 in
+  South wall east of entry arch: 16 in
+  West wall south of dining arch: 89 in
 
 Lenia 53.5" Oval Coffee Table - Walnut [article_leniacoffee-106.25-65]
-  north: 65 in
-  east: 44½ in
-  south: 71 in
-  west: 109½ in
+  North wall east of hall opening: 65 in
+  East wall south of east window north: 44½ in
+  South wall east of entry arch: 71 in
+  West wall north of dining arch: 109½ in
 
 Cognac barrel swivel armchairs [living-cognac-swivels-70-29]
-  north: 29 in
-  east: 104 in
-  south: 99 in
-  west: 70 in
+  North wall east of hall opening: 29 in
+  East wall below east window north: 104 in
+  South wall east of entry arch: 99 in
+  West wall north of dining arch: 70 in
 
 cabinet (planning envelope) [cabinet-0.75-123]
-  north: 123 in
-  east: 189½ in
-  south: 3 in
-  west: 1 in
+  North wall west of hall opening: 123 in
+  East wall south of east window north: 189½ in
+  South wall west of entry arch: 3 in
+  West wall south of dining arch: 1 in
 
 cat posts (planning envelope) [cat_posts-57-140]
-  north: 140 in
-  east: 131 in
-  south: 2 in
-  west: 57 in
+  North wall east of hall opening: 140 in
+  East wall south of east window north: 131 in
+  South wall east of entry arch: 2 in
+  West wall south of dining arch: 57 in
 
 cat posts (planning envelope) [cat_posts-184-140]
-  north: 140 in
-  east: 4 in
-  south: 2 in
-  west: 184 in
+  North wall east of hall opening: 140 in
+  East wall south of east window north: 4 in
+  South wall east of entry arch: 2 in
+  West wall south of dining arch: 184 in

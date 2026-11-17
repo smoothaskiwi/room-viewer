@@ -1,14 +1,14 @@
-Council pick C1 · Solid walnut pill on a wood pedestal, pulled 2 in off the south bench — walkways
+Council pick C1 · 48.0 × 30.0 pill: south seat gap — walkways
 Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
 Room tolerance: x ±1.5 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
 LOCAL SNAPSHOT EDGE GAPS — not operating space
-main-walk — Everyday · chairs tucked: 41 in conservative moving-disk bottleneck at x 67.3 in, y 20.8 in; source nearest objects council-chair-1 / council-chair-0.
+Everyday · chairs tucked: 41 in moving-disk minimum; in-room reference near Freestanding dining chairs · tucked and Freestanding dining chairs · tucked. These are nearest references, not an exact static gap between two objects. [Route record: main-walk]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-seated — Diners seated: 33.5 in conservative moving-disk bottleneck at x 67.3 in, y 16.3 in; source nearest objects council-chair-1 / council-chair-0.
+Diners seated: 33.5 in moving-disk minimum; in-room reference near Freestanding dining chairs · seated and Freestanding dining chairs · seated. These are nearest references, not an exact static gap between two objects. [Route record: main-walk-seated]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-pulled — Chairs pulled out: 22.5 in conservative moving-disk bottleneck at x 66.8 in, y 10.8 in; source nearest objects council-chair-1 / council-chair-0.
+Chairs pulled out: 22.5 in moving-disk minimum; in-room reference near Freestanding dining chairs · pulled and Freestanding dining chairs · pulled. These are nearest references, not an exact static gap between two objects. [Route record: main-walk-pulled]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
 SEPARATE USE STATES

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "1.6 (16 Nov 2026)",
+    "version": "1.7 (16 Nov 2026)",
     "room": "primary-bedroom",
     "status": "defaults proposed by the agent; Daniel can change any of them in plain words",
     "change": "1.0 marked Today invalid (bed north side 15-17 in, window approach, switch behind the sorter, unknown drawer volume), although the household lives in it every day. 1.1 calibrates: anything Today already has is at most a comparison, never invalid.",
@@ -8,7 +8,8 @@
     "change_1_3": "Daniel: the white door leads to the primary bathroom and is often closed; about 105 degrees open is acceptable; the cube organiser goes (only Today keeps it); keep the long layout descriptions and add a short summary.",
     "change_1_4": "Daniel: north nightstand is 18 in unless evidence says otherwise; judge windows in 3D (a piece's height and depth, not the width it covers: a shallow, low dresser under a window is fine); explore all permutations of position, rotation and size, including generic depths. Correction: no children in the household; child-safety flags removed.",
     "change_1_5": "Round 7 ranked first a layout with the queen centred across the east window (headboard hiding 39% of the glass), a 54-in generic chest in front of the north window and one nightstand, because ranking compared exact walkway inches first and treated windows only as warnings. 1.5 ranks in bands, makes window light and access a ranking factor, and asks for real products before generic sizes.",
-    "change_1_6": "Round 8 ranked a $230 Walker Edison dresser first and placed an IKEA RAST 8.5 in off the east wall, end-on to the south wall, labelled 'south'. 1.6 adds style fit and placement sanity."
+    "change_1_6": "Round 8 ranked a $230 Walker Edison dresser first and placed an IKEA RAST 8.5 in off the east wall, end-on to the south wall, labelled 'south'. 1.6 adds style fit and placement sanity.",
+    "change_1_7": "council round 9b: storage band now ranks before style, so the top card cannot hide a large storage loss; each card states its storage versus Today"
   },
   "pinned": {
     "bed": "miles_queen",
@@ -81,7 +82,7 @@
     "report": "main walkway with doors in their everyday state (decides the class); separately, the narrowest point with the white door open at its stop and with the closet door open, each with the difference from Today; below 20 in with a door open is a warning, not invalid, unless the brief marks that door as usually open",
     "preference": "more opening is better for the bathroom door; at least 90 degrees required; about 105 is acceptable to the owner; report the open-door gap at the bed foot as a trade-off"
   },
-  "ranking": "filter invalid; cluster (bed wall, route pattern, furniture mix); pick distinct representatives; then sort lexicographically by BANDS, not raw inches: (1) main walkway band: 30+ comfortable, 24-30 tight, 20-24 minimal; (2) windows: no headboard or piece taller than 40 in in front of window glass, each window comfortable to open (glass hidden by pieces above the stool, as % of each window, smaller is better; a headboard over glass counts double); (3) bed-side band: both sides 24+, 18-24, 15-18; (4) style fit per brief.style; (5) two nightstands (owned or new) over one; (6) storage band versus Today: at least as much, within 25% less, more than 25% less; (7) real catalog product over generic size; (8) fewer changes; (9) lower cost. Within equal bands, prefer the larger raw walkway. Show Today plus four distinct valid or conditional layouts first, then up to eight; pinned layouts always shown. Each card states in plain words why it ranks where it does when a window or nightstand factor decided it.",
+  "ranking": "filter invalid; cluster (bed wall, route pattern, furniture mix); pick distinct representatives; then sort lexicographically by BANDS, not raw inches: (1) main walkway band: 30+ comfortable, 24-30 tight, 20-24 minimal; (2) windows: no headboard or piece taller than 40 in in front of window glass, each window comfortable to open (glass hidden by pieces above the stool, as % of each window, smaller is better; a headboard over glass counts double); (3) bed-side band: both sides 24+, 18-24, 15-18; (4) storage band versus Today: at least as much, within 25% less, more than 25% less; (5) style fit per brief.style; (6) two nightstands (owned or new) over one; (7) real catalog product over generic size; (8) fewer changes; (9) lower cost. Within equal bands, prefer the larger raw walkway. Show Today plus four distinct valid or conditional layouts first, then up to eight; pinned layouts always shown. Each card states in plain words why it ranks where it does when a window or nightstand factor decided it.",
   "style": {
     "direction": "Angela: mid-century modern; warm walnut or oak, tapered legs, simple lines; should sit well with the Miles bed in Toasted Oak",
     "catalog_tags": "each catalog piece gets style_fit (strong / partial / weak, with a one-line reason from its materials, finish and form) and tier (budget / mid / premium); record the basis",

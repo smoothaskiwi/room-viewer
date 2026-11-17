@@ -1,0 +1,56 @@
+Six guests extended · 80.0 × 38.0 rectangle: across room, north storage
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Mid-Century Extendable Dining Table 60–80 rectangular [table]
+  North wall: 54 in
+  East wall north of living arch: 26 in
+  South wall west of south window: 66 in
+  West wall south of kitchen arch: 36 in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-1]
+  North wall: 39½ in
+  East wall north of living arch: 64½ in
+  South wall below south window: 104 in
+  West wall north of kitchen arch: 43½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-2]
+  North wall: 39½ in
+  East wall north of living arch: 40½ in
+  South wall below south window: 104 in
+  West wall north of kitchen arch: 66½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-3]
+  North wall: 92 in
+  East wall south of living arch: 66 in
+  South wall below south window: 51½ in
+  West wall south of kitchen arch: 43 in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-4]
+  North wall: 92 in
+  East wall south of living arch: 43 in
+  South wall below south window: 51½ in
+  West wall south of kitchen arch: 66 in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-5]
+  North wall: 64 in
+  East wall north of living arch: 104½ in
+  South wall west of south window: 76 in
+  West wall south of kitchen arch: 39½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-6]
+  North wall: 64 in
+  East wall north of living arch: 26 in
+  South wall east of south window: 76 in
+  West wall south of kitchen arch: 108½ in
+
+Envelo 71" Sideboard - Walnut and Black [sideboard]
+  North wall: ½ in
+  East wall north of living arch: 26 in
+  South wall west of south window: 140 in
+  West wall north of kitchen arch: 26 in
+
+Owned 72 × 108 rug (approximate) [rug]
+  North wall: 43 in
+  East wall north of living arch: 8½ in
+  South wall west of south window: 43 in
+  West wall south of kitchen arch: 9½ in

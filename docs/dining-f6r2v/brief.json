@@ -7,7 +7,10 @@
     "status": "defaults proposed by the agent; Daniel or Angela can change any of them in plain words",
     "format": "same shape as brief-primary-bedroom.json 1.4, plus 'activities' (use zones), 'measure_first', 'pinned_layouts', 'tv_room_function' and 'sources'",
     "household": "two adults and two cats; no children",
-    "basis_warning": "the shell (123 x 158 in) is scaled from the plan (+/-2 in); the chandelier position is assumed to be the room centre (+/-12 in), is not on the electrical sheet (E1 / Reova final, 23 Apr 2024) and has not been measured. Every 'centred under the light' number moves with it. The kitchen arch is 97 in wide but only 66.4 in is open floor (y 54.6-121): the north 30.6 in is the kitchen east run's end cabinet."
+    "basis_warning": "the shell (123 x 158 in) is scaled from the plan (+/-2 in); the chandelier position is assumed to be the room centre (+/-12 in), is not on the electrical sheet (E1 / Reova final, 23 Apr 2024) and has not been measured. Every 'centred under the light' number moves with it. The kitchen arch is 97 in wide but only 66.4 in is open floor (y 54.6-121): the north 30.6 in is the kitchen east run's end cabinet.",
+    "changes": [
+      "16 Nov late (parent, after council review 9b): explicit banded ranking for every layout, reach band (a table too far from the bench is not better), Angela's size and shape preference, shortlist of four plus 'More options'"
+    ]
   },
   "plain_policy": "Picture this room as a true dining room: a table for four every day and six with guests, chairs that pull out, a sideboard, and the table under the light. The room is also the only way between the kitchen and the living room, so that walk must stay at least 24 inches with the chairs pushed in. Nothing may collide and every chair must be able to pull out. Everything else is a trade-off. Priorities in order: the kitchen-to-living walkway, room behind the chairs, seats, the table under the light, sideboard storage and serving room, rug fit, cost. The TV, sofa and lounge chairs that live here today move to the living room (see tv_room_function).",
   "pinned": {
@@ -257,7 +260,7 @@
       "purpose": "kept outside the recommended ranking"
     }
   ],
-  "ranking": "filter invalid; cluster by (table shape and size class, long axis, on or off the light, sideboard wall, which side the everyday walk passes); pick distinct representatives; sort by the plain_policy priorities; show Today plus the pinned layouts and four more first, then up to eight; if fewer exist, say why",
+  "ranking": "filter invalid; cluster by (table shape and size class, long axis, on or off the light, sideboard wall, which side the everyday walk passes); pick distinct representatives; rank EVERY shown layout (Today, generated, pinned, council) on one scale, lexicographically by bands: (1) arch-to-arch walk with chairs seated: 36+ comfortable, 30-36 tight, 24-30 minimal; (2) chair pull-out: 32 in from the table edge plus room behind for every chair = comfortable, otherwise how short; (3) every piece with doors or drawers (sideboard, console, buffet, cabinets) can open fully with chairs tucked: yes/no; (4) table centred under the light within 6 in (light assumed until taped); (5) style fit; (6) seats for 4 everyday and 6 extended; (7) lower cost. Show Today plus the top four distinct layouts first (any source; label council picks), fold the rest under 'More options (n)'. Each card states its rank and one trade-off sentence.",
   "plain_text": {
     "layout_sentence": "one sentence of at most 25 words per layout (e.g. '60 x 36 table under the light, sideboard on the TV wall: 43 inches to walk past the sideboard, four seats, six with the leaf.')",
     "verdict": "at most three short sentences at the top: the table size and direction that works best; where the walk to the living room goes; the one measurement that matters most (the light)",

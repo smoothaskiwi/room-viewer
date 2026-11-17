@@ -2,31 +2,31 @@ Council pick A2 · Same queen with a slim light-oak writing desk on the south wa
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Nera Queen Low Profile Bed - Walnut [article_nera-0]
-  north: 21½ in
-  east: 0 in · contact
-  south: 60 in
-  west: 44½ in
+  North wall east of sliding door: 21½ in
+  East wall north of entry door: 0 in · contact
+  South wall west of closet door: 60 in
+  West wall north of bath pocket door: 44½ in
 
 RH Machinto Open Nightstands used as end tables [living-rh-tables-1]
-  north: 1 in
-  east: 0 in · contact
-  south: 122½ in
-  west: 108½ in
+  North wall east of sliding door: 1 in
+  East wall north of entry door: 0 in · contact
+  South wall east of closet door: 122½ in
+  West wall north of bath pocket door: 108½ in
 
 RH Machinto Open Nightstands used as end tables [living-rh-tables-2]
-  north: 84 in
-  east: 0 in · contact
-  south: 39½ in
-  west: 108½ in
+  North wall east of sliding door: 84 in
+  East wall north of entry door: 0 in · contact
+  South wall east of closet door: 39½ in
+  West wall south of bath pocket door: 108½ in
 
 Jeune French Contemporary Desk [rh_rhbc_prod963089-3]
-  north: 123½ in
-  east: 72½ in
-  south: 0 in · contact
-  west: 8 in
+  North wall west of sliding door: 123½ in
+  East wall south of entry door: 72½ in
+  South wall west of closet door: 0 in · contact
+  West wall south of bath pocket door: 8 in
 
 Grey mesh ergonomic office chair [guest-office-chair-4]
-  north: 115½ in
-  east: 82½ in
-  south: 2 in
-  west: 18 in
+  North wall west of sliding door: 115½ in
+  East wall south of entry door: 82½ in
+  South wall west of closet door: 2 in
+  West wall south of bath pocket door: 18 in

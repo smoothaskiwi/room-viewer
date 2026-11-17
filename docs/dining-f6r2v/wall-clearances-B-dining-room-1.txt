@@ -1,38 +1,38 @@
-Council pick B1 · Extension table across the room; reuse the walnut console
+Council pick B1 · 60.0 × 38.0 rectangle: across room, north storage
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Mid-Century Extendable Dining Table 60–80 rectangular [table]
-  north: 60 in
-  east: 38 in
-  south: 60 in
-  west: 39 in
+  North wall: 60 in
+  East wall north of living arch: 38 in
+  South wall below south window: 60 in
+  West wall south of kitchen arch: 39 in
 
 Mikkel Dining Chair - Walnut and Algonquin Green · tucked [council-chair-0]
-  north: 38½ in
-  east: 64½ in
-  south: 98 in
-  west: 43 in
+  North wall: 38½ in
+  East wall north of living arch: 64½ in
+  South wall below south window: 98 in
+  West wall north of kitchen arch: 43 in
 
 Mikkel Dining Chair - Walnut and Algonquin Green · tucked [council-chair-1]
-  north: 38½ in
-  east: 40½ in
-  south: 98 in
-  west: 66 in
+  North wall: 38½ in
+  East wall north of living arch: 40½ in
+  South wall below south window: 98 in
+  West wall north of kitchen arch: 66 in
 
 Mikkel Dining Chair - Walnut and Algonquin Green · tucked [council-chair-2]
-  north: 98 in
-  east: 64½ in
-  south: 38½ in
-  west: 40½ in
+  North wall: 98 in
+  East wall south of living arch: 64½ in
+  South wall below south window: 38½ in
+  West wall south of kitchen arch: 40½ in
 
 Mikkel Dining Chair - Walnut and Algonquin Green · tucked [council-chair-3]
-  north: 98 in
-  east: 40½ in
-  south: 38½ in
-  west: 64½ in
+  North wall: 98 in
+  East wall south of living arch: 40½ in
+  South wall below south window: 38½ in
+  West wall south of kitchen arch: 64½ in
 
 Low media console [dining-media-console-0]
-  north: ½ in
-  east: 28½ in
-  south: 139½ in
-  west: 28½ in
+  North wall: ½ in
+  East wall north of living arch: 28½ in
+  South wall below south window: 139½ in
+  West wall north of kitchen arch: 28½ in

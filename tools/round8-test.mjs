@@ -12,9 +12,9 @@ import {windowReport} from './windows.mjs';
 import {backContact} from './placement.mjs';
 const read=async n=>JSON.parse(await fs.readFile(`${repo}/docs/primary-bedroom-b7q4m/${n}.json`,'utf8'));
 const data=await read('layouts'),C=(await read('catalog')).items;
-assert.match(data.meta.brief_version,/1\.[56]/);
+assert.match(data.meta.brief_version,/1\.[567]/);
 assert.ok(Object.values(C).filter(f=>f.shallow_storage).length===15,'All fifteen real shallow products are in the catalog');
-const ranked=data.layouts.filter(l=>l.recommended);
+const ranked=data.layouts.filter(l=>l.shortlist&&l.id!=='today');
 const obstructed=l=>l.windows.some(w=>w.pieces.some(p=>(p.headboard||p.top>40)&&p.glass_hidden_pct>0));
 if(ranked.some(l=>!obstructed(l)))assert.ok(ranked.slice(0,4).every(l=>!obstructed(l)),'First four must not hide glass behind a headboard or tall furniture when avoidable');
 for(const l of ranked)assert.ok(l.ranking_reason,'Cards explain window/nightstand ranking');
@@ -27,8 +27,8 @@ for(const l of data.layouts){
  assert.deepEqual(compact.bed_sides,l.bed_sides);for(const k of Object.keys(compact.measures))assert.equal(compact.measures[k],l.measures[k]);assert.equal(classify(full,l.scenarios),l.class);assert.deepEqual(rankingKey({...l,...full}),rankingKey(l),'Full rehydration preserves ranking');
  for(const [i,f] of l.footprints.entries()){
   const want=['dresser','storage'].includes(f.kind)?backContact(room,f).wall:nearestWall(room.room,f);assert.equal(l.wall_labels.find(p=>p.id===f.id).wall,want);assert.equal(f.wall,want);
-  if(f.kind==='rack'&&l.recommended){assert.equal(l.rackWall,want);assert.ok(l.title.includes('laundry '+want));}
-  if(['dresser','storage'].includes(f.kind)&&l.recommended){assert.equal(l.storageWall,want);assert.ok(l.title.includes(l.mix+' '+want));}
+  if(f.kind==='rack'&&l.recommended&&!l.pinned){assert.equal(l.rackWall,want);assert.ok(l.title.includes('laundry '+want));}
+  if(['dresser','storage'].includes(f.kind)&&l.recommended&&!l.pinned){assert.equal(l.storageWall,want);assert.ok(l.title.includes((l.mix==='generic size'?'storage envelope':l.mix==='dresser'&&/chest/i.test(f.label)?'chest':l.mix)+' '+want),'difference-first heading names the actual storage type and wall');}
   const three=render.furniture[l.id+'--'+f.id];for(const k of ['x','y','w','d','h','head','faces']){assert.equal(raw[i][k],f[k],l.id+' stored rotated '+k);assert.equal(three[k],f[k],l.id+' 3D rotated '+k);}
   const rect=svg.match(new RegExp('<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)" data-piece="'+f.id+'"'));
   assert.ok(rect,'Plan identifies exact footprint');assert.deepEqual(rect.slice(1).map(Number),[f.x,f.y,f.w,f.d]);

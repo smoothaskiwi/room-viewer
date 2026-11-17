@@ -4,4 +4,4 @@ bed-side-a · everyday: 26.5 in; article_nera3-3 / article_nera-0
 bed-side-b · everyday: 28.0 in; wall-east / entry-leaf
 bed-foot · everyday: 26.5 in; article_nera3-3 / article_nera-0
 east-panel · everyday: 23.0 in; article_nera-0 / wall-north
-storage-article_nera3-3 · everyday: 28.0 in; wall-east / entry-leaf
+storage-article nera3-3 · everyday: 28.0 in; wall-east / entry-leaf

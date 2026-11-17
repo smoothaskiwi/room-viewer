@@ -63,7 +63,7 @@
   "reference_layouts": {
     "kitchen": "angela_48x32_pill_overlap_2",
     "dining-room": "table_60x36_under_light_east_west",
-    "living-room": "layout-049bfb424c"
+    "living-room": "C-living-room-2"
   },
   "reference_routes": [
     {
@@ -4625,11 +4625,11 @@
       "id": "kitchen-to-living-pulled"
     }
   ],
-  "note": "Exact joined 0.5-in polygon route for this reference pair only, not a guarantee for arbitrary cross-room selections. Kitchen aisle approach and living-room exit extend 48 in solely to keep opening geometry honest; living-room furnishing is modelled in the added reference components. The 5.1-in wall-plane offset and shared transform require tape confirmation. Living reference now modelled with named layout layout-049bfb424c. Component minima describe this reference only.",
+  "note": "Exact joined 0.5-in polygon route for this reference pair only, not a guarantee for arbitrary cross-room selections. Kitchen aisle approach and living-room exit extend 48 in solely to keep opening geometry honest; living-room furnishing is modelled in the added reference components. The 5.1-in wall-plane offset and shared transform require tape confirmation. Living reference now modelled with named layout C-living-room-2. Component minima describe this reference only.",
   "extended_walks": [
     {
       "id": "front-vestibule-to-kitchen",
-      "width": 34,
+      "width": 38,
       "components": [
         {
           "room": "kitchen/dining",
@@ -4638,15 +4638,15 @@
         },
         {
           "room": "living-room",
-          "layout": "layout-049bfb424c",
-          "width": 34
+          "layout": "C-living-room-2",
+          "width": 48
         }
       ],
       "definition": "Minimum of individually solved connected-room components at matching surveyed arches; shared jamb/wall thickness needs tape. Front door is outside the living room, so this starts at the vestibule arch."
     },
     {
       "id": "bedroom-hall-to-kitchen",
-      "width": 37,
+      "width": 38,
       "components": [
         {
           "room": "kitchen/dining",
@@ -4655,8 +4655,8 @@
         },
         {
           "room": "living-room",
-          "layout": "layout-049bfb424c",
-          "width": 37
+          "layout": "C-living-room-2",
+          "width": 48
         }
       ],
       "definition": "Minimum of individually solved connected-room components at matching surveyed arches; shared jamb/wall thickness needs tape. Front door is outside the living room, so this starts at the vestibule arch."

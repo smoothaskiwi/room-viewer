@@ -2,25 +2,25 @@ Council pick B1 · A calm walnut queen guest room; office and gym leave
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Nera Queen Low Profile Bed - Walnut [article_nera-0]
-  north: 26 in
-  east: 1 in
-  south: 55½ in
-  west: 43½ in
+  North wall east of sliding door: 26 in
+  East wall north of entry door: 1 in
+  South wall west of closet door: 55½ in
+  West wall north of bath pocket door: 43½ in
 
 Miles Mini Nightstand (16") [miles_nightstand_16-1]
-  north: 10 in
-  east: 1 in
-  south: 117½ in
-  west: 110½ in
+  North wall east of sliding door: 10 in
+  East wall north of entry door: 1 in
+  South wall east of closet door: 117½ in
+  West wall north of bath pocket door: 110½ in
 
 Miles Mini Nightstand (16") [miles_nightstand_16-2]
-  north: 88 in
-  east: 1 in
-  south: 40½ in
-  west: 109½ in
+  North wall east of sliding door: 88 in
+  East wall north of entry door: 1 in
+  South wall east of closet door: 40½ in
+  West wall south of bath pocket door: 109½ in
 
 Cooper 6-Drawer Double Dresser [article_cooper6-3]
-  north: 126 in
-  east: 69½ in
-  south: 1 in
-  west: 3 in
+  North wall west of sliding door: 126 in
+  East wall south of entry door: 69½ in
+  South wall west of closet door: 1 in
+  West wall south of bath pocket door: 3 in

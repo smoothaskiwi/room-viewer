@@ -16,7 +16,7 @@ export async function buildDiningPage(out,{room,brief,catalog,data},rooms){
  const roomLabel=data.label||roomId.replaceAll('-',' ').replaceAll('_',' ');
  const currentRoom=rooms.find(r=>r.id===roomId);
 
- const hasExtra=layouts.some((l,i)=>i>4&&!l.pinned&&!l.recommended);
+ const hasExtra=layouts.some(l=>!l.shortlist);
 
  const galleryCards=layouts.map((l,i)=>card(l,room,i).replace(`<div class="mini-plan" data-plan="${l.id}"></div>`,`<div class="mini-plan" data-plan="${l.id}">${planSVG(room,l,{compact:true})}</div>`)).join('\n');
 
@@ -57,7 +57,7 @@ export async function buildDiningPage(out,{room,brief,catalog,data},rooms){
 
  const benchDiagram=layouts.some(l=>(l.fixed||[]).some(f=>f.kind==='seat'))?
   `<section class="bench-section"><h3>Banquette section</h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 120" role="img" aria-label="Cross-section diagram: seat, back and table labelled with approximate heights" style="max-width:400px;width:100%">
-  <rect x="10" y="60" width="50" height="40" fill="#7a9b8e" stroke="#384a44" stroke-width="1"/>
+  <rect x="10" y="60" width="50" height="40" fill="#aaa69f" stroke="#384a44" stroke-width="1"/>
   <text x="35" y="84" text-anchor="middle" fill="#fff" font-size="11" font-family="system-ui">Seat</text>
   <rect x="10" y="10" width="12" height="50" fill="#5a7b6e" stroke="#384a44" stroke-width="1"/>
   <text x="16" y="40" text-anchor="middle" fill="#fff" font-size="10" font-family="system-ui" transform="rotate(-90 16 40)">Back</text>
@@ -99,9 +99,10 @@ export async function buildDiningPage(out,{room,brief,catalog,data},rooms){
 <main>
 <details class="measure-first"><summary>Measure first: ${esc(data.measure_first?.[0]?.what||'room dimensions')}</summary><ol>${measureFirstList}</ol></details>
 <section id="gallery" aria-labelledby="gallery-title">
-<h2 id="gallery-title" tabindex="-1">Layout options</h2>
+<h2 id="gallery-title" tabindex="-1">Today + four distinct ranked layouts</h2>
+<button id="compare-open" class="secondary">Compare two layouts</button>
 ${galleryCards}
-${hasExtra?'<button id="show-more" aria-expanded="false">Show all options</button>':''}
+${hasExtra?`<button id="show-more" aria-expanded="false">More options (${layouts.filter(l=>!l.shortlist).length})</button>`:''}
 </section>
 
 <section id="detail" hidden aria-labelledby="detail-title">
@@ -122,7 +123,6 @@ ${hasExtra?'<button id="show-more" aria-expanded="false">Show all options</butto
 <button data-chair="pulled" aria-pressed="false">Pulled</button>
 </div>
 
-${wallGapControls}
 <div class="visual">
 <div id="detail-plan"></div>
 <div id="three-host" class="stage" hidden></div>
@@ -130,6 +130,7 @@ ${wallGapControls}
 
 <p id="fallback-note" hidden class="notice">WebGL is not available. Plan view shows all measurements. 3D is illustrative only; all numbers are in the tables below.</p>
 <p id="view-note" class="caption"></p>
+<details class="advanced-controls"><summary>Advanced clearances and controls</summary>${wallGapControls}</details>
 <p id="legend" class="legend"></p>
 
 <div id="orbit-controls" class="orbit-buttons" hidden>
@@ -162,11 +163,9 @@ ${wallGapControls}
 <div><label for="compare-b">Layout B</label><select id="compare-b">${compareOptions}</select></div>
 </div>
 <div id="compare-plans"></div>
-<div id="compare-table"></div>
+<details class="compare-measures"><summary>All comparative measurements</summary><div id="compare-table"></div></details>
 <button id="compare-close" class="secondary">Close comparison</button>
 </section>
-<button id="compare-open" class="secondary">Compare two layouts</button>
-
 ${benchDiagram}
 <details class="search-trace"><summary>Search coverage</summary>${data.search?`<p class="eyebrow">Search: ${data.search.generated} generated, ${data.search.evaluated} evaluated, ${data.search.retained} retained in ${(data.search.elapsed_ms/1000).toFixed(1)} s${data.search.workers?' across '+data.search.workers+' workers':''}.</p>`:''}</details>
 

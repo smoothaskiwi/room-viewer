@@ -1,0 +1,11 @@
+dining arch ↔ hall opening · everyday: 37.0 in; living-rh-tables-50-0.5 / wall-north
+dining arch ↔ entry arch · everyday: 34.0 in; living-rh-tables-50-136 / cabinet-0.75-123
+hall opening ↔ entry arch · everyday: 34.0 in; living-rh-tables-50-136 / cabinet-0.75-123
+seat-living-sofa-81-36 · everyday: 17.5 in; living-sofa-81-36 / article_leniacoffee-134-52
+seat-living-cognac-swivels-158-12 · everyday: 13.5 in; living-cognac-swivels-158-12 / article_leniacoffee-134-52
+seat-living-cognac-swivels-158-112 · everyday: 13.5 in; living-cognac-swivels-158-12 / article_leniacoffee-134-52
+storage-cabinet-0.75-123 · everyday: 31.0 in; living-rh-tables-50-0.5 / wall-north
+group-entry-north · everyday: 20.0 in; living-rh-tables-50-0.5 / living-sofa-81-36
+group-entry-south · everyday: 17.5 in; living-sofa-81-36 / living-rh-tables-50-136
+east-window-north · everyday: 11.0 in; living-cognac-swivels-158-12 / wall-east
+east-window-south · everyday: 7.0 in; living-cognac-swivels-158-112 / wall-south

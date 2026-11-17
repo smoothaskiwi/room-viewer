@@ -15,3 +15,17 @@
 .wall-gap-label{display:block;min-width:0;padding:5px 7px;border-left:5px solid;background:rgba(255,254,249,.97);color:#203c34;border-radius:3px;font-size:14px;line-height:1.35;overflow-wrap:anywhere}
 #all-wall-clearances{margin:32px 0}#all-wall-clearances dl{margin:8px 0 20px}#all-wall-clearances dl>div{display:flex;gap:12px;padding:5px 0;border-bottom:1px solid #d5dbcf}#all-wall-clearances dt{flex:0 0 40%;font-weight:600}#all-wall-clearances dd{margin:0;overflow-wrap:anywhere}#all-wall-clearances h3{font-size:18px;margin-top:20px}
 nav[aria-label="Room switcher"]{display:flex;flex-wrap:wrap;gap:8px;max-width:1100px;margin:12px auto;padding:0 18px;align-items:center}nav[aria-label="Room switcher"] a{display:inline-flex;min-height:44px;align-items:center;padding:0 9px;border:1px solid #587267;border-radius:6px;color:#213d31}nav[aria-label="Room switcher"] [aria-current="page"]{background:#d8e9df;font-weight:700}
+
+/* Round 10 phone-first detail: picture first, key numbers, then closed disclosures (added by *-app.mjs). */
+.gallery-tools{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 12px}
+.gallery-tools #compare-open{flex:1 1 auto}
+#gallery>#show-more,#gallery~#show-more{grid-column:1/-1}
+.key-metrics{margin:12px 0 4px}.key-metrics caption{padding-top:4px}
+.key-metrics tbody th{width:40%}
+.advanced-controls,.detail-about{border:1px solid #bfcabe;border-radius:8px;padding:0 12px;background:#f7f8f2;min-width:0}
+.advanced-controls[open],.detail-about[open]{padding-bottom:12px}
+.advanced-controls>summary,.detail-about>summary{display:flex;align-items:center}
+.advanced-controls .wall-gap-panel,.advanced-controls .walkway-panel,.advanced-controls .activity-walkway-panel{margin:8px 0}
+.wall-gap-panel a,.walkway-panel a,.activity-walkway-panel a,nav p a{display:inline-block;min-height:48px;padding:12px 2px}
+#detail-title:focus,#compare-title:focus,#gallery-title:focus{outline:none}
+#detail-title:focus-visible,#compare-title:focus-visible{outline:3px solid #b77212;outline-offset:4px}

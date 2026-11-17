@@ -1,7 +1,0 @@
-bathroom · everyday: 28.0 in; article_lenia_full-48-24.5 / wall-west
-closet · everyday: 28.0 in; wall-east / entry-leaf
-bed-side-a · everyday: 23.0 in; smart_gym-0.7-0.5 / article_lenia_full-48-24.5
-bed-side-b · everyday: 28.0 in; wall-east / entry-leaf
-bed-foot · everyday: 28.0 in; article_lenia_full-48-24.5 / rh_rhbc_prod963089-0.5-97.5
-east-panel · everyday: 21.0 in; article_lenia_full-48-24.5 / smart_gym-0.7-0.5
-desk-chair · everyday: 28.0 in; wall-east / entry-leaf

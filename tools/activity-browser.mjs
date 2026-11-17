@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import puppeteer from 'puppeteer-core';
 import {AxePuppeteer} from '@axe-core/puppeteer';
+import {activeStateSummary} from '../src/dining-format.mjs';
 import {repo,project} from './project.mjs';
 const save=process.argv.includes('--screenshots'),root=process.env.ROOM_TEST_EVIDENCE_DIR?path.join(process.env.ROOM_TEST_EVIDENCE_DIR,'activity'):path.join(project,'prototype/renders/round-9b'),port=8796,base=`http://127.0.0.1:${port}`;
 if(save)await fs.mkdir(root,{recursive:true});
@@ -25,12 +26,12 @@ try{
   await page.setViewport({width:1440,height:900,deviceScaleFactor:1,isMobile:false,hasTouch:false});await page.waitForFunction(()=>window.__dining?.ready);await capture(prefix+'-gallery-desktop');await page.setViewport({width:412,height:915,deviceScaleFactor:2,isMobile:true,hasTouch:true});await page.waitForFunction(()=>window.__dining?.ready);
   for(const [i,l]of data.layouts.entries()){
    await page.evaluate(async id=>window.__dining.open(id,{scroll:false}),l.id);await page.waitForFunction(id=>window.__dining?.layout===id,l.id?{timeout:10000}:undefined,l.id);await noOverflow();
-   assert.equal(await page.$eval('#class-readout',e=>e.textContent.split(' · ')[0]),l.class);assert.ok((await page.$eval('#sentence',e=>e.textContent)).includes(l.sentence));assert.ok((await page.$eval('#detail-table',e=>e.textContent)).includes(l.metrics.find(([k])=>k==='Everyday main walk')[1]));
+   assert.equal(await page.$eval('#class-readout',e=>e.textContent.split(' · ')[0]),l.class);assert.ok((await page.$eval('#sentence',e=>e.textContent)).includes(activeStateSummary(l,'tucked')));assert.ok((await page.$eval('#detail-table',e=>e.textContent)).includes(l.metrics.find(([k])=>k==='Everyday main walk')[1]));
    await capture(`${prefix}-${String(i).padStart(2,'0')}-${l.id}-plan`,'.visual');views++;
    const minFont=await page.$$eval('#detail-plan svg text',nodes=>Math.min(...nodes.map(e=>{const b=e.getScreenCTM();return parseFloat(getComputedStyle(e).fontSize)*Math.hypot(b.a,b.b);})));assert.ok(minFont>=12,'phone SVG label is legible: '+minFont);
    await page.click('[data-view="3d"]');await page.waitForFunction(()=>window.__dining?.view==='3d'&&window.__dining.webgl);await capture(`${prefix}-${String(i).padStart(2,'0')}-${l.id}-3d`,'.visual');views++;
    const gaps=await page.evaluate(()=>window.__dining.clearance()?.clearance());assert.equal(gaps.gaps.length,4);assert.equal(gaps.enabled,true);
-   await page.select('#wall-gap-piece',l.footprints.at(-1).id);assert.equal((await page.evaluate(()=>window.__dining.clearance()?.clearance())).piece,l.footprints.at(-1).id);await page.click('#wall-gap-toggle');assert.equal((await page.evaluate(()=>window.__dining.clearance()?.clearance())).enabled,false);await page.click('#wall-gap-toggle');
+   await page.select('#wall-gap-piece',l.footprints.at(-1).id);assert.equal((await page.evaluate(()=>window.__dining.clearance()?.clearance())).piece,l.footprints.at(-1).id);await page.$$eval('#detail details',es=>es.forEach(e=>e.open=true));await page.click('#wall-gap-toggle');assert.equal((await page.evaluate(()=>window.__dining.clearance()?.clearance())).enabled,false);await page.$$eval('#detail details',es=>es.forEach(e=>e.open=true));await page.click('#wall-gap-toggle');
    if(i===1){await axe(page,prefix+' 3D');for(const state of ['seated','pulled']){await page.click(`[data-chair="${state}"]`);await page.waitForFunction(s=>window.__dining.state===s,{},state);assert.ok((await page.$eval('#announcer',e=>e.textContent)).includes(state));await capture(prefix+'-'+state+'-3d','.visual');}await page.click('[data-chair="tucked"]');await page.click('[data-orbit="left"]');await page.click('#reset');}
   }
   await page.evaluate(()=>window.scrollTo(0,0));await page.click('#compare-open');await axe(page,prefix+' compare');await noOverflow();await capture(prefix+'-compare','#compare');assert.equal(await page.$$eval('#compare-plans svg',a=>a.length),2);

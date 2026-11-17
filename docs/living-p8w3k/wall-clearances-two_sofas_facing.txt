@@ -2,49 +2,49 @@ White sofa on the north wall, cognac sofa facing it, fireplace at the end
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±2.5 / y ±2 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 White upholstered sofa [living-sofa-66-0.5]
-  north: ½ in
-  east: 50 in
-  south: 119½ in
-  west: 66 in
+  North wall east of hall opening: ½ in
+  East wall north of east window north: 50 in
+  South wall east of entry arch: 119½ in
+  West wall north of dining arch: 66 in
 
 Cognac leather sofa [dining-sofa-66-103]
-  north: 103 in
-  east: 50 in
-  south: 17 in
-  west: 66 in
+  North wall east of hall opening: 103 in
+  East wall south of east window north: 50 in
+  South wall east of entry arch: 17 in
+  West wall south of dining arch: 66 in
 
 Amoeba 42.5" Coffee Table - Walnut [article_amoeba-88.75-55.5]
-  north: 55½ in
-  east: 73 in
-  south: 72 in
-  west: 90½ in
+  North wall east of hall opening: 55½ in
+  East wall south of east window north: 73 in
+  South wall east of entry arch: 72 in
+  West wall north of dining arch: 90½ in
 
 Cognac barrel swivel armchairs [living-cognac-swivels-162-14]
-  north: 14 in
-  east: 12 in
-  south: 114 in
-  west: 162 in
+  North wall east of hall opening: 14 in
+  East wall below east window north: 12 in
+  South wall east of entry arch: 114 in
+  West wall north of dining arch: 162 in
 
 Cognac barrel swivel armchairs [living-cognac-swivels-162-112]
-  north: 112 in
-  east: 12 in
-  south: 16 in
-  west: 162 in
+  North wall east of hall opening: 112 in
+  East wall south of east window north: 12 in
+  South wall east of entry arch: 16 in
+  West wall south of dining arch: 162 in
 
 cabinet (planning envelope) [cabinet-0.75-123]
-  north: 123 in
-  east: 189½ in
-  south: 3 in
-  west: 1 in
+  North wall west of hall opening: 123 in
+  East wall south of east window north: 189½ in
+  South wall west of entry arch: 3 in
+  West wall south of dining arch: 1 in
 
 cat posts (planning envelope) [cat_posts-57-140]
-  north: 140 in
-  east: 131 in
-  south: 2 in
-  west: 57 in
+  North wall east of hall opening: 140 in
+  East wall south of east window north: 131 in
+  South wall east of entry arch: 2 in
+  West wall south of dining arch: 57 in
 
 cat posts (planning envelope) [cat_posts-184-140]
-  north: 140 in
-  east: 4 in
-  south: 2 in
-  west: 184 in
+  North wall east of hall opening: 140 in
+  East wall south of east window north: 4 in
+  South wall east of entry arch: 2 in
+  West wall south of dining arch: 184 in

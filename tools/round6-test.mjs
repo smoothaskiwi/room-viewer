@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {repo} from './project.mjs';
 import {evaluate,classify} from './explore.mjs';
-import {announcement,metricsRows,storagePlain} from '../src/explorer-format.mjs';
+import {announcement,activeStateSummary,metricsRows,storagePlain} from '../src/explorer-format.mjs';
 const read=async n=>JSON.parse(await fs.readFile(repo+'/docs/primary-bedroom-b7q4m/'+n+'.json','utf8'));
 const data=await read('layouts'),room=await read('room'),brief=await read('brief'),cat=(await read('catalog')).items;
 assert.ok(brief.doors?.everyday_state,'Everyday door policy must come from the brief');
@@ -16,12 +16,12 @@ for(const l of data.layouts){
  assert.ok(l.sentence.trim().split(/\s+/).length<=25,l.id+' plain sentence at most 25 words');
  assert.equal((l.sentence.match(/[.!?](?:\s|$)/g)||[]).length,1,l.id+' exactly one sentence');
  assert.ok(!/\d|±/.test(l.sentence),'Measures belong in tables, not the sentence');
- assert.equal(announcement(l,'Plan'),`${l.class}. Plan. ${l.sentence}`);
+ assert.equal(announcement(l,'Plan'),`${l.class} everyday class. Plan. ${activeStateSummary(l)}`);
  assert.ok(metricsRows(l).some(([k])=>k==='White door open: narrowest route'));
  assert.ok(metricsRows(l).some(([k])=>k==='Closet door open: narrowest route'));
  for(const id of ['shaker_door','closet_door']){
   const m=l.measures.door_open[id];assert.ok(m&&Number.isFinite(m.value)&&Number.isFinite(m.unc)&&Number.isFinite(m.difference_from_today));
-  assert.equal(m.warning,m.value<brief.passage.main_route.hard_min);assert.equal(m.unc,Math.max(...l.scenarios.map(s=>Math.abs(s.measures.door_open[id].value-m.value))));assert.equal(m.difference_from_today,m.value-data.layouts[0].measures.door_open[id].value);
+  assert.equal(m.warning,m.value<brief.passage.main_route.hard_min);assert.equal(m.unc,Math.max(room.room.width_x_unc,room.room.depth_y_unc,...l.scenarios.map(s=>Math.abs(s.measures.door_open[id].value-m.value))));assert.equal(m.difference_from_today,m.value-data.layouts[0].measures.door_open[id].value);
  }
 }
 const closed=structuredClone(brief);closed.doors.everyday_state.shaker_door='closed';

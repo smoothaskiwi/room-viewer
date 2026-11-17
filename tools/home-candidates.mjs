@@ -30,3 +30,15 @@ export function homePins(room,brief,cat){if(room.meta.room==='guest-bedroom')ret
  {family:'tv_on_console/without_desk',placements:[owned('dining-media-console',101.5,.5,'south',63,19),owned('living-sofa',89,104,'north',88,38),piece(cat,'article_leniacoffee',106.25,65),piece(cat,'living-cognac-swivels',70,29,'east'),piece(cat,'cabinet',.75,123,'east'),piece(cat,'cat_posts',57,140),piece(cat,'cat_posts',184,140)]},
  {family:'two_sofas/without_desk',placements:[owned('living-sofa',66,.5,'south',88,38),owned('dining-sofa',66,103,'north',88,38),piece(cat,'article_amoeba',88.75,55.5),piece(cat,'living-cognac-swivels',162,14,'west'),piece(cat,'living-cognac-swivels',162,112,'west'),piece(cat,'cabinet',.75,123,'east'),piece(cat,'cat_posts',57,140),piece(cat,'cat_posts',184,140)]}];
  return pins.map((c,i)=>({...c,id:brief.pinned_layouts[i+1].id,title:brief.pinned_layouts[i+1].label,pinned:true,source_pin:brief.pinned_layouts[i+1],description:brief.pinned_layouts[i+1].items,relocation:['desk','unplaced seating / poufs / side tables']}));}
+// Round 10: rotation-normalised council dimensions. A submission that writes product W × D in the
+// unrotated frame (e.g. a west-facing 31 × 35 chair) is the same object as the engine's rotated
+// 35 × 31 plan footprint; that is a labelling convention, not a catalog disagreement. The engine's
+// plan-frame footprint is always the one evaluated; submitted hand clearances are never trusted.
+// Approximate (photo/assumed) envelopes are already submitted in the plan frame (e.g. the 144 × 108 rug
+// matches room-living-room x 30-174, y 25-133), so they are retained as submitted, not swapped.
+export function normaliseCouncil(cat,picks){return picks.map(p=>{const src=p.source_proposal?.placements??[],notes=[];
+ const placements=p.placements.map((f,j)=>{const q=src[j];if(!q)return f;const c=cat[f.catalog_id],sw=q.footprint_w,sd=q.footprint_d;if(!c?.w||!c?.d||!Number.isFinite(sw)||!Number.isFinite(sd))return f;const r=f.rotation%180,cw=r?c.w:c.d,cd=r?c.d:c.w,near=(a,b)=>Math.abs(a-b)<=.25;
+  if(!c.approximate&&!(near(sw,cw)&&near(sd,cd))&&near(sw,cd)&&near(sd,cw)){notes.push(f.catalog_id+': submitted '+sw+' × '+sd+' is the unrotated product frame; rotation-normalised to plan '+cw+' × '+cd);return f;}
+  return f;});
+ const normalised=new Set(notes.filter(n=>n.includes('rotation-normalised')).map(n=>n.split(':')[0]));
+ return {...p,placements,proposal_failures:p.proposal_failures.filter(m=>!(/^Catalog dimensions disagree: /.test(m)&&normalised.has(m.split(': ')[1].split(' ')[0]))),proposal_warnings:[...p.proposal_warnings,...notes]};});}

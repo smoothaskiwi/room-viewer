@@ -17,7 +17,7 @@ export function councilCandidates(document,room,cat,file='council fixture'){
    const isTable=c?.category?.includes('table')&&!/side|coffee/.test(id)||/generic.*(?:pill|boat|table|oval|rectangle|round)/.test(id)||/kitchen-nook-table/.test(id),isChair=c?.category?.includes('chair')||/chair/.test(id),isBoard=c?.category==='sideboard'||/sideboard|media-console/.test(id);
    let w=q.footprint_w,d=q.footprint_d;
    if(c?.layout_ready){const extension=isTable&&q.state==='extended',long=extension?(c.extra_dims.extended_w??c.dims_in.w):c.dims_in.w,short=c.dims_in.d;if(extension&&!c.extra_dims.extended_w)candidate.proposal_failures.push('extended size unpublished for '+id);const cw=rotation%180?short??c.w:long??c.d,cd=rotation%180?long??c.d:short??c.w;
-    if([cw,cd].every(Number.isFinite)&&!c.approximate){if(Math.abs(w-cw)>.25||Math.abs(d-cd)>.25)candidate.proposal_failures.push('catalog dimensions disagree for '+id+' (engine uses '+cw+' × '+cd+')');w=cw;d=cd;}
+    if([cw,cd].every(Number.isFinite)&&!c.approximate){if((Math.abs(w-cw)>.25||Math.abs(d-cd)>.25)&&(Math.abs(w-cd)>.25||Math.abs(d-cw)>.25))candidate.proposal_failures.push('catalog dimensions disagree for '+id+' (engine uses '+cw+' × '+cd+')');w=cw;d=cd;}
    }
    if(!c&&!/^generic[-_]/.test(id))candidate.proposal_failures.push('Unresolved catalog id '+id+'; not a verified product');
    if(isTable){if(candidate.table)candidate.proposal_failures.push('multiple dining tables');candidate.table=table(room,cat,c?.id??id,{x:q.x,y:q.y,w,d,rotation,shape:form,state:q.state==='extended'?'extended':'closed'});}

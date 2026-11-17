@@ -1,0 +1,12 @@
+dining arch ↔ hall opening · everyday: 40.0 in; wall-west / living-cognac-swivels-3
+dining arch ↔ entry arch · everyday: 27.5 in; cabinet-7 / living-cognac-swivels-4
+hall opening ↔ entry arch · everyday: 27.5 in; cabinet-7 / living-cognac-swivels-4
+seat-living-sofa-0 · everyday: 15.5 in; living-cognac-swivels-3 / living-sofa-0
+seat-dining-sofa-1 · everyday: 15.5 in; living-cognac-swivels-3 / living-sofa-0
+seat-living-cognac-swivels-3 · everyday: 15.5 in; living-cognac-swivels-3 / living-sofa-0
+seat-living-cognac-swivels-4 · everyday: 15.5 in; living-cognac-swivels-3 / living-sofa-0
+storage-cabinet-7 · everyday: 27.5 in; cabinet-7 / living-cognac-swivels-4
+group-entry-north · everyday: 1.0 in; wall-north / living-sofa-0
+group-entry-south · everyday: 15.5 in; living-cognac-swivels-3 / living-sofa-0
+east-window-north · everyday: 15.5 in; living-cognac-swivels-3 / living-sofa-0
+east-window-south · everyday: 15.5 in; living-cognac-swivels-3 / living-sofa-0

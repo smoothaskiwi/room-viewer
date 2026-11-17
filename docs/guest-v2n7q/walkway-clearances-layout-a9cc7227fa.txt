@@ -1,0 +1,7 @@
+bathroom · everyday: 28.0 in; article_nera-44.5-25.25 / wall-west
+closet · everyday: 28.0 in; entry-leaf / wall-south
+bed-side-a · everyday: 28.0 in; article_nera-44.5-25.25 / wall-north
+bed-side-b · everyday: 28.0 in; castlery_sebdresser-2-125.8 / article_nera-44.5-25.25
+bed-foot · everyday: 28.0 in; article_nera-44.5-25.25 / wall-west
+east-panel · everyday: 24.0 in; article_nera-44.5-25.25 / wall-north
+storage-castlery sebdresser-2-125.8 · everyday: 28.0 in; castlery_sebdresser-2-125.8 / article_nera-44.5-25.25

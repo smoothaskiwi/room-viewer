@@ -1,20 +1,20 @@
-Council pick C3 · Table moved north, a straight walk between the arches — walkways
+Council pick C3 · 60.0 × 38.0 rectangle: across room, south storage — walkways
 Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
 Room tolerance: x ±2 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
 LOCAL SNAPSHOT EDGE GAPS — not operating space
-main-walk — Everyday · chairs tucked: 41 in conservative moving-disk bottleneck at x 128.8 in, y 100.3 in; source nearest objects wall-east / table.
-council-chair-2 ↔ dining-media-console-0 · 41.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[41.25,97],[41.25,138.5]]
-council-chair-3 ↔ dining-media-console-0 · 41.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[62.25,97],[62.25,138.5]]
+Everyday · chairs tucked: 41 in moving-disk minimum; in-room reference near Nosh Dining Chair - Walnut and Hemlock Green · tucked and Low media console. These are nearest references, not an exact static gap between two objects. [Route record: main-walk]
+council-chair 2 ↔ dining-media-console-0 · 41.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[41.25,97],[41.25,138.5]]
+council-chair 3 ↔ dining-media-console-0 · 41.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[62.25,97],[62.25,138.5]]
 table ↔ dining-media-console-0 · 56.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[31.75,82],[31.75,138.5]]
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-seated — Diners seated: 36 in conservative moving-disk bottleneck at x 81.8 in, y 120.3 in; source nearest objects council-chair-3 / dining-media-console-0.
-council-chair-2 ↔ dining-media-console-0 · 36.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[41.25,102],[41.25,138.5]]
-council-chair-3 ↔ dining-media-console-0 · 36.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[62.25,102],[62.25,138.5]]
+Diners seated: 36 in moving-disk minimum; in-room reference near Nosh Dining Chair - Walnut and Hemlock Green · seated and Low media console. These are nearest references, not an exact static gap between two objects. [Route record: main-walk-seated]
+council-chair 2 ↔ dining-media-console-0 · 36.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[41.25,102],[41.25,138.5]]
+council-chair 3 ↔ dining-media-console-0 · 36.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[62.25,102],[62.25,138.5]]
 table ↔ dining-media-console-0 · 56.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[31.75,82],[31.75,138.5]]
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-pulled — Chairs pulled out: 24 in conservative moving-disk bottleneck at x 81.8 in, y 126.3 in; source nearest objects council-chair-3 / dining-media-console-0.
-council-chair-2 ↔ dining-media-console-0 · 24.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[41.25,114],[41.25,138.5]]
-council-chair-3 ↔ dining-media-console-0 · 24.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[62.25,114],[62.25,138.5]]
+Chairs pulled out: 24 in moving-disk minimum; in-room reference near Nosh Dining Chair - Walnut and Hemlock Green · pulled and Low media console. These are nearest references, not an exact static gap between two objects. [Route record: main-walk-pulled]
+council-chair 2 ↔ dining-media-console-0 · 24.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[41.25,114],[41.25,138.5]]
+council-chair 3 ↔ dining-media-console-0 · 24.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[62.25,114],[62.25,138.5]]
 table ↔ dining-media-console-0 · 56.5 in; Shortest sampled free boundary crossing for this pair, perpendicular to the retained route; 0.5-in path sampling, not a global minimum or operating space. Endpoints [[31.75,82],[31.75,138.5]]
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
 SEPARATE USE STATES

@@ -1,14 +1,14 @@
-West Elm 60–80 extension, closed — walkways
+60.0 × 38.0 rectangle: across room, north storage — walkways
 Model-derived, not tape-verified. Room and item estimates can change fit; sampling/grid size is not measurement precision. Moving-disk diameter is not an exact edge-to-edge chord. No accessibility or code-compliance claim.
 Room tolerance: x ±2 in, y ±2 in; plus item estimates. Coordinates: x east, y south from room inside northwest datum.
 LOCAL SNAPSHOT EDGE GAPS — not operating space
-main-walk — Everyday · chairs tucked: 38 in conservative moving-disk bottleneck at x 107.8 in, y 108.3 in; source nearest objects table / wall-east.
+Everyday · chairs tucked: 38 in moving-disk minimum; in-room reference near Mid-Century Extendable Dining Table 60–80 rectangular and east wall / dining opening. These are nearest references, not an exact static gap between two objects. [Route record: main-walk]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-seated — Diners seated: 38 in conservative moving-disk bottleneck at x 107.8 in, y 108.3 in; source nearest objects table / wall-east.
+Diners seated: 38 in moving-disk minimum; in-room reference near Mid-Century Extendable Dining Table 60–80 rectangular and east wall / dining opening. These are nearest references, not an exact static gap between two objects. [Route record: main-walk-seated]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
-main-walk-pulled — Chairs pulled out: 27 in conservative moving-disk bottleneck at x 96.3 in, y 129.8 in; source nearest objects chair-4 / wall-east.
+Chairs pulled out: 27 in moving-disk minimum; in-room reference near Ulka Dining Chair - White Oak and Ratine Ivory · pulled and east wall / dining opening. These are nearest references, not an exact static gap between two objects. [Route record: main-walk-pulled]
 No useful local furniture-to-furniture crossing is available along this route. Use the published route bottleneck instead.
 Widest moving-disk path between clear opening corridors; conservative polygon occupancy / EDT, no diagonal corner cutting. Not a table-to-wall gap.
 SEPARATE USE STATES

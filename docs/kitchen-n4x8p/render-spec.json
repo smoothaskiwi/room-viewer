@@ -28,7 +28,113 @@
     "ceiling_basis": "P (8'-4\" on A1)",
     "appearance": "warm white walls, white Shaker cabinets with white quartz tops, grey wood-look vinyl plank floor, greige upholstered banquette, brushed-silver dome pendant",
     "width_basis": "P layout return 96 = 66 open + 27 MW cabinet + 3 filler ('Daniel G Layout.jpg', Apr 2024); E1 scales 97 +/-2; video solve gave 98.5 +/-1.5 (within 1.7 sigma) - tape check listed",
-    "depth_basis": "M video 102.4 +/-1.5; documents give 103 +/-1: 233 long side (layout; v5 19'-5\") minus east run end 130 from the north wall (layout strings 37.5+1.5+15+30+3+18 = 105, + 3DB24 24 + back panel ~0.75)"
+    "depth_basis": "M video 102.4 +/-1.5; documents give 103 +/-1: 233 long side (layout; v5 19'-5\") minus east run end 130 from the north wall (layout strings 37.5+1.5+15+30+3+18 = 105, + 3DB24 24 + back panel ~0.75)",
+    "appearance_palette": {
+      "version": 1,
+      "source": "room.room.appearance",
+      "text": "warm white walls, white Shaker cabinets with white quartz tops, grey wood-look vinyl plank floor, greige upholstered banquette, brushed-silver dome pendant",
+      "basis": "room.appearance text; kitchen video frame (white Shaker doors, grey upholstered L banquette on a white plinth, brushed-silver dome pendant hung low over the table, white-cased windows); supplier layout for cabinet codes",
+      "walls": "#f3efe6",
+      "trim": "#f7f5ef",
+      "ceiling": "#f6f4ee",
+      "floor": {
+        "kind": "grey wood-look vinyl plank",
+        "color": "#9c9a94",
+        "seam": "#7f7d78",
+        "plank_width": 7,
+        "direction": "x"
+      },
+      "cabinets": {
+        "style": "shaker",
+        "color": "#f4f3ee",
+        "frame": "#e6e4dd",
+        "counter": "#eceae4"
+      },
+      "upholstery": {
+        "seat": "#a29d95",
+        "back": "#928d85",
+        "plinth": "#f4f3ee"
+      },
+      "fixture_style": {
+        "kind": "dome-pendant",
+        "finish": "#d3d5d7",
+        "metalness": 0.35,
+        "roughness": 0.38
+      },
+      "fixtures": {
+        "pendant": {
+          "kind": "dome-pendant",
+          "finish": "#d3d5d7",
+          "metalness": 0.35,
+          "roughness": 0.38,
+          "diameter": 20,
+          "height": 11,
+          "bottom_z": 62,
+          "assumed": true,
+          "assumed_note": "diameter, shade height and hang height read from the video frame, not measured"
+        }
+      },
+      "arches": {},
+      "context": [
+        {
+          "id": "east-run-end",
+          "label": "Kitchen east cabinet run end (3DB24 + back panel)",
+          "kind": "cabinet",
+          "front": "west",
+          "x": [
+            72,
+            96
+          ],
+          "y": [
+            -30.6,
+            0
+          ],
+          "z": [
+            0,
+            36
+          ],
+          "counter": true,
+          "assumed": false,
+          "basis": "room fixed.east_cabinet_run + dining_opening.blocked_y"
+        },
+        {
+          "id": "microwave-wall-cabinet",
+          "label": "Microwave wall cabinet above the bar unit (MW274012)",
+          "kind": "cabinet",
+          "x": [
+            66,
+            93
+          ],
+          "y": [
+            90.4,
+            102.4
+          ],
+          "z": [
+            54,
+            94
+          ],
+          "counter": false,
+          "assumed": true,
+          "basis": "supplier code 27 W × 40 H × 12 D; hang height assumed"
+        }
+      ],
+      "camera": {
+        "from": "north-east",
+        "reason": "the nook is open on the north; this view shows both windows, the banquette corner and the pendant"
+      },
+      "table_today": {
+        "top": "#f2f0ea",
+        "edge": "#a27a4f",
+        "base": "#f2f0ea",
+        "catalog_id": "kitchen-nook-table",
+        "basis": "room owned.nook_table: white laminate top, wood edge band, white column base"
+      },
+      "pet": {
+        "mat": "#8f9598",
+        "bowl": "#e9e9e6"
+      },
+      "display_only": true
+    }
   },
   "openings": [
     {

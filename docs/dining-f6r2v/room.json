@@ -30,7 +30,87 @@
     "depth_y_unc": 2,
     "ceiling_z": 100,
     "basis": "P plan A1 scaled at 600 dpi (1/4 in = 1 ft); +/-2 in drawing/redraw tolerance; house is out of square",
-    "appearance": "cream walls, white trim, oak strip floor, round-top plaster arches; used as a TV room"
+    "appearance": "cream walls, white trim, oak strip floor, round-top plaster arches; used as a TV room",
+    "appearance_palette": {
+      "version": 1,
+      "source": "room.room.appearance",
+      "text": "cream walls, white trim, oak strip floor, round-top plaster arches; used as a TV room",
+      "basis": "room.appearance text; dining video frame (cream plaster walls, honey oak strip floor, round-top arch with a tight top curve and no casing); survey: black candle chandelier, position assumed",
+      "walls": "#efe6d2",
+      "trim": "#f7f5ef",
+      "ceiling": "#f6f4ee",
+      "floor": {
+        "kind": "oak strip hardwood",
+        "color": "#c79a63",
+        "seam": "#a87b47",
+        "plank_width": 2.25,
+        "direction": "y"
+      },
+      "cabinets": {
+        "style": "shaker",
+        "color": "#f4f3ee",
+        "frame": "#e6e4dd",
+        "counter": "#eceae4",
+        "note": "kitchen cabinetry seen through the kitchen arch"
+      },
+      "upholstery": null,
+      "fixture_style": null,
+      "fixtures": {
+        "light_fixture": {
+          "kind": "candle-chandelier",
+          "finish": "#1f1f1f",
+          "arms": 5,
+          "diameter": 22,
+          "bottom_z": 66,
+          "assumed": true,
+          "assumed_note": "position, size and drop not measured"
+        }
+      },
+      "arches": {
+        "kitchen_arch": {
+          "shape": "round-top",
+          "rise": 20,
+          "casing": false,
+          "assumed": true
+        },
+        "living_arch": {
+          "shape": "round-top",
+          "rise": 17,
+          "casing": false,
+          "assumed": true
+        }
+      },
+      "context": [
+        {
+          "id": "kitchen-cabinet-in-arch",
+          "label": "Kitchen cabinet end in the arch (north 30.6 in)",
+          "kind": "cabinet",
+          "front": "west",
+          "x": [
+            -29.1,
+            -5.1
+          ],
+          "y": [
+            24,
+            54.6
+          ],
+          "z": [
+            0,
+            36
+          ],
+          "counter": true,
+          "assumed": false,
+          "basis": "room openings.kitchen_arch.cabinet_in_opening"
+        }
+      ],
+      "camera": {
+        "from": "north",
+        "reason": "looks toward the south window with both arches on the side walls"
+      },
+      "table_today": null,
+      "pet": null,
+      "display_only": true
+    }
   },
   "openings": [
     {

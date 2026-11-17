@@ -13081,6 +13081,48 @@
       ]
     },
     {
+      "id": "layout-023fae5997",
+      "label": "Bed east, 56 × 14-in storage envelope west; laundry south",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 42.2,
+          "y": 19.5,
+          "rotation": 0
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 107,
+          "y": 1.25,
+          "rotation": 180
+        },
+        {
+          "id": "nightstand_south",
+          "catalog_id": "nightstand_south",
+          "x": 111.7,
+          "y": 85.1,
+          "rotation": 180
+        },
+        {
+          "id": "generic-14-56-54",
+          "catalog_id": "generic-14-56-54",
+          "x": 0.75,
+          "y": 2.9,
+          "rotation": 0,
+          "run_id": "west_wall_north_run"
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 30,
+          "y": 121,
+          "rotation": 270
+        }
+      ]
+    },
+    {
       "id": "layout-25f6dfa1d7",
       "label": "Bed east, dresser west; laundry south",
       "items": [
@@ -13123,50 +13165,8 @@
       ]
     },
     {
-      "id": "layout-023fae5997",
-      "label": "Bed east, generic size west; laundry south",
-      "items": [
-        {
-          "id": "bed",
-          "catalog_id": "miles_queen",
-          "x": 42.2,
-          "y": 19.5,
-          "rotation": 0
-        },
-        {
-          "id": "nightstand_north",
-          "catalog_id": "nightstand_north",
-          "x": 107,
-          "y": 1.25,
-          "rotation": 180
-        },
-        {
-          "id": "nightstand_south",
-          "catalog_id": "nightstand_south",
-          "x": 111.7,
-          "y": 85.1,
-          "rotation": 180
-        },
-        {
-          "id": "generic-14-56-54",
-          "catalog_id": "generic-14-56-54",
-          "x": 0.75,
-          "y": 2.9,
-          "rotation": 0,
-          "run_id": "west_wall_north_run"
-        },
-        {
-          "id": "laundry_sorter",
-          "catalog_id": "laundry_sorter",
-          "x": 30,
-          "y": 121,
-          "rotation": 270
-        }
-      ]
-    },
-    {
       "id": "layout-1e520752af",
-      "label": "Bed east, dresser east; laundry south",
+      "label": "Bed east, chest east; laundry south",
       "items": [
         {
           "id": "bed",
@@ -13201,7 +13201,7 @@
     },
     {
       "id": "layout-03cfe99f5c",
-      "label": "Bed east, generic size east; laundry south",
+      "label": "Bed east, 40 × 20-in storage envelope east; laundry south",
       "items": [
         {
           "id": "bed",

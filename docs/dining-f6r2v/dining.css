@@ -124,3 +124,17 @@ nav{max-width:1100px;margin:auto;padding:0 24px}
 .card-title{overflow-wrap:anywhere}
 @media(max-width:760px){nav{padding:0 18px}.room-switcher{flex-direction:row;gap:6px;margin:8px 0}.room-switcher a{flex:1 1 auto;padding:10px;font-size:14px}.photo-notice{padding:8px 12px;font-size:14px;margin:8px 0}.notice{font-size:14px;padding:8px 12px}.eyebrow{font-size:14px}.measure-first summary{font-weight:500}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Round 10 phone-first detail: picture first, key numbers, then closed disclosures (added by *-app.mjs). */
+.gallery-tools{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 12px}
+.gallery-tools #compare-open{flex:1 1 auto}
+#gallery>#show-more,#gallery~#show-more{grid-column:1/-1}
+.key-metrics{margin:12px 0 4px}.key-metrics caption{padding-top:4px}
+.key-metrics tbody th{width:40%}
+.advanced-controls,.detail-about{border:1px solid #bfcabe;border-radius:8px;padding:0 12px;background:#f7f8f2;min-width:0}
+.advanced-controls[open],.detail-about[open]{padding-bottom:12px}
+.advanced-controls>summary,.detail-about>summary{display:flex;align-items:center}
+.advanced-controls .wall-gap-panel,.advanced-controls .walkway-panel,.advanced-controls .activity-walkway-panel{margin:8px 0}
+.wall-gap-panel a,.walkway-panel a,.activity-walkway-panel a,nav p a{display:inline-block;min-height:48px;padding:12px 2px}
+#detail-title:focus,#compare-title:focus,#gallery-title:focus{outline:none}
+#detail-title:focus-visible,#compare-title:focus-visible{outline:3px solid #b77212;outline-offset:4px}

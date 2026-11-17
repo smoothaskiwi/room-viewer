@@ -7,7 +7,10 @@
     "status": "defaults proposed by the agent; Daniel or Angela can change any of them in plain words",
     "format": "same shape as brief-primary-bedroom.json 1.4, plus 'activities' (use zones), 'measure_first', 'pinned_layouts' and 'sources'",
     "household": "two adults and two cats; no children",
-    "basis_warning": "the banquette footprint is plan-scaled with a video check; the usable seat depth is 13.0 +/-1.8 (seat 17.5 +/-1.5 from E1 and the video, less a 4.5 +/-1 back cushion, an assumption) and the bar cabinet depth 17.5 +/-1.5 comes from the supplier layout (12-in box plus counter) and the video; the width 96 +/-1.5 is the layout return. Every seat number below moves inch for inch with them."
+    "basis_warning": "the banquette footprint is plan-scaled with a video check; the usable seat depth is 13.0 +/-1.8 (seat 17.5 +/-1.5 from E1 and the video, less a 4.5 +/-1 back cushion, an assumption) and the bar cabinet depth 17.5 +/-1.5 comes from the supplier layout (12-in box plus counter) and the video; the width 96 +/-1.5 is the layout return. Every seat number below moves inch for inch with them.",
+    "changes": [
+      "16 Nov late (parent, after council review 9b): explicit banded ranking for every layout, reach band (a table too far from the bench is not better), Angela's size and shape preference, shortlist of four plus 'More options'"
+    ]
   },
   "plain_policy": "Find a table for the built-in L banquette that Angela likes (about 48 x 32 in, pill or boat shaped, on a pedestal) and say exactly how it sits. Nothing may collide; the walk from the kitchen to the dining room must stay at least 24 inches with the chairs pushed in; a banquette seat only counts if there are at least 9 inches between the back cushion and the table edge. Everything else is a trade-off measured against today's table. Priorities in order: the kitchen-to-dining walkway, room to slide into and sit on both benches, two comfortable everyday seats and four with guests, Angela's size and style, cost.",
   "pinned": {
@@ -299,7 +302,7 @@
       "purpose": "keeps today's 17.5 in of body room on the south bench; costs 6.5 in of the north side"
     }
   ],
-  "ranking": "filter invalid; cluster by (table shape and size class, long axis, overlap pattern, number of chairs); pick distinct representatives; sort by the plain_policy priorities; show Today plus the pinned layouts and four more first, then up to eight; if fewer exist, say why",
+  "ranking": "filter invalid; cluster by (table shape and size class, long axis, overlap pattern, number of chairs); pick distinct representatives; rank EVERY shown layout (Today, generated, pinned, council) on one scale, lexicographically by bands: (1) walk to the dining room with a chair on the open side seated: 30+ comfortable, 24-30 tight, below 24 minimal; (2) reach from each bench used daily: table edge over the seat front by 0-4 in, or cushion-to-edge 9-13 in = comfortable; 13-15 = a lean; over 15 or a gap beyond the seat front = too far; under 9 = cramped; (3) Angela's preference: length 44-53 and width 28-34 with pill, boat, racetrack or oval shape and a pedestal or plate base = strong; one of those off = partial; round or rectangle under 40 long = weak; (4) style fit (walnut or warm oak, mid-century form); (5) seats at the table; (6) available without a custom quote; (7) lower cost. Show Today plus the top four distinct layouts first (any source; label council picks as such), then fold the rest under 'More options (n)'. Each card states its rank and one trade-off sentence.",
   "plain_text": {
     "layout_sentence": "one sentence of at most 25 words per layout, saying what changes and its main trade-off (e.g. '48 x 32 pill, 2 in over both benches: 11 in of body room, 3 in less than you would like, kitchen walkway unchanged.')",
     "verdict": "at most three short sentences at the top: does Angela's 48 x 32 fit and how it sits; the best in-stock match; the one measurement that matters most",

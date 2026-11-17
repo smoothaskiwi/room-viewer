@@ -2,31 +2,31 @@ Today — king and open cubes
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Current king (76 x 80 mattress on a low dark base, no headboard) [king_bed]
-  north: 18½ in
-  east: 1 in
-  south: 45½ in
-  west: 47½ in
+  North wall below north window: 18½ in
+  East wall north of east window: 1 in
+  South wall west of closet door: 45½ in
+  West wall north of white Shaker door (destination unverified): 47½ in
 
 Small wood nightstand [nightstand_north]
-  north: ½ in
-  east: ½ in
-  south: 121 in
-  west: 109½ in
+  North wall east of north window: ½ in
+  East wall north of east window: ½ in
+  South wall east of closet door: 121 in
+  West wall north of white Shaker door (destination unverified): 109½ in
 
 Wood two-drawer nightstand, splayed legs [nightstand_south]
-  north: 97½ in
-  east: 4½ in
-  south: 23 in
-  west: 110 in
+  North wall east of north window: 97½ in
+  East wall below east window: 4½ in
+  South wall east of closet door: 23 in
+  West wall south of white Shaker door (destination unverified): 110 in
 
 Black 3x3 cube organiser [cube_organiser]
-  north: ½ in
-  east: 116½ in
-  south: 102 in
-  west: ½ in
+  North wall west of north window: ½ in
+  East wall north of east window: 116½ in
+  South wall west of closet door: 102 in
+  West wall north of white Shaker door (destination unverified): ½ in
 
 Rolling laundry sorter [laundry_sorter]
-  north: 121 in
-  east: 66½ in
-  south: ½ in
-  west: 30 in
+  North wall below north window: 121 in
+  East wall below east window: 66½ in
+  South wall west of closet door: ½ in
+  West wall south of white Shaker door (destination unverified): 30 in

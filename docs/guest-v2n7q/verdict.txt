@@ -1,41 +1,44 @@
-A guest-only queen, a full plus desk, and a full plus desk and folded gym fit the model. Tape the conflicting room size and hinges first.
+Full head east ranks first (valid). Desk and folded-gym families are shortlisted. Tape room size and hinges.
 today [valid] Today stays valid by calibration; walks are not measured because movable objects have no surveyed positions.
 
 
-layout-b1a89faadb [valid] Full head east; walk 23.0 in.
+layout-65c4f60743 [valid] Full head east; walk 24.0 in.
 
 
-layout-0fec54a67d [conditional] Full head east; walk 21.0 in.
-
-
-layout-08f118c3da [conditional] Queen head east; walk 20.0 in.
-
-
-queen_head_east_centred [conditional] Walnut queen on the east wall, a nightstand each side, dresser where the desk is; walk 20.0 in.
-
-
-queen_head_east_plus_desk [conditional] The same bed with the desk left where it is; walk 20.0 in.
-
-
-full_head_east_desk_gym [conditional] Full bed on the east wall, desk where it is, gym folded in its corner; walk 22.0 in.
-
-
-A-guest-1 [valid] Council pick A1; walk 20.0 in.
-
-
-A-guest-2 [valid] Council pick A2; walk 20.0 in.
-
-
-A-guest-3 [conditional] Council pick A3; walk 20.5 in.
+layout-4ca24477c2 [valid] Full head east; walk 28.0 in.
 
 
 B-guest-bedroom-1 [valid] Council pick B1; walk 25.0 in.
 
 
+layout-a9cc7227fa [conditional] Queen head east; walk 24.0 in.
+
+
+A-guest-3 [conditional] Council pick A3; walk 20.5 in.
+
+
+C-guest-bedroom-3 [conditional] Council pick C3; walk 20.0 in.
+
+
+full_head_east_desk_gym [conditional] Full bed on the east wall, desk where it is, gym folded in its corner; walk 22.0 in.
+
+
+A-guest-2 [valid] Council pick A2; walk 20.0 in.
+
+
 B-guest-bedroom-2 [conditional] Council pick B2; walk 22.5 in.
 
 
+queen_head_east_plus_desk [conditional] The same bed with the desk left where it is; walk 20.0 in.
+
+
 C-guest-bedroom-1 [valid] Council pick C1; walk 23.0 in.
+
+
+queen_head_east_centred [conditional] Walnut queen on the east wall, a nightstand each side, dresser where the desk is; walk 20.0 in.
+
+
+A-guest-1 [valid] Council pick A1; walk 20.0 in.
 
 
 C-guest-bedroom-2 [invalid] Council pick C2; fails model checks.
@@ -43,5 +46,3 @@ route 20 bathroom: 17.5 in conservative moving-disk route
 route 20 bed-side-a: 17.5 in conservative moving-disk route
 route 20 bed-foot: 17.5 in conservative moving-disk route
 route 20 east-panel: 17.5 in conservative moving-disk route
-
-C-guest-bedroom-3 [conditional] Council pick C3; walk 20.0 in.

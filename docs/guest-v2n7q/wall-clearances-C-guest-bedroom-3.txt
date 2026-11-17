@@ -2,37 +2,37 @@ Council pick C3 · Everything stays: full bed, desk and the gym folded
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is x ±3 / y ±3 in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Lenia Full Panel Bed - Walnut [article_lenia_full-0]
-  north: 22 in
-  east: 0 in · contact
-  south: 64 in
-  west: 48 in
+  North wall east of sliding door: 22 in
+  East wall north of entry door: 0 in · contact
+  South wall west of closet door: 64 in
+  West wall north of bath pocket door: 48 in
 
 Miles Mini Nightstand (16") [miles_nightstand_16-1]
-  north: 6 in
-  east: 0 in · contact
-  south: 121½ in
-  west: 111½ in
+  North wall east of sliding door: 6 in
+  East wall north of entry door: 0 in · contact
+  South wall east of closet door: 121½ in
+  West wall north of bath pocket door: 111½ in
 
 Miles Mini Nightstand (16") [miles_nightstand_16-2]
-  north: 79½ in
-  east: 0 in · contact
-  south: 48 in
-  west: 111½ in
+  North wall east of sliding door: 79½ in
+  East wall north of entry door: 0 in · contact
+  South wall east of closet door: 48 in
+  West wall south of bath pocket door: 111½ in
 
 Computer desk [guest-desk-3]
-  north: 88½ in
-  east: 100 in
-  south: 0 in · contact
-  west: ½ in
+  North wall west of sliding door: 88½ in
+  East wall north of entry door: 100 in
+  South wall west of closet door: 0 in · contact
+  West wall south of bath pocket door: ½ in
 
 Grey mesh ergonomic office chair [guest-office-chair-4]
-  north: 103 in
-  east: 80 in
-  south: 14½ in
-  west: 20½ in
+  North wall west of sliding door: 103 in
+  East wall north of entry door: 80 in
+  South wall west of closet door: 14½ in
+  West wall south of bath pocket door: 20½ in
 
 smart gym (planning envelope) [smart_gym-5]
-  north: ½ in
-  east: 98½ in
-  south: 128½ in
-  west: ½ in
+  North wall west of sliding door: ½ in
+  East wall north of entry door: 98½ in
+  South wall west of closet door: 128½ in
+  West wall north of bath pocket door: ½ in

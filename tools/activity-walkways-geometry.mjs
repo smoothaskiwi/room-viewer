@@ -55,7 +55,7 @@ export function activityWalkways(room,l){
  for(const state of states){
   const id=state==='tucked'?'main-walk':'main-walk-'+state,source=l.routes?.destinations.find(q=>q.id===id)||{id,...l.states[state].route};
   const chairs=l.states[state].chairs||[],solids=[...(l.fixed||[]).filter(f=>f.kind!=='back'),...l.footprints.filter(f=>f.kind!=='rug'&&f.attached_to!=='table'),...chairs];
-  const q={...source,id,state,blocked:!(source.width>0&&source.path?.length>1)};routes.push(q);gaps.push(...routeCrossings(room,solids,q));
+  const q={...source,id,state,near_labels:(source.bottleneck?.between??[]).map(id=>solids.find(f=>f.id===id)?.label??id),blocked:!(source.width>0&&source.path?.length>1)};routes.push(q);gaps.push(...routeCrossings(room,solids,q));
   const conflicts=[];for(let i=0;i<chairs.length;i++)for(const other of [...solids.filter(f=>f.kind!=='table'&&f.attached_to!=='table'),...chairs.slice(i+1)])if(overlaps(chairs[i],other))conflicts.push(chairs[i].id+' / '+other.id);
   for(const c of chairs)if(F.BooleanOperations.subtract(core(c),allowed).area()>1e-5)conflicts.push(c.id+' / room solid boundary');
   use.push({state,chairConflicts:conflicts,routeBlocked:q.blocked,width:q.width});

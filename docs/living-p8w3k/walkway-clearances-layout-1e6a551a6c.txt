@@ -1,0 +1,10 @@
+dining arch ↔ hall opening · everyday: 37.0 in; living-rh-tables-50-0.5 / wall-north
+dining arch ↔ entry arch · everyday: 34.0 in; living-rh-tables-50-136 / cabinet-0.75-123
+hall opening ↔ entry arch · everyday: 34.0 in; living-rh-tables-50-136 / cabinet-0.75-123
+seat-living-sofa-72-0.5 · everyday: 18.0 in; living-sofa-72-0.5 / article_amoeba-96-55
+seat-dining-sofa-72-104 · everyday: 18.0 in; dining-sofa-72-104 / article_amoeba-96-55
+storage-cabinet-0.75-123 · everyday: 31.0 in; cabinet-0.75-123 / living-rh-tables-50-136
+group-entry-north · everyday: 0.0 in; wall-north / living-sofa-72-0.5
+group-entry-south · everyday: 18.0 in; living-sofa-72-0.5 / article_amoeba-96-55
+east-window-north · everyday: 18.0 in; living-sofa-72-0.5 / article_amoeba-96-55
+east-window-south · everyday: 18.0 in; dining-sofa-72-104 / chimney-breast

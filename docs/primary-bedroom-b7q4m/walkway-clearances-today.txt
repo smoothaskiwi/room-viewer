@@ -6,13 +6,13 @@ ROUTES — everyday doors
 foot of bed: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 104.75 in; grid 0.5 in.
 entrance bed north side: Conservative moving-disk route; 28 in; bottleneck centre x 26.25, y 33.25 in; grid 0.5 in.
 entrance bed south side: Conservative moving-disk route; 28 in; bottleneck centre x 6.75, y 122.75 in; grid 0.5 in.
-front of cube_organiser: Conservative moving-disk route; 28 in; bottleneck centre x 26.25, y 37.25 in; grid 0.5 in.
-shaker_door: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 90.75 in; grid 0.5 in.
-closet_door: Conservative moving-disk route; 26 in; bottleneck centre x 64.75, y 107.75 in; grid 0.5 in.
+front of cube organiser: Conservative moving-disk route; 28 in; bottleneck centre x 26.25, y 37.25 in; grid 0.5 in.
+bathroom door: Conservative moving-disk route; 28 in; bottleneck centre x 15.25, y 90.75 in; grid 0.5 in.
+closet door: Conservative moving-disk route; 26 in; bottleneck centre x 64.75, y 107.75 in; grid 0.5 in.
 
 LOCAL STATIC BED-TO-FURNITURE GAPS
-Current king (76 x 80 mattress on a low dark base, no headboard) ↔ Black 3x3 cube organiser: 35.5 in static gap, not door/drawer use clearance; boundaries (12.0, 35.4) → (47.5, 35.4) in; associated routes: entrance bed north side, front of cube_organiser; item dimension estimates ±1 / ±2 in (not a propagated error bound).
-Current king (76 x 80 mattress on a low dark base, no headboard) ↔ Rolling laundry sorter: 26.6 in static gap, not door/drawer use clearance; boundaries (54.8, 94.4) → (54.8, 121.0) in; associated routes: closet_door; item dimension estimates ±1 / ±8 in (not a propagated error bound).
+Current king (76 x 80 mattress on a low dark base, no headboard) ↔ Black 3x3 cube organiser: 35.5 in static gap, not door/drawer use clearance; boundaries (12.0, 35.4) → (47.5, 35.4) in; associated routes: entrance bed north side, front of cube organiser; item dimension estimates ±1 in / ±2 in (not a propagated error bound).
+Current king (76 x 80 mattress on a low dark base, no headboard) ↔ Rolling laundry sorter: 26.6 in static gap, not door/drawer use clearance; boundaries (54.8, 94.4) → (54.8, 121.0) in; associated routes: closet door; item dimension estimates ±1 in / ±8 in (not a propagated error bound).
 
 SEPARATE USE STATES AND UNCERTAINTY
 Existing all-destination route scenario range: 22–27 in; not a per-destination uncertainty bound.
@@ -21,11 +21,11 @@ Scenario survey: all-destination route 27 in, bed-to-storage 37 in.
 Scenario camera-fit: all-destination route 26 in, bed-to-storage 35.5 in.
 Scenario worst-plausible: all-destination route 22 in, bed-to-storage 32.3 in.
 Doorway clear opening: 28.6 in ±1.5 in.
-shaker_door: everyday closed (owner: often closed; leads to the primary bathroom), leaf 0.0°; model contact stop 155.6° (not an installed-hardware guarantee).
-entry_door: everyday open against the south wall, leaf 90.0°; model contact stop 180.0° (not an installed-hardware guarantee).
-closet_door: everyday closed, leaf 0.0°; model contact stop 119.1° (not an installed-hardware guarantee).
-shaker_door open-door route check at 155.6°: 26 in conservative route bottleneck; Between bed and Rolling laundry sorter; route to closet door; x 64.75, y 107.75 in; model uncertainty ±4 in. Not a static pair gap or full sweep clearance.
-closet_door open-door route check at 90.0°: 26 in conservative route bottleneck; Between bed and Rolling laundry sorter; route to closet door; x 64.75, y 107.75 in; model uncertainty ±4 in. Not a static pair gap or full sweep clearance.
-nightstand_north: drawer extension 15.5 in, standing 82 in (estimated travel); separate from closed-furniture static gap.
-nightstand_south: drawer extension 10.8 in, standing 99.4 in (estimated travel); separate from closed-furniture static gap.
+bathroom door: everyday closed (owner: often closed; leads to the primary bathroom), leaf 0.0°; model contact stop 155.6° (not an installed-hardware guarantee).
+hall door: everyday open against the south wall, leaf 90.0°; model contact stop 180.0° (not an installed-hardware guarantee).
+closet door: everyday closed, leaf 0.0°; model contact stop 119.1° (not an installed-hardware guarantee).
+bathroom door open-door route check at 155.6°: 26 in conservative route bottleneck; Between bed and Rolling laundry sorter; route to closet door; x 64.75, y 107.75 in; model uncertainty ±4 in. Not a static pair gap or full sweep clearance.
+closet door open-door route check at 90.0°: 26 in conservative route bottleneck; Between bed and Rolling laundry sorter; route to closet door; x 64.75, y 107.75 in; model uncertainty ±4 in. Not a static pair gap or full sweep clearance.
+nightstand north: drawer extension 15.5 in, standing 82 in (estimated travel); separate from closed-furniture static gap.
+nightstand south: drawer extension 10.8 in, standing 99.4 in (estimated travel); separate from closed-furniture static gap.
 Chair-use zone: not evaluated. Door sweep / operating space is separate from everyday walking routes.

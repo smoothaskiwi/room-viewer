@@ -5,7 +5,7 @@ import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import puppeteer from 'puppeteer-core';
 import {AxePuppeteer} from '@axe-core/puppeteer';
-import {wallClearances,formatGap,clearanceText} from '../src/wall-clearances.mjs';
+import {wallClearances,formatGap,clearanceText,wallReference} from '../src/wall-clearances.mjs';
 import {repo,project} from './project.mjs';
 const out=process.env.ROOM_TEST_EVIDENCE_DIR?path.join(process.env.ROOM_TEST_EVIDENCE_DIR,'wall-clearances'):path.join(project,'prototype/renders/round-9a');await fs.mkdir(out,{recursive:true});
 const capture=process.argv.includes('--screenshots');
@@ -40,14 +40,14 @@ try{
     const camera=await page.evaluate(()=>window.__explorer.camera());
     for(const f of l.footprints){
      await page.select('#wall-gap-piece',f.id);assert.deepEqual(await page.evaluate(()=>window.__explorer.camera()),camera,'Selecting a piece preserves camera');
-     const gaps=wallClearances(raw,f),labels=gaps.map(g=>`${g.wall[0].toUpperCase()+g.wall.slice(1)} · ${formatGap(g)}`);await labelsCheck(page,labels);
-     assert.equal(await page.$eval('#wall-gap-readout',e=>e.textContent),gaps.map(g=>`${g.wall[0].toUpperCase()+g.wall.slice(1)}: ${formatGap(g)}`).join('; ')+'.');
+     const gaps=wallClearances(raw,f),labels=gaps.map(g=>`${wallReference(g,raw)} · ${formatGap(g)}`);await labelsCheck(page,labels);
+     assert.equal(await page.$eval('#wall-gap-readout',e=>e.textContent),gaps.map(g=>`${wallReference(g,raw)}: ${formatGap(g)}`).join('; ')+'.');
      const actual=await page.evaluate(()=>window.__explorer.clearance());assert.equal(actual.piece,f.id);assert.deepEqual(actual.gaps,gaps);
      if(view==='orbit')await shot(page,`${mode}-${l.id}-${f.id}-orbit`);
     }
     await page.select('#wall-gap-piece',l.footprints[0].id);await shot(page,`${mode}-${l.id}-${view}`);
-    await page.click('#wall-gap-toggle');assert.equal(await page.$eval('#wall-gap-toggle',e=>e.getAttribute('aria-pressed')),'false');assert.ok(await page.$eval('.wall-gap-rail',e=>e.hidden));assert.deepEqual(await page.evaluate(()=>window.__explorer.camera()),camera);
-    await page.click('#wall-gap-toggle');assert.equal(await page.$eval('#wall-gap-toggle',e=>e.getAttribute('aria-pressed')),'true');
+    await page.$$eval('#detail details',es=>es.forEach(e=>e.open=true));await page.click('#wall-gap-toggle');assert.equal(await page.$eval('#wall-gap-toggle',e=>e.getAttribute('aria-pressed')),'false');assert.ok(await page.$eval('.wall-gap-rail',e=>e.hidden));assert.deepEqual(await page.evaluate(()=>window.__explorer.camera()),camera);
+    await page.$$eval('#detail details',es=>es.forEach(e=>e.open=true));await page.click('#wall-gap-toggle');assert.equal(await page.$eval('#wall-gap-toggle',e=>e.getAttribute('aria-pressed')),'true');
     if(view==='orbit'){
      await page.$eval('#three-host',e=>e.scrollIntoView({block:'center'}));
      const before=await page.evaluate(()=>window.__explorer.camera()),rect=await page.$eval('#three-host canvas:not(.photo-layer)',e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};});
@@ -62,7 +62,7 @@ try{
   await page.evaluate(id=>window.__explorer.open(id),data.layouts[0].id);await page.click('[data-view="orbit"]');await page.waitForFunction(()=>window.__explorer.view==='orbit');
   await page.click('.wall-gap-panel a[href="#all-wall-clearances"]');assert.equal(await page.evaluate(()=>location.hash),'#all-wall-clearances');assert.equal(await page.evaluate(()=>window.__explorer.layout),'today');assert.ok(await page.$eval('#all-wall-clearances',e=>Math.abs(e.getBoundingClientRect().top)<2),'Plain HTML list anchor actually navigates, not swallowed by layout hash handler');
   const axe=await new AxePuppeteer(page).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],mode+' axe');
-  await page.goto(url+'?no3d=1#layout=today',{waitUntil:'networkidle0'});await page.waitForFunction(()=>window.__explorer?.layout==='today');await page.click('[data-view="hall"]');await page.waitForFunction(()=>!document.querySelector('#fallback-note').hidden);assert.equal(await page.$eval('#wall-gap-piece',e=>e.options.length),5);await page.select('#wall-gap-piece','laundry_sorter');assert.ok(await page.$eval('#wall-gap-readout',e=>e.textContent.includes('South:')));checks.push(mode+' no3d HTML/selector fallback');await page.close();
+  await page.goto(url+'?no3d=1#layout=today',{waitUntil:'networkidle0'});await page.waitForFunction(()=>window.__explorer?.layout==='today');await page.click('[data-view="hall"]');await page.waitForFunction(()=>!document.querySelector('#fallback-note').hidden);assert.equal(await page.$eval('#wall-gap-piece',e=>e.options.length),5);await page.select('#wall-gap-piece','laundry_sorter');assert.ok(await page.$eval('#wall-gap-readout',e=>/South wall(?: [^:]+)?:/.test(e.textContent)),'fallback names the south wall, including its finite patch');checks.push(mode+' no3d HTML/selector fallback');await page.close();
  }
  // No-JS lists are generated HTML, not dependent on canvas or JS.
  const nj=await browser.newPage();await nj.setJavaScriptEnabled(false);await nj.goto(url,{waitUntil:'networkidle0'});assert.equal(await nj.$$eval('[data-clearance-layout] dd',es=>es.length),expectedGaps);await nj.close();

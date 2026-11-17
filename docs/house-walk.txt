@@ -5,6 +5,6 @@ chairs pulled out: 28.0 in moving-disk route (±2 in survey allowance)
 
 Exact joined 0.5-in polygon route for this reference pair only, not a guarantee for arbitrary cross-room selections. Kitchen aisle approach and living-room exit extend 48 in solely to keep opening geometry honest; living-room furniture is not modelled. The 5.1-in wall-plane offset and shared transform require tape confirmation.
 
-Living reference layout-049bfb424c
-front-vestibule-to-kitchen: 34.0 in component minimum
-bedroom-hall-to-kitchen: 37.0 in component minimum
+Living reference C-living-room-2
+front-vestibule-to-kitchen: 38.0 in component minimum
+bedroom-hall-to-kitchen: 38.0 in component minimum

@@ -1,0 +1,20 @@
+48.0 × 30.0 oval: shallow bench overlap
+Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
+
+Jarvis Ellipse — Walnut/Pure D 48 × 30 [table]
+  North wall: no wall surface
+  East wall south of dining opening: 34½ in
+  South wall west of south window: 17½ in
+  West wall below west window: 13½ in
+
+Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-1]
+  North wall: no wall surface
+  East wall south of dining opening: 50½ in
+  South wall west of south window: 47½ in
+  West wall below west window: 28½ in
+
+Cats’ fountain and bowls (approximate) [pet-station]
+  North wall: no wall surface
+  East wall south of dining opening: 1 in
+  South wall east of south window: 24½ in
+  West wall below west window: 70 in

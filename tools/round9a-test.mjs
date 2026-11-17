@@ -39,7 +39,7 @@ for(const l of data.layouts)for(const f of l.footprints.filter(f=>['dresser','st
  const displaced={...f,x:f.x+(wall==='west'?8:0),y:f.y+(wall==='north'?8:0)};
  if(wall==='west'||wall==='north')assert.ok(checkRules(room,brief,l.footprints.map(p=>p===f?displaced:p),{fast:true}).rules.some(r=>r.id==='storage back '+f.id&&!r.passes));
 }
-const fixture=structuredClone(data.layouts.find(l=>l.recommended));
+const fixture=structuredClone(data.layouts.find(l=>l.recommended&&!l.footprints.some(f=>f.generic)));
 fixture.footprints=fixture.footprints.map(f=>({...f,owned:false,kind:f.kind==='dresser'?'dresser':'bed',tier:'mid',style_fit:'strong'}));
 const cheap=structuredClone(fixture);cheap.id='budget';cheap.footprints.find(f=>f.kind==='dresser').tier='budget';cheap.cost=1;
 assert.deepEqual(preferredBudgetFilter([cheap,fixture]).map(l=>l.id),[fixture.id]);assert.equal(preferredBudgetFilter([cheap]).length,1);assert.deepEqual(preferredBudgetFilter([cheap],[bandSignature(fixture)]),[],'Non-winning route-tested mid/premium evidence also excludes budget');

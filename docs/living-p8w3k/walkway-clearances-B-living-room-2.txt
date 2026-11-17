@@ -1,10 +1,10 @@
-dining_arch ↔ hall_opening · everyday: 48.0 in; wall-north / wall-west
-dining_arch ↔ entry_arch · everyday: 37.0 in; cabinet-6 / wall-south
-hall_opening ↔ entry_arch · everyday: 37.0 in; cabinet-6 / wall-south
+dining arch ↔ hall opening · everyday: 48.0 in; living-rh-tables-4 / wall-west
+dining arch ↔ entry arch · everyday: 37.0 in; cabinet-6 / wall-south
+hall opening ↔ entry arch · everyday: 37.0 in; cabinet-6 / wall-south
 seat-living-sofa-0 · everyday: 17.5 in; living-sofa-0 / article_leniacoffee-1
 seat-living-white-chair-2 · everyday: 26.5 in; living-white-chair-2 / article_leniacoffee-1
 seat-dining-green-chair-3 · everyday: 26.5 in; article_leniacoffee-1 / living-white-chair-2
-storage-cabinet-6 · everyday: 31.0 in; wall-north / wall-west
+storage-cabinet-6 · everyday: 31.0 in; living-rh-tables-5 / cabinet-6
 group-entry-north · everyday: 31.0 in; wall-north / living-sofa-0
 group-entry-south · everyday: 23.5 in; dining-green-chair-3 / article_leniacoffee-1
 east-window-north · everyday: 6.0 in; living-white-chair-2 / wall-east

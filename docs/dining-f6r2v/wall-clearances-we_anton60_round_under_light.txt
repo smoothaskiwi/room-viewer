@@ -1,56 +1,56 @@
-Anton 60 round, six chairs
+60.0 × 60.0 round: across room, north storage
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Anton Round Pedestal Dining Table 60 [table]
-  north: 49 in
-  east: 33 in
-  south: 49 in
-  west: 33½ in
+  North wall: 49 in
+  East wall north of living arch: 33 in
+  South wall below south window: 49 in
+  West wall south of kitchen arch: 33½ in
 
 Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-1]
-  north: 34½ in
-  east: 64½ in
-  south: 109 in
-  west: 42 in
+  North wall: 34½ in
+  East wall north of living arch: 64½ in
+  South wall below south window: 109 in
+  West wall north of kitchen arch: 42 in
 
 Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-2]
-  north: 34½ in
-  east: 40½ in
-  south: 109 in
-  west: 65½ in
+  North wall: 34½ in
+  East wall north of living arch: 40½ in
+  South wall below south window: 109 in
+  West wall north of kitchen arch: 65½ in
 
 Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-3]
-  north: 109 in
-  east: 64½ in
-  south: 34½ in
-  west: 40½ in
+  North wall: 109 in
+  East wall south of living arch: 64½ in
+  South wall below south window: 34½ in
+  West wall south of kitchen arch: 40½ in
 
 Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-4]
-  north: 109 in
-  east: 40½ in
-  south: 34½ in
-  west: 64½ in
+  North wall: 109 in
+  East wall south of living arch: 40½ in
+  South wall below south window: 34½ in
+  West wall south of kitchen arch: 64½ in
 
 Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-5]
-  north: 70 in
-  east: 96½ in
-  south: 70 in
-  west: 37 in
+  North wall: 70 in
+  East wall north of living arch: 96½ in
+  South wall west of south window: 70 in
+  West wall south of kitchen arch: 37 in
 
 Ulka Dining Chair - White Oak and Ratine Ivory · tucked [chair-6]
-  north: 70 in
-  east: 35 in
-  south: 70 in
-  west: 97½ in
+  North wall: 70 in
+  East wall north of living arch: 35 in
+  South wall east of south window: 70 in
+  West wall south of kitchen arch: 97½ in
 
 Heidi 50" Sideboard - Walnut [sideboard]
-  north: ½ in
-  east: 36½ in
-  south: 141 in
-  west: 36½ in
+  North wall: ½ in
+  East wall north of living arch: 36½ in
+  South wall below south window: 141 in
+  West wall north of kitchen arch: 36½ in
 
 Owned 72 × 108 rug (approximate) [rug]
-  north: 43 in
-  east: 8½ in
-  south: 43 in
-  west: 9½ in
+  North wall: 43 in
+  East wall north of living arch: 8½ in
+  South wall west of south window: 43 in
+  West wall south of kitchen arch: 9½ in

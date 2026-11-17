@@ -2,31 +2,31 @@ Bed east, dresser west; laundry south
 Model-derived shortest 3D gaps from each rotated overall furniture envelope to the finite interior wall-face patches, with door/window openings removed. Not furniture centres or walking routes. Envelope, not exact rendered mesh: legs, headboard voids, soft edges and decorative details can differ. Excludes projecting trim, baseboards, stools, glass, curtains, door leaves, handles, drawers and other furniture; existing checks for those stay separate. Not tape-verified. Room width/depth planning uncertainty is ±1½ in; item/opening estimates add uncertainty. Labels round to ½ in (not measurement precision); tiny positive gaps say <½ in. Zero is contact; crossing a wall face is overlap. Hidden cutaway walls remain measurement references.
 
 Miles Wood & Upholstered Bed — Queen [bed]
-  north: 19½ in
-  east: 2 in
-  south: 55½ in
-  west: 42 in
+  North wall below north window: 19½ in
+  East wall north of east window: 2 in
+  South wall west of closet door: 55½ in
+  West wall north of white Shaker door (destination unverified): 42 in
 
 Small wood nightstand [nightstand_north]
-  north: 1½ in
-  east: 3 in
-  south: 120½ in
-  west: 107 in
+  North wall east of north window: 1½ in
+  East wall north of east window: 3 in
+  South wall east of closet door: 120½ in
+  West wall north of white Shaker door (destination unverified): 107 in
 
 Wood two-drawer nightstand, splayed legs [nightstand_south]
-  north: 85 in
-  east: 3 in
-  south: 35½ in
-  west: 111½ in
+  North wall east of north window: 85 in
+  East wall north of east window: 3 in
+  South wall east of closet door: 35½ in
+  West wall south of white Shaker door (destination unverified): 111½ in
 
 Noak 3-Drawer Dresser [noak3]
-  north: 2 in
-  east: 112 in
-  south: 102½ in
-  west: 1 in
+  North wall west of north window: 2 in
+  East wall north of east window: 112 in
+  South wall west of closet door: 102½ in
+  West wall north of white Shaker door (destination unverified): 1 in
 
 Rolling laundry sorter [laundry_sorter]
-  north: 121 in
-  east: 66½ in
-  south: ½ in
-  west: 30 in
+  North wall below north window: 121 in
+  East wall below east window: 66½ in
+  South wall west of closet door: ½ in
+  West wall south of white Shaker door (destination unverified): 30 in

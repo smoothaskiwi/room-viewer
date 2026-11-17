@@ -34,7 +34,7 @@ const ranked=`<details>
 </tr>
 </thead>
 <tbody>${data.layouts.map((l,i)=>`<tr>
-<th scope="row">${i||'Today'}</th>
+<th scope="row">Rank ${l.rank}${l.id==='today'?' · Today':''}</th>
 <td>
 <a href="#layout=${l.id}">${esc(l.title)}</a>
 <br>${l.class}</td>
@@ -131,8 +131,8 @@ const compare=`<section id="compare" hidden aria-labelledby="compare-title">
 </div>
 <div id="compare-plans">
 </div>
-<div id="compare-table">
-</div>
+<details class="compare-measures"><summary>All comparative measurements</summary><div id="compare-table">
+</div></details>
 </section>`;
 await write('index.html',`<!doctype html>
 <html lang="en">
@@ -157,14 +157,15 @@ await write('index.html',`<!doctype html>
 </header>
 <main>
 ${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + ranked layouts</h2>
-<p class="gallery-intro">${data.search.feasible>=4?'Today, four passing options, then pinned requests.'+(data.layouts.some((l,i)=>i>4&&!l.pinned)?' Expand for another option.':''):'Fewer than four passing options in this bounded search; see coverage below for the remaining limits.'}</p>
+<p class="gallery-intro">Today and the four highest-ranked distinct alternatives; all other requests and variants are under More options.</p>
 <div id="gallery">${data.layouts.map((l,i)=>card(l,room,i).replace('<div class="mini-plan" data-plan="'+l.id+'"></div>','<div class="mini-plan" data-plan="'+l.id+'">'+planSVG(room,l,{compact:true})+'</div>')).join('')}</div>
 <div class="toolbar"><button id="compare-open">Compare any two options</button></div>
-<button id="show-more" aria-expanded="false"${data.layouts.some((l,i)=>i>4&&!l.pinned)?'':' hidden'}>Show all ranked options</button>
+<button id="show-more" aria-expanded="false"${data.layouts.some(l=>!l.shortlist)?'':' hidden'}>More options (${data.layouts.filter(l=>!l.shortlist).length})</button>
+${ranked}
 ${envelopeTables(data.envelopes)}${depthTradeoffTables(data.parametric_sweep)}${dresserTradeoffTable(data.dresser_length_tradeoff)}
-${ranked}<details>
+<details>
 <summary>The brief and search coverage</summary>
-<p class="policy">${esc(brief.plain_policy)}</p><p>The policy’s old north-side reference predates the owner’s 18-in table correction: Today now measures 17.75 in; the tables and rankings use that corrected value. The newer rotation section permits all four bed headings. Its old priorities sentence is superseded by brief.ranking: walkway band, window light/access, bedside band, style fit, two nightstands, storage band, real products, changes and cost, then raw walkway.</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
+<p class="policy">${esc(brief.plain_policy)}</p><p>The policy’s old north-side reference predates the owner’s 18-in table correction: Today now measures 17.75 in; the tables and rankings use that corrected value. The newer rotation section permits all four bed headings. Its old priorities sentence is superseded by brief.ranking: walkway band, window light/access, bedside band, storage band, style fit, two nightstands, real products, changes and cost, then raw walkway.</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
 <p>${data.parametric_sweep.counts.evaluated} generic size/rotation/anchor cases; ${data.search.generated} complete storage/sorter combinations evaluated; ${data.search.evaluated_analytic} checked after incremental pruning; ${data.search.distinct_clusters} distinct families. ${data.search.analytic_survivors} passed analytic filters; ${data.search.feasible} distinct passing representatives retained. Search includes floating beds (3- and 6-in wall offsets), centred beds and 15/18/24-in side constraint boundaries; not proof of a global optimum.</p>
 <p>Brief 1.6 is calibrated to Today: only collisions, no openable egress-candidate, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Glass-hidden area, storage and ordinary reach are trade-offs; window width coverage is not a warning. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
 </details><details>
@@ -197,5 +198,7 @@ if(!process.env.ROOM_OUTPUT_DIR&&!process.env.ROOM_BEDROOM_ONLY){
  const index=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room layout explorer</title><link rel="icon" href="data:,"><style>body{font:18px/1.5 system-ui,sans-serif;max-width:45rem;margin:3rem auto;padding:0 20px;color:#253b31;background:#f7f5ee}a{display:block;padding:18px;background:#dce8df;margin:12px 0;border-radius:8px;color:inherit}h1{font-size:2rem}</style></head><body><main><h1>Room layouts</h1><p>Compare measured furniture arrangements. Planning models, not installation drawings. Two adults, two cats; no child zones.</p><nav aria-label="Rooms">${rooms.map(r=>`<a href="${r.path}">${esc(r.title)}</a>`).join('')}</nav><p><a href="house-walk.txt">Joined kitchen → dining → living reference walk</a></p><p>Every room has a text table, plan, illustrative 3D, comparison and wall clearances. No photo plates supplied for the four new rooms.</p></main></body></html>`;
  await fs.writeFile(path.join(repo,'docs/index.html'),index);
 }
+// Only current layout downloads belong in the static deployment.
+for(const r of rooms){const root=path.join(repo,'docs',r.slug),published=JSON.parse(await fs.readFile(path.join(root,'layouts.json'),'utf8')),keep=new Set(published.layouts.flatMap(l=>['wall-clearances-'+l.id+'.txt','walkway-clearances-'+l.id+'.txt']));for(const f of await fs.readdir(root))if(/^(wall|walkway)-clearances-.+\.txt$/.test(f)&&!f.endsWith('-all.txt')&&!keep.has(f))await fs.unlink(path.join(root,f));}
 console.log('Build peak RSS: '+process.resourceUsage().maxRSS+' KiB');
-console.log(`Round 9a built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.6 style and placement sanity; everyday doors; separate open-door warnings; Today is valid.`);
+console.log(`Round 10 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.7 storage-before-style ranking and placement sanity; everyday doors; separate open-door warnings; Today is valid.`);
