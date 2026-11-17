@@ -6,9 +6,12 @@ import {rentalSafety,evaluateRental,designerProduct,joinFabricLines,rankRentals}
 let checks=0;const ok=(v,msg)=>{assert.ok(v,msg);checks++;};
 const wood={label:'Oak nightstand',category:'nightstand',category_group:'furniture',materials:'Top panel: Particleboard, Oak veneer, Clear acrylic lacquer, Paper foil. Drawer sides: plastic foil'};
 ok(!rentalSafety(wood).failures.length,'lacquered real veneer is allowed despite interior foil');
+ok(rentalSafety({...wood,materials:'Top: paper foil; Legs: oak veneer and lacquer'}).failures.length,'veneered legs do not excuse a foil top');
 for(const material of ['Top: paper-wrap laminate','Top: melamine','Front: plastic foil'])ok(rentalSafety({...wood,materials:material}).failures.length,'exposed wrap is banned');
 ok(!rentalSafety({...wood,category:'bed',kind:'bed',materials:'Birch veneer, clear acrylic lacquer. Removable cushion cover: linen',fabric:'removable headboard cushion'}).failures.length,'wood frame is not fabric');
+ok(!rentalSafety({...wood,category:'chair',label:'Wood dining chair',fabric:{composition:null,cleaning_code:null}}).conditions.length,'empty fabric record does not upholster a wood chair');
 const sofa={label:'Sofa',category:'sofa',category_group:'furniture',fabric:{composition:'polyester',abrasion_rubs:30000,abrasion_test:'Wyzenbeek double rubs',cleaning_code:'SW'}};
+ok(rentalSafety({...sofa,label:'Queen bed',kind:'bed',category:'bed',materials:'Solid oak frame, upholstered polyester headboard',fabric:{abrasion_rubs:10000,cleaning_code:'W'}}).failures.length,'wood support frame does not exempt an upholstered headboard');
 ok(!rentalSafety(sofa).failures.length,'SW is equivalent to WS');
 ok(rentalSafety({...sofa,fabric:{...sofa.fabric,abrasion_rubs:29000}}).failures.length,'published low abrasion is hard');
 ok(rentalSafety({...sofa,fabric:{...sofa.fabric,abrasion_rubs:null}}).conditions.some(s=>/confirm fabric rating/i.test(s)),'unknown abrasion is conditional');

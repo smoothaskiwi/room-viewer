@@ -16,16 +16,16 @@ for(const id of ['primary-bedroom','guest-bedroom','living-room','dining-room','
  console.log(id+': '+l.class+'; '+l.headline+' '+l.failures.length+' failures, '+l.conditions.length+' conditions.');
 }
 assert.ok(rentalSafety(cat.article_sven_sleeper).failures.some(s=>/Velvet/.test(s)));checks++;
-assert.ok(rentalSafety(cat.miles_queen).failures.some(s=>/abrasion/.test(s)));checks++;
+assert.ok(rentalSafety(cat.miles_queen).conditions.some(s=>/fabric rating/.test(s)));checks++;
 assert.ok(!rentalSafety(cat['b-q-duvet']).failures.some(s=>/White/.test(s)));checks++;
 const cloth={label:'Performance sofa',category:'sofa',kind:'sofa',category_group:'furniture',fabric:{composition:'polyester',abrasion_rubs:30000,abrasion_test:'Wyzenbeek',cleaning_code:'WS'}};assert.deepEqual(rentalSafety(cloth).failures,[]);checks++;
-assert.ok(rentalSafety({...cloth,fabric:{...cloth.fabric,cleaning_code:null}}).failures.length);checks++;
-assert.ok(rentalSafety({...cloth,fabric:{...cloth.fabric,abrasion_rubs:30000,abrasion_test:'Martindale'}}).failures.length);checks++;
+assert.ok(rentalSafety({...cloth,fabric:{...cloth.fabric,cleaning_code:null}}).conditions.length);checks++;
+assert.ok(rentalSafety({...cloth,fabric:{...cloth.fabric,abrasion_rubs:30000,abrasion_test:'Martindale'}}).conditions.length);checks++;
 assert.deepEqual(rankRentals([{id:'a',class:'valid',score:[2],shop:{total:100},fixture:false},{id:'b',class:'invalid',score:[9],shop:{total:1},fixture:false}]).map(l=>l.id),['a','b']);checks++;
 
 assert.equal(rentalPiece({catalog_id:'task',rotation:0,x:0,y:0,footprint_w:24,footprint_d:24},{task:{category:'chair',label:'FLINTAN Office chair',dims_in:{w:24,d:24}}}).kind,'desk-chair');checks++;
 assert.ok(rentalSafety({...cloth,label:'Paper-wrap desk',category:'desk',kind:'desk',fabric:null,materials:'paper-wrap laminate'}).failures.length);checks++;
-assert.ok(rentalSafety({...cloth,fabric:null}).failures.length,'Unknown sofa fabric cannot pass');checks++;
+assert.ok(rentalSafety({...cloth,fabric:null}).conditions.length,'Unknown sofa fabric is conditional, not invalid');checks++;
 assert.deepEqual(styleSize({category:'rug',size_in:"5' x 8'"}),[60,96]);checks++;
 assert.deepEqual(styleSize({category:'rug',size_in:'5x8'}),[60,96]);checks++;
 assert.deepEqual(styleSize({category:'art',size_in:'24x36'}),[24,36]);checks++;

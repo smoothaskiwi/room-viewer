@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {repo,project} from './project.mjs';
+import {styleSize,placedStyling,rentalPlan} from '../src/rental-view.mjs';
+import {rentalSafety,evaluateRental,readRentalCouncil} from './rental.mjs';
+let checks=0;const ok=(v,s)=>{assert.ok(v,s);checks++;};
+const pages=JSON.parse(await fs.readFile(repo+'/data/rooms.json')),cat=JSON.parse(await fs.readFile(repo+'/docs/catalog.json')).items;let count=0,originals=0,adjusted=0,swaps=0;
+for(const page of pages){const data=JSON.parse(await fs.readFile(repo+'/docs/'+page.slug+'/rentals.json')),ls=data.layouts;ok(!data.errors.length,'no rejected input files');ok(ls[0].rank===1&&ls[0].class!=='invalid','rank one is a recommendation');ok(ls.every((l,i)=>l.rank===i+1),'one ranking across tiers');
+ for(const l of ls){count++;if(!l.original_id)originals++;if(l.builder_adjustment&&!l.sofa_swap)adjusted++;if(l.sofa_swap)swaps++;
+  ok(l.footprints.every(f=>cat[f.catalog_id]?.layout_ready),'all placements are real sourced products');ok(l.shop.complete,'complete item costs');ok(l.strengths.guests.length===2&&l.strengths.photos.length===2,'two guest and photo strengths');ok(l.class_reason.length>20,'plain class reason');ok(l.headline.includes(l.measures.main_walkway.toFixed(1)),'headline from active geometry');ok(!/_|[A-C]-(?:living|guest|primary|kitchen|dining)/.test([l.title,l.summary,l.headline,l.class_reason].join(' ')),'no raw ids');
+  if(l.builder_adjustment&&!l.sofa_swap){const original=ls.find(o=>o.id===l.original_id);ok(original.class==='invalid','original real failure retained');ok(!l.failures.length,'small adjustment solves nominal geometry');const changes=l.placements.filter((p,i)=>JSON.stringify(p)!==JSON.stringify(original.placements[i]));ok(changes.length===1,'only one piece moved');}
+  if(l.sofa_swap){const original=ls.find(o=>o.id===l.original_id);ok(original,'swap original kept');ok(Math.abs(original.shop.total-l.shop.total-l.sofa_swap.savings_usd)<.01,'swap saving equals actual total difference');ok(l.placements.some(p=>p.catalog_id==='ikea_ekholma_kilanda_brown_red'),'researched exact sofa');ok(l.class==='conditional'&&!l.failures.length,'Martindale/cleaning caveat shown, no invented double-rub equivalence');}
+  for(const s of placedStyling(l).filter(s=>/rug/.test(s.category))){const [w,h]=styleSize(s,[60,96]),x=s.x??(data.room.room.width_x-w)/2,y=s.y??(data.room.room.depth_y-h)/2;ok(x>=0&&y>=0&&x+w<=data.room.room.width_x&&y+h<=data.room.room.depth_y,l.id+' rug inside walls');}
+  if(page.room==='living-room')ok(rentalPlan(data.room,l).includes('data-tv'),'living plan names the television');
+ }
+}
+ok(originals===30,'all thirty originals');ok(adjusted===3,'all three real fixes');ok(swaps===3,'one sofa variant per designer');
+const sofa={label:'Sofa',category:'sofa',category_group:'furniture',fabric:{abrasion_rubs:30000,cleaning_code:'W'}};
+ok(rentalSafety({...sofa,category:'bed',kind:'bed',label:'Upholstered headboard',fabric:{abrasion_rubs:14999,cleaning_code:'W'}}).failures.length,'published headboard below 15000 is hard');
+ok(!rentalSafety({...sofa,category:'bed',kind:'bed',label:'Upholstered headboard',fabric:{abrasion_rubs:15000,cleaning_code:'W'}}).failures.length,'15000 headboard passes');
+ok(!rentalSafety({...sofa,category:'chair',label:'Wood chair',fabric:'Not upholstered (wood)'}).conditions.length,'unupholstered chair has no fabric gate');
+const room=JSON.parse(await fs.readFile(project+'/prototype/explorer/room-living-room.json')),brief=JSON.parse(await fs.readFile(project+'/prototype/explorer/brief-living-room.json')),p=(await readRentalCouncil('living-room')).layouts.find(l=>l.id==='B-living-room-q1');
+const four=structuredClone(p);four.placements.splice(3,1);ok(!evaluateRental(room,brief,cat,four,{scenarios:false}).failures.some(s=>/seats/.test(s)),'four living seats pass');const three=structuredClone(four);three.placements.splice(2,1);ok(evaluateRental(room,brief,cat,three,{scenarios:false}).failures.some(s=>/four living/.test(s)),'three living seats fail');
+assert.deepEqual(styleSize({size_in:"{'w':72,'d':108,'h':None}",category:'rug'}),[72,108]);checks++;
+assert.deepEqual(styleSize({size_in:{paper_size_in:[24,36]},placement:'landscape',category:'art'}),[36,24]);checks++;
+console.log('PASS Round 11 artifact: '+checks+' checks; '+count+' layouts, 30 originals, three minimal adjustments, three sofa swaps; costs, ranks, text, strengths, upholstery thresholds, rugs and television plans.');

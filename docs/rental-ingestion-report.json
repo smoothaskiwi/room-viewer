@@ -1,10 +1,10 @@
 {
   "images": {
-    "images": 441,
-    "source_images": 547,
-    "products": 392,
+    "images": 440,
+    "source_images": 546,
+    "products": 391,
     "missing": 0,
-    "bytes": 5521392
+    "bytes": 5506348
   },
   "rooms": [
     {
@@ -40,8 +40,7 @@
       "layouts": 11,
       "fixtures": 1,
       "classes": {
-        "valid": 3,
-        "conditional": 6,
+        "conditional": 9,
         "invalid": 2
       },
       "errors": []

@@ -1,6 +1,0 @@
-import fs from 'node:fs/promises';import {project,repo} from './project.mjs';import {evaluateRental,readRentalCouncil} from './rental.mjs';
-const cat=JSON.parse(await fs.readFile(repo+'/docs/catalog.json')).items;
-for(const id of ['living-room','kitchen']){const room=JSON.parse(await fs.readFile(project+'/prototype/explorer/room-'+id+'.json')),brief=JSON.parse(await fs.readFile(project+'/prototype/explorer/brief-'+id+'.json')),cs=await readRentalCouncil(id);
- for(const p of cs.layouts){const l=evaluateRental(room,brief,cat,p,{scenarios:false});if(l.class!=='invalid')continue;console.log(p.id,l.failures);console.log(l.geometry.approaches?.destinations.map(q=>[q.id,q.width]));
- const candidates=[];for(const i of (id==='kitchen'?[1]:p.tier==='quality'?[7]:[3]))for(const [dx,dy]of (id==='kitchen'?[[0,.5],[0,1],[0,2],[0,3],[0,4],[0,5]]:p.tier==='quality'?[[0,-1],[0,-2],[0,-3],[0,-4],[0,-5]]:[[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0]])){const q=structuredClone(p);q.placements[i].x+=dx;q.placements[i].y+=dy;const e=evaluateRental(room,brief,cat,q,{scenarios:false});if(!e.failures.length)candidates.push([i,q.placements[i].catalog_id,dx,dy,e.measures.main_walkway]);}
- console.log('one-piece passing moves',candidates);}}

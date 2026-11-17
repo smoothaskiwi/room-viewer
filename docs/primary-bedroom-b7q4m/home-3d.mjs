@@ -220,7 +220,7 @@ export async function start3D(host,spec){
   const g=new THREE.Group(),log={floor:pal.floor.kind,walls:pal.walls,arches:[],windows:[],fixtures:[],context:[]};
   const cream=mat(pal.walls,{emissive:pal.walls,emissiveIntensity:.06});
   extrusion(g,{polygon:spec.room.polygon||[[0,0],[W,0],[W,D],[0,D]]},-.7,.7,kit.floorMaterial());
-  for(const f of spec.fixtures||[])log.fixtures.push(kit.fixture(g,f,H));
+  for(const f of spec.fixtures||[])if(!(current?.family==='rental'&&current.styling?.some(s=>/pendant|chandelier/.test(s.category))))log.fixtures.push(kit.fixture(g,f,H));
   log.context=kit.context(g);
   appearanceLog=log;
 
@@ -260,7 +260,7 @@ export async function start3D(host,spec){
   for(const f of nonChairs)buildPiece(g,f);
   for(const f of chairs)buildChair(g,f,state);
   for(const f of [...(l.fixed||[]),...(l.doors||[])])buildFixed(g,f);
-  if(l.screen){const s=l.screen,fire=l.fixed.find(f=>f.id==='chimney-breast');if(fire){box(g,fire.x-.6,62.5,0,.55,33,33,mat('#b48a3c',{metalness:.6,roughness:.35}));box(g,fire.x-.8,64,1,.7,30,30,mat('#252321'));box(g,fire.x-1,50.67,50.065,.8,56.66,31.87,mat('#191f24'));}if(l.family.startsWith('tv_on_console'))box(g,s.x-28.33,s.y,s.z-15.935,56.66,.8,31.87,mat('#191f24'));}
+  if(l.screen){const s=l.screen,fire=l.fixed.find(f=>f.id==='chimney-breast');if(fire&&l.family!=='rental'){box(g,fire.x-.6,62.5,0,.55,33,33,mat('#b48a3c',{metalness:.6,roughness:.35}));box(g,fire.x-.8,64,1,.7,30,30,mat('#252321'));box(g,fire.x-1,50.67,50.065,.8,56.66,31.87,mat('#191f24'));}if(l.family.startsWith('tv_on_console')||l.family==='rental')box(g,s.x-28.33,s.y,s.z-15.935,56.66,.8,31.87,mat('#191f24'));}
   if(l.family==='rental'&&spec.rental_room)stylingLog=addRentalStyling(THREE,g,l,spec.rental_room,draw);
   return g;
  }
@@ -285,7 +285,7 @@ export async function start3D(host,spec){
   const mesh=new THREE.Mesh(geo,material);mesh.position.z=z;mesh.castShadow=true;mesh.receiveShadow=true;g.add(mesh);return mesh;
  }
  function buildTable(g,f){
-  const topZ=f.h-1.2;extrusion(g,f,topZ,1.2,mat(MCM.table));
+  const topZ=f.h-1.2;extrusion(g,f,topZ,1.2,mat(f.rental_color??MCM.table));
   if(f.leg_spacing){
    const [a,b]=f.rotation%180?[f.leg_spacing[1],f.leg_spacing[0]]:f.leg_spacing;for(const x of [f.x+(f.w-a)/2,f.x+(f.w+a)/2])for(const y of [f.y+(f.d-b)/2,f.y+(f.d+b)/2])cylinder(g,x,y,0,.9,topZ,mat(MCM.tableBase));
   }else if(f.base){
