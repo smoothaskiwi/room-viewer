@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {repo} from './project.mjs';
 import {explore} from './explore.mjs';
+import {amendWallClearances} from './wall-clearances-build.mjs';
 import {esc,card,routeText,storageText,money,dresserTradeoffTable,envelopeTables,depthTradeoffTables} from '../src/explorer-format.mjs';
 import {planSVG} from '../src/explorer-plan.mjs';
 const out=process.env.ROOM_OUTPUT_DIR||path.join(repo,'docs/primary-bedroom-b7q4m');await fs.mkdir(out,{recursive:true});
@@ -181,5 +182,6 @@ ${ranked}<details>
 </body>
 </html>`);
 await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence+'\nDetails: '+l.long_description).join('\n\n')+'\n');
+await amendWallClearances(out);
 console.log('Build peak RSS: '+process.resourceUsage().maxRSS+' KiB');
 console.log(`Round 8 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.5 everyday doors; separate open-door warnings; Today is valid.`);
