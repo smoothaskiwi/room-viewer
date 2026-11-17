@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {repo} from './project.mjs';
 import {explore} from './explore.mjs';
-import {esc,card,routeText,storageText,money} from '../src/explorer-format.mjs';
+import {esc,card,routeText,storageText,money,dresserTradeoffTable} from '../src/explorer-format.mjs';
 import {planSVG} from '../src/explorer-plan.mjs';
 const out=process.env.ROOM_OUTPUT_DIR||path.join(repo,'docs/primary-bedroom-b7q4m');await fs.mkdir(out,{recursive:true});
 const {room,brief,profile,catalog,data}=await explore();const write=(n,v)=>fs.writeFile(path.join(out,n),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n');
@@ -23,7 +23,7 @@ const ranked=`<details>
 <tr>
 <th scope="col">Order</th>
 <th scope="col">Option and class</th>
-<th scope="col">Route, doors resting</th>
+<th scope="col">Main route, everyday doors</th>
 <th scope="col">Main warning</th>
 </tr>
 </thead>
@@ -44,6 +44,7 @@ const detail=`<section id="detail" hidden aria-labelledby="detail-title">
 </h2>
 <p id="class-readout" class="warning">
 </p>
+<p id="sentence"></p>
 <div class="view-buttons" role="group" aria-label="Choose view">
 <button data-view="plan" aria-pressed="true">Plan</button>
 <button data-view="hall" aria-pressed="false">From the hall door · 3D</button>
@@ -60,8 +61,6 @@ const detail=`<section id="detail" hidden aria-labelledby="detail-title">
 <p id="canvas-label">
 </p>
 </div>
-<p id="sentence">
-</p>
 <p id="measure-readout">
 </p>
 <p id="view-note">
@@ -70,7 +69,7 @@ const detail=`<section id="detail" hidden aria-labelledby="detail-title">
 </p>
 <div class="toggles" role="group" aria-label="View options">
 <button id="drawer" aria-pressed="false">One drawer: closed</button>
-<button id="swings" aria-pressed="true">Doors: resting</button>
+<button id="swings" aria-pressed="true">Doors: everyday</button>
 <button id="labels" aria-pressed="true">Measurements label</button>
 <button class="secondary" id="reset">Reset view</button>
 </div>
@@ -94,8 +93,9 @@ const detail=`<section id="detail" hidden aria-labelledby="detail-title">
 <img id="original-photo" alt="Unedited original bedroom photograph">
 <figcaption>Unedited original — compare with the illustrative reconstruction above.</figcaption>
 </figure>
-<div id="detail-table">
-</div>
+<details id="layout-details"><summary>Details</summary>
+<p id="long-description"></p>
+<div id="detail-table"></div></details>
 <details>
 <summary>Rule checks, warnings and tape measurement</summary>
 <p id="measure-request">
@@ -146,19 +146,19 @@ await write('index.html',`<!doctype html>
 <h1>Bedroom layouts</h1>
 <p class="notice compact">Not tape-verified · illustrative furniture</p>
 <p class="verdict">${esc(data.verdict)}</p>
-<p>${esc(data.pinned_verdict)}</p>
 </header>
 <main>
 ${compare}${detail}<h2 id="gallery-title" tabindex="-1">Today + ranked layouts</h2>
-<p class="gallery-intro">${data.search.feasible>=4?'Today, four passing options, then pinned requests; expand for one more.':'Fewer than four passing options in this bounded search; see coverage below for the remaining limits.'}</p>
-<div id="gallery">${data.layouts.map((l,i)=>card(l,room,i).replace('<div class="mini-plan" data-plan="'+l.id+'"></div>','<div class="mini-plan" data-plan="'+l.id+'">'+planSVG(room,l)+'</div>')).join('')}</div>
+<p class="gallery-intro">${data.search.feasible>=4?'Today, four passing options, then pinned requests.'+(data.layouts.some((l,i)=>i>4&&!l.pinned)?' Expand for another option.':''):'Fewer than four passing options in this bounded search; see coverage below for the remaining limits.'}</p>
+<div id="gallery">${data.layouts.map((l,i)=>card(l,room,i).replace('<div class="mini-plan" data-plan="'+l.id+'"></div>','<div class="mini-plan" data-plan="'+l.id+'">'+planSVG(room,l,{compact:true})+'</div>')).join('')}</div>
 <div class="toolbar"><button id="compare-open">Compare any two options</button></div>
-<button id="show-more" aria-expanded="false">Show all ranked options</button>
+<button id="show-more" aria-expanded="false"${data.layouts.some((l,i)=>i>4&&!l.pinned)?'':' hidden'}>Show all ranked options</button>
+${dresserTradeoffTable(data.dresser_length_tradeoff)}
 ${ranked}<details>
 <summary>The brief and search coverage</summary>
 <p class="policy">${esc(brief.plain_policy)}</p><p>Sources: M measured/photo survey; O owner constraint; A assumption; D derived scenario. Uncertainty ranges are planning allowances or joint-scenario differences, not statistical confidence intervals.</p>
 <p>${data.search.generated} storage/sorter combinations generated; ${data.search.evaluated_analytic} checked after incremental pruning; ${data.search.distinct_clusters} distinct families. ${data.search.analytic_survivors} passed analytic filters; ${data.search.feasible} distinct passing representatives retained. Search includes floating beds (3- and 6-in wall offsets), centred beds and 15/18/24-in side constraint boundaries; not proof of a global optimum.</p>
-<p>Brief 1.1 is calibrated to Today: only collisions, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Windows, storage and reach are warnings compared with Today. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
+<p>Brief 1.3 is calibrated to Today: only collisions, door opening, 20-in main routes, 15-in bed strips, 8-in drawer standing and missing required pieces invalidate a layout. Windows, storage and reach are warnings compared with Today. Bed-side strips are measured separately; main routes reach their entrances, not the glass.</p>
 </details><details>
 <summary>What we ruled out</summary>
 <ul>${data.ruled_out.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
@@ -166,7 +166,7 @@ ${ranked}<details>
 <details>
 <summary>Measurements that settle the next version</summary>
 <ul>${room.measurements_requested.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
-<p>Pinned queen at y 17.5 ends at 82.1 in: 3.0 in short of east glass, 0.8 in over casing, 1.8 in over the assumed stool. Setback 2.0 ± 0.75 in; if the stool begins beyond 82.1 in, use baseboard-only 0.75 in instead. This conditional geometric result does not erase the main-route failures; drawer standing, storage and laundry trim are no longer fabricated failures.</p>
+<p>Pinned queen at y 17.5 ends at 82.1 in: 3.0 in short of east glass, 0.8 in over casing, 1.8 in over the assumed stool. Setback 2.0 ± 0.75 in; if the stool begins beyond 82.1 in, use baseboard-only 0.75 in instead. This conditional setback improves the local gap; the table keeps it separate from the everyday route and door-open warnings.</p>
 </details>
 <noscript>
 <p>JavaScript is disabled. The comparison gallery, plans and ranked text table above still work; interactive 3D requires JavaScript.</p>
@@ -179,5 +179,5 @@ ${ranked}<details>
 </script>
 </body>
 </html>`);
-await write('verdict.txt',data.verdict+'\n'+data.pinned_verdict+'\n\n'+data.layouts.map(l=>l.sentence).join('\n')+'\n');
-console.log(`Round 5b built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} recommendations. Brief 1.1 calibrated; Today is valid.`);
+await write('verdict.txt',data.verdict+'\n\n'+data.layouts.map(l=>l.sentence+'\nDetails: '+l.long_description).join('\n\n')+'\n');
+console.log(`Round 6 built: ${data.search.generated} combinations; ${data.search.evaluated_analytic} analytic checks; ${data.search.distinct_clusters} clusters; ${data.layouts.length} published comparison layouts; ${data.search.feasible} ranked options. Brief 1.3 everyday doors; separate open-door warnings; Today is valid.`);

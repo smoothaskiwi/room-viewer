@@ -814,8 +814,76 @@
       ]
     },
     {
-      "id": "layout-adabfae6bf",
-      "label": "Bed east, keep cubes west; laundry south",
+      "id": "layout-81e523ae4c",
+      "label": "Bed north, chest north; laundry south",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 31.95,
+          "y": 5,
+          "rotation": 270
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 14.95,
+          "y": 5,
+          "rotation": 90
+        },
+        {
+          "id": "article_lenia",
+          "catalog_id": "article_lenia",
+          "x": 97.75,
+          "y": 0.75,
+          "rotation": 90
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 30,
+          "y": 121,
+          "rotation": 270
+        }
+      ]
+    },
+    {
+      "id": "layout-32517eef1e",
+      "label": "Bed north, chest west; laundry south",
+      "items": [
+        {
+          "id": "bed",
+          "catalog_id": "miles_queen",
+          "x": 45.15,
+          "y": 5,
+          "rotation": 270
+        },
+        {
+          "id": "nightstand_north",
+          "catalog_id": "nightstand_north",
+          "x": 28.15,
+          "y": 5,
+          "rotation": 90
+        },
+        {
+          "id": "miles_chest_34",
+          "catalog_id": "miles_chest_34",
+          "x": 0.75,
+          "y": 25.1,
+          "rotation": 0
+        },
+        {
+          "id": "laundry_sorter",
+          "catalog_id": "laundry_sorter",
+          "x": 30,
+          "y": 121,
+          "rotation": 270
+        }
+      ]
+    },
+    {
+      "id": "layout-0099b6104c",
+      "label": "Bed east, dresser west; laundry south",
       "items": [
         {
           "id": "bed",
@@ -839,8 +907,8 @@
           "rotation": 180
         },
         {
-          "id": "cube_organiser",
-          "catalog_id": "cube_organiser",
+          "id": "we_midcentury_56",
+          "catalog_id": "we_midcentury_56",
           "x": 0.75,
           "y": 2,
           "rotation": 0
@@ -855,123 +923,7 @@
       ]
     },
     {
-      "id": "layout-cea3c67569",
-      "label": "Bed east, keep cubes west; laundry north",
-      "items": [
-        {
-          "id": "bed",
-          "catalog_id": "miles_queen",
-          "x": 42.2,
-          "y": 37.55,
-          "rotation": 0
-        },
-        {
-          "id": "nightstand_north",
-          "catalog_id": "nightstand_north",
-          "x": 108,
-          "y": 20.55,
-          "rotation": 180
-        },
-        {
-          "id": "nightstand_south",
-          "catalog_id": "nightstand_south",
-          "x": 109.2,
-          "y": 105.15,
-          "rotation": 180
-        },
-        {
-          "id": "cube_organiser",
-          "catalog_id": "cube_organiser",
-          "x": 0.75,
-          "y": 2,
-          "rotation": 0
-        },
-        {
-          "id": "laundry_sorter",
-          "catalog_id": "laundry_sorter",
-          "x": 95.75,
-          "y": 0.75,
-          "rotation": 90
-        }
-      ]
-    },
-    {
-      "id": "layout-c233550e81",
-      "label": "Bed north, keep cubes west; laundry south",
-      "items": [
-        {
-          "id": "bed",
-          "catalog_id": "miles_queen",
-          "x": 39.15,
-          "y": 2,
-          "rotation": 270
-        },
-        {
-          "id": "nightstand_north",
-          "catalog_id": "nightstand_north",
-          "x": 22.15,
-          "y": 2,
-          "rotation": 90
-        },
-        {
-          "id": "nightstand_south",
-          "catalog_id": "nightstand_south",
-          "x": 104.75,
-          "y": 2,
-          "rotation": 90
-        },
-        {
-          "id": "cube_organiser",
-          "catalog_id": "cube_organiser",
-          "x": 0.75,
-          "y": 2,
-          "rotation": 0
-        },
-        {
-          "id": "laundry_sorter",
-          "catalog_id": "laundry_sorter",
-          "x": 30,
-          "y": 121,
-          "rotation": 270
-        }
-      ]
-    },
-    {
-      "id": "layout-dc35b0c4f4",
-      "label": "Bed north, chest north; laundry south",
-      "items": [
-        {
-          "id": "bed",
-          "catalog_id": "miles_queen",
-          "x": 31.95,
-          "y": 2,
-          "rotation": 270
-        },
-        {
-          "id": "nightstand_north",
-          "catalog_id": "nightstand_north",
-          "x": 14.95,
-          "y": 2,
-          "rotation": 90
-        },
-        {
-          "id": "article_lenia",
-          "catalog_id": "article_lenia",
-          "x": 97.75,
-          "y": 0.75,
-          "rotation": 90
-        },
-        {
-          "id": "laundry_sorter",
-          "catalog_id": "laundry_sorter",
-          "x": 30,
-          "y": 121,
-          "rotation": 270
-        }
-      ]
-    },
-    {
-      "id": "layout-cb74bcebcd",
+      "id": "layout-7c70e0b408",
       "label": "Bed east, chest west; laundry south",
       "items": [
         {
@@ -999,7 +951,7 @@
           "id": "miles_chest_34",
           "catalog_id": "miles_chest_34",
           "x": 0.75,
-          "y": 2,
+          "y": 25.1,
           "rotation": 0
         },
         {

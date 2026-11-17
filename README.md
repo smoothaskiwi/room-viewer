@@ -1,4 +1,4 @@
-# Bedroom layout explorer — round 5b
+# Bedroom layout explorer — round 6
 
 Static, accessible three.js + SVG bedroom comparison. Agents generate and audit layouts at build time; the phone only reads the resulting gallery. No login, CDN, remote API, or client-side solver.
 
@@ -9,10 +9,9 @@ Set `ROOM_PROJECT_DIR`, or create an **untracked** `.project-dir` containing the
 ```sh
 npm test
 npm run verify
-python3 tools/explorer-sheets.py
 ```
 
-Both commands start their own `python3 -m http.server` on a dynamically assigned **127.0.0.1-only** port and stop it in `finally`. Verification uses dedicated **headless** system Chrome with SwiftShader, never the user's visible browser. It writes evidence to the owning project's `prototype/renders/round-5b/`.
+Both commands start their own `python3 -m http.server` on a dynamically assigned **127.0.0.1-only** port and stop it in `finally`. Verification uses dedicated **headless** system Chrome with SwiftShader, never the user's visible browser. It writes evidence to the owning project's `prototype/renders/round-6/`.
 
 To browse manually, serve `docs/` with a loopback HTTP server and open `/primary-bedroom-b7q4m/`. Stop that server when finished. Commit does not publish; pushing remains a separate owner action.
 
@@ -26,9 +25,9 @@ To browse manually, serve `docs/` with a loopback HTTP server and open `/primary
 
 ## Pipeline and contract
 
-`tools/catalog.mjs` compiles dimensions, owned inventory, published drawer volume/travel and labelled estimates, dated prices and finishes. Official downloaded images supply only a provisional colour sample; geometry is parametric and illustrative. Brief 1.1 requests explicit estimates when specifications omit values: travel = case depth minus 3 in; storage = 0.55 × case volume above the legs (6-in legs assumed if unpublished). Estimates and planning uncertainty are labelled, never passed off as product specifications.
+`tools/catalog.mjs` compiles dimensions, owned inventory, published drawer volume/travel and labelled estimates, dated prices and finishes. Official downloaded images supply only a provisional colour sample; geometry is parametric and illustrative. Brief 1.3 retains explicit estimates when specifications omit values: travel = case depth minus 3 in; storage = 0.55 × case volume above the legs (6-in legs assumed if unpublished). Estimates and planning uncertainty are labelled, never passed off as product specifications.
 
-`tools/explore.mjs` enumerates allowed head walls and current/corner/centred/window/15/18/24-in constraint boundaries and 3/6-in off-wall positions, owned/new nightstands on either side (or one with a warning), one/two storage pieces, and laundry positions. It prunes incrementally, checks 3D trim/stool layers, one-sided swept door leaves, drawer standing space, inventory multiplicity, window access, switches/registers, and child-safety warnings. It filters analytic failures, retains local Pareto trade-offs, clusters by bed wall/storage mix/laundry route pattern, then ranks representatives by main walkway, minimum bed-side strip, storage, changes and dated cost. Only non-invalid layouts can be recommendations.
+`tools/explore.mjs` enumerates allowed head walls and current/corner/centred/window/15/18/24-in constraint boundaries and 3/6-in off-wall positions, owned/new nightstands on either side (or one with a warning), allowed storage pieces (the owner-excluded cubes are never generated), and laundry positions. It prunes incrementally, checks 3D trim/stool layers, one-sided swept door leaves, drawer standing space, inventory multiplicity, window access, switches/registers, and child-safety warnings. It filters analytic failures, retains local Pareto trade-offs, clusters by bed wall/storage mix/laundry route pattern, then ranks representatives by main walkway, minimum bed-side strip, storage, changes and dated cost. Only non-invalid layouts can be recommendations.
 
 `tools/routes.mjs` computes build-time conservative **0.5-inch Euclidean distance transforms**, disk width = twice radius, and max–min paths without diagonal corner cutting. It chooses the shortest route at the widest capacity, retains exact-geometry diagnostic bounds, and reports the conservative lower estimate without sub-grid inflation. Endpoints are approach regions, not furniture centres. Doorway width, individual drawer standing space and the familiar local/90° door gaps stay separate. Joint survey/camera/worst-plausible scenarios re-anchor wall-adjacent pieces; they are not statistical confidence intervals.
 
@@ -36,15 +35,17 @@ The canonical head/front faces east. Placement x/y is the minimum corner **after
 
 ## The actual result
 
-Brief **1.1** calibrates to the lived-in **Today: valid** (27-in conservative main route, 16.75/27.6-in side strips). Five distinct representatives pass at the best estimate and are **conditional** in joint scenarios. Four appear first, the fifth expands, and both computed-invalid pinned requests always remain visible. The search is bounded, not a global-optimum claim.
+Brief **1.3** keeps **Today valid** (27-in conservative main route, 16.75/27.6-in side strips). Four ranked alternatives pass at the best estimate and remain conditional in joint scenarios. All four and both pinned dresser requests are visible. Only Today retains the cubes. The bounded search is not a global-optimum claim.
 
 Hard checks: height-aware collisions/room bounds, required items, white/closet doors ≥90° and entry fully open, main routes ≥20 in, bed strips ≥15 in, one-open-drawer standing ≥8 in. Below 16-in standing, storage shortfall, switch reach, receptacles and window coverage/operation are warnings. Body routes ignore above-24-in wall projections ≤3 in; furniture collisions still include trim/stools. Main paths end at side-strip **entrances**, never inside the 15-in strip or at the glass. The strip measure excludes the head-end table and uses the usable middle of the long side.
 
-Pinned requests retain their exact placements and all 20 parent assertions. They fail the main route at the **resting white-door leaf**: 13/16 in, despite local closed furniture gaps of 23.45/22.15 in and drawer standing of 15.45/13.45 in. The stool-dependent bed setback remains conditional, not silently adjusted.
+Pinned requests retain their exact placements and all 20 parent assertions. With the white bathroom door **closed**, the Mid-Century request is valid and the Miles request conditional: conservative everyday routes 22/21 in, local gaps 23.45/22.15 in, drawer standing 15.45/13.45 in. White-open routes 13/16 in are separate warnings. Marking that door `open` in `brief.doors.everyday_state` makes both invalid, with no code change. Entry is open along the south wall; closet is closed. The stool-dependent setback is not silently adjusted.
+
+`tools/dresser-tradeoff.mjs` recomputes every west-fitting catalog dresser/chest, plus a labelled hypothetical size. Its table compares camera/survey stop ranges, thin-leaf and full-slab local open-door gaps, and closed walkways. Five parent reference rows are asserted within 1 degree / 0.25 in. About 105 degrees is owner-acceptable, more is preferred; installed stops/handles remain unmeasured.
 
 ## Phone / screen reader
 
-A short verdict and pinned-request sentence precede a one-column phone gallery; the detailed ranked text table and search coverage follow it. Every option has a same-scale SVG, shared formatter, class, narrowest route/scenarios, bed-side strips, drawer standing, door angle, storage, both window coverages and new cost, each with ± and a difference from Today, plus a main warning. Each plan includes a numbered name/overall-size legend legible on a 412-px phone. Stable `#layout=id` links, local favourites, keyboard controls, 48px targets, pressed states, and polite announcements work without interpreting the canvas. A/B plans stack at full width. One 3D scene is loaded only after asking for it, with hall/bed/cutaway-orbit presets and non-dragging orbit controls. No-WebGL uses the same live SVG, not a stale fixed still.
+A verdict of at most three sentences precedes a one-column phone gallery. Each layout starts with one plain sentence of at most 25 words; live announcements use that sentence. Expand **Details** for the preserved full description and the per-layout table: everyday route, separate white-open and closet-open routes and their bottleneck locations, bed-side strips, drawer standing, door angle, storage, both window coverages and cost, with ± and differences from Today. The compare table uses the same formatter. The door-length table and detailed ranked text table follow the gallery. Each plan includes a numbered name/overall-size legend legible on a 412-px phone. Stable `#layout=id` links, local favourites, keyboard controls, 48px targets, pressed states, and polite announcements work without interpreting the canvas. A/B plans stack at full width. One 3D scene is loaded only after asking for it, with hall/bed/cutaway-orbit presets and non-dragging orbit controls. No-WebGL uses the same live SVG, not a stale fixed still.
 
 Photo view is gated by actual placements against the retained reconstruction regions. Otherwise the UI explains why it is unavailable. Eligible layouts retain protected original pixels, fade-to-original and a separate unedited photograph; reconstruction is visibly illustrative, not photographic evidence of fit.
 
