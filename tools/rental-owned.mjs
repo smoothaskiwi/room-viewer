@@ -40,7 +40,7 @@ export async function loadRentalOwned(items,inputs){
    }
    const c=items[canonical];c.owned_aliases??=[];c.owned_aliases.push('today-'+roomId+'-'+key.replaceAll('_','-'));if(counts.get(key)===1)c.owned_aliases.push(key);
    // Primary Today model settles the actual king, not the stale unidentified inventory description.
-   if(roomId==='primary-bedroom'&&t?.dims_in){Object.assign(c,{label:t.label,dims_in:t.dims_in,w:t.dims_in.d,d:t.dims_in.w,h:t.h,kind:t.kind,category:t.kind,approximate:true,dimension_uncertainty:t.dimension_uncertainty??2,layout_ready:true});}
+   if(roomId==='primary-bedroom'&&t?.dims_in){Object.assign(c,{label:t.label,finish:t.finish??'Existing wood',materials:t.finish??'Existing wood',color:t.color??c.color,dims_in:t.dims_in,w:t.dims_in.d,d:t.dims_in.w,h:t.h,kind:t.kind,category:t.kind,approximate:true,dimension_uncertainty:t.dimension_uncertainty??2,layout_ready:true});}
   }
   // Today can carry usable owned pieces absent from the descriptive room inventory.
   for(const t of rows.filter(t=>t.catalog_id&&!resolveOwned(items,t.catalog_id)&&t.owned))items[t.catalog_id]=record(t.catalog_id,{name:t.label,room:roomId,dims_in:{w:null,d:null,h:null},photo_estimate:{w:t.w,d:t.d,h:t.h,unc:[2,2,2]},finish:t.label});

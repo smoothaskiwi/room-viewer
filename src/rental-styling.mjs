@@ -18,7 +18,7 @@ export function addRentalStyling(T,g,l,room,redraw){
  const styled=placedStyling(l);
  for(const [index,s]of styled.entries()){
   const cat=s.category.toLowerCase(),[w,h]=styleSize(s,/rug/.test(cat)?[60,96]:[30,20]);let x=s.x??W/2,y=s.y??D/2,z=s.height_in??0;
-  if(/rug/.test(cat)){const map=texture(s);box(s.x??(W-w)/2,s.y??(D-h)/2,.08,w,h,.1,map?'#ffffff':pal[1],map?{map}:{});}
+  if(/rug/.test(cat)){const map=texture(s);box(s.x??(W-w)/2,s.y??(D-h)/2,.08,w,h,.1,map?'#ffffff':s.owned?s.color??pal[1]:pal[1],map?{map}:{});}
   else if(/art|mirror/.test(cat)){
    const {wall,centre,bottom}=artPose(room,l,s);
    const horizontal=['north','south'].includes(wall),map=texture(s),depth=1.3,wx=horizontal?centre-w/2:wall==='west'?1:W-depth-1,wy=horizontal?(wall==='north'?1:D-depth-1):centre-w/2;
@@ -34,7 +34,7 @@ export function addRentalStyling(T,g,l,room,redraw){
    }
   }
   else if(/lamp|sconce|pendant|chandelier/.test(cat)){
-   const floor=/floor/.test(s.name+' '+s.placement),pendant=/pendant|chandelier/.test(cat),height=pendant?12:floor?58:20;{if(!pendant){cylinder(x,y,z,4,.7,'#a88d59');cylinder(x,y,z+.7,.6,height-8,'#aa9263');}else{const wire=room.room.ceiling_z-(z+height);if(wire>0)cylinder(x,y,z+height,.2,wire,'#3b3d36');}cylinder(x,y,z+height-8,pendant?9:6,8,'#e8dfcb',pendant?4:4);const bulb=new T.Mesh(new T.SphereGeometry(1.4,12,8),material('#fff1c1',{emissive:'#ffdd91',emissiveIntensity:.7}));bulb.position.set(x,y,z+height-7);g.add(bulb);}
+   const floor=/floor/.test(s.name+' '+s.placement),pendant=/pendant|chandelier/.test(cat),height=pendant?12:floor?58:20;{if(!pendant){cylinder(x,y,z,4,.7,s.owned?s.color??'#a88d59':'#a88d59');cylinder(x,y,z+.7,.6,height-8,s.owned?s.color??'#aa9263':'#aa9263');}else{const wire=room.room.ceiling_z-(z+height);if(wire>0)cylinder(x,y,z+height,.2,wire,'#3b3d36');}cylinder(x,y,z+height-8,pendant?9:6,8,'#e8dfcb',pendant?4:4);const bulb=new T.Mesh(new T.SphereGeometry(1.4,12,8),material('#fff1c1',{emissive:'#ffdd91',emissiveIntensity:.7}));bulb.position.set(x,y,z+height-7);g.add(bulb);}
   }
   else if(/plant/.test(cat)){const small=z>0||/small|mint|3.5|3½/i.test(s.name),scale=small?.4:1;cylinder(x,y,z,4*scale,9*scale,pal[0]);for(let i=0;i<5;i++){const m=new T.Mesh(new T.SphereGeometry(5*scale,12,8),material('#61734d'));m.scale.set(.6,1,1.8);m.position.set(x+Math.sin(i*2)*4*scale,y+Math.cos(i*2)*4*scale,z+(12+i*4)*scale);g.add(m);}}
   else if(/luggage/.test(cat)){box(x,y,z,22,15,1,pal[0]);for(const [a,b]of [[0,0],[20,0],[0,13],[20,13]])box(x+a,y+b,z-16,1,1,16,pal[0]);}

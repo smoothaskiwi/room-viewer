@@ -1,10 +1,10 @@
-﻿"Status,"Category,"Item,"Retailer,"Price USD,"Quantity,"Line total USD,"Price date,"Purchase URL,"From room,"Owned ID,"Size and margin,"Care notes
-"Owned,"furniture,"Current king (76 x 80 mattress on a low dark base, no headboard),"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Primary bedroom,"primary-bed,"75.9 × 80 × 24 in · ± 1 in (W / D / H) · Today room envelope; not tape-verified,"Confirm fabric rating before guest use: 15,000 double rubs required. Confirm cleaning code W or WS before guest use.
-"Owned,"furniture,"Small wood nightstand,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Primary bedroom,"primary-nightstand-left,"18 × 18.5 × 24.3 in · ± 1 in (W / D / H) · Today room envelope; not tape-verified,"
-"Owned,"furniture,"Wood two-drawer nightstand, splayed legs,"Already owned,"0,"1,"0.00,"2026-11-16; photo estimates 2026-11-16 evening,","Primary bedroom,"primary-nightstand-right,"19.099999999999994 × 13.799999999999997 × 24.2 in · ± 2 in (W / D / H) · Today room envelope; not tape-verified,"Protect light or textured upholstery with a washable throw or fitted cover; inspect and clean between stays.
-"Owned,"furniture,"Black 3x3 cube organiser,"Already owned,"0,"1,"0.00,"2026-11-16,","Primary bedroom,"today-primary-bedroom-cube-organiser,"37 × 11.5 × 35.7 in · ± 2 in (W / D / H) · Photo/room estimate; not tape-verified,"
-"Owned,"furniture,"Rolling laundry sorter,"Already owned,"0,"1,"0.00,"2026-11-16,","Primary bedroom,"today-primary-bedroom-laundry-sorter,"32 × 18 × 60 in · ± 8 in (W / D / H) · Photo/room estimate; not tape-verified,"
+﻿"Status","Category","Item","Retailer","Price USD","Quantity","Line total USD","Price date","Purchase URL","From room","Owned ID","Size and margin","Care notes"
+"Owned","furniture","Current king (76 x 80 mattress on a low dark base, no headboard)","Already owned","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening","","Primary bedroom","primary-bed","75.9 × 80 × 24 in · ± 1 in (W / D / H) · Today room envelope; not tape-verified",""
+"Owned","furniture","Small wood nightstand","Already owned","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening","","Primary bedroom","primary-nightstand-left","18 × 18.5 × 24.3 in · ± 1 in (W / D / H) · Today room envelope; not tape-verified",""
+"Owned","furniture","Wood two-drawer nightstand, splayed legs","Already owned","0","1","0.00","2026-11-16; photo estimates 2026-11-16 evening","","Primary bedroom","primary-nightstand-right","19.1 × 13.8 × 24.2 in · ± 2 in (W / D / H) · Today room envelope; not tape-verified",""
+"Owned","furniture","Black 3x3 cube organiser","Already owned","0","1","0.00","2026-11-16","","Primary bedroom","today-primary-bedroom-cube-organiser","37 × 11.5 × 35.7 in · ± 2 in (W / D / H) · Photo/room estimate; not tape-verified",""
+"Owned","furniture","Rolling laundry sorter","Already owned","0","1","0.00","2026-11-16","","Primary bedroom","today-primary-bedroom-laundry-sorter","32 × 18 × 60 in · ± 8 in (W / D / H) · Photo/room estimate; not tape-verified",""
 
-"Furniture total,"0
-"Styling total,"0
-"New purchases,"0
+"Furniture total","0"
+"Styling total","0"
+"New purchases","0"

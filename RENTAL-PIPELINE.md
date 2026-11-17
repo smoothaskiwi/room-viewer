@@ -41,3 +41,28 @@ npm run test:postbuild
 ## Limits
 
 Doorway prose maps to a heuristic corner; explicit `hero_view: {position:[x,y,z],target:[x,y,z]}` is preferable for a final listing composition. The listing eye height is fixed at 54 in. Styling and furniture are illustrative, not manufacturer CAD. Incomplete upholstery abrasion/cleaning evidence is conditional, not invalid or assumed to pass; anchors, blackout/workspace and other buying conditions remain explicit. Prices exclude tax/delivery/installation, and unknown prices produce a known subtotal, not a fictional free item. The retained room briefs' calibrated minima are hard; 24/30/36-in comfort targets are banded preferences. The parent rule tiers are tested in `tools/rental-rulings-test.mjs`; all 30 submissions are retained, with three additive one-piece geometry fixes and three EKHOLMA value-sofa variants. `tools/round11-test.mjs` checks the generated artifact; `tools/round11-browser.mjs` checks actual cards, 44px targets, active-state numbers, 1440px comparisons and listing cameras, and records evidence in `ROUND11_EVIDENCE_DIR` (default: the project’s round-11 render folder). Publication remains a parent step.
+
+
+## Reuse-first support (Round 12 part 1)
+
+The rental-only inventory overlay reads the owned-furniture specs and each room's Today envelopes. Canonical owned ids and room-scoped Today aliases refer to the same physical furniture; unknown ownership cannot make a new product free. Guest-room current contents remain excluded. Owned pieces cost $0; unavailable model names/links do not block reuse. Known photo estimates, their ± margins and their origin rooms are visible in the list. Submitted footprints within an owned estimate's margin are replaced by the canonical estimate and warned; new-purchase dimension checks and all geometry checks remain strict. The current primary Today bed is a king, not a queen: reuse does not waive the existing queen requirement.
+
+Owned white/bouclé and other new-purchase material exclusions become care notes, not material failures. Anchoring and geometry still apply. Reuse cards lead the gallery; within each hard geometry class, weighted comfort/style points plus two points for reuse minus new spend divided by $250 sets the order. Missing prices cannot look like a complete free layout. The complete ranking rationale is shown on every card.
+
+Shopping has **You own** and **To buy** sections; copy/CSV preserve status, origin, size margins, care and zero new spend. Only To buy rows need retailer links. Owned thumbnails use an inventory image when actually available, never a speculative model-match photo. Plan tags and the existing Three.js renderer use owned-piece colours. Root `reuse-house.json` and the whole-house section show each designer's five-room new spend and moves; duplicate physical assignments produce `reuse_warnings` in the ingestion report and an unusable-plan warning. Separate pieces of an owned pair can be split only with distinct `owned_instance_id` values, within the inventory quantity.
+
+### Part 2 — only after all three designers have finished
+
+Confirm all 15 pinned room files are final, each with a reuse layout. Part 1 deliberately used a frozen copy of only the 30 old quality/value proposals, not the changing designer reuse files. From the repository:
+
+```sh
+unset RENTAL_COUNCIL_DIR
+npm run rental:ingest
+node tools/reuse-test.mjs --ui
+npm run test:postbuild
+REUSE_EVIDENCE_DIR="$TMPDIR/reuse-final" node tools/reuse-browser.mjs --screenshots
+```
+
+Review `docs/rental-ingestion-report.json` (`errors`, `reuse_warnings`), `docs/reuse-house.json`, every reuse verdict/care note and the actual resulting pictures before accepting the plans. `test:postbuild` now includes the new ownership and browser tests and does not rerun the owner search. Scope all existing evidence environment variables to a permitted scratch directory before running it. Do not publish automatically.
+
+Synthetic owned scenes: any room `?reuse-fixtures=1`; root `?reuse-fixtures=1` shows a clearly labelled synthetic whole-house plan. They never become designer recommendations. `node tools/reuse-browser.mjs --screenshots` checks all five at 412×915 DPR2 and 1440×900, uses the required independent headless Chrome/SwiftShader with a loopback Python server, and closes both in `finally`. Capture waits are bounded and only decode visible images: hidden lazy images may never resolve. Scenario verdicts, rules and measured widths remain public; redundant scenario placement snapshots and dense path samples are omitted to stay within the unchanged 32-MiB deployment cap.

@@ -1,4 +1,12 @@
-# Rental rank-one design review — 17 November 2026
+# Rental ranking
+
+## Round 12 — reuse first
+
+Daniel’s later direction supersedes the cost policy below. Geometry classes (valid, conditional, invalid) remain first. Within a class, known costs lead unknown costs, followed by a combined utility: comfort/style band points weighted 4 for the main walk, 2 for the next four composition/bedside factors, and 1 for the remaining factors, plus two points for reuse, minus new purchases / $250. The reuse preference is worth $500, not an unlimited replacement budget. Thus one extra main-walk band point is worth $1,000, not an unlimited budget; a small style gain cannot justify thousands in replacement furniture. This is an explicit ranking heuristic, not a safety waiver or an economic valuation. Ties prefer lower new spend, then stable id. The gallery puts the reuse section before new-furniture alternatives while displaying the computed class and rank; invalid reuse is still explicitly not recommended. Owned pieces cost $0 and their care notes remain visible.
+
+## Round 11 historical rank-one design review — 17 November 2026
+
+The following table is the previous design review, not a promise of the current computed order. Re-ingest the final reuse proposals and review their costs, movements and geometry before approving a whole-house plan.
 
 All five selections are **conditional recommendations of a layout direction**, not permission to order or occupy. They use real, linked products; none is a generic size placeholder. The computed geometry, rather than the designers’ hand checks, controls the class and headline. A quality label alone does not earn first place. Comfort, composition, workspace, coherent finishes and usable furniture lead; price breaks equal-score ties across tiers.
 
