@@ -5,7 +5,7 @@ import {project} from './project.mjs';
 import {publicValue} from './rental-catalog.mjs';
 export const roomName=id=>({'primary-bedroom':'Primary bedroom','guest-bedroom':'Guest bedroom','living-room':'Living room','dining-room':'Dining room',kitchen:'Kitchen'})[id]??id;
 const aliases={
- 'primary-bedroom':{king_bed:'primary-bed',nightstand_north:'primary-nightstand-left',nightstand_south:'primary-nightstand-right'},
+ 'primary-bedroom':{king_bed:'primary-bed',cube_organiser:'primary-cube-organiser',nightstand_north:'primary-nightstand-left',nightstand_south:'primary-nightstand-right'},
  'living-room':{sofa:'living-sofa',desk:'living-desk',rug:'living-rug',leather_chairs:'living-cognac-swivels',rh_open_nightstands:'living-rh-tables'},
  'dining-room':{sofa:'dining-sofa',media_console:'dining-media-console',swivel_chair:'dining-green-chair',rug:'dining-rug'},
  kitchen:{nook_table:'kitchen-nook-table',chair:'kitchen-nook-chairs'},
@@ -45,8 +45,18 @@ export async function loadRentalOwned(items,inputs){
   // Today can carry usable owned pieces absent from the descriptive room inventory.
   for(const t of rows.filter(t=>t.catalog_id&&!resolveOwned(items,t.catalog_id)&&t.owned))items[t.catalog_id]=record(t.catalog_id,{name:t.label,room:roomId,dims_in:{w:null,d:null,h:null},photo_estimate:{w:t.w,d:t.d,h:t.h,unc:[2,2,2]},finish:t.label});
  }
+ // Observed components/fixtures have their own identity; a TV is not its console.
+ const observed=[
+  ['living-sofa-table-lamps',{name:'Pair of sofa-end table lamps',room:'living-room',quantity:2,photo_estimate:{w:12,d:12,h:24,unc:[2,2,2]},finish:'Warm white drum shades; observed on the sofa-end nightstands'}],
+  ['owned-dining-tv',{name:'Existing dining television (moves independently of the console)',room:'dining-room',photo_estimate:{w:57,d:3,h:33,unc:[3,1,3]},finish:'Black television; separate from walnut cabinet'}],
+  ['dining-existing-light',{name:'Existing black candle chandelier',room:'dining-room',photo_estimate:{w:30,d:30,h:18,unc:[6,6,6]},finish:'Black candle-style chandelier; display-only size, position unmeasured'}],
+  ['kitchen-existing-pendant',{name:'Existing brushed-silver dome pendant',room:'kitchen',photo_estimate:{w:18,d:18,h:12,unc:[3,3,3]},finish:'Brushed silver dome; display-only size, surveyed ceiling point'}]
+ ];
+ for(const [id,f]of observed){items[id]=record(id,{...f,dims_in:{}},items[id]);items[id].category_group='styling';items[id].source_files=['room survey: observed fixture/component'];}
  // Rental king is the owner's confirmed mattress size; do not change retained Today geometry.
- if(items['primary-bed']){const c=items['primary-bed'];c.dims_in={w:76,d:80,h:28};c.w=80;c.d=76;c.h=28;c.has_headboard=false;c.mattress_top_in=24;c.dimension_basis='Owner-confirmed 76 × 80 king mattress on low dark base, no headboard; location and base envelope not tape-verified';}
+ if(items['primary-bed']){const c=items['primary-bed'];c.dims_in={w:76,d:80,h:24};c.w=80;c.d=76;c.h=24;c.has_headboard=false;c.mattress_top_in=24;c.dimension_basis='Owner-confirmed 76 × 80 king mattress on low dark base, no headboard; location and base envelope not tape-verified';}
+ if(items['kitchen-nook-table'])Object.assign(items['kitchen-nook-table'],{footprint:'clipped-corner rectangle',color:'#f1eee4'});
+ for(const c of Object.values(items).filter(c=>c.owned_id))if(c.kind==='bed'||/mattress|cube/.test(c.category+' '+c.owned_id)){c.excluded_from_rental=true;c.exclusion_reason='Today-only: owned beds, mattresses, bed bases and cube storage are excluded by the owner.';}
  // Reuse of rug estimates needs no invented manufacturer thickness.
  for(const c of Object.values(items).filter(c=>c.owned_id))if(c.kind==='rug'&&c.dims_in.w&&c.dims_in.d&&!c.dims_in.h){c.dims_in.h=c.h=.2;c.dimension_uncertainty??=[12,12,.2];c.dimension_uncertainty[2]=.2;c.layout_ready=true;c.dimension_basis+='; rug thickness illustrative 0.2 ± 0.2 in';}
  return items;

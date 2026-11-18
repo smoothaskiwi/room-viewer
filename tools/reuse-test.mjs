@@ -6,6 +6,7 @@ import {catalog} from './catalog.mjs';
 import {loadRentalOwned,wholeHouseReuse,resolveOwned,ownedColour} from './rental-owned.mjs';
 import {rentalSafety,rentalPiece,shoppingList,rankRentals,evaluateRental,rentalLayoutSchema} from './rental.mjs';
 import {shopHTML,shoppingText,shoppingCSV,rentalPlan} from '../src/rental-view.mjs';
+import {withNewMattress,mattressRecommendations,nightstandFit} from './rental-mattresses.mjs';
 import {builderVariants} from './rental-variants.mjs';
 let checks=0;const ok=(v,s)=>{assert.ok(v,s);checks++;};
 const pages=JSON.parse(await fs.readFile(path.join(repo,'data/rooms.json'))),cat=(await catalog({owned:{}},{candidate_items:[]})).items;
@@ -43,12 +44,35 @@ const layered=rentalPlan(living.room,{footprints:[{...fp,w:18,d:18,kind:'nightst
 const primary=inputs.find(i=>i.page.room==='primary-bedroom'),pb=JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/brief-primary-bedroom.json')));
 const finalProposal=async(d,r)=>JSON.parse(await fs.readFile(path.join(project,'council/room-designs-2026-11-17-rental',d,'pinned-'+r+'.json'))).layouts.find(l=>l.tier==='reuse');
 const king=await finalProposal('B','primary-bedroom'),kingResult=evaluateRental(primary.room,pb,cat,king,{scenarios:false});
-ok(!kingResult.failures.some(s=>/queen.*required/i.test(s))&&cat['primary-bed'].dims_in.w===76&&cat['primary-bed'].dims_in.d===80,'queen-or-larger accepts the 76 × 80 owned king');
-ok(kingResult.warnings.some(s=>/headboard.*gap/i.test(s)),'headboard-less king has an explicitly unpriced headboard gap');
-const cube=await finalProposal('C','primary-bedroom'),cubeVariant=builderVariants('primary-bedroom',[cube],cat).find(l=>l.original_id===cube.id);
+ok(!kingResult.failures.some(s=>/queen.*required/i.test(s))&&cat['primary-bed'].dims_in.w===76&&cat['primary-bed'].dims_in.d===80,'queen-or-larger size rule accepts 76 × 80 independently of the new-beds-only owner ban');
+ok(kingResult.failures.some(s=>/Owned beds, mattresses and bed bases/.test(s)),'owner correction: owned king, mattress and base are Today-only');
+const oldMattress=structuredClone(king);oldMattress.styling.push({id:'old-mattress',name:'Owned mattress',category:'bedding',owned:true,price_usd:0});ok(evaluateRental(primary.room,pb,cat,oldMattress,{scenarios:false}).failures.some(s=>/Owned beds, mattresses/.test(s)),'owned mattresses are rejected even as styling');
+const cube=await finalProposal('C','primary-bedroom'),cValue=JSON.parse(await fs.readFile(path.join(project,'council/room-designs-2026-11-17-rental/C/pinned-primary-bedroom.json'))).layouts.find(l=>l.tier==='value'),cubeVariant=builderVariants('primary-bedroom',[cube,cValue],cat).find(l=>l.original_id===cube.id);
 ok(evaluateRental(primary.room,pb,cat,cube,{scenarios:false}).failures.some(s=>/cube storage.*not allowed/i.test(s)),'cube storage is forbidden even when owned');
 ok(cubeVariant&&!cubeVariant.placements.some(q=>/cube/.test(q.owned_id??q.catalog_id))&&/adjusted by builder/i.test(cubeVariant.builder_adjustment)&&/nine.*storage.*lost/i.test(cubeVariant.builder_adjustment),'cube-free additive variant discloses lost nine-cube storage');
 const dining=inputs.find(i=>i.page.room==='dining-room'),db=JSON.parse(await fs.readFile(path.join(project,'prototype/explorer/brief-dining-room.json'))),tv=await finalProposal('A','dining-room'),tvVariant=builderVariants('dining-room',[tv],cat).find(l=>l.original_id===tv.id);
 ok(evaluateRental(dining.room,db,cat,tv,{scenarios:false}).failures.some(s=>/No TV.*dining room/i.test(s)),'retained dining TV and bracket violate the true-dining-room ruling');
 ok(tvVariant&&!tvVariant.keeps.some(s=>/\bTV\b|bracket/i.test(s))&&tvVariant.placements.some(q=>q.catalog_id==='dining-media-console')&&/adjusted by builder/i.test(tvVariant.builder_adjustment),'additive dining variant removes TV/bracket but keeps sideboard');
+ok(cubeVariant.placements.some(q=>q.catalog_id==='ikea_bjorksnas_queen')&&!cubeVariant.placements.some(q=>q.owned_id==='primary-bed'),'same-designer value frame replaces king');
+ok(cubeVariant.builder_adjustment.startsWith('adjusted by builder: new queen replaces owned king (owner is buying new beds)'),'exact owner-correction adjustment label');
+const mattressCatalog=await mattressRecommendations();if(mattressCatalog)for(const tier of ['quality','value','mixed','reuse']){const p=withNewMattress({...cubeVariant,tier},mattressCatalog),buy=shoppingList(p,cat),quality=tier==='quality',mat=p.styling.find(s=>s.purchase_kind==='mattress'),enc=p.styling.find(s=>s.purchase_kind==='encasement');ok(mat.price_usd===(quality?1489:745.5)&&enc.price_usd===(quality?64.97:59)&&mat.dims_in.h===(quality?11:12),'new mattress and encasement pair for '+tier);ok(!p.styling.some(s=>s.unpriced_gap),'no mattress placeholder once recommended products exist');}
+ok(nightstandFit(26,11,15).ok&&nightstandFit(26,12,15).offset===-1,'nightstand fit uses 11 vs 12-in mattress, not assumed mattress top');ok(!nightstandFit(28,12,undefined).verified&&nightstandFit(28,12,undefined).deck_min===16,'unknown frame deck stays unverified, with concrete allowable deck range');
+const pending=withNewMattress(cubeVariant,null),pendingShop=shoppingList(pending,cat);ok(pendingShop.items.some(i=>i.unpriced_gap&&i.name==='Queen mattress: not yet chosen'&&i.price_usd===null)&&!pendingShop.complete,'unchosen queen mattress is an explicit unpriced To buy line');
+if(process.argv.includes('--ui')){
+ const house=JSON.parse(await fs.readFile(path.join(repo,'docs/reuse-house.json')));
+ ok(house.plans.length===3&&house.plans.every(p=>p.conflicts.length===0),'three whole-house plans use distinct physical pieces; TV is not its console');
+ let sources=0,variants=0;
+ for(const page of pages){const data=JSON.parse(await fs.readFile(path.join(repo,'docs',page.slug,'rentals.json'))),reuse=data.layouts.filter(l=>l.tier==='reuse');ok(!/\bNaN\b/.test(JSON.stringify(data.layouts)),page.room+' never prints NaN for an unmeasured owned dimension');
+  if(/bedroom/.test(page.room))for(const l of data.layouts){const mat=l.styling.filter(s=>s.purchase_kind==='mattress'),enc=l.styling.filter(s=>s.purchase_kind==='encasement'),quality=l.tier==='quality';ok(mat.length===1&&enc.length===1&&mat[0].price_usd===(quality?1489:745.5)&&enc[0].price_usd===(quality?64.97:59)&&!l.shop.unknown.length,l.id+' exact new tier mattress + encasement, no pending gap');ok(l.bedside_checks.every(c=>c.mattress_height===(quality?11:12)),l.id+' nightstand height uses selected mattress');}
+  for(const l of reuse){if(l.original_id)variants++;else sources++;ok(l.shop.owned_count===l.shop.items.filter(i=>i.owned).reduce((n,i)=>n+i.qty,0),l.id+' exact owned count');
+   if(l.original_id)ok(l.class!=='invalid'&&!l.failures.length,l.id+' additive fix passes all nominal geometry');
+   if(l.class!=='invalid'){ok(l.footprints.every(f=>!(f.owned&&f.kind==='bed')&&!/cube/.test(f.catalog_id)),l.id+' new beds only; no cube storage');
+    if(/bedroom/.test(page.room)){ok(l.shop.items.some(i=>!i.owned&&(/mattress/i.test(i.name)&&!/protector|encasement/i.test(i.name))),l.id+' new mattress or honest pending row');ok(!l.shop.items.some(i=>i.owned&&/^(?:owned )?mattress/i.test(i.name)),l.id+' no owned mattress');}
+    if(page.room==='dining-room')ok(!l.geometry.screen&&!l.styling.some(s=>/television|\\bTV\\b/i.test(s.name??'')),l.id+' true dining room, no television');
+   }
+  }
+  if(page.room==='primary-bedroom')for(const designer of ['A','B','C']){const l=reuse.find(l=>l.designer===designer&&l.original_id),bed=l.footprints.find(f=>f.kind==='bed');ok(bed.head==='east'&&Math.abs(bed.y+bed.d/2-56.5)<.001&&bed.h>35,l.id+' new headboard frame, same head wall and former king centre');}
+ }
+ ok(sources===15&&variants===7,'all fifteen originals plus seven labelled corrections are retained');
+}
 console.log('PASS reuse support: '+checks+' checks; inventory, estimates, zero spend, care, schema, geometry, ranking and whole-house conflicts.');

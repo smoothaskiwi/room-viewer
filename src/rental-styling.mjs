@@ -17,6 +17,7 @@ export function addRentalStyling(T,g,l,room,redraw){
  }
  const styled=placedStyling(l);
  for(const [index,s]of styled.entries()){
+  if(s.owned_id==='owned-dining-tv'){log.push({id:s.id,category:'owned television',rendered_by:'room screen'});continue;}
   const cat=s.category.toLowerCase(),[w,h]=styleSize(s,/rug/.test(cat)?[60,96]:[30,20]);let x=s.x??W/2,y=s.y??D/2,z=s.height_in??0;
   if(/rug/.test(cat)){const map=texture(s);box(s.x??(W-w)/2,s.y??(D-h)/2,.08,w,h,.1,map?'#ffffff':s.owned?s.color??pal[1]:pal[1],map?{map}:{});}
   else if(/art|mirror/.test(cat)){
