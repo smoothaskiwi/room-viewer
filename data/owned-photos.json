@@ -1,0 +1,233 @@
+{
+  "living-sofa": {
+    "name": "Article white/off-white sofa \u00b7 Ceni or Burrard, model unconfirmed",
+    "image": "data/owned-images/living-sofa.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "living-room/source-capture-2026-11-16 video at 56 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "dining-sofa": {
+    "name": "Article cognac sofa \u00b7 likely Sven, model unconfirmed",
+    "image": "data/owned-images/dining-sofa.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "dining-room/source-capture-2026-11-16 video at 16 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "living-cognac-swivels": {
+    "name": "Wayfair cognac barrel swivel chairs \u00b7 model unconfirmed",
+    "image": "data/owned-images/living-cognac-swivels.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "living-room/source-capture-2026-11-16 video at 61 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "living-coffee-table": {
+    "name": "Whitewashed round stump-style accent table \u00b7 maker unconfirmed",
+    "image": "data/owned-images/living-cognac-swivels.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "living-room/source-capture-2026-11-16 video at 61 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "living-rh-tables": {
+    "name": "RH Machinto Open nightstand / end table \u00b7 probable match",
+    "image": "data/owned-images/living-rh-tables.webp",
+    "note": "Inventory product reference: probable RH Machinto Open match; width and finish still need confirming.",
+    "source": "products/owned-furniture/images/candidate-rh-machinto-open.jpg",
+    "crop": "Product reference, EXIF stripped"
+  },
+  "living-rug": {
+    "name": "Cream contour-pattern area rug \u00b7 maker and size unconfirmed",
+    "image": "data/owned-images/living-rug.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "living-room/source-capture-2026-11-16 video at 108 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "living-floor-lamp-a": {
+    "name": "Living window-side floor lamp \u00b7 maker unconfirmed",
+    "image": "data/owned-images/living-sofa.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "living-room/source-capture-2026-11-16 video at 56 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "living-sofa-table-lamps": {
+    "name": "Living sofa-end table lamps, white drum shades \u00b7 maker unconfirmed",
+    "image": "data/owned-images/living-sofa.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "living-room/source-capture-2026-11-16 video at 56 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "living-desk": {
+    "name": "Dark-wood computer desk \u00b7 maker unconfirmed",
+    "image": "data/owned-images/living-desk.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "living-room/source-capture-2026-11-16 video at 16 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "dining-media-console": {
+    "name": "Walnut-tone low media console \u00b7 maker unconfirmed",
+    "image": "data/owned-images/dining-media-console.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "dining-room/source-capture-2026-11-16 video at 4 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "owned-dining-tv": {
+    "name": "Owned dining-room TV \u00b7 model still needs confirming",
+    "image": "data/owned-images/dining-media-console.webp",
+    "note": "Actual room-photo crop; identity as described above.",
+    "source": "dining-room/source-capture-2026-11-16 video at 4 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "dining-floor-lamp": {
+    "name": "Black shelf floor lamp \u00b7 maker unconfirmed",
+    "image": "data/owned-images/dining-floor-lamp.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "dining-room/source-capture-2026-11-16 video at 24 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "dining-existing-light": {
+    "name": "Black candle-style chandelier \u00b7 maker unconfirmed",
+    "image": "data/owned-images/dining-media-console.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "dining-room/source-capture-2026-11-16 video at 4 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "dining-rug": {
+    "name": "Patterned rectangular dining-room rug \u00b7 maker unconfirmed",
+    "image": "data/owned-images/dining-sofa.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "dining-room/source-capture-2026-11-16 video at 16 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "kitchen-nook-table": {
+    "name": "White rounded-rectangle table with metal pedestal feet \u00b7 maker unconfirmed",
+    "image": "data/owned-images/kitchen-nook-table.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "kitchen/source-capture-2026-11-16 video at 12 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "kitchen-nook-chairs": {
+    "name": "Nook dining chairs \u00b7 maker unconfirmed",
+    "image": "data/owned-images/kitchen-nook-table.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "kitchen/source-capture-2026-11-16 video at 12 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "kitchen-banquette": {
+    "name": "Existing fixed L-shaped banquette \u00b7 taupe/grey upholstery",
+    "image": "data/owned-images/kitchen-nook-table.webp",
+    "note": "Actual room-photo crop; identity as described above.",
+    "source": "kitchen/source-capture-2026-11-16 video at 12 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "kitchen-existing-pendant": {
+    "name": "Brushed-silver dome pendant \u00b7 maker unconfirmed",
+    "image": "data/owned-images/kitchen-existing-pendant.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "kitchen/source-capture-2026-11-16 video at 4 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "primary-nightstand-left": {
+    "name": "Small wood bedside table \u00b7 maker unconfirmed",
+    "image": "data/owned-images/primary-nightstand-left.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "primary-bedroom/source-capture-2026-11-16/PXL_20261116_164551068.MP.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "primary-nightstand-right": {
+    "name": "Wood two-drawer bedside table, splayed legs \u00b7 maker unconfirmed",
+    "image": "data/owned-images/primary-nightstand-left.webp",
+    "note": "Actual room-photo crop; model unconfirmed.",
+    "source": "primary-bedroom/source-capture-2026-11-16/PXL_20261116_164551068.MP.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "primary-bed": {
+    "name": "Owned king mattress on low dark base \u00b7 Today only",
+    "image": "data/owned-images/primary-nightstand-left.webp",
+    "note": "Actual room-photo crop; identity as described above.",
+    "source": "primary-bedroom/source-capture-2026-11-16/PXL_20261116_164551068.MP.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "primary-cube-organiser": {
+    "name": "Black 3 \u00d7 3 cube organiser \u00b7 Today only",
+    "image": "data/owned-images/primary-nightstand-left.webp",
+    "note": "Actual room-photo crop; identity as described above.",
+    "source": "primary-bedroom/source-capture-2026-11-16/PXL_20261116_164551068.MP.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "today-primary-bedroom-laundry-sorter": {
+    "name": "Rolling laundry sorter \u00b7 maker unconfirmed",
+    "image": "data/owned-images/primary-nightstand-left.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "primary-bedroom/source-capture-2026-11-16/PXL_20261116_164551068.MP.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "today-dining-room-electric-stove-heater": {
+    "name": "Black electric stove-style heater \u00b7 maker unconfirmed",
+    "image": "data/owned-images/today-dining-room-electric-stove-heater.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "dining-room/source-capture-2026-11-16 video at 32 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "today-dining-room-ottoman": {
+    "name": "White storage ottoman with wicker tray \u00b7 maker unconfirmed",
+    "image": "data/owned-images/dining-sofa.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "dining-room/source-capture-2026-11-16 video at 16 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "today-living-room-cabinet": {
+    "name": "Grey two-tone entry cabinet with wicker bins \u00b7 maker unconfirmed",
+    "image": "data/owned-images/today-living-room-cabinet.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "living-room/source-capture-2026-11-16 video at 100 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "today-living-room-cat-posts": {
+    "name": "Tall sisal cat posts \u00b7 maker unconfirmed",
+    "image": "data/owned-images/living-rug.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "living-room/source-capture-2026-11-16 video at 108 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "today-living-room-sofa-side-tables": {
+    "name": "Pale oak waterfall-edge two-drawer sofa-end tables \u00b7 not the RH open pair",
+    "image": "data/owned-images/living-sofa.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "living-room/source-capture-2026-11-16 video at 56 s",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "guest-bed": {
+    "name": "Stored upright bed assembly \u00b7 Today only",
+    "image": "data/owned-images/guest-bed.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "guest-bedroom/source-capture-2026-11-16/PXL_20261116_230741591.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "guest-desk": {
+    "name": "Owned computer desk \u00b7 Today only, maker unconfirmed",
+    "image": "data/owned-images/guest-bed.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "guest-bedroom/source-capture-2026-11-16/PXL_20261116_230741591.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "today-guest-bedroom-smart-gym": {
+    "name": "Smart home gym column and platform \u00b7 Today only",
+    "image": "data/owned-images/guest-bed.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "guest-bedroom/source-capture-2026-11-16/PXL_20261116_230741591.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "guest-office-chair": {
+    "name": "Grey mesh ergonomic office chair \u00b7 Today only, maker unconfirmed",
+    "image": "data/owned-images/guest-bed.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "guest-bedroom/source-capture-2026-11-16/PXL_20261116_230741591.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  },
+  "guest-mirror": {
+    "name": "Tall freestanding mirror \u00b7 Today only, maker unconfirmed",
+    "image": "data/owned-images/guest-bed.webp",
+    "note": "Actual room-photo crop; room context retained.",
+    "source": "guest-bedroom/source-capture-2026-11-16/PXL_20261116_230741591.jpg",
+    "crop": "2.5% edge trim; room context retained"
+  }
+}

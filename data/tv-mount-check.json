@@ -1,0 +1,15 @@
+{
+  "checked": "2026-11-17",
+  "method": "curl -L",
+  "http_status": 200,
+  "url": "https://www.echogear.com/tv-mounts/low-profile-fixed-tv-wall-mount-for-32-85-tvs-egll1/",
+  "page_title": "Low Profile Fixed TV Wall Mount for 32-85 inch TVs - ECHOGEAR",
+  "price_usd": 35.99,
+  "currency": "USD",
+  "purchasable": true,
+  "size_range_in": [
+    32,
+    85
+  ],
+  "max_weight_lb": 150
+}

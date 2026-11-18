@@ -7,6 +7,7 @@ import {copyCatalogImages,publicValue,rentalFields} from './rental-catalog.mjs';
 import {readRentalCouncil,evaluateRental,rankRentals,shoppingList,designerProduct,joinFabricLines} from './rental.mjs';
 import {presentRental} from './rental-presentation.mjs';
 import {builderVariants,sofaSwapVariants} from './rental-variants.mjs';
+import {round15Living} from './round15-living.mjs';
 import {applyRoomAppearance} from './room-appearance.mjs';
 import {loadRentalOwned,wholeHouseReuse,resolveOwned} from './rental-owned.mjs';
 import {mattressRecommendations,withNewMattress} from './rental-mattresses.mjs';
@@ -48,7 +49,7 @@ export async function buildRentals(){
  await fs.writeFile(path.join(repo,'docs/catalog.json'),JSON.stringify(publicValue(cat))+'\n');
  const report=[],results=[],fixtureResults=[];
  for(const {page,room,brief,council,fixture,reuseFixture}of inputs){const out=path.join(repo,'docs',page.slug),data=await json(path.join(out,'layouts.json')),layouts=[],errors=[...council.errors];
-  for(const proposal of sofaSwapVariants(page.room,builderVariants(page.room,council.layouts,cat.items),cat.items)){try{layouts.push(presentRental(room,evaluateRental(room,brief,cat.items,proposal),cat.items));}catch(e){errors.push(proposal.title+': '+e.message);}}
+  for(const proposal of sofaSwapVariants(page.room,round15Living(page.room,builderVariants(page.room,council.layouts,cat.items)),cat.items)){try{layouts.push(presentRental(room,evaluateRental(room,brief,cat.items,proposal),cat.items));}catch(e){errors.push(proposal.title+': '+e.message);}}
   const fixtures=fixture.layouts.map(p=>presentRental(room,evaluateRental(room,brief,cat.items,p),cat.items)),reuseFixtures=reuseFixture.layouts.map(p=>presentRental(room,evaluateRental(room,brief,cat.items,p),cat.items)),ranked=rankRentals(layouts);results.push({page,layouts:ranked});fixtureResults.push({page,layouts:rankRentals(reuseFixtures)});
   for(const l of [...ranked,...fixtures,...reuseFixtures])for(const s of l.styling){const c=cat.items[s.catalog_id??s.id]??Object.values(cat.items).find(c=>c.purchase_url===s.purchase_url);s.image=c?.image??null;}
   const owner_shops=Object.fromEntries(data.layouts.map(l=>[l.id,shoppingList({placements:l.footprints??l.placements??[],styling:[]},cat.items)]));
@@ -61,7 +62,7 @@ export async function buildRentals(){
   const rentalStatic=`<section id="rental-root"><h2>Rental stylings</h2>${ranked.length?ranked.map(l=>`<article class="rental-card"><h3>${esc(l.title)} · ${l.tier}</h3><p>${esc(l.summary)} ${esc(l.headline)} · New purchases ${money(l.shop.total)} · Uses ${l.shop.owned_count} pieces you own</p>${rentalPlan(room,l)}<details><summary>Checks</summary><ul>${[...l.failures,...l.conditions].map(t=>`<li>${esc(t)}</li>`).join('')}</ul></details></article>`).join(''):'<p>Rental schemes are waiting to be ingested. Owner-use layouts are below.</p>'}</section>`;
   const replacement=`<body><!-- rental-shell -->${nav}<header class="rental-page-header"><h1>${esc(page.title)} · rental staging</h1><p>Warm mid-century schemes for short- and mid-term guests. Not tape-verified; illustrative furniture and styling.</p></header><div id="rental-shell">${rentalStatic}</div><details id="owner-use"><summary>For our own use</summary></details><div id="owner-content"><p>${esc(notice)}</p>${body}</div><script type="module" src="rental-app.mjs"></script></body>`;
   const html=original.replace(/<body[^>]*>[\s\S]*<\/body>/i,replacement).replace('</head>','<link rel="stylesheet" href="rental.css"></head>');await fs.writeFile(path.join(out,'index.html'),html);
-  for(const name of ['rental-shapes.mjs','rental-dimensions.mjs','rental-app.mjs','rental-view.mjs','rental-styling.mjs','rental.css','home-3d.mjs','home-plan.mjs','home-format.mjs','home-walkways-overlay.mjs','wall-clearances-overlay.mjs','wall-clearances.mjs'])await fs.copyFile(path.join(repo,'src',name),path.join(out,name));
+  for(const name of ['rental-shapes.mjs','rental-dimensions.mjs','rental-compare.mjs','rental-app.mjs','rental-view.mjs','rental-styling.mjs','rental.css','home-3d.mjs','home-plan.mjs','home-format.mjs','home-walkways-overlay.mjs','wall-clearances-overlay.mjs','wall-clearances.mjs'])await fs.copyFile(path.join(repo,'src',name),path.join(out,name));
   await compactPage(out);
   report.push({room:page.room,layouts:ranked.length,fixtures:fixtures.length,classes:ranked.reduce((n,l)=>(n[l.class]=(n[l.class]??0)+1,n),{}),errors});
  }
