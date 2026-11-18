@@ -39,6 +39,7 @@ export async function buildRentals(){
    const f={...row,name:row.name??id,dims_in:row.dims_in??{w:null,d:null,h:null}},n=normalizeProduct(id,f,{file:'rental-council',brief:{candidate_items:[]}});cat.items[id]=publicValue({...n,...rentalFields(f,'rental-council'),category_group:'styling',tier:p.tier});
   }
  }
+ for(const [id,verified]of Object.entries(await json(path.join(repo,'data/round14-products.json'))))if(cat.items[id])Object.assign(cat.items[id],verified);
  joinFabricLines(cat.items);
  const images=await copyCatalogImages(cat);
  // Inline council-only images are downloaded at build time, never from Angela's browser.
