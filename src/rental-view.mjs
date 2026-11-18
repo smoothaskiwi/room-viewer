@@ -14,11 +14,29 @@ export function shoppingCSV(shop){const cell=v=>'"'+String(v??'').replaceAll('"'
 export function placedStyling(l){return (l.styling??[]).filter(s=>!(/lamp/.test(s.category)&&/bulb|LED.*lumen|SOLHETTA/i.test(s.name??''))).filter(s=>!(s.category==='curtain'&&(l.styling??[]).some(t=>t.category==='curtain'&&/RITVA/.test(t.name))&&!/RITVA/.test(s.name))).filter(s=>!(/art/.test(s.category)&&/frame/i.test(s.name??'')&&!/unframed|paper print/i.test(s.name??''))).flatMap(s=>{if(/per yard|replacement bulb|frame pack/i.test(s.name??''))return [];if(/plant|decor/.test(s.category)&&!Number.isFinite(s.x)){const surface=l.footprints.find(f=>/sideboard|case|console/.test(s.placement??'')?['storage','dresser'].includes(f.kind):['coffee','table','desk'].includes(f.kind));if(surface)return [{...s,x:surface.x+surface.w*.7,y:surface.y+surface.d/2,height_in:surface.h}];return [];}if(!/lamp|sconce/.test(s.category)||/pendant|chandelier/.test(s.category)||Number.isFinite(s.x))return [s];const stands=l.footprints.filter(f=>f.kind==='nightstand');return Array.from({length:s.qty??1},(_,i)=>{const f=stands[i%Math.max(1,stands.length)],floor=/floor/i.test(s.name+' '+s.category);return {...s,qty:1,x:f&&!floor?f.x+f.w/2:12+i*24,y:f&&!floor?f.y+f.d/2:12,height_in:f&&!floor?f.h:0};});});}
 export function lampEnvelope(s,room){const floor=s.owned&&/floor/i.test(s.name??''),w=s.dims_in?.w??12,d=s.dims_in?.d??12;if(s.category==='sconce'){const W=room.room.width_x,D=room.room.depth_y;return {x:s.wall==='east'?W-6:s.wall==='west'?0:s.x-3,y:s.wall==='south'?D-6:s.wall==='north'?0:s.y-3,w:6,d:6};}return {x:floor?s.x:s.x-w/2,y:floor?s.y:s.y-d/2,w,d};}
 export function ownedPlanTag(f){return `<g data-owned-tag="${esc(f.owned_id??f.catalog_id??f.id)}" data-dot-x="${f.x+3}" data-dot-y="${f.y+(f.d??6)-3}"><circle cx="${f.x+3}" cy="${f.y+(f.d??6)-3}" r="2.5" fill="#315d4e" stroke="#f5edda" stroke-width=".7"/></g>`;}
+// Settle complete callouts, not just ownership dots. Physical arrows and route
+// locations stay fixed; displaced labels/markers have a leader back to the pin.
+export function settlePlanLabels(svg,scale){
+ svg.querySelectorAll('[data-label-leader]').forEach(e=>e.remove());
+ const nodes=[...svg.querySelectorAll('[data-bottleneck],text:not([data-bottleneck] text)')];
+ nodes.forEach(e=>e.removeAttribute('transform'));
+ const priority=e=>e.matches('[data-plan-heading]')?100:e.matches('[data-deciding="true"], [data-deciding="true"] text')?10:0;nodes.sort((a,b)=>priority(b)-priority(a));
+ const matrix=svg.getScreenCTM(),v=svg.viewBox.baseVal,pad=2/scale,occupied=[];
+ const hit=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
+ for(const e of nodes){const b=e.getBoundingClientRect(),base={x:(b.x-matrix.e)/scale-pad,y:(b.y-matrix.f)/scale-pad,w:b.width/scale+2*pad,h:b.height/scale+2*pad};
+  const candidates=[[0,0]];for(let r=4;r<=160;r+=4)for(let a=0;a<24;a++)candidates.push([r*Math.cos(a*Math.PI/12),r*Math.sin(a*Math.PI/12)]);
+  let chosen;for(const [dx,dy]of candidates){const q={...base,x:base.x+dx,y:base.y+dy};if(q.x<v.x+1||q.y<v.y+1||q.x+q.w>v.x+v.width-1||q.y+q.h>v.y+v.height-1||occupied.some(o=>hit(q,o)))continue;chosen={q,dx,dy};break;}
+  if(!chosen)throw Error('No clear plan label position');occupied.push(chosen.q);
+  const {dx,dy}=chosen;e.setAttribute('transform',`translate(${dx} ${dy})`);
+  if(Math.hypot(dx,dy)>2){const line=document.createElementNS('http://www.w3.org/2000/svg','path'),x=base.x+base.w/2,y=base.y+base.h/2;line.dataset.labelLeader='';line.setAttribute('d',`M${x},${y}L${x+dx},${y+dy}`);line.setAttribute('stroke',e.matches('[data-bottleneck]')?'#267d85':'#a45425');line.setAttribute('stroke-width','.5');svg.insertBefore(line,e.closest('[data-bottleneck],[data-dimension]')??e);}
+ }
+}
 export function settleOwnedDots(host){
  for(const svg of host.querySelectorAll('svg.rental-plan')){
   const matrix=svg.getScreenCTM(),scale=matrix?Math.hypot(matrix.a,matrix.b):0;if(!scale)continue;
-  const pad=1/scale,r=5/scale,rect=e=>{const b=e.getBBox();return {x:b.x-pad,y:b.y-pad,w:b.width+2*pad,h:b.height+2*pad};},overlap=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
-  const occupied=[...svg.querySelectorAll('text,[data-bottleneck] circle')].map(rect),W=svg.viewBox.baseVal.width-16,D=svg.viewBox.baseVal.height-24;
+  const pad=1/scale,r=5/scale,overlap=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
+  settlePlanLabels(svg,scale);
+  const occupied=[...svg.querySelectorAll('text,[data-bottleneck] circle')].map(e=>{const b=e.getBoundingClientRect();return {x:(b.x-matrix.e)/scale-pad,y:(b.y-matrix.f)/scale-pad,w:b.width/scale+2*pad,h:b.height/scale+2*pad};}),W=svg.viewBox.baseVal.width-16,D=svg.viewBox.baseVal.height-24;
   for(const tag of svg.querySelectorAll('[data-owned-tag]')){const circle=tag.querySelector('circle'),ox=+tag.dataset.dotX,oy=+tag.dataset.dotY;let chosen;
    const candidates=[[ox,oy]];for(let distance=4;distance<60;distance+=4)for(let a=0;a<16;a++)candidates.push([ox+distance*Math.cos(a*Math.PI/8),oy+distance*Math.sin(a*Math.PI/8)]);
    for(const [x,y]of candidates){const b={x:x-r-pad,y:y-r-pad,w:2*(r+pad),h:2*(r+pad)};if(x-r<0||y-r<0||x+r>W||y+r>D||occupied.some(q=>overlap(b,q)))continue;chosen={x,y,b};break;}

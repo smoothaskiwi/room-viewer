@@ -1,0 +1,84 @@
+{
+  "art_frame": {
+    "label": "Craig Frames Essentials black 24 \u00d7 36 in with 20 \u00d7 30 in white mat",
+    "purchase_url": "https://www.craigframes.com/products/essentials-1-matted-modern-black-picture-frame?variant=43929630834730",
+    "price_usd": 34.99,
+    "price_date": "2026-11-18",
+    "retailer": "Craig Frames (direct)",
+    "source_status": "Exact black frame variant; direct manufacturer offer verified 2026-11-18.",
+    "price_basis": "Single frame with acrylic glazing and white mat. Use supplied mat for 20 \u00d7 30 in paper.",
+    "images": [
+      {
+        "path": "data/round17-images/art_frame.webp",
+        "repository": true
+      }
+    ],
+    "selected_variant": "43929630834730",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl plus task-owned browseruse_background product UI",
+      "live_product_page": true,
+      "purchasable": true
+    }
+  },
+  "large_frame": {
+    "label": "Craig Frames Essentials black 30 \u00d7 40 in (remove supplied 24 \u00d7 36 in mat)",
+    "purchase_url": "https://www.craigframes.com/products/essentials-1-matted-modern-black-picture-frame?variant=43929631031338",
+    "price_usd": 87.99,
+    "price_date": "2026-11-18",
+    "retailer": "Craig Frames (direct)",
+    "source_status": "Exact black frame variant; direct manufacturer offer verified 2026-11-18.",
+    "price_basis": "Single frame with acrylic glazing and white mat. Remove supplied mat to display 30 \u00d7 40 in paper.",
+    "images": [
+      {
+        "path": "data/round17-images/large_frame.webp",
+        "repository": true
+      }
+    ],
+    "selected_variant": "43929631031338",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl plus task-owned browseruse_background product UI",
+      "live_product_page": true,
+      "purchasable": true
+    }
+  },
+  "r17-e26-bulbs": {
+    "id": "r17-e26-bulbs",
+    "label": "SOLHETTA E26 800-lumen dimmable warm 2700 K LED bulbs \u00b7 two-pack",
+    "category": "bulb",
+    "kind": "bulb",
+    "category_group": "styling",
+    "purchase_url": "https://www.ikea.com/us/en/p/solhetta-led-bulb-e26-800-lumen-dimmable-globe-opal-20583935/",
+    "price_usd": 4.99,
+    "price_date": "2026-11-18",
+    "retailer": "IKEA",
+    "dims_in": {
+      "w": 2.4,
+      "d": 2.4,
+      "h": 4.3
+    },
+    "images": [
+      {
+        "url": "https://www.ikea.com/us/en/images/products/solhetta-led-bulb-e26-800-lumen-dimmable-globe-opal__0988839_pe818255_s5.jpg"
+      }
+    ],
+    "source_files": [
+      "rental-council"
+    ],
+    "owned": false,
+    "price_basis": "Two E26 2700 K bulbs per pack; allocated explicitly to the new lamps, separate from chandelier bulbs.",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl plus task-owned browseruse_background product UI",
+      "live_product_page": true,
+      "purchasable": true
+    }
+  },
+  "P077": {
+    "source_status": "Checked 2026-11-18: brass/white $39.99 product page loads, but delivery and pickup are currently unavailable for the selected local area. Check another store/ZIP before choosing this lamp."
+  },
+  "r-ru-nim": {
+    "source_status": "Purchase journey unverified on 2026-11-18: curl blocked; hidden browser loaded only the page shell, without selected 6 \u00d7 9 price or cart. $298 remains the earlier dated offer, not a fresh verified price."
+  }
+}

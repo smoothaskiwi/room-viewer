@@ -1,0 +1,173 @@
+{
+  "checked": "2026-11-18",
+  "scope": "Purchase destinations newly used by rounds 15/16 amendments, plus replacement frames and warm lamp bulbs. No orders or carts changed.",
+  "method": "curl -L, then isolated browseruse_background task tabs; each owned tab closed. HTTP 200 alone is not orderability.",
+  "summary": {
+    "verified": 18,
+    "blocked": 1,
+    "unavailable_for_selected_location": 1,
+    "total": 20
+  },
+  "results": [
+    {
+      "id": "r-ru-nim",
+      "url": "https://www.rugsusa.com/products/nimes-ticking-neutral-machine-washable-rug?variant=50093033357606",
+      "status": "blocked",
+      "evidence": "curl 403; hidden browser loads page title and shell only, no product price or purchase control, including retry after 10 seconds. Exact 6 \u00d7 9 offer cannot be certified.",
+      "displayed_price_usd": 298,
+      "curl_http_status": 403
+    },
+    {
+      "id": "p-q-slub",
+      "url": "https://www.quince.com/home/cotton-slub-pillow-cover?color=terracotta",
+      "status": "verified",
+      "evidence": "Terracotta individual cover $39.90; 20x20 is offered and must be selected. Add to Bag is present; no purchase made.",
+      "displayed_price_usd": 39.9,
+      "curl_http_status": 200
+    },
+    {
+      "id": "art_9_20x30",
+      "url": "https://juniperprintshop.com/products/painted-desert-1?variant=18602855202905",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 69,
+      "curl_http_status": 200
+    },
+    {
+      "id": "art_10_20x30",
+      "url": "https://juniperprintshop.com/products/living-desert-1?variant=18602310205529",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 69,
+      "curl_http_status": 200
+    },
+    {
+      "id": "P007",
+      "url": "https://juniperprintshop.com/products/french-landscape?variant=42815385796697",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "P077",
+      "url": "https://www.ikea.com/us/en/p/arstid-table-lamp-brass-white-80321380/",
+      "status": "unavailable-for-location",
+      "evidence": "Exact brass/white \u00c5RSTID $39.99 loaded. Product unavailable for delivery and pickup in the pre-existing selected local area; visible Add to bag belongs to recommended bulbs, NOT the lamp.",
+      "displayed_price_usd": 39.99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "P010",
+      "url": "https://www.ikea.com/us/en/p/blanda-matt-serving-bowl-bamboo-60214343/",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 24.99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "blue_duvet",
+      "url": "https://www.quince.com/home/classic-organic-percale-duvet-cover?color=sky-blue&size=full/queen",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 94,
+      "curl_http_status": 200
+    },
+    {
+      "id": "r16-olive-lumbar",
+      "url": "https://www.athome.com/kleo-olive-green-striped-slub-throw-pillow-14x36/125002650.html",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 29.99,
+      "curl_http_status": 403
+    },
+    {
+      "id": "r16-taupe-lumbar",
+      "url": "https://www.athome.com/kleo-simply-taupe-striped-slub-euro-throw-pillow-14x36/125035061.html",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 29.99,
+      "curl_http_status": 403
+    },
+    {
+      "id": "l-v-laut",
+      "url": "https://ikea.com/us/en/p/lauters-floor-lamp-ash-white-00405048",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 79.99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "A-solhetta-e26",
+      "url": "https://www.ikea.com/us/en/p/solhetta-led-bulb-e26-800-lumen-dimmable-globe-opal-20583935/",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 4.99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "art_frame",
+      "url": "https://www.craigframes.com/products/essentials-1-matted-modern-black-picture-frame?variant=43929630834730",
+      "status": "verified",
+      "evidence": "Exact black size/mat variant selected, stated price and Add to cart / Buy it Now visible. Single frame, not a bulk pack.",
+      "displayed_price_usd": 34.99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "large_frame",
+      "url": "https://www.craigframes.com/products/essentials-1-matted-modern-black-picture-frame?variant=43929631031338",
+      "status": "verified",
+      "evidence": "Exact black size/mat variant selected, stated price and Add to cart / Buy it Now visible. Single frame, not a bulk pack.",
+      "displayed_price_usd": 87.99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "echogear-egll1",
+      "url": "https://www.echogear.com/tv-mounts/low-profile-fixed-tv-wall-mount-for-32-85-tvs-egll1/",
+      "status": "verified",
+      "evidence": "Exact EGLL1 product, $35.99 and primary BUY ON AMAZON purchase control. No cart/order changed; downstream Amazon checkout not exercised.",
+      "displayed_price_usd": 35.99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "p-v-fjad",
+      "url": "https://ikea.com/us/en/p/fjaedrar-inner-cushion-off-white-60262188",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 12,
+      "curl_http_status": 200
+    },
+    {
+      "id": "P075",
+      "url": "https://juniperprintshop.com/products/blue-notes?variant=39507753271385",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 99,
+      "curl_http_status": 200
+    },
+    {
+      "id": "P081",
+      "url": "https://www.walmart.com/ip/Americanflat-3-Pack-Lightweight-24x36-Poster-Frames-Black/5416414781",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 60.92,
+      "curl_http_status": 200
+    },
+    {
+      "id": "P055",
+      "url": "https://www.article.com/product/29844/amoeba-side-table-walnut?queryID=06e93703c5a367ee3fc6f5b532f9cc08&index=production_product",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 149,
+      "curl_http_status": 403
+    },
+    {
+      "id": "B-bulb",
+      "url": "https://www.ikea.com/us/en/p/solhetta-led-bulb-e26-450-lumen-globe-opal-70591476/",
+      "status": "verified",
+      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
+      "displayed_price_usd": 2.49,
+      "curl_http_status": 200
+    }
+  ]
+}
