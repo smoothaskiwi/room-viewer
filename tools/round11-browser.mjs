@@ -1,13 +1,12 @@
 // Headless local-only visual acceptance and evidence, actual rental layouts (never fixture substitution).
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {spawn,execFileSync} from 'node:child_process';
+import {execFileSync} from 'node:child_process';
 import assert from 'node:assert/strict';
-import puppeteer from 'puppeteer-core';
+import {browserTestSession} from './browser-test-session.mjs';
 import {repo,project} from './project.mjs';
 const out=process.env.ROUND11_EVIDENCE_DIR??path.join(project,'prototype/renders/round-11');await fs.mkdir(out,{recursive:true});
-const server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',path.join(repo,'docs')],{stdio:['ignore','pipe','pipe']});let browser;
-const port=await new Promise((resolve,reject)=>{server.stdout.on('data',b=>{const m=String(b).match(/port (\d+)/);if(m)resolve(+m[1]);});server.on('error',reject);});
+const session=await browserTestSession(),{port,browser}=session;
 const pages=JSON.parse(await fs.readFile(repo+'/data/rooms.json')),errors=[],external=[],screens=[],checks=[];
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 async function shot(p,name,selector=null){
@@ -20,7 +19,7 @@ async function shot(p,name,selector=null){
  screens.push(name+'.png');
 }
 try{
- browser=await puppeteer.launch({executablePath:'/usr/sbin/google-chrome-stable',headless:true,args:['--headless=new','--enable-unsafe-swiftshader','--use-angle=swiftshader','--no-sandbox']});
+
  for(const r of pages){const p=await browser.newPage();p.on('pageerror',e=>errors.push(r.room+': '+e.message));p.on('console',m=>{if(m.type()==='error')errors.push(r.room+': '+m.text());});p.on('request',q=>{if(!q.url().startsWith('http://127.0.0.1:')&&!q.url().startsWith('data:'))external.push(q.url());});
   await p.setViewport({width:412,height:915,deviceScaleFactor:2,isMobile:true,hasTouch:true});await p.goto('http://127.0.0.1:'+port+'/'+r.slug+'/',{waitUntil:'networkidle0'});await p.waitForFunction(()=>window.__rental?.ready);
   const ls=await p.evaluate(()=>window.__rental.payload.layouts),firstId=await p.$eval('[data-rental-card]',e=>e.dataset.rentalCard),top=ls.find(l=>l.id===firstId),firstText=await p.$eval('[data-rental-card] .rental-headline',e=>e.textContent);assert.equal(firstText,top.headline);assert.equal(await p.$$eval('[data-rental-card]',es=>es.length),ls.length);checks.push(r.room+' all real layouts appear; first card active headline');
@@ -37,4 +36,4 @@ try{
  }
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
  await fs.writeFile(path.join(out,'verification.json'),JSON.stringify({checks,screens,errors,external,phone:{width:412,height:915,dpr:2,touch:true},laptop:{width:1440,height:900,dpr:1},chrome:await browser.version(),server:'loopback only; stopped in finally'},null,2));console.log('PASS Round 11 browser: '+checks.length+' checks; '+screens.length+' captures; zero console errors / external requests.');
-}finally{await browser?.close();server.kill();if(server.exitCode===null)await new Promise(r=>server.once('exit',r));}
+}finally{await session.close();}

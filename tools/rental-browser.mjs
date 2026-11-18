@@ -1,15 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {spawn} from 'node:child_process';
 import assert from 'node:assert/strict';
-import puppeteer from 'puppeteer-core';
+import {browserTestSession} from './browser-test-session.mjs';
 import {repo} from './project.mjs';
 const out=process.env.RENTAL_EVIDENCE_DIR||path.join(repo,'evidence/rental'),save=process.argv.includes('--screenshots');await fs.mkdir(out,{recursive:true});
-const server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',path.join(repo,'docs')],{stdio:['ignore','pipe','pipe']});let browser;
-const port=await new Promise((resolve,reject)=>{server.stdout.on('data',b=>{const m=String(b).match(/port (\d+)/);if(m)resolve(+m[1]);});server.on('error',reject);});
+const session=await browserTestSession(),{port,browser}=session;
 const rooms=JSON.parse(await fs.readFile(path.join(repo,'data/rooms.json'))),errors=[],external=[],shots=[];let checks=0;
 try{
- browser=await puppeteer.launch({executablePath:'/usr/sbin/google-chrome-stable',headless:true,args:['--headless=new','--enable-unsafe-swiftshader','--use-angle=swiftshader','--no-sandbox']});
+
  for(const r of rooms)for(const [size,viewport]of [['phone',{width:412,height:915,deviceScaleFactor:2,isMobile:true,hasTouch:true}],['laptop',{width:1440,height:900,deviceScaleFactor:1}]]){
   const p=await browser.newPage();await p.setViewport(viewport);p.on('pageerror',e=>errors.push(r.room+': '+e.message));p.on('console',m=>{if(m.type()==='error')errors.push(r.room+': '+m.text());});p.on('request',q=>{if(!q.url().startsWith('http://127.0.0.1:')&&!q.url().startsWith('data:'))external.push(q.url());});
   await p.goto('http://127.0.0.1:'+port+'/'+r.slug+'/?rental-fixtures=1',{waitUntil:'networkidle0'});await p.waitForFunction(()=>window.__rental?.ready);
@@ -33,4 +31,4 @@ try{
  }
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);checks+=2;
  await fs.writeFile(path.join(out,'report.json'),JSON.stringify({checks,shots,errors,external},null,2)+'\n');console.log('PASS rental browser: '+checks+' checks; five fixtures × phone/laptop; shopping links/CSV; styled listing camera; fallback; zero console errors and external runtime requests. '+shots.length+' screenshots.');
-}finally{await browser?.close();server.kill();await new Promise(r=>server.once('exit',r));}
+}finally{await session.close();}

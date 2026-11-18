@@ -1,18 +1,16 @@
 // Owned/reuse acceptance: dedicated headless Chrome and a task-owned loopback server only.
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {spawn} from 'node:child_process';
 import assert from 'node:assert/strict';
-import puppeteer from 'puppeteer-core';
+import {browserTestSession} from './browser-test-session.mjs';
 import {repo} from './project.mjs';
 const out=process.env.REUSE_EVIDENCE_DIR??path.join(repo,'evidence/reuse'),save=process.argv.includes('--screenshots');await fs.mkdir(out,{recursive:true});
-const server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',path.join(repo,'docs')],{stdio:['ignore','pipe','pipe']});let browser;
-const port=await new Promise((resolve,reject)=>{server.stdout.on('data',b=>{const m=String(b).match(/port (\d+)/);if(m)resolve(+m[1]);});server.on('error',reject);});
+const session=await browserTestSession(),{port,browser}=session;
 const base='http://127.0.0.1:'+port,pages=JSON.parse(await fs.readFile(path.join(repo,'data/rooms.json'))),errors=[],external=[],shots=[];let checks=0;
 const ok=(v,s)=>{assert.ok(v,s);checks++;},wait=ms=>new Promise(r=>setTimeout(r,ms));
 async function shot(p,name,selector){if(!save)return;await p.evaluate(()=>Promise.race([Promise.all([...document.images].filter(i=>{const b=i.getBoundingClientRect();return b.width>0&&b.bottom>=0&&b.top<innerHeight;}).map(i=>i.decode().catch(()=>{}))),new Promise(r=>setTimeout(r,1200))]));if(selector){await p.$eval(selector,e=>e.scrollIntoView({block:'center'}));await wait(100);await (await p.$(selector)).screenshot({path:path.join(out,name+'.png')});}else await p.screenshot({path:path.join(out,name+'.png')});shots.push(name+'.png');}
 try{
- browser=await puppeteer.launch({executablePath:'/usr/sbin/google-chrome-stable',headless:true,args:['--headless=new','--enable-unsafe-swiftshader','--use-angle=swiftshader','--no-sandbox']});
+
  for(const [size,viewport]of [['phone',{width:412,height:915,deviceScaleFactor:2,isMobile:true,hasTouch:true}],['laptop',{width:1440,height:900,deviceScaleFactor:1}]]){
   const root=await browser.newPage();await root.setViewport(viewport);await root.goto(base+'/?reuse-fixtures=1',{waitUntil:'networkidle0'});
   ok(await root.$eval('#reuse-summary-fixtures',e=>!e.hidden),'fixture whole-house summary visible');const house=await (await fetch(base+'/reuse-house-fixtures.json')).json(),plan=house.plans[0];
@@ -35,4 +33,4 @@ try{
   }
  }
  ok(!errors.length,JSON.stringify(errors));ok(!external.length,JSON.stringify(external));await fs.writeFile(path.join(out,'verification.json'),JSON.stringify({checks,shots,errors,external,phone:{width:412,height:915,dpr:2},laptop:{width:1440,height:900},chrome:await browser.version()},null,2));console.log('PASS reuse browser: '+checks+' checks; five room fixtures × phone/laptop; whole house, owned tags/colours, local images, split shopping, CSV/copy; '+shots.length+' captures; no console errors or external requests.');
-}finally{await browser?.close();server.kill();if(server.exitCode===null)await new Promise(r=>server.once('exit',r));}
+}finally{await session.close();}
