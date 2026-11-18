@@ -1,6 +1,6 @@
 // Illustrative styling layers; never added to furniture collision envelopes.
 import {styleSize,placedStyling,artPose} from './rental-view.mjs';
-export function addRentalStyling(T,g,l,room,redraw){
+export function addRentalStyling(T,g,l,room,redraw,models={}){
  const pal=l.palette??['#9b7751','#e8e0d0','#778569'],W=room.room.width_x,D=room.room.depth_y,log=[];
  const material=(color,more={})=>new T.MeshStandardMaterial({color,roughness:.85,...more});
  const box=(x,y,z,w,d,h,color,extra={})=>{const m=new T.Mesh(new T.BoxGeometry(w,d,h),material(color,extra));m.position.set(x+w/2,y+d/2,z+h/2);m.castShadow=true;m.receiveShadow=true;g.add(m);return m;};
@@ -17,6 +17,8 @@ export function addRentalStyling(T,g,l,room,redraw){
  }
  const styled=placedStyling(l);
  for(const [index,s]of styled.entries()){
+  if(['owned-dining-tv','kitchen-existing-pendant','dining-existing-light','kitchen-banquette'].includes(s.owned_id)){log.push({id:s.id,category:s.category,rendered_by:'measured room fixture or screen'});continue;}
+  if(s.owned&&/-floor-lamp/.test(s.owned_id??'')&&models.ownedFloorLamp){const h=s.dims_in?.h??s.height_in??58;models.ownedFloorLamp({...s,x:s.x??W/2,y:s.y??D/2,w:s.dims_in?.w??12,d:s.dims_in?.d??12,h,rental_color:s.color??'#eee9df'});log.push({id:s.id,category:s.category,bottom_z:0,height:h});continue;}
   const cat=s.category.toLowerCase(),[w,h]=styleSize(s,/rug/.test(cat)?[60,96]:[30,20]);let x=s.x??W/2,y=s.y??D/2,z=s.height_in??0;
   if(/rug/.test(cat)){const map=texture(s);box(s.x??(W-w)/2,s.y??(D-h)/2,.08,w,h,.1,map?'#ffffff':s.owned?s.color??pal[1]:pal[1],map?{map}:{});}
   else if(/art|mirror/.test(cat)){

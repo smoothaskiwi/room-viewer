@@ -220,7 +220,7 @@ export async function start3D(host,spec){
   const g=new THREE.Group(),log={floor:pal.floor.kind,walls:pal.walls,arches:[],windows:[],fixtures:[],context:[]};
   const cream=mat(pal.walls,{emissive:pal.walls,emissiveIntensity:.06});
   extrusion(g,{polygon:spec.room.polygon||[[0,0],[W,0],[W,D],[0,D]]},-.7,.7,kit.floorMaterial());
-  for(const f of spec.fixtures||[])if(!(current?.family==='rental'&&current.styling?.some(s=>/pendant|chandelier/.test(s.category))))log.fixtures.push(kit.fixture(g,f,H));
+  for(const f of spec.fixtures||[])if(!(current?.family==='rental'&&current.styling?.some(s=>!s.owned&&/pendant|chandelier/.test(s.category))))log.fixtures.push(kit.fixture(g,f,H));
   log.context=kit.context(g);
   appearanceLog=log;
 
@@ -261,7 +261,7 @@ export async function start3D(host,spec){
   for(const f of chairs)buildChair(g,f,state);
   for(const f of [...(l.fixed||[]),...(l.doors||[])])buildFixed(g,f);
   if(l.screen){const s=l.screen,fire=l.fixed.find(f=>f.id==='chimney-breast');if(fire&&l.family!=='rental'){box(g,fire.x-.6,62.5,0,.55,33,33,mat('#b48a3c',{metalness:.6,roughness:.35}));box(g,fire.x-.8,64,1,.7,30,30,mat('#252321'));box(g,fire.x-1,50.67,50.065,.8,56.66,31.87,mat('#191f24'));}if(l.family.startsWith('tv_on_console')||l.family==='rental')box(g,s.x-28.33,s.y,s.z-15.935,56.66,.8,31.87,mat('#191f24'));}
-  if(l.family==='rental'&&spec.rental_room)stylingLog=addRentalStyling(THREE,g,l,spec.rental_room,draw);
+  if(l.family==='rental'&&spec.rental_room)stylingLog=addRentalStyling(THREE,g,l,spec.rental_room,draw,{ownedFloorLamp:f=>buildOwnedFloorLamp(g,f)});
   return g;
  }
 
@@ -271,9 +271,13 @@ export async function start3D(host,spec){
   else if(f.kind==='rug')buildRug(g,f);
   else if(f.kind==='chair'||f.kind==='desk-chair')buildChair(g,f,'tucked');
   else if(f.kind==='bed'){box(g,f.x,f.y,7,f.w,f.d,9,mat(f.rental_color??'#936b43'));box(g,f.x+1,f.y+1,16,f.w-2,f.d-2,8,mat('#e8dfcf'));const ew=['east','west'].includes(f.head);box(g,f.head==='east'?f.x+f.w-2:f.x,f.head==='south'?f.y+f.d-2:f.y,7,ew?2:f.w,ew?f.d:2,f.h-7,mat(f.rental_color??'#936b43'));}
+  else if(spec.rental_room&&f.kind==='sofa'&&f.owned)buildOwnedSofa(g,f);
   else if(f.kind==='sofa'){box(g,f.x,f.y,5,f.w,f.d,16,mat(f.rental_color??furnitureColor(f)));const ns=['north','south'].includes(f.faces);box(g,f.faces==='west'?f.x+f.w-4:f.x,f.faces==='north'?f.y+f.d-4:f.y,21,ns?f.w:4,ns?4:f.d,f.h-21,mat(f.rental_color??furnitureColor(f)));}
   else if(f.kind==='coffee'||f.kind==='desk')buildTable(g,f);
   else if(f.kind==='gym'){box(g,f.x,f.y,0,f.w,f.d,3,mat('#303736'));box(g,f.x,f.y,3,f.w,4,f.h-3,mat('#404746'));}
+  else if(spec.rental_room&&f.kind==='lamp'&&f.owned)buildOwnedFloorLamp(g,f);
+  else if(f.owned_id==='living-rh-tables')buildOwnedRH(g,f);
+  else if(f.owned_id==='dining-media-console')buildOwnedConsole(g,f);
   else if(['storage','dresser','nightstand'].includes(f.kind))box(g,f.x,f.y,0,f.w,f.d,f.h,mat(f.color||'#98714b'));
   else box(g,f.x,f.y,f.z||0,f.w,f.d,f.h,mat(MCM.cabinet));
  }
@@ -284,7 +288,28 @@ export async function start3D(host,spec){
   const geo=new THREE.ExtrudeGeometry(outline,{depth:h,bevelEnabled:false});
   const mesh=new THREE.Mesh(geo,material);mesh.position.z=z;mesh.castShadow=true;mesh.receiveShadow=true;g.add(mesh);return mesh;
  }
+ // Photo-matched owned forms; display only, entirely inside the audited envelopes.
+ function orientOwned(g,f){const q=new THREE.Group(),ns=['north','south'].includes(f.faces);q.position.set(f.x+f.w/2,f.y+f.d/2,0);q.rotation.z=({south:0,west:Math.PI/2,north:Math.PI,east:-Math.PI/2})[f.faces]??0;g.add(q);return {q,w:ns?f.w:f.d,d:ns?f.d:f.w};}
+ function buildOwnedFloorLamp(g,f){const metal=mat(f.owned_id==='dining-floor-lamp'?'#2c2d29':'#a98b59'),shade=mat(f.rental_color??'#eee9df');if(f.owned_id==='dining-floor-lamp'){for(const x of [f.x,f.x+f.w-1])for(const y of [f.y,f.y+f.d-1])box(g,x,y,0,1,1,f.h-12,metal);for(const z of [1,18,36,f.h-13])box(g,f.x,f.y,z,f.w,f.d,1,metal);box(g,f.x+.7,f.y+.7,f.h-12,f.w-1.4,f.d-1.4,12,shade);}else {const x=f.x+f.w/2,y=f.y+f.d/2;cylinder(g,x,y,0,Math.min(f.w,f.d)*.46,1.2,metal);cylinder(g,x,y,1.2,.65,f.h-12,metal);cylinder(g,x,y,f.h-12,Math.min(f.w,f.d)/2,12,shade,Math.min(f.w,f.d)*.38);}}
+ function buildOwnedRH(g,f){const wood=mat(f.rental_color??'#9c9280');for(const x of [f.x,f.x+f.w-1.4])for(const y of [f.y,f.y+f.d-1.4])box(g,x,y,0,1.4,1.4,f.h-1.4,wood);box(g,f.x,f.y,f.h-1.4,f.w,f.d,1.4,wood);box(g,f.x,f.y,5,f.w,f.d,1.2,wood);}
+ function buildOwnedSofa(g,f){const {q,w,d}=orientOwned(g,f),cloth=mat(f.rental_color??f.color,{roughness:f.owned_id==='dining-sofa'?.6:.94}),dark=mat('#34332e');
+  for(const x of [-w/2+4,w/2-4])for(const y of [-d/2+4,d/2-4])cylinder(q,x,y,0,.8,6,dark);
+  box(q,-w/2,-d/2,5,w,d,13,cloth);box(q,-w/2+3,-d/2,18,w-6,4,f.h-18,cloth);
+  const arm=4,armTop=f.owned_id==='living-sofa'?26:25;for(const x of [-w/2,w/2-arm])box(q,x,-d/2+1,17,arm,d-1,armTop-17,cloth);
+  box(q,-w/2,-d/2,4.5,w,d,2.5,mat('#4c3c2d'));const cushions=f.owned_id==='living-sofa'?2:3;
+  for(let i=0;i<cushions;i++){const cw=(w-2*arm-1)/cushions;box(q,-w/2+arm+.3+i*cw,-d/2+5,18,cw-.5,d-6,4.5,cloth);box(q,-w/2+arm+.3+i*cw,-d/2+2,22.5,cw-.5,5,f.h-22.5,cloth);}
+ }
+ function buildOwnedConsole(g,f){const {q,w,d}=orientOwned(g,{...f,faces:f.faces??'south'}),wood=mat('#65503d'),face=mat('#73553f'),brass=mat('#b49a62',{metalness:.65,roughness:.4});
+  for(const x of [-w/2+4,w/2-4])for(const y of [-d/2+3,d/2-3])cylinder(q,x,y,0,.9,5,wood);box(q,-w/2,-d/2,4.5,w,d,f.h-4.5,wood);
+  const left=w*.35;for(let i=0;i<3;i++){const z=6+i*(f.h-7)/3;box(q,-w/2+.8,d/2-.3,z,left-1.6,.4,(f.h-8)/3-.4,face);box(q,-w/2+left*.22,d/2+.15,z+3,left*.55,.5,.5,brass);}
+  const dw=(w-left-2)/2;for(let i=0;i<2;i++){const x=-w/2+left+1+i*dw;box(q,x,d/2-.3,6,dw-.6,.4,f.h-7,face);box(q,x+dw*.18,d/2+.15,f.h*.68,dw*.64,.5,.5,brass);}
+ }
+ function buildOwnedSwivel(g,f){const {q,w,d}=orientOwned(g,f),leather=mat(f.rental_color??'#aa683e',{roughness:.6});cylinder(q,0,0,0,Math.min(w,d)*.36,3,mat('#333530'));cylinder(q,0,0,3,Math.min(w,d)*.46,14,leather);cylinder(q,0,1,17,Math.min(w,d)*.39,3,leather);
+  const s=new THREE.Shape(),n=32;for(let i=0;i<=n;i++){const t=(-110+220*i/n)*Math.PI/180,x=Math.sin(t)*w*.5,y=-Math.cos(t)*d*.5;i?s.lineTo(x,y):s.moveTo(x,y);}for(let i=n;i>=0;i--){const t=(-110+220*i/n)*Math.PI/180;s.lineTo(Math.sin(t)*(w*.5-3),-Math.cos(t)*(d*.5-3));}s.closePath();const m=new THREE.Mesh(new THREE.ExtrudeGeometry(s,{depth:11,bevelEnabled:false}),leather);m.position.z=17;m.castShadow=m.receiveShadow=true;q.add(m);
+ }
  function buildTable(g,f){
+  if(f.owned_id==='kitchen-nook-table'){const top={...f,polygon:[[f.x+4,f.y],[f.x+f.w-4,f.y],[f.x+f.w,f.y+4],[f.x+f.w,f.y+f.d-4],[f.x+f.w-4,f.y+f.d],[f.x+4,f.y+f.d],[f.x,f.y+f.d-4],[f.x,f.y+4]]};extrusion(g,top,f.h-1.3,1.3,mat('#aa8a60'));extrusion(g,top,f.h-.8,.8,mat(f.rental_color??'#f1eee4'));cylinder(g,f.x+f.w/2,f.y+f.d/2,3,2.2,f.h-4,mat('#eee9dc'));const base=new THREE.Group();base.position.set(f.x+f.w/2,f.y+f.d/2,1.5);for(const angle of [-Math.PI/5,Math.PI/5]){const leg=new THREE.Group();leg.rotation.z=angle;base.add(leg);box(leg,-15,-.8,0,30,1.6,2,mat('#d4cec0'));for(const x of [-15,12])box(leg,x,-.85,0,3,1.7,2,mat('#b4a06a'));}g.add(base);return;}
+
   const topZ=f.h-1.2;extrusion(g,f,topZ,1.2,mat(f.rental_color??MCM.table));
   if(f.leg_spacing){
    const [a,b]=f.rotation%180?[f.leg_spacing[1],f.leg_spacing[0]]:f.leg_spacing;for(const x of [f.x+(f.w-a)/2,f.x+(f.w+a)/2])for(const y of [f.y+(f.d-b)/2,f.y+(f.d+b)/2])cylinder(g,x,y,0,.9,topZ,mat(MCM.tableBase));
@@ -298,6 +323,7 @@ export async function start3D(host,spec){
  }
 
  function buildChair(g,f,state){
+  if(f.owned_id==='living-cognac-swivels'){buildOwnedSwivel(g,f);return;}
   const seatH=18,seatMat=mat(f.rental_color??furnitureColor(f)),backMat=mat(f.rental_color??furnitureColor(f));
   const legH=seatH-1.5;
   for(const [lx,ly] of [[f.x+.8,f.y+.8],[f.x+f.w-.8,f.y+.8],[f.x+f.w-.8,f.y+f.d-.8],[f.x+.8,f.y+f.d-.8]])
@@ -395,7 +421,7 @@ export async function start3D(host,spec){
 
  return {
   show,draw,
-  geometry:()=>itemsGroup.children.map(o=>({bounds:(()=>{const b=new THREE.Box3().setFromObject(o);return [b.min.toArray(),b.max.toArray()];})(),color:o.material?.color?.getHexString()})),
+  geometry:()=>itemsGroup.children.flatMap(o=>{const nodes=[o];o.traverse(m=>{if(m!==o&&m.isMesh)nodes.push(m);});return nodes.map(m=>({bounds:(()=>{const b=new THREE.Box3().setFromObject(m);return [b.min.toArray(),b.max.toArray()];})(),color:m.material?.color?.getHexString()}));}),
   setClearance(id,enabled=true){
    gapEnabled=enabled;
    gapPiece=current?.footprints.find(f=>f.id===id)||current?.footprints[0];
