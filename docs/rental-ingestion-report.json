@@ -4,7 +4,7 @@
     "source_images": 585,
     "products": 430,
     "missing": 0,
-    "bytes": 3834848
+    "bytes": 3829458
   },
   "rooms": [
     {
@@ -39,10 +39,10 @@
     },
     {
       "room": "living-room",
-      "layouts": 20,
+      "layouts": 21,
       "fixtures": 1,
       "classes": {
-        "conditional": 16,
+        "conditional": 17,
         "invalid": 4
       },
       "errors": []

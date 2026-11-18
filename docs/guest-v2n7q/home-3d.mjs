@@ -221,7 +221,7 @@ export async function start3D(host,spec){
   const g=new THREE.Group(),log={floor:pal.floor.kind,walls:pal.walls,arches:[],windows:[],fixtures:[],context:[]};
   const cream=mat(pal.walls,{emissive:pal.walls,emissiveIntensity:.06});
   extrusion(g,{polygon:spec.room.polygon||[[0,0],[W,0],[W,D],[0,D]]},-.7,.7,kit.floorMaterial());
-  for(const f of spec.fixtures||[])if(!(current?.family==='rental'&&current.styling?.some(s=>!s.owned&&/pendant|chandelier/.test(s.category))))log.fixtures.push(kit.fixture(g,f,H));
+  for(const f of spec.fixtures||[])if(!(current?.family==='rental'&&current.styling?.some(s=>!s.owned&&/pendant|chandelier/.test(s.category)))){const before=g.children.length,fixture=kit.fixture(g,f,H);log.fixtures.push(fixture);if(fixture?.kind==='dome-pendant')for(const n of g.children.slice(before))n.traverse(m=>{m.userData={...m.userData,piece:'fixture-'+f.id,kind:'pendant'};});}
   log.context=kit.context(g);
   appearanceLog=log;
 
@@ -444,7 +444,7 @@ export async function start3D(host,spec){
   listingAudit(){
    scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);const ray=new THREE.Raycaster(),counts={},near={},total=32*24;let furniture=0;
    for(let y=0;y<24;y++)for(let x=0;x<32;x++){ray.setFromCamera(new THREE.Vector2((x+.5)/16-1,1-(y+.5)/12),camera);const hit=ray.intersectObjects([roomGroup,itemsGroup],true).find(h=>{let n=h.object;while(n){if(!n.visible)return false;n=n.parent;}return true;});if(!hit)continue;const d=hit.object.userData,key=d.piece??d.wall??'room';counts[key]=(counts[key]??0)+1;if(hit.distance<18)near[key]=(near[key]??0)+1;if(['bed','sofa','table','chair','seat'].includes(d.kind))furniture++;}
-   const projected={};itemsGroup.traverse(o=>{if(!o.isMesh||!o.userData.piece)return;const key=o.userData.piece,b=new THREE.Box3().setFromObject(o),points=[];for(const x of [b.min.x,b.max.x])for(const y of [b.min.y,b.max.y])for(const z of [b.min.z,b.max.z])points.push(new THREE.Vector3(x,y,z).project(camera));const prev=projected[key]??{min:[Infinity,Infinity],max:[-Infinity,-Infinity]};for(const p of points){prev.min[0]=Math.min(prev.min[0],p.x);prev.min[1]=Math.min(prev.min[1],p.y);prev.max[0]=Math.max(prev.max[0],p.x);prev.max[1]=Math.max(prev.max[1],p.y);}projected[key]=prev;});
+   const projected={};for(const group of [itemsGroup,roomGroup])group.traverse(o=>{if(!o.isMesh||!o.userData.piece)return;const key=o.userData.piece,b=new THREE.Box3().setFromObject(o),points=[];for(const x of [b.min.x,b.max.x])for(const y of [b.min.y,b.max.y])for(const z of [b.min.z,b.max.z])points.push(new THREE.Vector3(x,y,z).project(camera));const prev=projected[key]??{min:[Infinity,Infinity],max:[-Infinity,-Infinity]};for(const p of points){prev.min[0]=Math.min(prev.min[0],p.x);prev.min[1]=Math.min(prev.min[1],p.y);prev.max[0]=Math.max(prev.max[0],p.x);prev.max[1]=Math.max(prev.max[1],p.y);}projected[key]=prev;});
    return {projected,inside:camera.position.x>0&&camera.position.x<spec.room.width_x&&-camera.position.y>0&&-camera.position.y<spec.room.depth_y,furnitureFraction:furniture/total,nearFraction:Object.values(near).reduce((a,b)=>a+b,0)/total,largestFraction:Math.max(0,...Object.values(counts))/total,counts,near};
   },
   styling:()=>stylingLog,
