@@ -10,7 +10,8 @@ for(const page of pages){const p=JSON.parse(await fs.readFile(repo+'/docs/'+page
  for(const l of [...p.layouts,...Object.values(p.owner_shops).map(shop=>({id:'Today',shop}))])for(const i of l.shop.items.filter(i=>i.owned)){
   ok(!!i.image,l.id+': owned photo for '+i.id);ok((await fs.stat(repo+'/docs/'+i.image)).size>0,i.id+': local photo bytes');ok(!!i.photo_note,i.id+': honest photo provenance');
  }
- const [a,b]=p.layouts,f=comparisonFacts(p.room,a),expected=dimensionModel(p.room,a).dimensions.filter(d=>d.state==='everyday').sort((a,b)=>a.value-b.value)[0];
+ const [a,b]=p.layouts,f=comparisonFacts(p.room,a),dims=dimensionModel(p.room,a).dimensions.filter(d=>Number.isFinite(d.value)).sort((a,b)=>a.value-b.value),expected=dims.find(d=>d.state==='everyday')??dims[0];
+ ok(f.clearance!==null,'compare shows a real clearance for '+page.room);
  ok(f.cost===a.shop.total,'compare cost matches shopping');ok(f.clearance===expected?.value,'compare uses an actual surface span');ok(!/reference plane/.test(f.clearanceNote),'no reference-plane passage');
  assert.deepEqual(readComparisonHash(comparisonHash(a.id,b.id),p.layouts),{a:a.id,b:b.id});checks++;
  ok(readComparisonHash('#rental-compare=unknown&rental-compare-with='+b.id,p.layouts)===null,'invalid saved pair rejected');

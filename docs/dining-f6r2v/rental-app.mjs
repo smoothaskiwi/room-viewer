@@ -1,4 +1,5 @@
 import {esc,money,rentalPlan,shopHTML,shoppingText,rentalDisplayPiece} from './rental-view.mjs';
+import {differenceHTML,comparisonHash,readComparisonHash} from './rental-compare.mjs';
 const payload=await fetch('rentals.json').then(r=>r.json()),root=document.querySelector('#rental-root'),room=payload.room,owner=document.querySelector('#owner-use');
 let current=null,three=null,mode='plan';
 const forced=new URLSearchParams(location.search).get('no3d')==='1'||new URLSearchParams(location.search).get('webgl')==='0';
@@ -16,13 +17,18 @@ function cards(){
  root.querySelector('#rental-compare-open').onclick=()=>openCompare();
  root.querySelector('#rental-today').onclick=()=>{owner.open=true;document.querySelector('#owner-content').scrollIntoView();};
 }
-function openCompare(a=layouts[0]?.id,b=layouts.find(l=>l.id!==a)?.id){
+function openCompare(a=layouts[0]?.id,b=layouts.find(l=>l.id!==a)?.id,{scroll=true}={}){
+ if(!layouts.some(l=>l.id===a))a=layouts[0]?.id;
+ if(!layouts.some(l=>l.id===b))b=layouts.find(l=>l.id!==a)?.id??a;
  const host=root.querySelector('#rental-compare');host.hidden=false;
  const options=layouts.map(l=>`<option value="${esc(l.id)}">Rank ${l.rank} · ${esc(l.title)} · ${l.tier}</option>`).join('');
- host.innerHTML=`<button id="rental-compare-close">Close comparison</button><h2>Compare rental schemes</h2><div class="rental-compare-selectors"><label>First scheme<select id="rental-compare-a">${options}</select></label><label>Second scheme<select id="rental-compare-b">${options}</select></label></div><div id="rental-compare-plans"></div>`;
+ host.innerHTML=`<button id="rental-compare-close">Close comparison</button><h2>Compare rental schemes</h2><div class="rental-compare-selectors"><label>First scheme<select id="rental-compare-a">${options}</select></label><label>Second scheme<select id="rental-compare-b">${options}</select></label></div><div id="rental-compare-differences"></div><div id="rental-compare-plans"></div>`;
  host.querySelector('#rental-compare-a').value=a;host.querySelector('#rental-compare-b').value=b??a;
- const draw=()=>{host.querySelector('#rental-compare-plans').innerHTML=['a','b'].map(k=>{const l=layouts.find(l=>l.id===host.querySelector('#rental-compare-'+k).value);return `<section><h3>Rank ${l.rank} · ${esc(l.title)}</h3><p>${esc(l.tier)} · ${esc(l.class)} · New purchases ${money(l.shop.total)} · Uses ${l.shop.owned_count??0} pieces you own</p>${rentalPlan(room,l)}<p class="rental-headline">${esc(l.headline)}</p><p>${esc(l.class_reason)}</p>${strengths(l)}</section>`;}).join('');};
- host.querySelectorAll('select').forEach(s=>s.onchange=draw);host.querySelector('#rental-compare-close').onclick=()=>{host.hidden=true;};draw();host.scrollIntoView({block:'start'});
+ const draw=()=>{const pair=['a','b'].map(k=>layouts.find(l=>l.id===host.querySelector('#rental-compare-'+k).value));
+ history.replaceState(null,'',location.pathname+location.search+comparisonHash(pair[0].id,pair[1].id));
+ host.querySelector('#rental-compare-differences').innerHTML=differenceHTML(room,...pair,{esc,money});
+ host.querySelector('#rental-compare-plans').innerHTML=['a','b'].map(k=>{const l=layouts.find(l=>l.id===host.querySelector('#rental-compare-'+k).value);return `<section><h3>Rank ${l.rank} · ${esc(l.title)}</h3><p>${esc(l.tier)} · ${esc(l.class)} · New purchases ${money(l.shop.total)} · Uses ${l.shop.owned_count??0} pieces you own</p>${rentalPlan(room,l)}<p class="rental-headline">${esc(l.headline)}</p><p>${esc(l.class_reason)}</p>${strengths(l)}</section>`;}).join('');};
+ host.querySelectorAll('select').forEach(s=>s.onchange=draw);host.querySelector('#rental-compare-close').onclick=()=>{host.hidden=true;history.replaceState(null,'',location.pathname+location.search+(current?'#rental='+encodeURIComponent(current.id):''));};draw();if(scroll)host.scrollIntoView({block:'start'});
 }
 async function render(){
  if(!current)return;const l=current,detail=root.querySelector('#rental-detail');detail.hidden=false;
@@ -39,6 +45,7 @@ async function render(){
 async function open(id,{scroll=true}={}){three?.dispose();three=null;current=layouts.find(l=>l.id===id);if(!current)return;mode='plan';root.querySelector('#rental-cards').hidden=true;root.querySelector('#rental-compare').hidden=true;history.replaceState(null,'',location.pathname+location.search+'#rental='+encodeURIComponent(id));await render();if(scroll)root.querySelector('#rental-detail').scrollIntoView({block:'start'});}
 function bindCopy(host,shop){const b=host.querySelector('[data-copy-shop]');if(b)b.onclick=async()=>{const result=host.querySelector('.copy-result');try{await navigator.clipboard.writeText(shoppingText(shop));result.textContent='List copied.';}catch{const area=document.createElement('textarea');area.value=shoppingText(shop);area.rows=10;area.style.width='100%';result.replaceChildren(area);area.select();result.prepend('Copy this list: ');}};}
 cards();window.__rental={ready:true,payload,open,openCompare,mode:'plan',three:()=>three};
+const savedComparison=readComparisonHash(location.hash,layouts);if(savedComparison)openCompare(savedComparison.a,savedComparison.b);
 const hash=new URLSearchParams(location.hash.slice(1));if(hash.has('rental'))await open(hash.get('rental'));if(hash.has('layout')||hash.has('compare'))owner.open=true;
 const ownerDetail=document.querySelector('#detail'),title=document.querySelector('#detail-title');let last=null;
 function ownerShop(){const app=window.__explorer??window.__home??window.__dining,id=app?.layout;if(!id||id===last)return;const shop=payload.owner_shops[id];if(!shop)return;last=id;let box=ownerDetail.querySelector('#owner-shop');if(!box){box=document.createElement('div');box.id='owner-shop';ownerDetail.append(box);}box.innerHTML=shopHTML(shop,id);bindCopy(box,shop);}

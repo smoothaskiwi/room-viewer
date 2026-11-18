@@ -1,7 +1,9 @@
 import {dimensionModel} from './rental-dimensions.mjs';
 // Keep this decision summary independent of headline prose and reference planes.
 export function comparisonFacts(room,l){
- const real=dimensionModel(room,l).dimensions.filter(d=>d.state==='everyday'&&Number.isFinite(d.value)).sort((a,b)=>a.value-b.value)[0];
+ const finite=dimensionModel(room,l).dimensions.filter(d=>Number.isFinite(d.value)).sort((a,b)=>a.value-b.value);
+ // Prefer the everyday state; fall back to the plan's deciding span (e.g. dining chairs pulled out) rather than "Not evaluated".
+ const everyday=finite.find(d=>d.state==='everyday'),real=everyday??(finite[0]&&{...finite[0],label:finite[0].label});
  const chairs=l.footprints.filter(f=>['chair','desk-chair'].includes(f.kind)).length,sofas=l.footprints.filter(f=>f.kind==='sofa').length;
  const bench=(l.geometry?.fixed??[]).some(f=>f.kind==='seat');
  const seats=l.living_function?.seats.length??l.geometry?.measures?.everyday_seats??chairs+sofas*3;
