@@ -13,4 +13,5 @@ for(const r of JSON.parse(await fs.readFile(repo+'/data/rooms.json'))){const p=J
  for(let i=1;i<30;i++){const q=d.a.map((v,k)=>v+(d.b[k]-v)*i/30);ok(!obs.some(f=>contains(q,P(f))),l.id+' unblocked span');}}
  if(l.geometry.open_closet)ok(m.ghosts.some(g=>g.id==='closet-leaf'),l.id+' open closet visible');if(l.geometry.states?.pulled)ok(m.ghosts.length>0,l.id+' pulled chairs visible');
 }}
+const livingPage=JSON.parse(await fs.readFile(repo+'/data/rooms.json')).find(r=>r.room==='living-room'),living=JSON.parse(await fs.readFile(repo+'/docs/'+livingPage.slug+'/rentals.json')).layouts[0];ok(living.living_function.best_entry>=24,'rank one has a 24-in way into group');ok(living.living_function.drinks_complete,'all seats have drinks');ok(living.living_function.seats.length===living.footprints.reduce((n,f)=>n+(f.kind==='sofa'?3:f.kind==='chair'?1:0),0),'every advertised seat checked');ok(living.footprints.filter(f=>f.kind==='sofa'&&f.owned).length===2,'keep both Article sofas');
 console.log('PASS Round 14: '+checks+' checks.');
