@@ -330,7 +330,7 @@ export async function start3D(host,spec){
 
  function buildChair(g,f,state){
   if(f.owned_id==='living-cognac-swivels'){buildOwnedSwivel(g,f);return;}
-  if(spec.rental_room&&f.kind==='desk-chair'){const q=new THREE.Group(),w=20,d=19;q.position.set(f.x+f.w/2,f.y+f.d/2,0);q.rotation.z=({south:0,north:Math.PI,east:-Math.PI/2,west:Math.PI/2})[f.faces]??0;g.add(q);const fabric=mat(f.rental_color??'#c6bfb0'),dark=mat('#454942');cylinder(q,0,0,3,1.3,15,dark);box(q,-w/2,-d/2,18,w,d,2.5,fabric);box(q,-9,-d/2-1,25,18,1.3,17,fabric);for(const x of [-11,10]){box(q,x,-5,20,1,1,8,dark);box(q,x,-6,28,1.5,13,1.2,dark);}for(let i=0;i<5;i++){const a=i*Math.PI*2/5,leg=box(q,-.7,-.7,2,12,1.4,1.2,dark);leg.rotation.z=a;cylinder(q,11*Math.cos(a),11*Math.sin(a),0,1.2,2,dark);}return;}
+  if(spec.rental_room&&f.kind==='desk-chair'){const q=new THREE.Group(),w=20,d=19;q.position.set(f.x+f.w/2,f.y+f.d/2,0);q.rotation.z=({south:0,north:Math.PI,east:-Math.PI/2,west:Math.PI/2})[f.faces]??0;g.add(q);const fabric=mat(f.rental_color??'#c6bfb0'),dark=mat('#454942');cylinder(q,0,0,3,1.3,15,dark);box(q,-w/2,-d/2,18,w,d,2.5,fabric);box(q,-9,-d/2-1,25,18,1.3,17,fabric);for(const x of [-11,10]){box(q,x,-5,20,1,1,8,dark);box(q,x,-6,28,1.5,13,1.2,dark);}for(let i=0;i<5;i++){const a=i*Math.PI*2/5,leg=box(q,5.5*Math.cos(a)-6,5.5*Math.sin(a)-.7,2,12,1.4,1.2,dark);leg.rotation.z=a;cylinder(q,11*Math.cos(a),11*Math.sin(a),0,1.2,2,dark);}return;}
   const seatH=18,seatMat=mat(f.rental_color??furnitureColor(f)),backMat=mat(f.rental_color??furnitureColor(f));
   const legH=seatH-1.5;
   for(const [lx,ly] of [[f.x+.8,f.y+.8],[f.x+f.w-.8,f.y+.8],[f.x+f.w-.8,f.y+f.d-.8],[f.x+.8,f.y+f.d-.8]])
