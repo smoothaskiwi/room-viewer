@@ -43,6 +43,7 @@ export function artPose(room,l,s){
  centre=Math.max(w/2+2,Math.min((horizontal?W:D)-w/2-2,centre));
  const relative=note.match(/bottom\s*(\d+(?:\.\d+)?)\s*(?:inches|in)?\s*above\s*(?:the\s*)?(headboard|bed|back|case|sideboard)/i),absolute=note.match(/bottom\s*(\d+(?:\.\d+)?)(?!.*above)/i);
  let bottom=relative?(relative[2].match(/case|sideboard/)?storage?.h??30:bed?.h??sofa?.h??32)+ +relative[1]:absolute?+absolute[1]:s.height_in!=null?s.height_in-h/2:bed?bed.h+8:44;
+ if(bed&&/portrait in pair|right portrait/i.test(note))bottom=bed.h+8;
  bottom=Math.min(room.room.ceiling_z-h-3,Math.max(4,bottom));return {w,h,wall,horizontal,centre,bottom};
 }
 

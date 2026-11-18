@@ -13,9 +13,12 @@ export function addRentalStyling(T,g,l,room,redraw,models={}){
   const headX=f.head==='east'?f.x+f.w-2:f.x,headY=f.head==='south'?f.y+f.d-2:f.y;
   // Accent cushions sit in front of sleeping pillows, not through the headboard.
   for(let i=0;i<2;i++)box(ew?(f.head==='east'?px-4:px+8):f.x+10+i*(f.w-20)/2,ew?f.y+9+i*(f.d-18)/2:(f.head==='north'?py+8:py-4),28,ew?7:(f.w-24)/2,ew?(f.d-24)/2:7,5,pal[2]);
+  if(l.styling.some(s=>s.category==='throw')){const tx=ew?(f.head==='east'?f.x+3:f.x+f.w-27):f.x+3,ty=ew?f.y+3:(f.head==='north'?f.y+f.d-27:f.y+3);box(tx,ty,26.3,ew?24:f.w-6,ew?f.d-6:24,.8,'#e9e4d6');}
+  for(let i=0;i<2;i++)box(ew?px+3:f.x+7+i*(f.w-12)/2,ew?f.y+6+i*(f.d-10)/2:py+2,29.5,ew?13:(f.w-18)/2,ew?(f.d-18)/2:13,3,'#f4f0e6');
   for(const node of g.children.slice(before))node.userData={...node.userData,piece:bed.id,kind:'bed'};
   log.push({category:'bedding',palette:pal,head:[headX,headY]});
  }
+ for(const f of l.footprints.filter(f=>f.kind==='sofa')){const covers=l.styling.filter(s=>s.category==='pillow'&&!/insert/i.test(s.name)),throws=l.styling.filter(s=>s.category==='throw');if(!covers.length&&!throws.length)continue;const q=new T.Group(),ns=['north','south'].includes(f.faces),w=ns?f.w:f.d,d=ns?f.d:f.w;q.position.set(f.x+f.w/2,f.y+f.d/2,0);q.rotation.z=({south:0,north:Math.PI,east:-Math.PI/2,west:Math.PI/2})[f.faces]??0;g.add(q);const local=(x,y,z,w,d,h,c)=>{const m=new T.Mesh(new T.BoxGeometry(w,d,h),material(c));m.position.set(x+w/2,y+d/2,z+h/2);q.add(m);return m;};if(throws.length){const white=f.owned_id==='living-sofa',count=white?2:1;for(let i=0;i<count;i++)local(-w/2+5+i*(w-10)/count,-d/2+6,22.6,(w-10)/count-1,d-9,.65,'#e8e2d4');log.push({category:'sofa-throws',piece:f.id,count});}if(covers.length){for(const x of [-w*.25,w*.25])local(x-6,-d/2+6,24,12,6,12,'#77876d');log.push({category:'sofa-pillows',piece:f.id,count:2});}}
  const styled=placedStyling(l);
  for(const [index,s]of styled.entries()){
   if(['owned-dining-tv','kitchen-existing-pendant','dining-existing-light','kitchen-banquette'].includes(s.owned_id)){log.push({id:s.id,category:s.category,rendered_by:'measured room fixture or screen'});continue;}
@@ -32,8 +35,9 @@ export function addRentalStyling(T,g,l,room,redraw,models={}){
   else if(/curtain|rod|shade/.test(cat)){
    const os=room.openings.filter(o=>(!s.wall||o.wall===s.wall)&&/window|glass/.test(o.type));for(const o of os){const wall=o.wall;const a=o.opening_x??o.opening_y,rod=Math.min(room.room.ceiling_z-4,s.height_in??94),horizontal=['north','south'].includes(wall),a0=a[0]-8,a1=a[1]+8;
     const fabric=/white|cream|RITVA/i.test(s.name)?'#ece9e0':/gray|grey/i.test(s.name)?'#999b98':'#d5cbb9';if(/roller|blind/i.test(s.name)){if(horizontal)box(a[0],wall==='north'?2:D-3,o.head_z??80,a[1]-a[0],2,3,fabric);else box(wall==='west'?2:W-3,a[0],o.head_z??80,2,a[1]-a[0],3,fabric);continue;}
-    if(horizontal){box(a0,wall==='north'?2:D-3,rod,a1-a0,1,1,'#343a35');if(!/rod/.test(cat)){box(a0,wall==='north'?2:D-3,1,12,1.3,rod-1,fabric);box(a1-12,wall==='north'?2:D-3,1,12,1.3,rod-1,fabric);}}
-    else{box(wall==='west'?2:W-3,a0,rod,1,a1-a0,1,'#343a35');if(!/rod/.test(cat)){box(wall==='west'?2:W-3,a0,1,1.3,12,rod-1,fabric);box(wall==='west'?2:W-3,a1-12,1,1.3,12,rod-1,fabric);}}
+    const hem=/short|hemmed|above.*(?:table|nightstand)/i.test(s.placement??'')?Math.max(0,...l.footprints.filter(f=>f.kind==='nightstand').map(f=>f.h+1)):1;
+    if(horizontal){box(a0,wall==='north'?2:D-3,rod,a1-a0,1,1,'#343a35');if(!/rod/.test(cat)){box(a0,wall==='north'?2:D-3,hem,12,1.3,rod-hem,fabric);box(a1-12,wall==='north'?2:D-3,hem,12,1.3,rod-hem,fabric);}}
+    else{box(wall==='west'?2:W-3,a0,rod,1,a1-a0,1,'#343a35');if(!/rod/.test(cat)){box(wall==='west'?2:W-3,a0,hem,1.3,12,rod-hem,fabric);box(wall==='west'?2:W-3,a1-12,hem,1.3,12,rod-hem,fabric);}}
    }
   }
   else if(/lamp|sconce|pendant|chandelier/.test(cat)){

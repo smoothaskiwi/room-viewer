@@ -97,6 +97,7 @@ function makeKit(THREE,spec,mat,box,cylinder){
  }
  function glass(){return mat('#cfe6f2',{roughness:.15,metalness:0,transparent:true,opacity:.55,emissive:'#bcdcf0',emissiveIntensity:.35});}
  function fixture(g,f,H){
+  if(/smoke|detector/i.test(f.id+' '+f.type)){const [x,y]=f.xy;cylinder(g,x,y,H-1.5,3,1.5,mat('#f5f4ef'));return {kind:'smoke-detector',id:f.id};}
   const st={...(pal.fixture_style||{}),...(pal.fixtures?.[f.id]||{})},[x,y]=f.xy,finish=mat(st.finish||'#594830',{metalness:st.metalness??.2,roughness:st.roughness??.6});
   if(st.kind==='dome-pendant'){
    const r=(st.diameter||18)/2,h=st.height||r*.6,bottom=st.bottom_z??H-34;

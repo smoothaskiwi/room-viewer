@@ -99,6 +99,7 @@ function makeKit(THREE,spec,mat,box,cylinder){
  }
  function glass(){return mat('#cfe6f2',{roughness:.15,metalness:0,transparent:true,opacity:.55,emissive:'#bcdcf0',emissiveIntensity:.35});}
  function fixture(g,f,H){
+  if(/smoke|detector/i.test(f.id+' '+f.type)){const [x,y]=f.xy;cylinder(g,x,y,H-1.5,3,1.5,mat('#f5f4ef'));return {kind:'smoke-detector',id:f.id};}
   const st={...(pal.fixture_style||{}),...(pal.fixtures?.[f.id]||{})},[x,y]=f.xy,finish=mat(st.finish||'#594830',{metalness:st.metalness??.2,roughness:st.roughness??.6});
   if(st.kind==='dome-pendant'){
    const r=(st.diameter||18)/2,h=st.height||r*.6,bottom=st.bottom_z??H-34;
@@ -274,11 +275,13 @@ export async function start3D(host,spec){
   else if(f.kind==='bed'){box(g,f.x,f.y,7,f.w,f.d,9,mat(f.rental_color??'#936b43'));box(g,f.x+1,f.y+1,16,f.w-2,f.d-2,8,mat('#e8dfcf'));const ew=['east','west'].includes(f.head);box(g,f.head==='east'?f.x+f.w-2:f.x,f.head==='south'?f.y+f.d-2:f.y,7,ew?2:f.w,ew?f.d:2,f.h-7,mat(f.rental_color??'#936b43'));}
   else if(spec.rental_room&&f.kind==='sofa'&&f.owned)buildOwnedSofa(g,f);
   else if(f.kind==='sofa'){box(g,f.x,f.y,5,f.w,f.d,16,mat(f.rental_color??furnitureColor(f)));const ns=['north','south'].includes(f.faces);box(g,f.faces==='west'?f.x+f.w-4:f.x,f.faces==='north'?f.y+f.d-4:f.y,21,ns?f.w:4,ns?4:f.d,f.h-21,mat(f.rental_color??furnitureColor(f)));}
-  else if(f.kind==='coffee'||f.kind==='desk')buildTable(g,f);
+  else if(f.kind==='coffee'||f.kind==='desk'||f.kind==='side-table')buildTable(g,f);
   else if(f.kind==='gym'){box(g,f.x,f.y,0,f.w,f.d,3,mat('#303736'));box(g,f.x,f.y,3,f.w,4,f.h-3,mat('#404746'));}
   else if(spec.rental_room&&f.kind==='lamp'&&f.owned)buildOwnedFloorLamp(g,f);
   else if(f.owned_id==='living-rh-tables')buildOwnedRH(g,f);
   else if(f.owned_id==='dining-media-console')buildOwnedConsole(g,f);
+  else if(spec.rental_room&&f.kind==='luggage_bench'){const wood=mat(f.rental_color??'#79543b');for(const y of [f.y+1,f.y+f.d-2])for(const a of [-1,1]){const m=box(g,f.x+f.w/2-1,y,0,1.4,1.4,f.h,wood);m.rotation.y=a*.55;}for(let i=0;i<5;i++)box(g,f.x+2+i*(f.w-4)/5,f.y,f.h-1,1.5,f.d,.5,mat('#353b34'));}
+  else if(spec.rental_room&&f.kind==='nightstand'&&!f.owned){const wood=mat(f.rental_color??'#bb9b6b');for(const x of [f.x+1,f.x+f.w-2])for(const y of [f.y+1,f.y+f.d-2])box(g,x,y,0,1.3,1.3,8,wood);box(g,f.x,f.y,8,f.w,f.d,f.h-8,wood);}
   else if(['storage','dresser','nightstand'].includes(f.kind))box(g,f.x,f.y,0,f.w,f.d,f.h,mat(f.color||'#98714b'));
   else box(g,f.x,f.y,f.z||0,f.w,f.d,f.h,mat(MCM.cabinet));
  }
