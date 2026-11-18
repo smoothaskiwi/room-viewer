@@ -13,4 +13,6 @@ for(const r of rooms){const {room,layouts}=JSON.parse(await fs.readFile(repo+'/d
  } }
 }
 const living=JSON.parse(await fs.readFile(repo+'/docs/living-p8w3k/rentals.json')),rug=living.layouts.find(l=>l.id==='A-living-room-reuse1-adjusted').styling.find(s=>s.category==='rug');assert.deepEqual(styleSize(rug),[144,108]);checks++;
+for(const l of living.layouts.filter(l=>l.class!=='invalid').slice(0,3)){ok(l.living_function.tv_watchable,l.id+': main sofa seats can watch TV');ok(l.living_function.drinks_complete,l.id+': every sofa seat within about 18 in of a surface');}
+const media=living.layouts.find(l=>l.id.endsWith('-media'));ok(media.class!=='invalid'&&media.rank===1,'complete reuse media layout leads');ok(media.footprints.filter(f=>f.kind==='sofa'&&f.owned).length===2,'both owned Article sofas stay');ok(media.shop.items.some(i=>i.id==='article_amoeba'&&!i.owned&&i.price_usd===299),'new coffee table in To buy');
 console.log('PASS Round 13 artifact: '+checks+' checks.');

@@ -39,10 +39,10 @@
     },
     {
       "room": "living-room",
-      "layouts": 16,
+      "layouts": 17,
       "fixtures": 1,
       "classes": {
-        "conditional": 12,
+        "conditional": 13,
         "invalid": 4
       },
       "errors": []
@@ -57,5 +57,16 @@
       "errors": []
     }
   ],
-  "reuse_warnings": []
+  "reuse_warnings": [
+    {
+      "designer": "A",
+      "owned_id": "living-rh-tables",
+      "name": "RH Machinto Open Nightstands used as end tables",
+      "rooms": [
+        "Living room",
+        "Guest bedroom"
+      ],
+      "message": "RH Machinto Open Nightstands used as end tables is assigned to Living room and Guest bedroom. Use each physical piece in only one room; identify separate pieces of a pair explicitly."
+    }
+  ]
 }
