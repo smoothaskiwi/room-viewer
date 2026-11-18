@@ -3,6 +3,7 @@ import {cardTitle,livingPieceText} from '../src/rental-labels.mjs';
 import {ownedColour} from './rental-owned.mjs';
 import {livingFunction} from './rental-function.mjs';
 import {finishRound16Living} from './round16-living.mjs';
+import {finishRound17A} from './round17-a.mjs';
 import {styleSize} from '../src/rental-view.mjs';
 import {headlineClearance} from '../src/rental-dimensions.mjs';
 const bedName=l=>l.footprints.some(f=>f.kind==='bed'&&/king/i.test(f.label))?'king bed':'queen bed';
@@ -61,5 +62,6 @@ export function presentRental(room,l,cat){
   for(const f of l.footprints)f.label=f.owned_id==='living-coffee-table'?'Owned stump side table':livingPieceText(f.label);
   for(const i of l.shop.items){i.name=i.owned_id==='living-coffee-table'||i.id==='living-coffee-table'?'Owned stump side table':livingPieceText(i.name);if(i.use_note)i.use_note=livingPieceText(i.use_note);}
  }
+ finishRound17A(room,l);
  return l;
 }
