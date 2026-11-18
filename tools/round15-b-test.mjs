@@ -21,8 +21,8 @@ for(const page of pages){const p=JSON.parse(await fs.readFile(repo+'/docs/'+page
  if(page.room==='living-room'){
   ok(a.id==='A-living-room-reuse1-adjusted-media','reuse media still rank 1');ok(a.living_function.tv_watchable&&a.living_function.drinks_complete&&a.living_function.best_entry>=24,'seven-seat function retained');
   const rug=a.styling.find(s=>s.owned_id==='living-rug'),[w,d]=styleSize(rug),inRug=([x,y])=>x>=rug.x&&x<=rug.x+w&&y>=rug.y&&y<=rug.y+d;
-  for(const f of a.footprints.filter(f=>['sofa','chair'].includes(f.kind))){const feet=['north','south'].includes(f.faces)?[[f.x+5,f.faces==='north'?f.y+3:f.y+f.d-3],[f.x+f.w-5,f.faces==='north'?f.y+3:f.y+f.d-3]]:[[f.faces==='east'?f.x+f.w-3:f.x+3,f.y+5],[f.faces==='east'?f.x+f.w-3:f.x+3,f.y+f.d-5]];ok(feet.every(inRug),f.id+': both front feet engage rug');}
-  const hearth=a.geometry.fixed.find(f=>f.id==='hearth');ok(rug.x+w<=hearth.x,'rug does not cross hearth');
+  for(const f of a.footprints.filter(f=>f.kind==='sofa')){const feet=['north','south'].includes(f.faces)?[[f.x+5,f.faces==='north'?f.y+3:f.y+f.d-3],[f.x+f.w-5,f.faces==='north'?f.y+3:f.y+f.d-3]]:[[f.faces==='east'?f.x+f.w-3:f.x+3,f.y+5],[f.faces==='east'?f.x+f.w-3:f.x+3,f.y+f.d-5]];ok(feet.every(inRug),f.id+': both front feet engage rug');}
+  const hearth=a.geometry.fixed.find(f=>f.id==='hearth');ok(rug.x+w<=hearth.x,'rug does not cross hearth');ok(/swivel.*off/i.test(rug.placement),'swivel intentionally off rug for clear TV');
   const mount=a.shop.items.find(i=>i.id==='echogear-egll1');ok(mount&&!mount.owned&&mount.qty===1&&mount.price_usd===35.99,'priced TV mount in To buy');ok(/TV model still needs confirming/.test(mount.price_basis),'TV model condition visible');
   for(const id of ['living-sofa','dining-sofa'])ok(a.shop.items.find(i=>i.id===id).name.includes('Article'),'owned sofa brand retained');
  }

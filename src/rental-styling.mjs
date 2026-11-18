@@ -23,11 +23,19 @@ export function addRentalStyling(T,g,l,room,redraw,models={}){
  for(const [index,s]of styled.entries()){
   if(['owned-dining-tv','kitchen-existing-pendant','dining-existing-light','kitchen-banquette'].includes(s.owned_id)){log.push({id:s.id,category:s.category,rendered_by:'measured room fixture or screen'});continue;}
   if(s.owned&&/-floor-lamp/.test(s.owned_id??'')&&models.ownedFloorLamp){const h=s.dims_in?.h??s.height_in??58;models.ownedFloorLamp({...s,x:s.x??W/2,y:s.y??D/2,w:s.dims_in?.w??12,d:s.dims_in?.d??12,h,rental_color:'#eee9df'});log.push({id:s.id,category:s.category,bottom_z:0,height:h});continue;}
-  const cat=s.category.toLowerCase(),[w,h]=styleSize(s,/rug/.test(cat)?[60,96]:[30,20]);let x=s.x??W/2,y=s.y??D/2,z=s.height_in??0;
+  if(s.id==='r16-lauters'){
+   const height=59,cx=s.x,cy=s.y,before=g.children.length;
+   for(const angle of [-90,30,150]){const a=angle*Math.PI/180,foot=new T.Vector3(cx+12*Math.cos(a),cy+12*Math.sin(a),.5),top=new T.Vector3(cx,cy,45),delta=top.clone().sub(foot),leg=new T.Mesh(new T.CylinderGeometry(.65,.85,delta.length(),12),material('#cbb691'));leg.position.copy(foot.clone().add(top).multiplyScalar(.5));leg.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),delta.normalize());g.add(leg);}
+   cylinder(cx,cy,45,.5,7,'#cbb691');cylinder(cx,cy,51,7.5,8,'#eee9df',6.5);
+   const glow=new T.PointLight('#ffe6af',28,65,2);glow.position.set(cx,cy,53);g.add(glow);
+   for(const node of g.children.slice(before))node.userData={...node.userData,piece:s.id,kind:'lamp'};
+   log.push({id:s.id,category:'lamp',height,base_diameter:24,shade_width:15});continue;
+  }
+  const before=g.children.length,cat=s.category.toLowerCase(),[w,h]=styleSize(s,/rug/.test(cat)?[60,96]:[30,20]);let x=s.x??W/2,y=s.y??D/2,z=s.height_in??0;
   if(/rug/.test(cat)){const map=texture(s);box(s.x??(W-w)/2,s.y??(D-h)/2,.08,w,h,.1,map?'#ffffff':s.owned?s.color??pal[1]:pal[1],map?{map}:{});}
   else if(/art|mirror/.test(cat)){
    const {wall,centre,bottom}=artPose(room,l,s);
-   const horizontal=['north','south'].includes(wall),map=texture(s),depth=1.3,wx=horizontal?centre-w/2:wall==='west'?1:W-depth-1,wy=horizontal?(wall==='north'?1:D-depth-1):centre-w/2;
+   const horizontal=['north','south'].includes(wall),map=texture(s),depth=1.3,wx=horizontal?centre-w/2:wall==='west'?1:W-(s.wall_projection??0)-depth-1,wy=horizontal?(wall==='north'?1:D-depth-1):centre-w/2;
    box(wx,wy,bottom,horizontal?w:depth,horizontal?depth:w,h,pal[0]);
    const plane=new T.Mesh(new T.PlaneGeometry(w-2,h-2),material(map?'#ffffff':pal[2],{map,side:T.DoubleSide}));
    if(wall==='north'){plane.rotation.x=Math.PI/2;plane.position.set(centre,wy+depth+.05,bottom+h/2);}else if(wall==='south'){plane.rotation.x=Math.PI/2;plane.position.set(centre,wy-.05,bottom+h/2);}else{plane.rotation.x=Math.PI/2;plane.rotation.y=Math.PI/2;plane.position.set(wall==='west'?wx+depth+.05:wx-.05,centre,bottom+h/2);}g.add(plane);
@@ -36,8 +44,8 @@ export function addRentalStyling(T,g,l,room,redraw,models={}){
    const os=room.openings.filter(o=>(!s.wall||o.wall===s.wall)&&/window|glass/.test(o.type));for(const o of os){const wall=o.wall;const a=o.opening_x??o.opening_y,rod=Math.min(room.room.ceiling_z-4,s.height_in??94),horizontal=['north','south'].includes(wall),a0=a[0]-8,a1=a[1]+8;
     const fabric=/white|cream|RITVA/i.test(s.name)?'#ece9e0':/gray|grey/i.test(s.name)?'#999b98':'#d5cbb9';if(/roller|blind/i.test(s.name)){if(horizontal)box(a[0],wall==='north'?2:D-3,o.head_z??80,a[1]-a[0],2,3,fabric);else box(wall==='west'?2:W-3,a[0],o.head_z??80,2,a[1]-a[0],3,fabric);continue;}
     const hem=/short|hemmed|above.*(?:table|nightstand)/i.test(s.placement??'')?Math.max(0,...l.footprints.filter(f=>f.kind==='nightstand').map(f=>f.h+1)):1;
-    if(horizontal){box(a0,wall==='north'?2:D-3,rod,a1-a0,1,1,'#343a35');if(!/rod/.test(cat)){box(a0,wall==='north'?2:D-3,hem,12,1.3,rod-hem,fabric);box(a1-12,wall==='north'?2:D-3,hem,12,1.3,rod-hem,fabric);}}
-    else{box(wall==='west'?2:W-3,a0,rod,1,a1-a0,1,'#343a35');if(!/rod/.test(cat)){box(wall==='west'?2:W-3,a0,hem,1.3,12,rod-hem,fabric);box(wall==='west'?2:W-3,a1-12,hem,1.3,12,rod-hem,fabric);}}
+    if(horizontal){box(a0,wall==='north'?2:D-3,rod,a1-a0,1,1,'#343a35');if(!/rod/.test(cat)){box(s.open_stack?a[0]-12:a0,wall==='north'?2:D-3,hem,12,1.3,rod-hem,fabric);box(s.open_stack?a[1]:a1-12,wall==='north'?2:D-3,hem,12,1.3,rod-hem,fabric);}}
+    else{box(wall==='west'?2:W-3,a0,rod,1,a1-a0,1,'#343a35');if(!/rod/.test(cat)){box(wall==='west'?2:W-3,s.open_stack?a[0]-12:a0,hem,1.3,12,rod-hem,fabric);box(wall==='west'?2:W-3,s.open_stack?a[1]:a1-12,hem,1.3,12,rod-hem,fabric);}}
    }
   }
   else if(/lamp|sconce|pendant|chandelier/.test(cat)){
@@ -47,6 +55,7 @@ export function addRentalStyling(T,g,l,room,redraw,models={}){
   else if(/plant/.test(cat)){const small=z>0||/small|mint|3.5|3½/i.test(s.name),scale=small?.4:1;cylinder(x,y,z,4*scale,9*scale,pal[0]);for(let i=0;i<5;i++){const m=new T.Mesh(new T.SphereGeometry(5*scale,12,8),material('#61734d'));m.scale.set(.6,1,1.8);m.position.set(x+Math.sin(i*2)*4*scale,y+Math.cos(i*2)*4*scale,z+(12+i*4)*scale);g.add(m);}}
   else if(/luggage/.test(cat)){box(x,y,z,22,15,1,pal[0]);for(const [a,b]of [[0,0],[20,0],[0,13],[20,13]])box(x+a,y+b,z-16,1,1,16,pal[0]);}
   else if(/decor/.test(cat))cylinder(x,y,z,4,2,pal[0]);
+  for(const node of g.children.slice(before))node.userData={...node.userData,piece:s.id,kind:s.category};
   log.push({id:s.id,category:s.category,image:!!s.image});
  }
  return log;

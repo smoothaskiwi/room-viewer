@@ -1,6 +1,7 @@
 // Public, plain-language summaries derived from the tested state, not submitted hand checks.
 import {ownedColour} from './rental-owned.mjs';
 import {livingFunction} from './rental-function.mjs';
+import {finishRound16Living} from './round16-living.mjs';
 import {styleSize} from '../src/rental-view.mjs';
 import {headlineClearance} from '../src/rental-dimensions.mjs';
 const bedName=l=>l.footprints.some(f=>f.kind==='bed'&&/king/i.test(f.label))?'king bed':'queen bed';
@@ -48,5 +49,6 @@ export function presentRental(room,l,cat){
  for(const key of ['summary','variant_note','builder_adjustment'])if(l[key])l[key]=l[key].replace(/[^.]*warrant[^.]*\.?/ig,'').trim();
  const variants={'A-kitchen-reuse1-adjusted':['Chair tucked in for counter doors','chair tucked in'],'B-kitchen-v1-adjusted':['Chair tucked in for counter doors','chair tucked in'],'A-dining-room-reuse1-adjusted':['TV removed; console used for serving','no TV'],'A-living-room-reuse1-adjusted':['East swivel shifted for the round table','swivel east'],'B-living-room-reuse1-adjusted':['Cognac sofa shifted for a wider approach','wider sofa approach'],'C-living-room-q1-adjusted':['Side table shifted toward the north wall','side table north'],'C-living-room-v1-adjusted':['Coffee table shifted east for seating access','coffee table east']},v=variants[l.id];if(v){l.variant_note=v[0]+'.';l.title+=' · '+v[1];l.summary=l.variant_note;}if(l.id.endsWith('-closer-tables'))l.title+=' · closer drink surfaces';
  l.conditions=l.conditions.filter(s=>!/warrant|eligibility/i.test(s));
+ if(r==='living-room')finishRound16Living(l);
  return l;
 }

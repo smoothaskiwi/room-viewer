@@ -1,0 +1,11 @@
+{
+  "product": "IKEA LAUTERS floor lamp, ash/white, 00405048",
+  "purchase_url": "https://www.ikea.com/us/en/p/lauters-floor-lamp-ash-white-00405048/",
+  "checked_date": "2026-11-17",
+  "method": "curl -L, Mozilla/5.0; official US product page",
+  "http_status": 200,
+  "price_usd": 79.99,
+  "base_diameter_in": 24,
+  "maximum_height_in": 59,
+  "note": "E26 bulb sold separately. Set tripod legs north, south-east and south-west; tape-check beside sofa."
+}
