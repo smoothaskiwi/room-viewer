@@ -11,6 +11,7 @@ import {buildListingImages} from './rental-listing-images.mjs';
 import {round15Living} from './round15-living.mjs';
 import {round16Living,round16LivingRanks} from './round16-living.mjs';
 import {round16Bedrooms} from './round16-bedrooms.mjs';
+import {round17Shopping} from './round17-shopping.mjs';
 import {applyRoomAppearance} from './room-appearance.mjs';
 import {loadRentalOwned,wholeHouseReuse,resolveOwned} from './rental-owned.mjs';
 import {mattressRecommendations,withNewMattress} from './rental-mattresses.mjs';
@@ -45,6 +46,7 @@ export async function buildRentals(){
   }
  }
  for(const [id,verified]of Object.entries(await json(path.join(repo,'data/round14-products.json'))))if(cat.items[id])Object.assign(cat.items[id],verified);
+ for(const [id,verified]of Object.entries(await json(path.join(repo,'data/round17-b-products.json'))))cat.items[id]={...cat.items[id],...verified};
  joinFabricLines(cat.items);
  const images=await copyCatalogImages(cat);
  // Inline council-only images are downloaded at build time, never from Angela's browser.
@@ -53,7 +55,7 @@ export async function buildRentals(){
  await fs.writeFile(path.join(repo,'docs/catalog.json'),JSON.stringify(publicValue(cat))+'\n');
  const report=[],results=[],fixtureResults=[];
  for(const {page,room,brief,council,fixture,reuseFixture}of inputs){const out=path.join(repo,'docs',page.slug),data=await json(path.join(out,'layouts.json')),layouts=[],errors=[...council.errors];
-  for(const proposal of sofaSwapVariants(page.room,round16Bedrooms(page.room,round16Living(page.room,round15Living(page.room,builderVariants(page.room,council.layouts,cat.items)),cat.items),cat.items),cat.items)){try{const evaluated=presentRental(room,evaluateRental(room,brief,cat.items,proposal),cat.items);if(page.room==='kitchen'&&proposal.id==='C-kitchen-reuse1')evaluated.hero_camera={...evaluated.hero_camera,...proposal.hero_view};if(page.room==='dining-room'&&proposal.id==='B-dining-room-reuse1')evaluated.hero_camera={...evaluated.hero_camera,position:[110,130,54],target:[61.5,20,36]};if(proposal.id.endsWith('-rh-pair')){const table=evaluated.shop.items.find(i=>i.id==='P055');if(table)table.use_note='Living room only: $149 replacement for the RH side table moved into this matched bedside pair.';}layouts.push(evaluated);}catch(e){errors.push(proposal.title+': '+e.message);}}
+  for(const proposal of round17Shopping(page.room,sofaSwapVariants(page.room,round16Bedrooms(page.room,round16Living(page.room,round15Living(page.room,builderVariants(page.room,council.layouts,cat.items)),cat.items),cat.items),cat.items),cat.items)){try{const evaluated=presentRental(room,evaluateRental(room,brief,cat.items,proposal),cat.items);if(page.room==='kitchen'&&proposal.id==='C-kitchen-reuse1')evaluated.hero_camera={...evaluated.hero_camera,...proposal.hero_view};if(page.room==='dining-room'&&proposal.id==='B-dining-room-reuse1')evaluated.hero_camera={...evaluated.hero_camera,position:[110,130,54],target:[61.5,20,36]};if(proposal.id.endsWith('-rh-pair')){const table=evaluated.shop.items.find(i=>i.id==='P055');if(table)table.use_note='Living room only: $149 replacement for the RH side table moved into this matched bedside pair.';}layouts.push(evaluated);}catch(e){errors.push(proposal.title+': '+e.message);}}
   const fixtures=fixture.layouts.map(p=>presentRental(room,evaluateRental(room,brief,cat.items,p),cat.items)),reuseFixtures=reuseFixture.layouts.map(p=>presentRental(room,evaluateRental(room,brief,cat.items,p),cat.items)),ranked=round16LivingRanks(page.room,rankRentals(layouts));results.push({page,layouts:ranked.filter(l=>!l.id.endsWith('-rh-pair'))});fixtureResults.push({page,layouts:rankRentals(reuseFixtures)});
   for(const l of [...ranked,...fixtures,...reuseFixtures])for(const s of l.styling){const c=cat.items[s.catalog_id??s.id]??Object.values(cat.items).find(c=>c.purchase_url===s.purchase_url);s.image=s.owned&&s.category==='rug'&&s.id==='dining-rug'?null:c?.image??null;}
   const owner_shops=Object.fromEntries(data.layouts.map(l=>[l.id,shoppingList({placements:l.footprints??l.placements??[],styling:[]},cat.items)]));
