@@ -257,9 +257,10 @@ export async function start3D(host,spec){
   const g=new THREE.Group();
   const chairs=l.states?.[state]?.chairs||l.footprints.filter(f=>f.attached_to==='table');
   const nonChairs=l.footprints.filter(f=>f.attached_to!=='table');
-  for(const f of nonChairs)buildPiece(g,f);
-  for(const f of chairs)buildChair(g,f,state);
-  for(const f of [...(l.fixed||[]),...(l.doors||[])])buildFixed(g,f);
+  const tagged=(f,build)=>{const before=g.children.length;build();for(const node of g.children.slice(before))node.traverse(m=>{m.userData.piece=f.id;m.userData.kind=f.kind;});};
+  for(const f of nonChairs)tagged(f,()=>buildPiece(g,f));
+  for(const f of chairs)tagged(f,()=>buildChair(g,f,state));
+  for(const f of [...(l.fixed||[]),...(l.doors||[])])tagged(f,()=>buildFixed(g,f));
   if(l.screen){const s=l.screen,fire=l.fixed.find(f=>f.id==='chimney-breast');if(fire&&l.family!=='rental'){box(g,fire.x-.6,62.5,0,.55,33,33,mat('#b48a3c',{metalness:.6,roughness:.35}));box(g,fire.x-.8,64,1,.7,30,30,mat('#252321'));box(g,fire.x-1,50.67,50.065,.8,56.66,31.87,mat('#191f24'));}if(l.family.startsWith('tv_on_console')||l.family==='rental')box(g,s.x-28.33,s.y,s.z-15.935,56.66,.8,31.87,mat('#191f24'));}
   if(l.family==='rental'&&spec.rental_room)stylingLog=addRentalStyling(THREE,g,l,spec.rental_room,draw,{ownedFloorLamp:f=>buildOwnedFloorLamp(g,f)});
   return g;
@@ -433,6 +434,11 @@ export async function start3D(host,spec){
   restoreCamera(c){camera.position.fromArray(c.position);controls.target.fromArray(c.target);camera.lookAt(controls.target);draw();},
   camera:()=>({position:camera.position.toArray(),target:controls.target.toArray(),...(spec.rental_room?{fov:camera.fov}: {})}),
   listingPhoto(c){camera.fov=c.fov??74;camera.position.set(c.position[0],-c.position[1],c.position[2]);controls.target.set(c.target[0],-c.target[1],c.target[2]);camera.lookAt(controls.target);draw();},
+  listingAudit(){
+   scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);const ray=new THREE.Raycaster(),counts={},near={},total=32*24;let furniture=0;
+   for(let y=0;y<24;y++)for(let x=0;x<32;x++){ray.setFromCamera(new THREE.Vector2((x+.5)/16-1,1-(y+.5)/12),camera);const hit=ray.intersectObjects([roomGroup,itemsGroup],true).find(h=>{let n=h.object;while(n){if(!n.visible)return false;n=n.parent;}return true;});if(!hit)continue;const d=hit.object.userData,key=d.piece??d.wall??'room';counts[key]=(counts[key]??0)+1;if(hit.distance<18)near[key]=(near[key]??0)+1;if(['bed','sofa','table','chair','seat'].includes(d.kind))furniture++;}
+   return {inside:camera.position.x>0&&camera.position.x<spec.room.width_x&&-camera.position.y>0&&-camera.position.y<spec.room.depth_y,furnitureFraction:furniture/total,nearFraction:Object.values(near).reduce((a,b)=>a+b,0)/total,largestFraction:Math.max(0,...Object.values(counts))/total,counts,near};
+  },
   styling:()=>stylingLog,
   appearance:()=>({palette:pal.text,display_only:true,...appearanceLog}),
   orbit(action){

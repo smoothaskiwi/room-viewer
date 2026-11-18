@@ -7,12 +7,13 @@ export function addRentalStyling(T,g,l,room,redraw,models={}){
  const cylinder=(x,y,z,r,h,color,top=r)=>{const m=new T.Mesh(new T.CylinderGeometry(top,r,h,24),material(color));m.rotation.x=Math.PI/2;m.position.set(x,y,z+h/2);g.add(m);return m;};
  const texture=s=>{if(!s.image)return null;const t=new T.TextureLoader().load('../'+s.image,()=>requestAnimationFrame(redraw));t.colorSpace=T.SRGBColorSpace;t.anisotropy=4;return t;};
  const bed=l.footprints.find(f=>f.kind==='bed');
- if(bed){const bedding=l.styling.filter(s=>s.category==='bedding').map(s=>s.name+' '+s.placement).join(' ').toLowerCase(),duvet=/dusty olive/.test(bedding)?'#858c6e':/sedona|clay duvet/.test(bedding)?'#ba785b':/blue/.test(bedding)?'#92aebd':'#ece8de';const f=bed,ew=['east','west'].includes(f.head);box(f.x+2,f.y+2,24.05,f.w-4,f.d-4,2.2,duvet);
+ if(bed){const before=g.children.length;const bedding=l.styling.filter(s=>s.category==='bedding').map(s=>s.name+' '+s.placement).join(' ').toLowerCase(),duvet=/dusty olive/.test(bedding)?'#858c6e':/sedona|clay duvet/.test(bedding)?'#ba785b':/blue/.test(bedding)?'#92aebd':'#ece8de';const f=bed,ew=['east','west'].includes(f.head);box(f.x+2,f.y+2,24.05,f.w-4,f.d-4,2.2,duvet);
   const px=f.head==='east'?f.x+f.w-21:f.head==='west'?f.x+5:f.x+5,py=f.head==='south'?f.y+f.d-21:f.head==='north'?f.y+5:f.y+5;
   for(let i=0;i<2;i++)box(ew?px:f.x+5+i*(f.w-10)/2,ew?f.y+5+i*(f.d-10)/2:py,26.3,ew?16:(f.w-14)/2,ew?(f.d-14)/2:16,3,'#eeebe1');
   const headX=f.head==='east'?f.x+f.w-2:f.x,headY=f.head==='south'?f.y+f.d-2:f.y;
   // Accent cushions sit in front of sleeping pillows, not through the headboard.
   for(let i=0;i<2;i++)box(ew?(f.head==='east'?px-4:px+8):f.x+10+i*(f.w-20)/2,ew?f.y+9+i*(f.d-18)/2:(f.head==='north'?py+8:py-4),28,ew?7:(f.w-24)/2,ew?(f.d-24)/2:7,5,pal[2]);
+  for(const node of g.children.slice(before))node.userData={...node.userData,piece:bed.id,kind:'bed'};
   log.push({category:'bedding',palette:pal,head:[headX,headY]});
  }
  const styled=placedStyling(l);
