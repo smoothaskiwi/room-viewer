@@ -12,7 +12,7 @@ try{for(const room of JSON.parse(await fs.readFile(repo+'/data/rooms.json'))){fo
  await p.reload();await p.waitForFunction(()=>window.__rental?.ready&&!document.querySelector('#rental-compare').hidden);
  const selected=()=>p.evaluate(()=>['a','b'].map(k=>document.querySelector('#rental-compare-'+k).value));assert.deepEqual(await selected(),ids.slice(0,2));
  await p.select('#rental-compare-b',ids[2]);await p.reload();await p.waitForFunction(()=>window.__rental?.ready&&!document.querySelector('#rental-compare').hidden);assert.deepEqual(await selected(),[ids[0],ids[2]]);
- const summary=await p.$eval('.rental-differences',e=>e.textContent);assert(summary.includes("What's different")&&summary.includes('New purchases')&&summary.includes('seats')&&summary.includes('Tightest real clearance')&&summary.includes('only / extra'));
+ const summary=await p.$eval('.rental-differences',e=>e.textContent);assert(summary.includes("What's different")&&summary.includes('New purchases')&&summary.includes('seats')&&summary.includes('Tightest spot')&&summary.includes('only / extra'));
  assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no horizontal overflow');
  if(room.room==='living-room'){
   await p.$eval('.rental-differences',e=>e.scrollIntoView({block:'start'}));await p.screenshot({path:path.join(out,`compare-${phone?'phone':'laptop'}.png`)});
