@@ -262,7 +262,7 @@ export async function start3D(host,spec){
   for(const f of nonChairs)tagged(f,()=>buildPiece(g,f));
   for(const f of chairs)tagged(f,()=>buildChair(g,f,state));
   for(const f of [...(l.fixed||[]),...(l.doors||[])])tagged(f,()=>buildFixed(g,f));
-  if(l.screen){const s=l.screen,fire=l.fixed.find(f=>f.id==='chimney-breast');if(fire&&l.family!=='rental'){box(g,fire.x-.6,62.5,0,.55,33,33,mat('#b48a3c',{metalness:.6,roughness:.35}));box(g,fire.x-.8,64,1,.7,30,30,mat('#252321'));box(g,fire.x-1,50.67,50.065,.8,56.66,31.87,mat('#191f24'));}if(l.family.startsWith('tv_on_console')||l.family==='rental')box(g,s.x-28.33,s.y,s.z-15.935,56.66,.8,31.87,mat('#191f24'));}
+  if(l.screen){const s=l.screen,fire=l.fixed.find(f=>f.id==='chimney-breast');if(fire&&l.family!=='rental'){box(g,fire.x-.6,62.5,0,.55,33,33,mat('#b48a3c',{metalness:.6,roughness:.35}));box(g,fire.x-.8,64,1,.7,30,30,mat('#252321'));box(g,fire.x-1,50.67,50.065,.8,56.66,31.87,mat('#191f24'));}if(l.family.startsWith('tv_on_console')||l.family==='rental'){const east=['east','west'].includes(s.faces),tv=east?box(g,s.x-.8,s.y-28.33,s.z-15.935,.8,56.66,31.87,mat('#191f24')):box(g,s.x-28.33,s.y,s.z-15.935,56.66,.8,31.87,mat('#191f24'));tv.userData={piece:'television',kind:'television'};}}
   if(l.family==='rental'&&spec.rental_room)stylingLog=addRentalStyling(THREE,g,l,spec.rental_room,draw,{ownedFloorLamp:f=>buildOwnedFloorLamp(g,f)});
   return g;
  }
@@ -308,7 +308,7 @@ export async function start3D(host,spec){
   const left=w*.35;for(let i=0;i<3;i++){const z=6+i*(f.h-7)/3;box(q,-w/2+.8,d/2-.3,z,left-1.6,.4,(f.h-8)/3-.4,face);box(q,-w/2+left*.22,d/2+.15,z+3,left*.55,.5,.5,brass);}
   const dw=(w-left-2)/2;for(let i=0;i<2;i++){const x=-w/2+left+1+i*dw;box(q,x,d/2-.3,6,dw-.6,.4,f.h-7,face);box(q,x+dw*.18,d/2+.15,f.h*.68,dw*.64,.5,.5,brass);}
  }
- function buildOwnedSwivel(g,f){const {q,w,d}=orientOwned(g,f),leather=mat(f.rental_color??'#aa683e',{roughness:.6});cylinder(q,0,0,0,Math.min(w,d)*.36,3,mat('#333530'));cylinder(q,0,0,3,Math.min(w,d)*.46,14,leather);cylinder(q,0,1,17,Math.min(w,d)*.39,3,leather);
+ function buildOwnedSwivel(g,f){const {q,w,d}=orientOwned(g,f);q.rotation.z-=(f.swivel_angle_deg??0)*Math.PI/180;const leather=mat(f.rental_color??'#aa683e',{roughness:.6});cylinder(q,0,0,0,Math.min(w,d)*.36,3,mat('#333530'));cylinder(q,0,0,3,Math.min(w,d)*.46,14,leather);cylinder(q,0,1,17,Math.min(w,d)*.39,3,leather);
   const s=new THREE.Shape(),n=32;for(let i=0;i<=n;i++){const t=(-110+220*i/n)*Math.PI/180,x=Math.sin(t)*w*.5,y=-Math.cos(t)*d*.5;i?s.lineTo(x,y):s.moveTo(x,y);}for(let i=n;i>=0;i--){const t=(-110+220*i/n)*Math.PI/180;s.lineTo(Math.sin(t)*(w*.5-3),-Math.cos(t)*(d*.5-3));}s.closePath();const m=new THREE.Mesh(new THREE.ExtrudeGeometry(s,{depth:11,bevelEnabled:false}),leather);m.position.z=17;m.castShadow=m.receiveShadow=true;q.add(m);
  }
  function buildTable(g,f){
@@ -402,7 +402,7 @@ export async function start3D(host,spec){
  }
 
  async function show(l,state='tucked'){
-  current=l;
+  host.style.height='';current=l;
   if(roomGroup){for(const group of [roomGroup,itemsGroup]){scene.remove(group);group.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});}}
 
   const W=spec.room?.width_x??120,D=spec.room?.depth_y??120,H=spec.room?.ceiling_z??96;
@@ -440,11 +440,12 @@ export async function start3D(host,spec){
   walkway:()=>walkway.debug(),
   restoreCamera(c){camera.position.fromArray(c.position);controls.target.fromArray(c.target);camera.lookAt(controls.target);draw();},
   camera:()=>({position:camera.position.toArray(),target:controls.target.toArray(),...(spec.rental_room?{fov:camera.fov}: {})}),
-  listingPhoto(c){camera.fov=c.fov??74;camera.position.set(c.position[0],-c.position[1],c.position[2]);controls.target.set(c.target[0],-c.target[1],c.target[2]);camera.lookAt(controls.target);draw();},
+  listingPhoto(c){if(c.aspect)host.style.height=(host.clientWidth/c.aspect)+'px';itemsGroup.traverse(n=>{const f=current?.footprints.find(f=>f.id===n.userData?.piece);if((current?.listing_stow_ids??[]).includes(f?.catalog_id??n.userData?.piece))n.visible=false;});camera.fov=c.fov??74;camera.position.set(c.position[0],-c.position[1],c.position[2]);controls.target.set(c.target[0],-c.target[1],c.target[2]);camera.lookAt(controls.target);draw();},
   listingAudit(){
    scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);const ray=new THREE.Raycaster(),counts={},near={},total=32*24;let furniture=0;
    for(let y=0;y<24;y++)for(let x=0;x<32;x++){ray.setFromCamera(new THREE.Vector2((x+.5)/16-1,1-(y+.5)/12),camera);const hit=ray.intersectObjects([roomGroup,itemsGroup],true).find(h=>{let n=h.object;while(n){if(!n.visible)return false;n=n.parent;}return true;});if(!hit)continue;const d=hit.object.userData,key=d.piece??d.wall??'room';counts[key]=(counts[key]??0)+1;if(hit.distance<18)near[key]=(near[key]??0)+1;if(['bed','sofa','table','chair','seat'].includes(d.kind))furniture++;}
-   return {inside:camera.position.x>0&&camera.position.x<spec.room.width_x&&-camera.position.y>0&&-camera.position.y<spec.room.depth_y,furnitureFraction:furniture/total,nearFraction:Object.values(near).reduce((a,b)=>a+b,0)/total,largestFraction:Math.max(0,...Object.values(counts))/total,counts,near};
+   const projected={};itemsGroup.traverse(o=>{if(!o.isMesh||!o.userData.piece)return;const key=o.userData.piece,b=new THREE.Box3().setFromObject(o),points=[];for(const x of [b.min.x,b.max.x])for(const y of [b.min.y,b.max.y])for(const z of [b.min.z,b.max.z])points.push(new THREE.Vector3(x,y,z).project(camera));const prev=projected[key]??{min:[Infinity,Infinity],max:[-Infinity,-Infinity]};for(const p of points){prev.min[0]=Math.min(prev.min[0],p.x);prev.min[1]=Math.min(prev.min[1],p.y);prev.max[0]=Math.max(prev.max[0],p.x);prev.max[1]=Math.max(prev.max[1],p.y);}projected[key]=prev;});
+   return {projected,inside:camera.position.x>0&&camera.position.x<spec.room.width_x&&-camera.position.y>0&&-camera.position.y<spec.room.depth_y,furnitureFraction:furniture/total,nearFraction:Object.values(near).reduce((a,b)=>a+b,0)/total,largestFraction:Math.max(0,...Object.values(counts))/total,counts,near};
   },
   styling:()=>stylingLog,
   appearance:()=>({palette:pal.text,display_only:true,...appearanceLog}),
