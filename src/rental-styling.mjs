@@ -1,11 +1,12 @@
 // Illustrative styling layers; never added to furniture collision envelopes.
+import {isOwnedLivingRug} from './rental-labels.mjs';
 import {styleSize,placedStyling,artPose,lampEnvelope} from './rental-view.mjs';
 export function addRentalStyling(T,g,l,room,redraw,models={}){
  const pal=l.palette??['#9b7751','#e8e0d0','#778569'],W=room.room.width_x,D=room.room.depth_y,log=[];
  const material=(color,more={})=>new T.MeshStandardMaterial({color,roughness:.85,...more});
  const box=(x,y,z,w,d,h,color,extra={})=>{const m=new T.Mesh(new T.BoxGeometry(w,d,h),material(color,extra));m.position.set(x+w/2,y+d/2,z+h/2);m.castShadow=true;m.receiveShadow=true;g.add(m);return m;};
  const cylinder=(x,y,z,r,h,color,top=r)=>{const m=new T.Mesh(new T.CylinderGeometry(top,r,h,24),material(color));m.rotation.x=Math.PI/2;m.position.set(x,y,z+h/2);g.add(m);return m;};
- const texture=s=>{if(!s.image)return null;const t=new T.TextureLoader().load('../'+s.image,()=>requestAnimationFrame(redraw));t.colorSpace=T.SRGBColorSpace;t.anisotropy=4;return t;};
+ const texture=s=>{if(isOwnedLivingRug(s)){const c=document.createElement('canvas');c.width=c.height=128;const g=c.getContext('2d');g.fillStyle='#ece5d3';g.fillRect(0,0,128,128);g.strokeStyle='#d8cdb7';g.lineWidth=.5;for(let y=0;y<128;y+=5){g.beginPath();g.moveTo(0,y);g.lineTo(128,y);g.stroke();}const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;return t;}if(!s.image)return null;const t=new T.TextureLoader().load('../'+s.image,()=>requestAnimationFrame(redraw));t.colorSpace=T.SRGBColorSpace;t.anisotropy=4;return t;};
  const bed=l.footprints.find(f=>f.kind==='bed');
  if(bed){const before=g.children.length;const bedding=l.styling.filter(s=>s.category==='bedding').map(s=>s.name+' '+s.placement).join(' ').toLowerCase(),duvet=/dusty olive/.test(bedding)?'#858c6e':/sedona|clay duvet/.test(bedding)?'#ba785b':/blue/.test(bedding)?'#92aebd':'#ece8de';const f=bed,ew=['east','west'].includes(f.head);box(f.x+2,f.y+2,24.05,f.w-4,f.d-4,2.2,duvet);
   const px=f.head==='east'?f.x+f.w-21:f.head==='west'?f.x+5:f.x+5,py=f.head==='south'?f.y+f.d-21:f.head==='north'?f.y+5:f.y+5;

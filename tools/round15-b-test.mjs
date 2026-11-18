@@ -3,19 +3,19 @@ import assert from 'node:assert/strict';
 import {repo} from './project.mjs';
 import {comparisonFacts,differingPieces,comparisonHash,readComparisonHash,differenceHTML} from '../src/rental-compare.mjs';
 import {esc,money,styleSize} from '../src/rental-view.mjs';
-import {dimensionModel} from '../src/rental-dimensions.mjs';
+import {dimensionModel,headlineClearance} from '../src/rental-dimensions.mjs';
 let checks=0;const ok=(v,m)=>{assert(v,m);checks++;};
 const pages=JSON.parse(await fs.readFile(repo+'/data/rooms.json'));
 for(const page of pages){const p=JSON.parse(await fs.readFile(repo+'/docs/'+page.slug+'/rentals.json'));
  for(const l of [...p.layouts,...Object.values(p.owner_shops).map(shop=>({id:'Today',shop}))])for(const i of l.shop.items.filter(i=>i.owned)){
   ok(!!i.image,l.id+': owned photo for '+i.id);ok((await fs.stat(repo+'/docs/'+i.image)).size>0,i.id+': local photo bytes');ok(!!i.photo_note,i.id+': honest photo provenance');
  }
- const [a,b]=p.layouts,f=comparisonFacts(p.room,a),dims=dimensionModel(p.room,a).dimensions.filter(d=>Number.isFinite(d.value)).sort((a,b)=>a.value-b.value),expected=dims.find(d=>d.state==='everyday')??dims[0];
+ const [a,b]=p.layouts,f=comparisonFacts(p.room,a),dims=dimensionModel(p.room,a).dimensions.filter(d=>Number.isFinite(d.value)).sort((a,b)=>a.value-b.value),expected=headlineClearance(p.room,a);
  ok(f.clearance!==null,'compare shows a real clearance for '+page.room);
- ok(f.cost===a.shop.total,'compare cost matches shopping');ok(f.clearance===expected?.value,'compare uses an actual surface span');ok(!/reference plane/.test(f.clearanceNote),'no reference-plane passage');
+ ok(f.cost===a.shop.total,'compare cost matches shopping');ok(f.clearance===expected?.value,'compare uses the shared deciding width');ok(!/reference plane/.test(f.clearanceNote),'no reference-plane passage');
  assert.deepEqual(readComparisonHash(comparisonHash(a.id,b.id),p.layouts),{a:a.id,b:b.id});checks++;
  ok(readComparisonHash('#rental-compare=unknown&rental-compare-with='+b.id,p.layouts)===null,'invalid saved pair rejected');
- const html=differenceHTML(p.room,a,b,{esc,money});ok(html.includes("What's different")&&html.includes('seats')&&html.includes('Tightest real clearance')&&html.includes('First only / extra'),'all decision fields');
+ const html=differenceHTML(p.room,a,b,{esc,money});ok(html.includes("What's different")&&html.includes('seats')&&html.includes('Tightest spot')&&html.includes('First only / extra'),'all decision fields');
  if(page.room==='kitchen')ok(f.seats===a.geometry.measures.everyday_seats,'nook uses evaluated bench/loose-seat count');
  if(page.room==='guest-bedroom')ok(f.seats===a.footprints.filter(f=>['chair','desk-chair'].includes(f.kind)).length,'desk chair counted');
  if(page.room==='living-room'){

@@ -1,4 +1,5 @@
 // Public, plain-language summaries derived from the tested state, not submitted hand checks.
+import {cardTitle,livingPieceText} from '../src/rental-labels.mjs';
 import {ownedColour} from './rental-owned.mjs';
 import {livingFunction} from './rental-function.mjs';
 import {styleSize} from '../src/rental-view.mjs';
@@ -27,7 +28,7 @@ export function presentRental(room,l,cat){
  const open=l.open_doors.filter(q=>Number.isFinite(q.width)).sort((a,b)=>a.width-b.width)[0];
  l.headline_clearance=headlineClearance(room,l);
  const h=l.headline_clearance;
- l.headline=h?(h.label==='Bedside free span'?'Tightest bedside passage':'Narrowest shown gap')+': '+inches(h.value)+' ('+h.between.join(' to ')+')'+(h.state!=='everyday'?'; '+({pulled:'chairs pulled out',open:'closet open',drawer:'drawer open'}[h.state]??h.state):'')+'.':'Surface gap not evaluated; check the plan before choosing.';
+ l.headline=h?'Tightest spot: '+inches(h.value)+', '+h.place.toLowerCase()+' ('+h.state+'; '+h.measurement+').':'Surface gap not evaluated; check the plan before choosing.';
  if(r==='kitchen'){const centre=room.wall_items.find(f=>/pendant|light/i.test(f.id+' '+f.type));const xy=centre?.xy??[centre?.x,centre?.y];if(table&&xy.every(Number.isFinite)){const offset=Math.hypot(xy[0]-table.x-table.w/2,xy[1]-table.y-table.d/2);l.pendant_offset=offset;l.tradeoff='Keeps the existing pendant, about '+Math.round(offset)+' in off the table centre.';}l.conditions=l.conditions.map(s=>s.replace(/six primary dining seats remain available/ig,'the separate dining room provides four equipped seats'));l.conditions=l.conditions.filter(s=>!/pendant off-center|specified re-cover/i.test(s));l.conditions.push('Retained pendant is about '+Math.round(l.pendant_offset??0)+' in off the table centre; check the light falls comfortably on the table.');if(l.styling.some(s=>/Sunbrella|re-cover/i.test(s.name??'')))l.conditions.push('Check the replacement bench fabric is durable and easy to clean before ordering.');l.conditions.push('Tape-check the table base, seat depth and fully open bar and microwave doors before buying.');if(/pisa/i.test(table?.label??'')){l.conditions=l.conditions.filter(s=>!/Lippa/i.test(s));l.conditions.push('Confirm the Pisa table size: seller title and dimension table disagree.');l.warnings.push('White-and-gold Pisa is a weaker fit with the warm-wood scheme.');}}
  if(r==='guest-bedroom'){l.guest_storage={width_approx:105,rack_w:27,rack_d:19,hanging_w:78,depth_min:19};const note='Closet needs at least 19 in clear depth: reserve 27 × 19 in of floor for luggage, with about 78 in of hanging and shelf space for guest clothes. Keep turnover linen elsewhere.';l.conditions.unshift(note);l.tradeoff=note;const rack=l.shop.items.find(i=>/scarlett|luggage rack/i.test(i.name));if(rack)rack.use_note=note;}
  l.conditions.push('Tape-check the room and openings before ordering; survey dimensions are not as-built measurements.');
@@ -48,5 +49,15 @@ export function presentRental(room,l,cat){
  for(const key of ['summary','variant_note','builder_adjustment'])if(l[key])l[key]=l[key].replace(/[^.]*warrant[^.]*\.?/ig,'').trim();
  const variants={'A-kitchen-reuse1-adjusted':['Chair tucked in for counter doors','chair tucked in'],'B-kitchen-v1-adjusted':['Chair tucked in for counter doors','chair tucked in'],'A-dining-room-reuse1-adjusted':['TV removed; console used for serving','no TV'],'A-living-room-reuse1-adjusted':['East swivel shifted for the round table','swivel east'],'B-living-room-reuse1-adjusted':['Cognac sofa shifted for a wider approach','wider sofa approach'],'C-living-room-q1-adjusted':['Side table shifted toward the north wall','side table north'],'C-living-room-v1-adjusted':['Coffee table shifted east for seating access','coffee table east']},v=variants[l.id];if(v){l.variant_note=v[0]+'.';l.title+=' · '+v[1];l.summary=l.variant_note;}if(l.id.endsWith('-closer-tables'))l.title+=' · closer drink surfaces';
  l.conditions=l.conditions.filter(s=>!/warrant|eligibility/i.test(s));
+ l.title=cardTitle(room,l);
+ if(l.id==='B-primary-bedroom-reuse1-adjusted-clear-window')l.tradeoff='Bed sits 4.5 in north so the headboard clears the window.';
+ if(r==='living-room'){
+  for(const key of ['title','summary','headline','tradeoff','rank_reason','class_reason','variant_note'])if(l[key])l[key]=livingPieceText(l[key]);
+  for(const key of ['conditions','failures','warnings'])l[key]=l[key].map(livingPieceText);
+  for(const c of l.bedside_checks??[])if(c.label)c.label=livingPieceText(c.label);
+  for(const f of l.geometry.footprints??[])if(f.label)f.label=f.owned_id==='living-coffee-table'?'Owned stump side table':livingPieceText(f.label);
+  for(const f of l.footprints)f.label=f.owned_id==='living-coffee-table'?'Owned stump side table':livingPieceText(f.label);
+  for(const i of l.shop.items){i.name=i.owned_id==='living-coffee-table'||i.id==='living-coffee-table'?'Owned stump side table':livingPieceText(i.name);if(i.use_note)i.use_note=livingPieceText(i.use_note);}
+ }
  return l;
 }
