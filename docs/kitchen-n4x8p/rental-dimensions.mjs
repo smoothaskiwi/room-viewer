@@ -1,6 +1,6 @@
 // Display audited bottlenecks without changing the measured path or value.
 export function dimensionOverlay(room,l){const W=room.room.width_x,D=room.room.depth_y,out=[],notes=[],unc=Math.max(room.room.width_x_unc??2,room.room.depth_y_unc??2),n=v=>Number(v.toFixed(1)),clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
- const text=(x,y,label,extra='')=>`<text class="rental-dimension-label" x="${x}" y="${y}" ${extra}>${label}</text>`;
+ const text=(x,y,label,extra='')=>`<text class="rental-dimension-label" style="font-size:${W>160?9:5.8}px" x="${x}" y="${y}" ${extra}>${label}</text>`;
  const segment=(a,b,label)=>`<g data-dimension="${label}"><path d="M${a}L${b}" stroke="#a45425" stroke-width="1.1" marker-start="url(#dim-arrow)" marker-end="url(#dim-arrow)"/>${text((a[0]+b[0])/2,(a[1]+b[1])/2-2,label,'text-anchor="middle"')}</g>`;
  const polygons=[...l.footprints,...(l.geometry?.fixed??[]),...(l.geometry?.doors??[])].map(f=>f.polygon??[[f.x,f.y],[f.x+f.w,f.y],[f.x+f.w,f.y+f.d],[f.x,f.y+f.d]]).filter(p=>p.every(q=>q.every(Number.isFinite)));
  polygons.push([[0,0],[W,0],[W,D],[0,D]]);
@@ -14,7 +14,7 @@ export function dimensionOverlay(room,l){const W=room.room.width_x,D=room.room.d
   else if(o.wall==='south'){hx=o.pin?.x??o.opening_x?.[1]??o.slab_x?.[1];hy=o.pin?.y??D;end=a=>[hx-r*Math.cos(a*Math.PI/180),hy-r*Math.sin(a*Math.PI/180)];}else continue;
   const pts=Array.from({length:37},(_,i)=>end(checked*i/36)),e=end(rest),e2=end(checked);out.push(`<g data-door-swing="${o.id}"><polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#a45425" stroke-width=".6" stroke-dasharray="2 1"/><path d="M${hx},${hy}L${e2}" stroke="#a45425" stroke-width=".9" stroke-dasharray="2 1"/><path d="M${hx},${hy}L${e}" stroke="#534a38" stroke-width="1.3"/><circle cx="${hx}" cy="${hy}" r="1.4" fill="#534a38"/></g>`);const name=o.id.includes('entry')?'Entry':o.id.includes('closet')?'Closet':'Bath';doorNotes.push(`${name} ${n(rest)}° / open ${n(checked)}°`);
  }
- if(doorNotes.length)notes.push(doorNotes.join(' · '));
+ for(const note of doorNotes)notes.push(note);
  if(l.headboard_window?.glass_overlap)notes.push(`Headboard overlaps ${l.headboard_window.wall} glass ${n(l.headboard_window.overlap_in)} in`);
- for(const [i,label]of notes.entries())out.push(text(2,D+12+i*9,label));return {svg:out.join(''),extra:Math.max(25,notes.length*9+16)};
+ const step=W>160?13:9;for(const [i,label]of notes.entries())out.push(text(2,D+12+i*step,label));return {svg:out.join(''),extra:Math.max(25,notes.length*step+16)};
 }
