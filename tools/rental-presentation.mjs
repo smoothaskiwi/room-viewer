@@ -47,6 +47,7 @@ export function presentRental(room,l,cat){
  if(r==='kitchen')l.summary=l.summary.replace(/31-inch conservative east route/ig,'31-inch local table-to-east-wall span, distinct from the main route');
  if(r==='guest-bedroom'){l.warnings=l.warnings.filter(s=>!/dresser is preferred/.test(s));if(!(open?.width<20))l.class_reason='Conditional: '+l.tradeoff;}
  for(const key of ['summary','variant_note','builder_adjustment'])if(l[key])l[key]=l[key].replace(/[^.]*warrant[^.]*\.?/ig,'').trim();
+ const variants={'A-kitchen-reuse1-adjusted':['Chair tucked in for counter doors','chair tucked in'],'B-kitchen-v1-adjusted':['Chair tucked in for counter doors','chair tucked in'],'A-dining-room-reuse1-adjusted':['TV removed; console used for serving','no TV'],'A-living-room-reuse1-adjusted':['East swivel shifted for the round table','swivel east'],'B-living-room-reuse1-adjusted':['Cognac sofa shifted for a wider approach','wider sofa approach'],'C-living-room-q1-adjusted':['Side table shifted toward the north wall','side table north'],'C-living-room-v1-adjusted':['Coffee table shifted east for seating access','coffee table east']},v=variants[l.id];if(v){l.variant_note=v[0]+'.';l.title+=' · '+v[1];l.summary=l.variant_note;}if(l.id.endsWith('-closer-tables'))l.title+=' · closer drink surfaces';
  l.conditions=l.conditions.filter(s=>!/warrant|eligibility/i.test(s));
  return l;
 }
