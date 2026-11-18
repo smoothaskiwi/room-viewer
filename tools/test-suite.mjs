@@ -15,6 +15,10 @@ const started=performance.now(),timings=[];
 const evidence=process.env.ROOM_TEST_EVIDENCE_DIR??path.join(repo,'evidence/tests',tier);
 await fs.mkdir(evidence,{recursive:true});await fs.mkdir(path.join(repo,'evidence/test-tmp'),{recursive:true});
 const env={...process.env,TMPDIR:'evidence/test-tmp',ROOM_TEST_EVIDENCE_DIR:evidence,RENTAL_EVIDENCE_DIR:path.join(evidence,'rental'),ROUND11_EVIDENCE_DIR:path.join(evidence,'round11'),REUSE_EVIDENCE_DIR:path.join(evidence,'reuse'),ROUND13_EVIDENCE_DIR:path.join(evidence,'round13'),ROUND10_EVIDENCE_DIR:path.join(evidence,'round10')};
+async function browserEnvironment(action){
+ const previous=process.env.TMPDIR;process.env.TMPDIR=env.TMPDIR;
+ try{return await action();}finally{if(previous===undefined)delete process.env.TMPDIR;else process.env.TMPDIR=previous;}
+}
 let session;
 async function stage(name){
  const t=performance.now(),[file,...args]=name.split(' ');
@@ -34,10 +38,14 @@ try{
   for(const name of unitStages)await stage(name);
   if(tier!=='quick'){
    // Chrome and Python are suite-owned; contexts, pages and storage are stage-owned.
-   const previous=process.env.TMPDIR;process.env.TMPDIR=env.TMPDIR;
-   try{session=await startBrowserSession();}finally{if(previous===undefined)delete process.env.TMPDIR;else process.env.TMPDIR=previous;}
+   session=await browserEnvironment(startBrowserSession);
    env.ROOM_TEST_BROWSER_WS=session.browser.wsEndpoint();env.ROOM_TEST_PORT=String(session.port);
-   for(const name of browserStages)await stage(name);
+   for(const name of browserStages){
+    // Long warm SwiftShader runs intermittently stalled the final camera audit.
+    // Keep the loopback server, but give its 30 real camera views a fresh process.
+    if(name==='round13-browser'){await browserEnvironment(()=>session.restartBrowser());env.ROOM_TEST_BROWSER_WS=session.browser.wsEndpoint();}
+    await stage(name);
+   }
   }
  }
  console.log(`\nPASS ${tier}: ${timings.length} stages in ${((performance.now()-started)/1000).toFixed(2)}s`);

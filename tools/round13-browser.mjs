@@ -10,6 +10,10 @@ const rooms=JSON.parse(await fs.readFile(repo+'/data/rooms.json')),checks=[],err
 try{
 
  for(const room of rooms){const p=await browser.newPage();p.on('pageerror',e=>errors.push(e.message));
+  if(process.env.ROOM_TEST_TRACE){
+   p.on('console',m=>{if(['error','warn'].includes(m.type())||m.text().startsWith('TEST_RENDER_NOTE'))console.error(room.room,m.type(),m.text());});
+   await p.evaluateOnNewDocument(()=>addEventListener('DOMContentLoaded',()=>{let previous='';new MutationObserver(()=>{const text=document.querySelector('#rental-render-note')?.textContent??'';if(text&&text!==previous){previous=text;console.log('TEST_RENDER_NOTE '+text);}}).observe(document,{subtree:true,childList:true,characterData:true});}));
+  }
   // Camera/ray checks wait for the application, not incidental lazy-gallery network idleness.
   for(const phone of [true,false]){await p.setViewport(phone?{width:412,height:915,deviceScaleFactor:2,isMobile:true,hasTouch:true}:{width:1440,height:900});await p.goto(`http://127.0.0.1:${port}/${room.slug}/`,{waitUntil:'domcontentloaded'});await p.waitForFunction(()=>window.__rental?.ready);
    if(phone){const g=await p.evaluate(()=>{const cs=[...document.querySelectorAll('[data-rental-card]')].filter(e=>e.checkVisibility()),first=cs[0],button=first.querySelector('[data-rental-open]'),picture=first.querySelector('svg');return {ranks:cs.map(e=>e.querySelector('.rental-badge').textContent),openY:button.getBoundingClientRect().bottom+scrollY,pictureY:picture.getBoundingClientRect().bottom+scrollY,folded:[...document.querySelectorAll('.rental-more,.rental-archive,.rental-tier')].every(e=>!e.open)};});assert.equal(g.ranks.length,3);assert.match(g.ranks[0],/^Rank 1/);assert(g.openY<=1830&&g.pictureY<=1830,room.room+': picture and rank-one Open in first two screens');assert(g.folded);checks.push(room.room+': phone top-three / early picture + Open / alternatives folded');}
