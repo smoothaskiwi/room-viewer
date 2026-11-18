@@ -75,6 +75,6 @@ if(process.argv.includes('--ui')){
   }
   if(page.room==='primary-bedroom')for(const designer of ['A','B','C']){const l=reuse.find(l=>l.designer===designer&&l.original_id),bed=l.footprints.find(f=>f.kind==='bed');ok(bed.head==='east'&&Math.abs(bed.y+bed.d/2-56.5)<.001&&bed.h>35,l.id+' new headboard frame, same head wall and former king centre');}
  }
- ok(sources===15&&variants===7,'all fifteen originals plus seven labelled corrections are retained');
+ ok(sources===15&&variants===8,'all fifteen originals plus eight labelled corrections are retained');
 }
 console.log('PASS reuse support: '+checks+' checks; inventory, estimates, zero spend, care, schema, geometry, ranking and whole-house conflicts.');
