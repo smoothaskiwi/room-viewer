@@ -1,0 +1,379 @@
+{
+  "r-ru-nim": {
+    "label": "Nimes Ticking Machine Washable Rug \u00b7 Neutral \u00b7 6 \u00d7 9 ft",
+    "category": "rugs",
+    "kind": "rugs",
+    "dims_in": {
+      "w": 72,
+      "d": 108,
+      "h": 0.2
+    },
+    "purchase_url": "https://www.rugsusa.com/products/nimes-ticking-neutral-machine-washable-rug?variant=50093033357606",
+    "price_usd": 298,
+    "retailer": "Rugs USA",
+    "category_group": "styling",
+    "images": [
+      {
+        "path": "products/rental-styling-2026-11-17/images/r-ru-nim.jpg",
+        "url": "https://cdn.shopify.com/s/files/1/0817/7949/0872/files/62a73a4dd683ad52b5d866715ddce11268960f99.jpg?v=1775723092",
+        "public_path": "assets/products/r-ru-nim-0.webp",
+        "width_px": 261,
+        "height_px": 384,
+        "bytes": 12566
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "products/rental-styling-2026-11-17/specs.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "p-q-slub": {
+    "label": "Cotton Slub Pillow Cover",
+    "category": "pillows",
+    "kind": "pillows",
+    "dims_in": {
+      "w": null,
+      "d": null,
+      "h": null
+    },
+    "purchase_url": "https://www.quince.com/home/cotton-slub-pillow-cover?color=terracotta",
+    "price_usd": 39.9,
+    "retailer": "Quince",
+    "category_group": "styling",
+    "images": [
+      {
+        "path": "products/rental-styling-2026-11-17/images/p-q-slub.jpg",
+        "url": "https://images.quince.com/1uGwjWkPkLHWY3PsxG6p3U/d71b4858429e7726cc610bab17e1848b/U-DCP-61-TERR_176382.jpg?fm=webP&q=90&w=1600",
+        "public_path": "assets/products/p-q-slub-0.webp",
+        "width_px": 307,
+        "height_px": 384,
+        "bytes": 3234
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "products/rental-styling-2026-11-17/specs.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "art_9_20x30": {
+    "label": "Painted Desert \u2014 unframed paper 20x30",
+    "category": "art",
+    "kind": "art",
+    "dims_in": {
+      "w": null,
+      "d": null,
+      "h": null
+    },
+    "purchase_url": "https://juniperprintshop.com/products/painted-desert-1?variant=18602855202905",
+    "price_usd": 69,
+    "retailer": "Juniper Print Shop",
+    "category_group": "styling",
+    "images": [
+      {
+        "path": "inspiration/bedrooms-2026-11-17/images/product-art_9_20x30.jpg",
+        "url": "https://cdn.shopify.com/s/files/1/1806/8745/products/PAINTEDDESERT_9f625672-014a-469c-9bc0-738bead79aca.jpg?v=1671606997",
+        "public_path": "assets/products/art_9_20x30-0.webp",
+        "width_px": 256,
+        "height_px": 384,
+        "bytes": 13596
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "inspiration/bedrooms-2026-11-17/shop-the-look.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "art_10_20x30": {
+    "label": "Living Desert \u2014 unframed paper 20x30",
+    "category": "art",
+    "kind": "art",
+    "dims_in": {
+      "w": null,
+      "d": null,
+      "h": null
+    },
+    "purchase_url": "https://juniperprintshop.com/products/living-desert-1?variant=18602310205529",
+    "price_usd": 69,
+    "retailer": "Juniper Print Shop",
+    "category_group": "styling",
+    "images": [
+      {
+        "path": "inspiration/bedrooms-2026-11-17/images/product-art_10_20x30.jpg",
+        "url": "https://cdn.shopify.com/s/files/1/1806/8745/products/LIVINGDESERT.jpg?v=1664167828",
+        "public_path": "assets/products/art_10_20x30-0.webp",
+        "width_px": 256,
+        "height_px": 384,
+        "bytes": 16626
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "inspiration/bedrooms-2026-11-17/shop-the-look.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "art_frame": {
+    "label": "Craig Frames Essentials black 24x36 frame matted for 20x30",
+    "category": "frame",
+    "kind": "frame",
+    "dims_in": {
+      "w": null,
+      "d": null,
+      "h": null
+    },
+    "purchase_url": "https://target.com/p/craig-frames-essentials-24x36-inch-black-single-image-picture-frame-matted-for-a-20x30-inch-photo/-/A-92473750",
+    "price_usd": 48.99,
+    "retailer": "Target / Craig Frames",
+    "category_group": "styling",
+    "images": [
+      {
+        "path": "inspiration/bedrooms-2026-11-17/images/product-art_frame.jpg",
+        "url": "https://target.scene7.com/is/image/Target/GUEST_d8ee1dfb-30ed-4cae-b96d-86dcf0a47086",
+        "public_path": "assets/products/art_frame-0.webp",
+        "width_px": 384,
+        "height_px": 384,
+        "bytes": 4982
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "inspiration/bedrooms-2026-11-17/shop-the-look.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "P007": {
+    "label": "French Landscape \u2014 24x36 paper print, unframed",
+    "category": "art",
+    "kind": "art",
+    "dims_in": {
+      "w": null,
+      "d": null,
+      "h": null
+    },
+    "purchase_url": "https://juniperprintshop.com/products/french-landscape?variant=42815385796697",
+    "price_usd": 99,
+    "retailer": "Juniper Print Shop",
+    "category_group": "styling",
+    "images": [
+      {
+        "path": "inspiration/living-dining-nook-2026-11-17/images/P007.jpg",
+        "url": "https://juniperprintshop.com/cdn/shop/files/FrenchLandscapeLISTING_1200x.webp?v=1762368167",
+        "public_path": "assets/products/P007-0.webp",
+        "width_px": 384,
+        "height_px": 256,
+        "bytes": 10890
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "inspiration/living-dining-nook-2026-11-17/shop-the-look.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "P077": {
+    "label": "\u00c5RSTID Table lamp - brass/white",
+    "category": "table-lamp",
+    "kind": "table-lamp",
+    "dims_in": {
+      "w": null,
+      "d": null,
+      "h": null
+    },
+    "purchase_url": "https://www.ikea.com/us/en/p/arstid-table-lamp-brass-white-80321380/",
+    "price_usd": 39.99,
+    "retailer": "IKEA",
+    "category_group": "furniture",
+    "images": [
+      {
+        "path": "inspiration/living-dining-nook-2026-11-17/images/P077.jpg",
+        "url": "https://www.ikea.com/us/en/images/products/arstid-table-lamp-brass-white__0609329_pe684454_s5.jpg",
+        "public_path": "assets/products/P077-0.webp",
+        "width_px": 384,
+        "height_px": 384,
+        "bytes": 2468
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "inspiration/living-dining-nook-2026-11-17/shop-the-look.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "P010": {
+    "label": "BLANDA MATT Serving bowl - bamboo 11 \"",
+    "category": "tabletop",
+    "kind": "tabletop",
+    "dims_in": {
+      "w": null,
+      "d": null,
+      "h": null
+    },
+    "purchase_url": "https://www.ikea.com/us/en/p/blanda-matt-serving-bowl-bamboo-60214343/",
+    "price_usd": 24.99,
+    "retailer": "IKEA",
+    "category_group": "styling",
+    "images": [
+      {
+        "path": "inspiration/living-dining-nook-2026-11-17/images/P010.jpg",
+        "url": "https://www.ikea.com/us/en/images/products/blanda-matt-serving-bowl-bamboo__1395111_pe966843_s5.jpg",
+        "public_path": "assets/products/P010-0.webp",
+        "width_px": 384,
+        "height_px": 384,
+        "bytes": 5352
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "inspiration/living-dining-nook-2026-11-17/shop-the-look.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "blue_duvet": {
+    "label": "Organic Crisp Percale Duvet Cover in Sky Blue, Size Full/Queen",
+    "category": "duvet_cover",
+    "kind": "duvet_cover",
+    "dims_in": {
+      "w": null,
+      "d": null,
+      "h": null
+    },
+    "purchase_url": "https://www.quince.com/home/classic-organic-percale-duvet-cover?color=sky-blue&size=full/queen",
+    "price_usd": 94,
+    "retailer": "Quince",
+    "category_group": "styling",
+    "images": [
+      {
+        "path": "inspiration/bedrooms-2026-11-17/images/product-blue_duvet.jpg",
+        "url": "https://images.quince.com/4SZ2NqfWiLy3sEJPZLA6ML/8a49fdaadf45d6f1ee7478e0887151ed/U-BEDD-141-SKYBLU_EDITED.jpg?fm=webP&q=90&w=1600",
+        "public_path": "assets/products/blue_duvet-0.webp",
+        "width_px": 307,
+        "height_px": 384,
+        "bytes": 2120
+      }
+    ],
+    "owned": false,
+    "source_files": [
+      "inspiration/bedrooms-2026-11-17/shop-the-look.json"
+    ],
+    "layout_ready": false,
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "r16-olive-lumbar": {
+    "id": "r16-olive-lumbar",
+    "label": "Kleo Olive Green striped slub lumbar pillow \u00b7 14 \u00d7 36 in (filled)",
+    "price_usd": 29.99,
+    "purchase_url": "https://www.athome.com/kleo-olive-green-striped-slub-throw-pillow-14x36/125002650.html",
+    "retailer": "At Home",
+    "dims_in": {
+      "w": 36,
+      "d": 5,
+      "h": 14
+    },
+    "category": "pillow",
+    "kind": "pillow",
+    "category_group": "styling",
+    "owned": false,
+    "source_files": [
+      "rental-council"
+    ],
+    "images": [
+      {
+        "path": "data/round16-images/r16-olive-lumbar.webp",
+        "repository": true
+      }
+    ],
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  },
+  "r16-taupe-lumbar": {
+    "id": "r16-taupe-lumbar",
+    "label": "Kleo Simply Taupe striped slub lumbar pillow \u00b7 14 \u00d7 36 in (filled)",
+    "price_usd": 29.99,
+    "purchase_url": "https://www.athome.com/kleo-simply-taupe-striped-slub-euro-throw-pillow-14x36/125035061.html",
+    "retailer": "At Home",
+    "dims_in": {
+      "w": 36,
+      "d": 5,
+      "h": 14
+    },
+    "category": "pillow",
+    "kind": "pillow",
+    "category_group": "styling",
+    "owned": false,
+    "source_files": [
+      "rental-council"
+    ],
+    "images": [
+      {
+        "path": "data/round16-images/r16-taupe-lumbar.webp",
+        "repository": true
+      }
+    ],
+    "price_date": "2026-11-18",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl HTTP 200; Rugs USA and At Home: task-owned hidden background browser product data",
+      "live_product_page": true
+    }
+  }
+}
