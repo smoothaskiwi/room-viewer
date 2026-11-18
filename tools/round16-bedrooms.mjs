@@ -14,7 +14,7 @@ export function round16Bedrooms(room,proposals,cat){
    if(b.faces==='west'){
     p.styling=p.styling.filter(s=>s.category!=='rug');
     const reuse=primary&&p.id.includes('reuse1-adjusted-clear-window'),rug=product(reuse?'dining-rug':'r-ru-nim','rug',{x:b.x-20,y:Math.max(1,b.y+b.footprint_d/2-54),size_in:{w:72,d:108},footprint_w:72,footprint_d:108,placement:'6 × 9 ft, 108-in side across bed; 20 in beyond foot; secure flat pad and tape-check door sweep.'});
-    if(reuse)Object.assign(rug,{owned:true,owned_id:'dining-rug',price_usd:0,placement:'Reuse patterned dining-room rug, nominal 6 × 9 ft; 20 in beyond bed foot. If measured smaller than 5 × 8 ft, buy the guest Nimes 6 × 9 ft instead ($298).'});
+    if(reuse)Object.assign(rug,{owned:true,owned_id:'dining-rug',price_usd:0,placement:'Reuse patterned dining-room rug, nominal 6 × 9 ft; 20 in beyond bed foot. If measured smaller than 5 × 8 ft, buy the guest Nimes 6 × 9 ft instead ($343; extra-large washer required).'});
     p.styling.push(rug);
    }
    // The rack remains a real everyday plan object, but folds away for the photo.
@@ -27,6 +27,7 @@ export function round16Bedrooms(room,proposals,cat){
     p.styling.push(art('art_9_20x30','east',24,36,centre-13,bottom),art('art_10_20x30','east',24,36,centre+13,bottom),product('art_frame','art',{qty:2,placement:'24 × 36 in black frames matted to 20 × 30 in art; 2-in gap, 50-in group, centred on bed.'}));
    }
    if(guest&&(/^B-guest-bedroom-(v1|reuse1)$/.test(p.id)||p.id==='C-guest-bedroom-reuse1')){
+    p.scheme='Sky Blue & Terracotta';
     p.palette=['#b98a5d','#e7e9e5','#92aebd','#b96d4b'];
     p.styling=p.styling.filter(s=>!['sedona_duvet','blue_duvet','art_9_16x20','art_10_16x20','gold_frame16','P075','P081'].includes(s.id));
     p.styling.push(product('blue_duvet','bedding',{qty:2,placement:'Sky Blue duvet; two complete turnover covers.'}),art('P007','east',36,24,b.y+b.footprint_d/2,cat[b.catalog_id].dims_in.h+8),product('P081','art',{placement:'One 24 × 36 in landscape PET frame from the three-pack; two spares. Mabel’s Farm Field is portrait, so use French Landscape.'}),product('p-q-slub','pillow',{size_in:{w:20,h:20},color:'#b96d4b',accent_role:'square',placement:'One terracotta 20 × 20 in cotton slub cushion behind the taupe lumbar.'}),product('p-v-fjad','pillow',{placement:'20 × 20 in insert for the terracotta cover.'}));
@@ -45,7 +46,7 @@ export function round16Bedrooms(room,proposals,cat){
    p.placements=p.placements.filter(f=>f.catalog_id!=='dining-floor-lamp');
    p.styling=p.styling.filter(s=>s.id!=='P075');
    const console=p.placements.find(f=>f.catalog_id==='dining-media-console'),top=cat['dining-media-console'].dims_in.h;
-   p.styling.push(art('P075','north',36,24,console.x+console.footprint_w/2,top+9),product('P077','lamp',{x:console.x+9,y:console.y+9,height_in:top,placement:'Brass and white table lamp on the console west end.'}));
+   p.styling.push(art('P075','north',36,24,console.x+console.footprint_w/2,top+9),product('P077','lamp',{x:console.x+9,y:console.y+9,height_in:top,placement:'Compact brass and pleated cotton-shade table lamp on the console west end; 15 in high, 8.5 in diameter.'}));
    p.removes=[...(p.removes??[]),'Black ladder shelf lamp goes to storage.'];
   }
  }

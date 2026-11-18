@@ -1,12 +1,12 @@
 {
   "art_frame": {
-    "label": "Craig Frames Essentials black 24 \u00d7 36 in with 20 \u00d7 30 in white mat",
+    "label": "Craig Frames Essentials black 24 × 36 in with 20 × 30 in white mat",
     "purchase_url": "https://www.craigframes.com/products/essentials-1-matted-modern-black-picture-frame?variant=43929630834730",
     "price_usd": 34.99,
     "price_date": "2026-11-18",
     "retailer": "Craig Frames (direct)",
     "source_status": "Exact black frame variant; direct manufacturer offer verified 2026-11-18.",
-    "price_basis": "Single frame with acrylic glazing and white mat. Use supplied mat for 20 \u00d7 30 in paper.",
+    "price_basis": "Single frame with acrylic glazing and white mat. Use supplied mat for 20 × 30 in paper.",
     "images": [
       {
         "path": "data/round17-images/art_frame.webp",
@@ -22,13 +22,13 @@
     }
   },
   "large_frame": {
-    "label": "Craig Frames Essentials black 30 \u00d7 40 in (remove supplied 24 \u00d7 36 in mat)",
+    "label": "Craig Frames Essentials black 30 × 40 in (remove supplied 24 × 36 in mat)",
     "purchase_url": "https://www.craigframes.com/products/essentials-1-matted-modern-black-picture-frame?variant=43929631031338",
     "price_usd": 87.99,
     "price_date": "2026-11-18",
     "retailer": "Craig Frames (direct)",
     "source_status": "Exact black frame variant; direct manufacturer offer verified 2026-11-18.",
-    "price_basis": "Single frame with acrylic glazing and white mat. Remove supplied mat to display 30 \u00d7 40 in paper.",
+    "price_basis": "Single frame with acrylic glazing and white mat. Remove supplied mat to display 30 × 40 in paper.",
     "images": [
       {
         "path": "data/round17-images/large_frame.webp",
@@ -45,7 +45,7 @@
   },
   "r17-e26-bulbs": {
     "id": "r17-e26-bulbs",
-    "label": "SOLHETTA E26 800-lumen dimmable warm 2700 K LED bulbs \u00b7 two-pack",
+    "label": "SOLHETTA E26 800-lumen dimmable warm 2700 K LED bulbs · two-pack",
     "category": "bulb",
     "kind": "bulb",
     "category_group": "styling",
@@ -76,9 +76,65 @@
     }
   },
   "P077": {
-    "source_status": "Checked 2026-11-18: brass/white $39.99 product page loads, but delivery and pickup are currently unavailable for the selected local area. Check another store/ZIP before choosing this lamp."
+    "label": "Fluted Brass Table Lamp · Threshold designed with Studio McGee",
+    "purchase_url": "https://www.target.com/p/-/A-94911173",
+    "price_usd": 40,
+    "price_date": "2026-11-18",
+    "retailer": "Target",
+    "dims_in": {
+      "w": 8.5,
+      "d": 8.5,
+      "h": 15
+    },
+    "images": [
+      {
+        "path": "data/round17-images/P077.webp",
+        "repository": true
+      }
+    ],
+    "source_status": "Verified 2026-11-18: $40, enabled Add to cart; shipping and delivery offered to the selected local area. Replaces locally unavailable ÅRSTID. Compact brass stem and warm pleated cotton shade; 15 in high × 8.5 in diameter. E26 bulb sold separately.",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl plus task-owned browseruse_background product UI",
+      "live_product_page": true,
+      "purchasable": true,
+      "shipping_offered": true
+    }
   },
   "r-ru-nim": {
-    "source_status": "Purchase journey unverified on 2026-11-18: curl blocked; hidden browser loaded only the page shell, without selected 6 \u00d7 9 price or cart. $298 remains the earlier dated offer, not a fresh verified price."
+    "purchase_url": "https://www.mainecottage.com/products/nimes-ticking-neutral-machine-washable-rug?variant=41427967180905",
+    "price_usd": 343,
+    "price_date": "2026-11-18",
+    "retailer": "Maine Cottage",
+    "selected_variant": "41427967180905",
+    "source_status": "Verified 2026-11-18: same Nimes Neutral 6 × 9 ft rug, selected size and $343 with enabled Add to cart. Free rug shipping; taxes extra. This size needs an extra-large commercial washer/professional cleaning, not a standard home wash.",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl plus task-owned browseruse_background product UI",
+      "live_product_page": true,
+      "purchasable": true
+    }
+  },
+  "P081": {
+    "label": "Craig Frames Essentials black single 24 × 36 in frame (remove supplied mat)",
+    "purchase_url": "https://www.craigframes.com/products/essentials-1-matted-modern-black-picture-frame?variant=43929630834730",
+    "price_usd": 34.99,
+    "price_date": "2026-11-18",
+    "retailer": "Craig Frames (direct)",
+    "source_status": "Exact black frame variant; direct manufacturer offer verified 2026-11-18.",
+    "price_basis": "One frame per 24 × 36 in print; remove the supplied 20 × 30 in mat. No shared pack or spare frames.",
+    "images": [
+      {
+        "path": "data/round17-images/art_frame.webp",
+        "repository": true
+      }
+    ],
+    "selected_variant": "43929630834730",
+    "purchase_check": {
+      "checked": "2026-11-18",
+      "method": "curl plus task-owned browseruse_background product UI",
+      "live_product_page": true,
+      "purchasable": true
+    }
   }
 }

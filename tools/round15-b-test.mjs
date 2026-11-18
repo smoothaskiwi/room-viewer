@@ -15,7 +15,7 @@ for(const page of pages){const p=JSON.parse(await fs.readFile(repo+'/docs/'+page
  ok(f.cost===a.shop.total,'compare cost matches shopping');ok(f.clearance===expected?.value,'compare uses the shared deciding width');ok(!/reference plane/.test(f.clearanceNote),'no reference-plane passage');
  assert.deepEqual(readComparisonHash(comparisonHash(a.id,b.id),p.layouts),{a:a.id,b:b.id});checks++;
  ok(readComparisonHash('#rental-compare=unknown&rental-compare-with='+b.id,p.layouts)===null,'invalid saved pair rejected');
- const html=differenceHTML(p.room,a,b,{esc,money});ok(html.includes("What's different")&&html.includes('seats')&&html.includes('Tightest spot')&&html.includes('First only / extra'),'all decision fields');
+ const html=differenceHTML(p.room,a,b,{esc,money});ok(html.includes("What's different")&&html.includes(page.room.includes('bedroom')?'sleeps 2':'seats')&&html.includes('Tightest spot')&&html.includes('First only / extra'),'all decision fields');
  if(page.room==='kitchen')ok(f.seats===a.geometry.measures.everyday_seats,'nook uses evaluated bench/loose-seat count');
  if(page.room==='guest-bedroom')ok(f.seats===a.footprints.filter(f=>['chair','desk-chair'].includes(f.kind)).length,'desk chair counted');
  if(page.room==='living-room'){

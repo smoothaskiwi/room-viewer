@@ -2,6 +2,7 @@
 export function round17Shopping(room,proposals,cat){
  return proposals.map(p=>{const q=structuredClone(p);
   if(room==='kitchen'&&q.id==='C-kitchen-reuse1')q.hero_view={position:[38,5,54],target:[58,78,37],fov:80};
+  for(const s of q.styling.filter(s=>s.id==='P081')){const c=cat.P081;s.qty=1;s.name=c.label;s.price_usd=c.price_usd;s.price_date=c.price_date;s.purchase_url=c.purchase_url;s.retailer=c.retailer;s.placement='One single 24 × 36 in black frame for this room’s print; remove supplied mat. No shared pack or spares.';}
   const lamps=[...q.placements,...q.styling].filter(s=>!s.owned&&!cat[s.catalog_id??s.id]?.owned&&/lamp|sconce|pendant|chandelier/.test(s.category??cat[s.catalog_id??s.id]?.kind??'')&&!/bulb|solhetta|integrated|LED|NYMÅNE/i.test(s.name??cat[s.catalog_id??s.id]?.label??''));
   // Count existing E26 allocations; the retained dining chandelier keeps its six.
   // NYMÅNE uses the already-listed GU10 bulbs; integrated LEDs need no bulb.

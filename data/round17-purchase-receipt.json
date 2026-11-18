@@ -3,19 +3,18 @@
   "scope": "Purchase destinations newly used by rounds 15/16 amendments, plus replacement frames and warm lamp bulbs. No orders or carts changed.",
   "method": "curl -L, then isolated browseruse_background task tabs; each owned tab closed. HTTP 200 alone is not orderability.",
   "summary": {
-    "verified": 18,
-    "blocked": 1,
-    "unavailable_for_selected_location": 1,
+    "verified": 20,
+    "blocked": 0,
+    "unavailable_for_selected_location": 0,
     "total": 20
   },
   "results": [
     {
       "id": "r-ru-nim",
-      "url": "https://www.rugsusa.com/products/nimes-ticking-neutral-machine-washable-rug?variant=50093033357606",
-      "status": "blocked",
-      "evidence": "curl 403; hidden browser loads page title and shell only, no product price or purchase control, including retry after 10 seconds. Exact 6 \u00d7 9 offer cannot be certified.",
-      "displayed_price_usd": 298,
-      "curl_http_status": 403
+      "url": "https://www.mainecottage.com/products/nimes-ticking-neutral-machine-washable-rug?variant=41427967180905",
+      "status": "verified",
+      "evidence": "Verified 2026-11-18: same Nimes Neutral 6 × 9 ft rug, selected size and $343 with enabled Add to cart. Free rug shipping; taxes extra. This size needs an extra-large commercial washer/professional cleaning, not a standard home wash. Product identity, selected variant, price and enabled item Add to cart confirmed in task-owned hidden browser; no cart/order changed.",
+      "displayed_price_usd": 343
     },
     {
       "id": "p-q-slub",
@@ -51,11 +50,10 @@
     },
     {
       "id": "P077",
-      "url": "https://www.ikea.com/us/en/p/arstid-table-lamp-brass-white-80321380/",
-      "status": "unavailable-for-location",
-      "evidence": "Exact brass/white \u00c5RSTID $39.99 loaded. Product unavailable for delivery and pickup in the pre-existing selected local area; visible Add to bag belongs to recommended bulbs, NOT the lamp.",
-      "displayed_price_usd": 39.99,
-      "curl_http_status": 200
+      "url": "https://www.target.com/p/-/A-94911173",
+      "status": "verified",
+      "evidence": "Verified 2026-11-18: $40, enabled Add to cart; shipping and delivery offered to the selected local area. Replaces locally unavailable ÅRSTID. Compact brass stem and warm pleated cotton shade; 15 in high × 8.5 in diameter. E26 bulb sold separately. Product identity, selected variant, price and enabled item Add to cart confirmed in task-owned hidden browser; no cart/order changed.",
+      "displayed_price_usd": 40
     },
     {
       "id": "P010",
@@ -147,11 +145,10 @@
     },
     {
       "id": "P081",
-      "url": "https://www.walmart.com/ip/Americanflat-3-Pack-Lightweight-24x36-Poster-Frames-Black/5416414781",
+      "url": "https://www.craigframes.com/products/essentials-1-matted-modern-black-picture-frame?variant=43929630834730",
       "status": "verified",
-      "evidence": "Product, selected variant/price and purchase control in task-owned hidden browser; curl result retained in research evidence.",
-      "displayed_price_usd": 60.92,
-      "curl_http_status": 200
+      "evidence": "Exact black frame variant; direct manufacturer offer verified 2026-11-18. Product identity, selected variant, price and enabled item Add to cart confirmed in task-owned hidden browser; no cart/order changed.",
+      "displayed_price_usd": 34.99
     },
     {
       "id": "P055",
