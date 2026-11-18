@@ -1,5 +1,5 @@
 // Illustrative styling layers; never added to furniture collision envelopes.
-import {styleSize,placedStyling,artPose} from './rental-view.mjs';
+import {styleSize,placedStyling,artPose,lampEnvelope} from './rental-view.mjs';
 export function addRentalStyling(T,g,l,room,redraw,models={}){
  const pal=l.palette??['#9b7751','#e8e0d0','#778569'],W=room.room.width_x,D=room.room.depth_y,log=[];
  const material=(color,more={})=>new T.MeshStandardMaterial({color,roughness:.85,...more});
@@ -37,6 +37,7 @@ export function addRentalStyling(T,g,l,room,redraw,models={}){
    }
   }
   else if(/lamp|sconce|pendant|chandelier/.test(cat)){
+   if(cat==='sconce'){const e=lampEnvelope(s,room);box(e.x,e.y,z??48,e.w,e.d,3,'#ece9df');log.push({id:s.id,category:s.category});continue;}
    const floor=/floor/.test(s.name+' '+s.placement),pendant=/pendant|chandelier/.test(cat),height=pendant?12:floor?58:20;{if(!pendant){cylinder(x,y,z,4,.7,s.owned?s.color??'#a88d59':'#a88d59');cylinder(x,y,z+.7,.6,height-8,s.owned?s.color??'#aa9263':'#aa9263');}else{const wire=room.room.ceiling_z-(z+height);if(wire>0)cylinder(x,y,z+height,.2,wire,'#3b3d36');}cylinder(x,y,z+height-8,pendant?9:6,8,'#e8dfcb',pendant?4:4);const bulb=new T.Mesh(new T.SphereGeometry(1.4,12,8),material('#fff1c1',{emissive:'#ffdd91',emissiveIntensity:.7}));bulb.position.set(x,y,z+height-7);g.add(bulb);}
   }
   else if(/plant/.test(cat)){const small=z>0||/small|mint|3.5|3½/i.test(s.name),scale=small?.4:1;cylinder(x,y,z,4*scale,9*scale,pal[0]);for(let i=0;i<5;i++){const m=new T.Mesh(new T.SphereGeometry(5*scale,12,8),material('#61734d'));m.scale.set(.6,1,1.8);m.position.set(x+Math.sin(i*2)*4*scale,y+Math.cos(i*2)*4*scale,z+(12+i*4)*scale);g.add(m);}}
