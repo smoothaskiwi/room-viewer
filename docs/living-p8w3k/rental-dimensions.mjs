@@ -1,4 +1,5 @@
 // Route disk widths are NOT surface dimensions. Only measured free cross-sections get arrows.
+import {displayPiece} from './rental-shapes.mjs';
 const poly=f=>f.polygon??[[f.x,f.y],[f.x+f.w,f.y],[f.x+f.w,f.y+f.d],[f.x,f.y+f.d]];
 const num=v=>Number(v.toFixed(1));
 const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -17,7 +18,7 @@ export function surfaceSections(room,solids,p,axis){
 const point=q=>{const b=q?.bottleneck;return Array.isArray(b)?b:b&&Number.isFinite(b.x)?[b.x,b.y]:q?.bottleneck_point;};
 function nearbySection(room,solids,p){if(!p)return null;const choices=[];for(const d of [0,-3,3,-6,6,-9,9])for(const axis of ['x','y']){const q=[...p];q[axis==='x'?1:0]+=d;if(q[0]<1||q[1]<1||q[0]>room.room.width_x-1||q[1]>room.room.depth_y-1)continue;const s=surfaceSections(room,solids,q,axis);if(s)choices.push({...s,offset:Math.abs(d)});}return choices.sort((a,b)=>a.offset-b.offset||a.value-b.value)[0];}
 export function dimensionModel(room,l){
- const solids=[...l.footprints.filter(f=>!['rug','desk-chair'].includes(f.kind)),...(l.geometry?.fixed??[]).filter(f=>f.kind!=='hearth'),...(l.geometry?.doors??[])],dimensions=[],markers=[],ghosts=[],notes=[];
+ const solids=[...l.footprints.filter(f=>!['rug','desk-chair'].includes(f.kind)),...(l.geometry?.fixed??[]).filter(f=>f.kind!=='hearth'),...(l.geometry?.doors??[])].map(displayPiece),dimensions=[],markers=[],ghosts=[],notes=[];
  const add=(s,label,state='everyday')=>{if(s&&!dimensions.some(d=>Math.hypot(d.a[0]-s.a[0],d.a[1]-s.a[1])<2&&d.axis===s.axis)){dimensions.push({...s,label,state,id:String.fromCharCode(65+dimensions.length)});}};
  const routes=l.geometry?.routes?.destinations??[],worst=[...routes].filter(q=>Number.isFinite(q.width)).sort((a,b)=>a.width-b.width)[0];
  const mark=(q,label)=>{const p=point(q);if(!p)return;markers.push({p,label,width:q.width,index:markers.length+1});add(nearbySection(room,solids,p),'Local free span near '+label);};mark(worst,'Main walk');

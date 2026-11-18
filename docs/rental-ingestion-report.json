@@ -39,10 +39,10 @@
     },
     {
       "room": "living-room",
-      "layouts": 17,
+      "layouts": 18,
       "fixtures": 1,
       "classes": {
-        "conditional": 13,
+        "conditional": 14,
         "invalid": 4
       },
       "errors": []
