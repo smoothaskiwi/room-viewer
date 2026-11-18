@@ -440,7 +440,7 @@ export async function start3D(host,spec){
   walkway:()=>walkway.debug(),
   restoreCamera(c){camera.position.fromArray(c.position);controls.target.fromArray(c.target);camera.lookAt(controls.target);draw();},
   camera:()=>({position:camera.position.toArray(),target:controls.target.toArray(),...(spec.rental_room?{fov:camera.fov}: {})}),
-  listingPhoto(c){camera.fov=c.fov??74;camera.position.set(c.position[0],-c.position[1],c.position[2]);controls.target.set(c.target[0],-c.target[1],c.target[2]);camera.lookAt(controls.target);draw();},
+  listingPhoto(c){itemsGroup.traverse(n=>{const f=current?.footprints.find(f=>f.id===n.userData?.piece);if((current?.listing_stow_ids??[]).includes(f?.catalog_id??n.userData?.piece))n.visible=false;});camera.fov=c.fov??74;camera.position.set(c.position[0],-c.position[1],c.position[2]);controls.target.set(c.target[0],-c.target[1],c.target[2]);camera.lookAt(controls.target);draw();},
   listingAudit(){
    scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);const ray=new THREE.Raycaster(),counts={},near={},total=32*24;let furniture=0;
    for(let y=0;y<24;y++)for(let x=0;x<32;x++){ray.setFromCamera(new THREE.Vector2((x+.5)/16-1,1-(y+.5)/12),camera);const hit=ray.intersectObjects([roomGroup,itemsGroup],true).find(h=>{let n=h.object;while(n){if(!n.visible)return false;n=n.parent;}return true;});if(!hit)continue;const d=hit.object.userData,key=d.piece??d.wall??'room';counts[key]=(counts[key]??0)+1;if(hit.distance<18)near[key]=(near[key]??0)+1;if(['bed','sofa','table','chair','seat'].includes(d.kind))furniture++;}
