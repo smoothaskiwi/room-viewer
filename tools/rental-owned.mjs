@@ -1,7 +1,7 @@
 // Rental-only ownership overlay. Never changes the retained owner-use catalog or geometry.
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {project} from './project.mjs';
+import {project,repo} from './project.mjs';
 import {publicValue} from './rental-catalog.mjs';
 export const roomName=id=>({'primary-bedroom':'Primary bedroom','guest-bedroom':'Guest bedroom','living-room':'Living room','dining-room':'Dining room',kitchen:'Kitchen'})[id]??id;
 const aliases={
@@ -16,7 +16,7 @@ export function ownedColour(c){const s=[c.label,c.finish,c.materials].join(' ').
 function record(id,f,old={}){
  const dims=Object.fromEntries(['w','d','h'].map(k=>[k,f.dims_in?.[k]??f.photo_estimate?.[k]??null])),estimated=['w','d','h'].some(k=>f.dims_in?.[k]==null),kind=kindOf(f.name??'',id),unc=estimated?(f.photo_estimate?.unc??null):null;
  const images=f.image?[{path:path.posix.join('products/owned-furniture',f.image),url:f.official_image_url}]:[];
- const c={...old,id,label:f.name,kind,category:kind,category_group:['rug','lamp'].includes(kind)?'styling':'furniture',dims_in:dims,w:dims.d,d:dims.w,h:dims.h,owned:true,owned_id:id,owned_room:f.room,owned_room_name:roomName(f.room),owned_quantity:f.quantity??1,price:0,price_usd:0,price_unknown:false,price_basis:'You own this piece; $0 new purchase cost',purchase_url:f.url??null,retailer:f.retailer??'Already owned',finish:f.finish??null,materials:f.finish??null,images:images.length?images:old.images??[],dimension_uncertainty:unc,approximate:estimated,dimension_basis:estimated?'Photo/room estimate; not tape-verified':'Published product dimensions; not tape-verified',layout_ready:Object.values(dims).every(n=>Number.isFinite(n)&&n>0),source_files:['owned inventory'],sources:[],extra_dims:old.extra_dims??{},excluded_from_rental:f.room==='guest-bedroom'};
+ const c={...old,id,label:f.name,photo_note:f.image?'Owned-inventory product reference; '+(f.confidence?.model??'model identity as recorded')+'.':old.photo_note,kind,category:kind,category_group:['rug','lamp'].includes(kind)?'styling':'furniture',dims_in:dims,w:dims.d,d:dims.w,h:dims.h,owned:true,owned_id:id,owned_room:f.room,owned_room_name:roomName(f.room),owned_quantity:f.quantity??1,price:0,price_usd:0,price_unknown:false,price_basis:'You own this piece; $0 new purchase cost',purchase_url:f.url??null,retailer:f.retailer??'Already owned',finish:f.finish??null,materials:f.finish??null,images:images.length?images:old.images??[],dimension_uncertainty:unc,approximate:estimated,dimension_basis:estimated?'Photo/room estimate; not tape-verified':'Published product dimensions; not tape-verified',layout_ready:Object.values(dims).every(n=>Number.isFinite(n)&&n>0),source_files:['owned inventory'],sources:[],extra_dims:old.extra_dims??{},excluded_from_rental:f.room==='guest-bedroom'};
  c.color=ownedColour(c);return publicValue(c);
 }
 export async function loadRentalOwned(items,inputs){
@@ -59,6 +59,8 @@ export async function loadRentalOwned(items,inputs){
  for(const c of Object.values(items).filter(c=>c.owned_id))if(c.kind==='bed'||/mattress|cube/.test(c.category+' '+c.owned_id)){c.excluded_from_rental=true;c.exclusion_reason='Today-only: owned beds, mattresses, bed bases and cube storage are excluded by the owner.';}
  // Reuse of rug estimates needs no invented manufacturer thickness.
  for(const c of Object.values(items).filter(c=>c.owned_id))if(c.kind==='rug'&&c.dims_in.w&&c.dims_in.d&&!c.dims_in.h){c.dims_in.h=c.h=.2;c.dimension_uncertainty??=[12,12,.2];c.dimension_uncertainty[2]=.2;c.layout_ready=true;c.dimension_basis+='; rug thickness illustrative 0.2 ± 0.2 in';}
+ const photos=JSON.parse(await fs.readFile(path.join(repo,'data/owned-photos.json')));
+ for(const [id,photo]of Object.entries(photos))if(items[id])Object.assign(items[id],{label:photo.name,photo_note:photo.note,images:[{path:photo.image,repository:true}]});
  return items;
 }
 export function resolveOwned(items,id){return items[id]??Object.values(items).find(c=>c.owned_aliases?.includes(id));}
