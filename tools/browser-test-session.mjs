@@ -5,7 +5,8 @@ import path from 'node:path';
 import puppeteer from 'puppeteer-core';
 import {repo} from './project.mjs';
 export async function startBrowserSession() {
- const server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',path.join(repo,'docs')],{stdio:['ignore','pipe','pipe']});
+ // Access logs must not fill an unread stderr pipe during a shared suite.
+ const server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',path.join(repo,'docs')],{stdio:['ignore','pipe','ignore']});
  let browser;
  try {
   const port=await new Promise((resolve,reject)=>{
@@ -14,9 +15,8 @@ export async function startBrowserSession() {
    server.once('error',e=>{clearTimeout(timer);reject(e);});
    server.once('exit',code=>{clearTimeout(timer);reject(Error('Test server exited: '+code));});
   });
-  const launch=()=>puppeteer.launch({executablePath:'/usr/sbin/google-chrome-stable',headless:true,args:['--headless=new','--enable-unsafe-swiftshader','--use-angle=swiftshader','--no-sandbox']});
-  browser=await launch();
-  return {port,get browser(){return browser;},async restartBrowser(){await browser.close();browser=undefined;browser=await launch();},async close(){try{await browser?.close();}finally{await stop(server);}}};
+  browser=await puppeteer.launch({executablePath:'/usr/sbin/google-chrome-stable',headless:true,args:['--headless=new','--enable-unsafe-swiftshader','--use-angle=swiftshader','--no-sandbox']});
+  return {port,browser,async close(){try{await browser.close();}finally{await stop(server);}}};
  } catch(e) {await browser?.close();await stop(server);throw e;}
 }
 async function stop(server){if(server.exitCode===null){const exited=new Promise(r=>server.once('exit',r));server.kill();await exited;}}
