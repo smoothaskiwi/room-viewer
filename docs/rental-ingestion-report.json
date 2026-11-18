@@ -9,10 +9,10 @@
   "rooms": [
     {
       "room": "primary-bedroom",
-      "layouts": 12,
+      "layouts": 13,
       "fixtures": 1,
       "classes": {
-        "conditional": 9,
+        "conditional": 10,
         "invalid": 3
       },
       "errors": []

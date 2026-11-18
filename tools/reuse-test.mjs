@@ -73,8 +73,8 @@ if(process.argv.includes('--ui')){
     if(page.room==='dining-room')ok(!l.geometry.screen&&!l.styling.some(s=>/television|\bTV\b/i.test(s.name??'')),l.id+' true dining room, no television');
    }
   }
-  if(page.room==='primary-bedroom')for(const designer of ['A','B','C']){const l=reuse.find(l=>l.designer===designer&&l.original_id),bed=l.footprints.find(f=>f.kind==='bed');ok(bed.head==='east'&&Math.abs(bed.y+bed.d/2-56.5)<.001&&bed.h>35,l.id+' new headboard frame, same head wall and former king centre');}
+  if(page.room==='primary-bedroom')for(const designer of ['A','B','C']){const l=reuse.find(l=>l.id===designer+'-primary-bedroom-reuse1-adjusted'),bed=l.footprints.find(f=>f.kind==='bed');ok(bed.head==='east'&&Math.abs(bed.y+bed.d/2-56.5)<.001&&bed.h>35,l.id+' new headboard frame, same head wall and former king centre');}
  }
- ok(sources===15&&variants===8,'all fifteen originals plus eight labelled corrections are retained');
+ ok(sources===15&&variants===9,'all fifteen originals plus nine labelled corrections are retained');
 }
 console.log('PASS reuse support: '+checks+' checks; inventory, estimates, zero spend, care, schema, geometry, ranking and whole-house conflicts.');
